@@ -4,6 +4,7 @@ import "./Navbar.css"
 const Navbar=()=>{
     return(
         <nav className="navbar">
+            <hr/>
             <div className="login-bar" style={{float: "right", marginRight:"20px"}}>
                 <Link to="/Login" style={{textDecoration:"none", color:"black", marginRight:"10px"}}> Login </Link>
                 |
