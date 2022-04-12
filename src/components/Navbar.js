@@ -10,7 +10,9 @@ const Navbar=()=>{
                 |
                 <Link to="/" style={{textDecoration:"none", color:"black", marginLeft:"7px"}}> 회원가입</Link>
             </div>
-            <Link className="nav-logo" to="/"> Logo </Link>
+            <Link to="/"> 
+                <img className="nav-logo" src="img/MainLogo.png"/>
+            </Link>
             <ul>
                 <li className="nav-item">
                     <Link  className="nav-link" to="/">모집공고 찾기</Link>
