@@ -1,4 +1,4 @@
-import React, { cloneElement } from "react";
+import React from "react";
 import GoogleLogin from "react-google-login";
 
 const clientID = "508740843119-alvj4p7vgjqd8ge3k4cvog00gmhak18e.apps.googleusercontent.com";
@@ -25,6 +25,7 @@ export default function GoogleButton({onSocial}) {
         <div>
             <GoogleLogin 
                 clientId={clientID}
+                buttonText="Google로 로그인"
                 responseType={"id_token"}
                 onSuccess={onSuccess}
                 onFailure={onFailure}/>

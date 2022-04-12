@@ -6,10 +6,7 @@ const Login=()=>{
             <div style={{fontSize:"30px"}}>
                 Login
             </div>
-
             <GoogleButton/>
-
-            
         </div>
     )
 }
