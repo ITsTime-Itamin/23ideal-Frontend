@@ -56,6 +56,7 @@
     background-color: #FEFBF3;
     min-width: 240px;
     position:absolute;
+    z-index: 2;
     vertical-align: middle;
     border: 1px;
     border-color: #EB7E5D;

@@ -1,7 +1,6 @@
 import { Route, Routes } from "react-router-dom";
 import Navbar from "./components/Navbar";
 import Home from "./components/Home";
-import Community from "./components/Community";
 import Login from "./components/Login.js";
 
 const App=()=>{
