@@ -11,6 +11,7 @@
     top: 4.8%;
     transform: translateZ(0);
     backface-visibility: hidden;
+    z-index :2; 
 }
 
 .nav-item {
@@ -52,6 +53,7 @@
     vertical-align: middle;
     border: 1px;
     border-color: #EB7E5D;
+    z-index :2; 
 }
 
 .dropdown-content li{

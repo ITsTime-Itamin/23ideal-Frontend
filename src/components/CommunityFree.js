@@ -1,7 +1,9 @@
 const CommunityFree=()=>{
     return(
         <div style={{textAlign:"center"}}>
-            CommunityFree
+            <div>
+                CommunityFree
+            </div>
         </div>
     );
 };
