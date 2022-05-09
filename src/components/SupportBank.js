@@ -1,9 +1,9 @@
-const Community=()=>{
+const SupportBank=()=>{
     return(
         <div style={{textAlign:"center"}}>
-            Community
+            SupportBank
         </div>
     );
 };
 
-export default Community;
+export default SupportBank;
