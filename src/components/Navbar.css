@@ -5,19 +5,13 @@
 
 .nav-logo {
     text-decoration: none;
-
+    width: 220px;
     position: absolute;
-    left: 5%;
-    top: 5%;
-
-    font-family: 'Inter';
-    font-style: normal;
-    font-weight: 700;
-    font-size: 40px;
-    line-height: 48px;
-    font: bold;
-
-    color: #EB7E5D;
+    left: 6%;
+    top: 4.8%;
+    transform: translateZ(0);
+    backface-visibility: hidden;
+    z-index :2; 
 }
 
 .nav-item {
@@ -35,11 +29,11 @@
 
     position: relative;
 
-    left: 210px;
+    left: 290px;
     top: 25px;
     padding: 10px;
     margin-right: 10px;
-    min-width: 240px;
+    min-width: 220px;
 }
 
 .nav-link {
@@ -54,11 +48,12 @@
 .dropdown-content {
     display: none;
     background-color: #FEFBF3;
-    min-width: 240px;
+    min-width: 220px;
     position:absolute;
     vertical-align: middle;
     border: 1px;
     border-color: #EB7E5D;
+    z-index :2; 
 }
 
 .dropdown-content li{

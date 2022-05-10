@@ -1,7 +1,12 @@
+import GoogleButton from "./GoogleButton";
+
 const Login=()=>{
     return(
         <div style={{textAlign:"center"}}>
-            Login
+            <div style={{fontSize:"30px"}}>
+                Login
+            </div>
+            <GoogleButton/>
         </div>
     )
 }
