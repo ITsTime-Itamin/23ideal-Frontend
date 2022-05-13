@@ -13,7 +13,6 @@ function NaverMapAPI() {
         justifyContent: 'auto',
         marginLeft: 'auto',
         marginRight: 'auto',
-        borderStyle: 'solid',
         borderWidth: 'medium',
         borderColor: '#D8D8D8'
       }}
