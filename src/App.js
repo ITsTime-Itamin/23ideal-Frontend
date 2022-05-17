@@ -9,7 +9,7 @@ const App=()=>{
 
   const [data,setData]=useState(null);
   const onClick=()=>{
-    axios.get('http://localhost:8080/api/v1/houses').then(response=>{setData(response.data);});
+    axios.get('/api/v1/houses').then(response=>{setData(response.data);});
   };
 
   return(
