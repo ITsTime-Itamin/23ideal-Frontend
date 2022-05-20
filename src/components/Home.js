@@ -32,6 +32,8 @@ function Home() {
       <NaverMapAPI />
     </RenderAfterNavermapsLoaded>
   );
+
+  
 }
 
 export default Home;

@@ -1,9 +1,11 @@
+import Sidebar from "./Sidebar";
+
 const FindAll=()=>{
     return(
-        <div style={{textAlign:"center"}}>
-            FindAll
+        <div>
+            <Sidebar />
         </div>
-    );
-};
+    )
+}
 
 export default FindAll;

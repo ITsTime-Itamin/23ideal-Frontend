@@ -15,7 +15,7 @@ const Navbar = () => {
             </Link>
             <ul>
                 <li className="nav-item">
-                    <Link className="nav-link" to="/Find_All">모집공고 찾기</Link>
+                    <Link className="nav-link" to="/FindAll">모집공고 찾기</Link>
                     <hr style={{ border: "none", border: "0.05px solid #EB7E5D" }} />
                     <div className="dropdown-content">
                         <li>
