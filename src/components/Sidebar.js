@@ -16,6 +16,9 @@ const Sidebar=()=>{
             <li>
                 <Link to="/FindRent">임대주택</Link>
             </li>
+            <li>
+                a음
+            </li>
         </div>
     )
 }
