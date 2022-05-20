@@ -4,6 +4,7 @@ const Support=()=>{
             Support
         </div>
     );
+    
 };
 
 export default Support;

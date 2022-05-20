@@ -1,5 +1,6 @@
 import { Route, Routes } from "react-router-dom";
 import Navbar from "./components/Navbar";
+import Sidebar from "./components/Sidebar"
 import Home from "./components/Home";
 import Login from "./components/Login.js";
 import { useState } from "react";
@@ -24,7 +25,12 @@ const App=()=>{
         <button onClick={onClick}>불러오기</button>
       </div>
       {data&&<textarea rows={7} value={JSON.stringify(data,null,2)} readOnly={true} />}
+      <div className="container">
+      <Sidebar />
+      </div>
     </div>
+
+    
   );
 };
 
