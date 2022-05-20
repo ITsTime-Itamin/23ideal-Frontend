@@ -1,7 +1,9 @@
+import Sidebar from "./Sidebar";
+
 const FindRent=()=>{
     return(
         <div style={{textAlign:"center"}}>
-            FindRent
+            <Sidebar />
         </div>
     );
 };

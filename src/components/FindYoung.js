@@ -1,7 +1,9 @@
+import Sidebar from "./Sidebar";
+
 const FindYoung=()=>{
     return(
         <div style={{textAlign:"center"}}>
-            FindYoung
+            <Sidebar />
         </div>
     );
 };

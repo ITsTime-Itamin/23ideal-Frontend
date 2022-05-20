@@ -1,20 +1,11 @@
-import React from "react"; 
-// import Sidebar from "./components/Sidebar"
-// import "./Sidebar.css"
-
+import Sidebar from "./Sidebar";
 
 const FindAll=()=>{
     return(
-        <div style={{textAlign:"center"}}>
-            FindAll
+        <div>
+            <Sidebar />
         </div>
-    );
-    // { <div className="container">
-    //   <Sidebar />
-    //   </div> }
-  
-};
-
+    )
+}
 
 export default FindAll;
-
