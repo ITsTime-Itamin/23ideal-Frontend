@@ -1,7 +1,7 @@
 const CommunityNotice=()=>{
     return(
         <div style={{textAlign:"center"}}>
-            CommunityNotice
+            CommunityNotice plz 휴후후후
         </div>
     );
 };
