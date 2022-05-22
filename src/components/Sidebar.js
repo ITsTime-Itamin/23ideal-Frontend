@@ -3,6 +3,7 @@ import "./Sidebar.css";
 
 const Sidebar=()=>{
     return(
+        
         <div className="sidebar">
             <li className="sidebarTitle">
                 <Link to="/practice">모집공고 찾기</Link>
