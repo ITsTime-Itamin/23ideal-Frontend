@@ -9,9 +9,7 @@
     top: 300px;
     border-top-left-radius: 9px;
     border-top-right-radius: 9px;
-    text-decoration: none;
 }
-
 .sidebarTitle
 {
     text-decoration: none;
@@ -22,21 +20,18 @@
     font-size: 17px;
     color: #8C8C8C;
     
-    background-color: #EB7E5D;
-    border-top-left-radius: 8px;
-    border-top-right-radius: 8px;
-    
-    height: 38px;
-    width: 220px;
-    
 }
-
 .sidebarTitle:hover{
     font-weight: bold;
     color: black;
 }
+.sidebarTop{
+    height: 52px;
+    width: 220px;
+    position: absolute;
+    top: 0px;
+    background-color: #EB7E5D;
+    border-top-left-radius: 8px;
+    border-top-right-radius: 8px;
 
-.sidebarMenu {
-    text-decoration: none;
-    color: black;
 }
