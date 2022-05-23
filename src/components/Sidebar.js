@@ -3,19 +3,40 @@ import "./Sidebar.css";
 
 const Sidebar=()=>{
     return(
-        <div>
-            <li>
-                <Link to="/practice">모집공고 전체보기</Link>
+
+        <div className="sidebar">
+            <div className="sidebarTop">
+
+            </div>
+        
+            <div className="sidebarTitle">
+                <br></br>
+                <br></br>
+                <br></br>
+                <br></br>
+                <br></br>
+            <li > 
+                <Link to="/practice" className="sidebarTitle" >모집공고 전체보기</Link>
             </li>
-            <li>
-                <Link to="/FindYoung">청년주택</Link>
+            <br></br>
+            <br></br>
+            <br></br>
+            <li > 
+                <Link to="/FindYoung" className="sidebarTitle" >청년주택</Link>
             </li>
-            <li>
-                <Link to="/FindHappy">행복주택</Link>
+            <br></br>
+            <br></br>
+            <br></br>
+            <li >
+                <Link to="/FindHappy" className="sidebarTitle">행복주택</Link>
             </li>
+            <br></br>
+            <br></br>
+            <br></br>
             <li>
-                <Link to="/FindRent">임대주택</Link>
+                <Link to="/FindRent" className="sidebarTitle">임대주택</Link>
             </li>
+            </div>
         </div>
     )
 }

@@ -19,6 +19,12 @@ const App=()=>{
       <Routes>
         <Route path="/" element={<Home />}/>
         <Route path="/Login" element={<Login />}/>
+        <Route path="/FindAll" element={<Sidebar />}/>
+        <Route path="/FindHappy" element={<Sidebar />}/>
+        <Route path="/FindRent" element={<Sidebar />}/>
+        <Route path="/FindYoung" element={<Sidebar />}/>
+
+
         
       </Routes>
 
@@ -27,7 +33,6 @@ const App=()=>{
       </div>
       {data&&<textarea rows={7} value={JSON.stringify(data,null,2)} readOnly={true} />}
       <div className="container">
-      <Sidebar />
       </div>
     </div>
 
