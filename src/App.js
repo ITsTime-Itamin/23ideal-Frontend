@@ -10,7 +10,7 @@ const App=()=>{
 
   const [data,setData]=useState(null);
   const onClick=()=>{
-    axios.get('/api/v1/houses').then(response=>{setData(response.data);});
+    axios.get('http://localhost:3000/api/v1/houses').then(response=>{setData(response.data);});
   };
 
   return(
