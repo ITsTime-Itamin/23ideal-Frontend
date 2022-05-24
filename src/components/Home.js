@@ -2,14 +2,15 @@ import { RenderAfterNavermapsLoaded, NaverMap } from 'react-naver-maps';
 import React from 'react';
 
 
-function NaverMapAPI() {
+const NaverMapAPI=()=> {
   return (
     <div>
       <br></br>
       <br></br>
       <br></br>
        <img classname = "MainBanner" src='img/MainBanner.png'></img>
-    <NaverMap
+
+  <NaverMap
       mapDivId={'maps-getting-started-uncontrolled'} // default: react-naver-map
       style={{
         width: '80%',
@@ -22,15 +23,13 @@ function NaverMapAPI() {
         borderColor: '#D8D8D8'
       }}
       defaultCenter={{ lat: 37.554722, lng: 126.970833 }} // 지도 초기 위치
-      defaultZoom={13} // 지도 초기 확대 배율
-    />
+      defaultZoom={13} // 지도 초기 확대 배율 
+      />
     </div>
-  
-   
   );
 }
 
-function Home() {
+const Home=()=> {
   return (
     <div>
     <RenderAfterNavermapsLoaded

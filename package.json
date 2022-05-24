@@ -10,6 +10,7 @@
     "react": "^18.0.0",
     "react-dom": "^18.0.0",
     "react-google-login": "^5.2.2",
+    "react-naver-login": "^0.1.4",
     "react-naver-maps": "^0.0.13",
     "react-router-dom": "^6.3.0",
     "react-scripts": "5.0.0",
