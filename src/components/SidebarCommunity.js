@@ -1,7 +1,7 @@
-import {Link} from "react-router-dom";
+import {NavLink} from "react-router-dom";
 import "./Sidebar.css";
 
-const Sidebar=()=>{
+const SidebarCommunity=()=>{
     return(
 
         <div className="sidebar">
@@ -16,29 +16,29 @@ const Sidebar=()=>{
                 <br></br>
                 <br></br>
             <li > 
-                <Link to="/practice" className="sidebarTitle" >모집공고 전체보기</Link>
+                <NavLink to="/CommunityNotice" className="sidebarTitle" activeClassName ="active">공지사항</NavLink>
             </li>
             <br></br>
             <br></br>
             <br></br>
             <li > 
-                <Link to="/FindYoung" className="sidebarTitle" >청년주택</Link>
+                <NavLink to="/CommunityCom" className="sidebarTitle" activeClassName ="active">입주 및 당첨 후기</NavLink>
             </li>
             <br></br>
             <br></br>
             <br></br>
             <li >
-                <Link to="/FindHappy" className="sidebarTitle">행복주택</Link>
+                <NavLink to="/CommunityFree" className="sidebarTitle" activeClassName ="active">자유게시판</NavLink>
             </li>
             <br></br>
             <br></br>
             <br></br>
             <li>
-                <Link to="/FindRent" className="sidebarTitle">임대주택</Link>
+                <NavLink to="/CommunityJob" className="sidebarTitle" activeClassName ="active">취업공고</NavLink>
             </li>
             </div>
         </div>
     )
 }
 
-export default Sidebar;
+export default SidebarCommunity;
