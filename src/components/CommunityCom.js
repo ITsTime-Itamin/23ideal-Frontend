@@ -2,6 +2,7 @@ const CommunityCom=()=>{
     return(
         <div style={{textAlign:"center"}}>
             CommunityCom
+            <Sidebar />
         </div>
     );
 };

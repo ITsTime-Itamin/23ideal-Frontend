@@ -21,6 +21,11 @@
     color: #8C8C8C;
     
 }
+.active
+{
+    font-weight: bold;
+    color: black;
+}
 .sidebarTitle:hover{
     font-weight: bold;
     color: black;

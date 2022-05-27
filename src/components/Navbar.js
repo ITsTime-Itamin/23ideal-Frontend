@@ -40,6 +40,9 @@ const Navbar = () => {
                             <Link to="/SupportGov" className="dropdown-item">정부의 보증금 지원 정책</Link>
                         </li>
                         <li>
+                            <Link to="SupportLiving" className="dropdown-item">주거 관련 사이트</Link>
+                        </li>
+                        <li>
                             <Link to="SupportLoan" className="dropdown-item">대출 관련 지원 정책</Link>
                         </li>
                         <li>
@@ -57,7 +60,7 @@ const Navbar = () => {
                     </div>
                 </li>
                 <li className="nav-item">
-                    <Link className="nav-link" to="/Community">커뮤니티</Link>
+                    <Link className="nav-link" to="/CommunityNotice">커뮤니티</Link>
                     <hr style={{ border: "none", border: "0.05px solid #EB7E5D" }} />
                     <div className="dropdown-content">
                         <li>

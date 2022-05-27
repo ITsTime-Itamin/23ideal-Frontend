@@ -1,7 +1,7 @@
 const Support=()=>{
     return(
         <div style={{textAlign:"center"}}>
-            Support
+            SupportLiving
         </div>
     );
     
