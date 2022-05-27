@@ -1,4 +1,5 @@
 import GoogleButton from "./GoogleButton";
+import NaverLogin from "./NaverLogin";
 
 const Login=()=>{
     return(
@@ -7,6 +8,7 @@ const Login=()=>{
                 Login
             </div>
             <GoogleButton/>
+            <NaverLogin/>
         </div>
     )
 }
