@@ -3,8 +3,8 @@ import Navbar from "./components/Navbar";
 import SidebarFind from "./components/SidebarFind";
 import SidebarSupport from "./components/SidebarSupport";
 import SidebarCommunity from "./components/SidebarCommunity";
-import Home from "./components/Home";
-import Login from "./components/Login.js";
+import Home from "./pages/Home/Home";
+import Login from "./pages/Login/Login";
 import { useState } from "react";
 import axios from "axios";
 
