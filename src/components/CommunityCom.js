@@ -1,10 +1,17 @@
-const CommunityCom=()=>{
-    return(
+import React from "react";
+import PostList from "./PostList";
+import SidebarCommunity from "./SidebarCommunity";
+
+
+
+const CommunityCom = props => {
+    return (
         <div style={{textAlign:"center"}}>
-            CommunityCom
-            <Sidebar />
+        <h1>입주 및 당첨 후기</h1>
+        <SidebarCommunity/>
+        <PostList/>
         </div>
-    );
-};
+    )
+}
 
 export default CommunityCom;

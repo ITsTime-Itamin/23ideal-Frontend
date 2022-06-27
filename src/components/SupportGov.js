@@ -1,7 +1,9 @@
+import Sidebar from "./Sidebar";
+
 const SupportGov=()=>{
     return(
         <div style={{textAlign:"center"}}>
-            SupportGov
+            <Sidebar/>
         </div>
     );
 };

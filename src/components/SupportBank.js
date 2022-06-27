@@ -1,7 +1,9 @@
+import Sidebar from "./Sidebar";
+
 const SupportBank=()=>{
     return(
         <div style={{textAlign:"center"}}>
-            SupportBank
+           <Sidebar />
         </div>
     );
 };

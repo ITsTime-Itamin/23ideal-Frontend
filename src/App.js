@@ -5,8 +5,14 @@ import SidebarSupport from "./components/SidebarSupport";
 import SidebarCommunity from "./components/SidebarCommunity";
 import Home from "./components/Home";
 import Login from "./components/Login.js";
+import CommunityCom from "./components/CommunityCom";
+import CommunityJob from "./components/CommunityJob";
+import CommunityFree from "./components/CommunityFree";
+import CommunityNotice from "./components/CommunityNotice";
+import Table from "./components/Table";
 import { useState } from "react";
 import axios from "axios";
+
 
 const App=()=>{
 
@@ -21,6 +27,11 @@ const App=()=>{
       <Routes>
         <Route path="/" element={<Home />}/>
         <Route path="/Login" element={<Login />}/>
+        <Route path="/CommunityCom" element={<CommunityCom/>}/>
+        <Route path="/CommunityNotice" element={<CommunityNotice/>}/>
+        <Route path="/CommunityFree" element={<CommunityFree/>}/>
+        <Route path="/CommunityJob" element={<CommunityJob/>}/>
+
 
         <Route path="/FindAll" element={<SidebarFind />}/>
         <Route path="/FindHappy" element={<SidebarFind />}/>
@@ -36,6 +47,7 @@ const App=()=>{
         <Route path="/CommunityFree" element={<SidebarCommunity />}/>
         <Route path="/CommunityJob" element={<SidebarCommunity />}/>
         <Route path="/CommunityNotice" element={<SidebarCommunity />}/>
+        <Route path="/CommuniyNotice" element={<Table/>}/>
       </Routes>
 
       <div>

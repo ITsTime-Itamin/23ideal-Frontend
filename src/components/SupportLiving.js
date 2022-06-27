@@ -1,7 +1,9 @@
+import Sidebar from "./Sidebar";
+
 const Support=()=>{
     return(
         <div style={{textAlign:"center"}}>
-            SupportLiving
+           <Sidebar/>
         </div>
     );
     
