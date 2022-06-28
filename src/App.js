@@ -3,17 +3,15 @@ import Navbar from "./components/Navbar";
 import SidebarFind from "./components/SidebarFind";
 import SidebarSupport from "./components/SidebarSupport";
 import SidebarCommunity from "./components/SidebarCommunity";
-import Home from "./components/Home";
-import Login from "./components/Login.js";
-import { useState } from "react";
-import axios from "axios";
+import Home from "./pages/Home/Home";
+import Login from "./pages/Login/Login";
+import CommunityCom from "./pages/Community/CommunityCom";
+import CommunityJob from "./pages/Community/CommunityJob";
+import CommunityFree from "./pages/Community/CommunityFree";
+import CommunityNotice from "./pages/Community/CommunityNotice";
+import Table from "./components/Table";
 
 const App=()=>{
-
-  const [data,setData]=useState(null);
-  const onClick=()=>{
-    axios.get('http://localhost:3000/api/v1/houses').then(response=>{setData(response.data);});
-  };
 
   return(
     <div>
@@ -21,6 +19,11 @@ const App=()=>{
       <Routes>
         <Route path="/" element={<Home />}/>
         <Route path="/Login" element={<Login />}/>
+        <Route path="/CommunityCom" element={<CommunityCom/>}/>
+        <Route path="/CommunityNotice" element={<CommunityNotice/>}/>
+        <Route path="/CommunityFree" element={<CommunityFree/>}/>
+        <Route path="/CommunityJob" element={<CommunityJob/>}/>
+
 
         <Route path="/FindAll" element={<SidebarFind />}/>
         <Route path="/FindHappy" element={<SidebarFind />}/>
@@ -36,17 +39,9 @@ const App=()=>{
         <Route path="/CommunityFree" element={<SidebarCommunity />}/>
         <Route path="/CommunityJob" element={<SidebarCommunity />}/>
         <Route path="/CommunityNotice" element={<SidebarCommunity />}/>
+        <Route path="/CommuniyNotice" element={<Table/>}/>
       </Routes>
-
-      <div>
-        <button onClick={onClick}>불러오기</button>
-      </div>
-      {data&&<textarea rows={7} value={JSON.stringify(data,null,2)} readOnly={true} />}
-      <div className="container">
-      </div>
     </div>
-
-    
   );
 };
 
