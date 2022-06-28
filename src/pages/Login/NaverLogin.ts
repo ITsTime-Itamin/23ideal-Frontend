@@ -45,7 +45,7 @@ const Nav:React.FC = () => {
     }
 }*/
 
-function SideNav () {
+/*function SideNav () {
     const { naver } = window;
     
     const Login = () => {
@@ -99,4 +99,4 @@ function SideNav () {
          <LoginLink onClick={Login} id="naverIdLogin" /> 
        </SideLogin>
      )
-   };
+   };*/

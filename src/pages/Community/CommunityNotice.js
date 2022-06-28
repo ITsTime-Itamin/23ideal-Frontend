@@ -1,9 +1,17 @@
-const CommunityNotice=()=>{
-    return(
+import React from "react";
+import SidebarCommunity from "../../components/SidebarCommunity";
+import PostList from "../../components/PostList";
+
+
+
+const CommunityNotice = props => {
+    return (
         <div style={{textAlign:"center"}}>
-            CommunityNotice plz 휴후후후
+        <h1>공지사항</h1>
+        <SidebarCommunity/>
+        <PostList/>
         </div>
-    );
-};
+    )
+}
 
 export default CommunityNotice;

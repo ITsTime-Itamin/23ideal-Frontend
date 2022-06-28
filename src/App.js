@@ -5,6 +5,11 @@ import SidebarSupport from "./components/SidebarSupport";
 import SidebarCommunity from "./components/SidebarCommunity";
 import Home from "./pages/Home/Home";
 import Login from "./pages/Login/Login";
+import CommunityCom from "./pages/Community/CommunityCom";
+import CommunityJob from "./pages/Community/CommunityJob";
+import CommunityFree from "./pages/Community/CommunityFree";
+import CommunityNotice from "./pages/Community/CommunityNotice";
+import Table from "./components/Table";
 
 const App=()=>{
 
@@ -14,6 +19,11 @@ const App=()=>{
       <Routes>
         <Route path="/" element={<Home />}/>
         <Route path="/Login" element={<Login />}/>
+        <Route path="/CommunityCom" element={<CommunityCom/>}/>
+        <Route path="/CommunityNotice" element={<CommunityNotice/>}/>
+        <Route path="/CommunityFree" element={<CommunityFree/>}/>
+        <Route path="/CommunityJob" element={<CommunityJob/>}/>
+
 
         <Route path="/FindAll" element={<SidebarFind />}/>
         <Route path="/FindHappy" element={<SidebarFind />}/>
@@ -29,6 +39,7 @@ const App=()=>{
         <Route path="/CommunityFree" element={<SidebarCommunity />}/>
         <Route path="/CommunityJob" element={<SidebarCommunity />}/>
         <Route path="/CommunityNotice" element={<SidebarCommunity />}/>
+        <Route path="/CommuniyNotice" element={<Table/>}/>
       </Routes>
     </div>
   );
