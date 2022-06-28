@@ -1,5 +1,4 @@
 import GoogleButton from "./GoogleButton";
-import "./NaverLogin.html"
 
 const Login=()=>{
     return(

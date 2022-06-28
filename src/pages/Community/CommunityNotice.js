@@ -1,6 +1,6 @@
 import React from "react";
-import PostList from "./PostList";
-import SidebarCommunity from "./SidebarCommunity";
+import SidebarCommunity from "../../components/SidebarCommunity";
+import PostList from "../../components/PostList";
 
 
 
