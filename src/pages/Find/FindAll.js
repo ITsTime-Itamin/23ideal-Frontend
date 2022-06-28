@@ -1,11 +1,16 @@
-import Sidebar from "./Sidebar";
-import "./Find.css";
+import React from "react";
+import SidebarFind from "../../components/SidebarFind";
+import FindPostList from "../../components/FindPostList";
+
 
 const FindAll=()=>{
     return(
         <div>
-            <Sidebar />
-           
+             <div style={{textAlign:"center", position : "relative" , top : "100px" }}>
+                <h1>모집공고 전체보기</h1>
+            </div>
+            <SidebarFind />
+            <FindPostList/>
         </div>
     )
 }
