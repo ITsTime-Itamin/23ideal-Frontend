@@ -4,8 +4,8 @@ import SidebarSupport from "../../components/SidebarSupport";
 const SupportLoan=()=>{
     return(
         <div style={{textAlign:"center"}}>
-           <SidebarSupport />
-           <PostList />
+            <SidebarSupport/>
+            <PostList/>
         </div>
     );
 };
