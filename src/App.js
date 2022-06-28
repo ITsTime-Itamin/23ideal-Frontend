@@ -5,15 +5,8 @@ import SidebarSupport from "./components/SidebarSupport";
 import SidebarCommunity from "./components/SidebarCommunity";
 import Home from "./pages/Home/Home";
 import Login from "./pages/Login/Login";
-import { useState } from "react";
-import axios from "axios";
 
 const App=()=>{
-
-  const [data,setData]=useState(null);
-  const onClick=()=>{
-    axios.get('http://localhost:3000/api/v1/houses').then(response=>{setData(response.data);});
-  };
 
   return(
     <div>
@@ -37,16 +30,7 @@ const App=()=>{
         <Route path="/CommunityJob" element={<SidebarCommunity />}/>
         <Route path="/CommunityNotice" element={<SidebarCommunity />}/>
       </Routes>
-
-      <div>
-        <button onClick={onClick}>불러오기</button>
-      </div>
-      {data&&<textarea rows={7} value={JSON.stringify(data,null,2)} readOnly={true} />}
-      <div className="container">
-      </div>
     </div>
-
-    
   );
 };
 
