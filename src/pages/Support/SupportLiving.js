@@ -2,7 +2,7 @@ import PostList from "../../components/PostList";
 import SidebarSupport from "../../components/SidebarSupport";
 
 
-const Support=()=>{
+const SupportLiving=()=>{
     return(
         <div style={{textAlign:"center"}}>
            <SidebarSupport/>
@@ -12,4 +12,4 @@ const Support=()=>{
     
 };
 
-export default Support;
+export default SupportLiving;
