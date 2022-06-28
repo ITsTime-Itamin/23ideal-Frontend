@@ -3,6 +3,7 @@ import Navbar from "./components/Navbar";
 import SidebarFind from "./components/SidebarFind";
 import SidebarSupport from "./components/SidebarSupport";
 import SidebarCommunity from "./components/SidebarCommunity";
+import SupportBank from "./pages/Support/SupportBank";
 import Home from "./pages/Home/Home";
 import Login from "./pages/Login/Login";
 import CommunityCom from "./pages/Community/CommunityCom";
@@ -24,7 +25,7 @@ const App=()=>{
         <Route path="/CommunityFree" element={<CommunityFree/>}/>
         <Route path="/CommunityJob" element={<CommunityJob/>}/>
 
-
+        <Route path="SupportBank" element={<SupportBank/>}/>
         <Route path="/FindAll" element={<SidebarFind />}/>
         <Route path="/FindHappy" element={<SidebarFind />}/>
         <Route path="/FindRent" element={<SidebarFind/>}/>
