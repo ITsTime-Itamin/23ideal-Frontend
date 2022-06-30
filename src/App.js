@@ -18,6 +18,10 @@ import CommunityJob from "./pages/Community/CommunityJob";
 import CommunityFree from "./pages/Community/CommunityFree";
 import CommunityNotice from "./pages/Community/CommunityNotice";
 import Table from "./components/Table";
+import FreeEditor from "./components/write/FreeEditor";
+import ComEditor from "./components/write/ComEditor";
+import NoticeEditor from "./components/write/NoticeEditor";
+import JobEditor from "./components/write/JobEditor";
 
 const App=()=>{
 
@@ -31,11 +35,13 @@ const App=()=>{
         <Route path="/CommunityNotice" element={<CommunityNotice/>}/>
         <Route path="/CommunityFree" element={<CommunityFree/>}/>
         <Route path="/CommunityJob" element={<CommunityJob/>}/>
+      
 
         <Route path="SupportBank" element={<SupportBank/>}/>
         <Route path="SupportGov" element={<SupportGov/>}/>
         <Route path="SupportLiving" element={<SupportLiving/>}/>
         <Route path="SupportLoan" element={<SupportLoan/>}/>
+        
 
         <Route path="FindAll" element={<FindAll/>}/>
         <Route path="FindHappy" element={<FindHappy/>}/>
@@ -59,6 +65,11 @@ const App=()=>{
         <Route path="/CommunityJob" element={<SidebarCommunity />}/>
         <Route path="/CommunityNotice" element={<SidebarCommunity />}/>
         <Route path="/CommuniyNotice" element={<Table/>}/>
+
+        <Route path="/FreeEditor" element={<FreeEditor/>}/>
+        <Route path="/ComEditor" element={<ComEditor/>}/>
+        <Route path="/JobEditor" element={<JobEditor/>}/>
+        <Route path="/NoticeEditor" element={<NoticeEditor/>}/>
       </Routes>
     </div>
   );

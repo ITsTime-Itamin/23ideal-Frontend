@@ -1,12 +1,18 @@
-import GoogleButton from "./GoogleButton";
+import GoogleButton from "./GoogleLogin";
+import NaverLogin from "./NaverLogin";
 
 const Login=()=>{
     return(
-        <div style={{textAlign:"center"}}>
-            <div style={{fontSize:"30px"}}>
+        <div style={{textAlign:"center", padding:"10px"}}>
+            <div style={{fontSize:"30px", padding:"50px"}}>
                 Login
             </div>
-            <GoogleButton/>
+            <div style={{padding:"15px"}}>
+                <GoogleButton/>
+            </div>
+            <div style={{padding:"15px"}}>
+                <NaverLogin/>
+            </div>
         </div>
     )
 }

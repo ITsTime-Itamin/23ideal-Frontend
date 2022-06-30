@@ -1,3 +1,4 @@
+import React from "react";
 import SidebarSupport from "../../components/SidebarSupport";
 import PostList from "../../components/PostList";
 
