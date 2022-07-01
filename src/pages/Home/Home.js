@@ -8,7 +8,18 @@ const NaverMapAPI=()=> {
   fetch('http://localhost:3000/api/v1/houses').then(res=>(res.json())).then(response=>{setCountData(response.data);}); //json으로 변환 위해 axios->fetch
   const countjson= JSON.stringify(countData,null,2);
 
+  const Area=()=>{
+    let array=[];
+    array.push(Object.keys(countData));
+    console.log(array);
+  }
+
+  useEffect(()=>{
+    Area();
+  })
+  
   return (
+
     <div>
       <NaverMap
         mapDivId={'maps-getting-started-uncontrolled'} // default: react-naver-map
@@ -30,7 +41,7 @@ const NaverMapAPI=()=> {
       <Marker key={2} position={new navermaps.LatLng(37.57915059217304,126.93679812249744)} onClick={()=>alert('서대문구')} />
       </NaverMap>
 
-      {<textarea rows={7} value={countjson} readOnly={true} />}
+      {countjson}
       
     </div>
   );
