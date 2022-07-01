@@ -22,6 +22,13 @@ import FreeEditor from "./components/write/FreeEditor";
 import ComEditor from "./components/write/ComEditor";
 import NoticeEditor from "./components/write/NoticeEditor";
 import JobEditor from "./components/write/JobEditor";
+import AllEditor from "./components/write/AllEditor";
+import HappyEditior from "./components/write/HappyEditior";
+import YoungEditor from "./components/write/YoungEditor";
+import RentEditor from "./components/write/RentEditor";
+import GovEditor from "./components/write/GovEditor";
+import BankEditor from "./components/write/BankEditor";
+import LoanEditor from "./components/write/LoanEditor";
 
 const App=()=>{
 
@@ -70,6 +77,15 @@ const App=()=>{
         <Route path="/ComEditor" element={<ComEditor/>}/>
         <Route path="/JobEditor" element={<JobEditor/>}/>
         <Route path="/NoticeEditor" element={<NoticeEditor/>}/>
+
+        <Route path="/AllEditor" element={<AllEditor/>}/>
+        <Route path="/YoungEditor" element={<YoungEditor/>}/>
+        <Route path="/RentEditor" element={<RentEditor/>}/>
+        <Route path="/HappyEditior" element={<HappyEditior/>}/>
+
+        <Route path="/GovEditor" element={<GovEditor/>}/>
+        <Route path="/BankEditor" element={<BankEditor/>}/>
+        <Route path="/LoanEditor" element={<LoanEditor/>}/>
       </Routes>
     </div>
   );
