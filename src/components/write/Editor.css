@@ -11,6 +11,19 @@
    
 }
 
+.paste
+{
+    top: 30px;
+    height: 40px;
+    width: 900px;
+    left: 450px;
+    position: relative;
+    font-size: 20px;
+    border: 1px solid #ebebeb;
+    border-radius: 9px;
+   
+}
+
 .txt
 {
     position: relative;
