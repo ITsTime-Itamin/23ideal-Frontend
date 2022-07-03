@@ -83,9 +83,10 @@ const App=()=>{
         <Route path="/RentEditor" element={<RentEditor/>}/>
         <Route path="/HappyEditior" element={<HappyEditior/>}/>
 
-        <Route path="/GovEditor" element={<GovEditor/>}/>
+        <Route path="/GovEditor" index element={<GovEditor/>}></Route>
         <Route path="/BankEditor" element={<BankEditor/>}/>
         <Route path="/LoanEditor" element={<LoanEditor/>}/>
+
       </Routes>
     </div>
   );

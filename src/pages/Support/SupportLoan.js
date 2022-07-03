@@ -11,7 +11,7 @@ const SupportLoan=()=>{
         </div>
         <div className="locate_btn"> 
             <button className="editor_btn">  
-                <Link to="/LoanEditior" className="editor_go">
+                <Link to="/LoanEditor" className="editor_go">
                     글쓰기
                 </Link>
             </button>

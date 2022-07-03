@@ -30,6 +30,7 @@ const Editor = props => {
        
             <div>
                  <div style={{position : "relative" , top : "60px" , left :"380px", fontSize : "28px" , letterSpacing :"2px"}}>내용</div>
+            
                 <textarea type='text'  className= 'txt' name="content" placeholder=" 내용을 입력해주세요"></textarea>
             </div>
            

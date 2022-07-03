@@ -11,7 +11,7 @@ const SupportGov=()=>{
             </div>
             <div className="locate_btn"> 
                 <button className="editor_btn">  
-                    <Link to="/GovEditior" className="editor_go">
+                    <Link to="/GovEditor" className="editor_go">
                         글쓰기
                     </Link>
                 </button>
