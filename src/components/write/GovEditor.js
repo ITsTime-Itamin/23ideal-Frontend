@@ -1,9 +1,8 @@
 import React from "react";
-import { Link } from "react-router-dom";
 import "./Editor.css"
 
 
-const Editor = props => {
+const GovEditor = props => {
     return (
         <div>
             <div style={{textAlign:"center", position : "relative" , top : "100px" }}> 
@@ -13,7 +12,7 @@ const Editor = props => {
             <div >
                 <button type="submit" className="submit_btn">등록</button>
                 <button className="goback_btn">
-                  <Link to = "/CommuniyFree">  뒤로가기 </Link> 
+                   뒤로가기 
                 </button>
             </div>
             <div> 
@@ -36,4 +35,4 @@ const Editor = props => {
         </div>
     )
 }
-export default Editor;
+export default GovEditor;
