@@ -10,14 +10,14 @@ const NaverMapAPI=()=> {
 
   const Area=()=>{
     let array=[];
-    array.push(Object.keys(countData));
-    console.log(array);
+    //array.push(Object.keys(countData));
+    //console.log(array);
   }
 
   useEffect(()=>{
     Area();
   })
-  
+
   return (
 
     <div>
