@@ -1,5 +1,6 @@
 import { Route, Routes } from "react-router-dom";
 import Navbar from "./components/Navbar";
+import Banner from "./components/Banner";
 import SidebarFind from "./components/SidebarFind";
 import SidebarSupport from "./components/SidebarSupport";
 import SidebarCommunity from "./components/SidebarCommunity";
@@ -39,6 +40,7 @@ const App=()=>{
         <Route path="/" element={<Home />}/>
         <Route path="/Login" element={<Login />}/>
         <Route path="/CommunityCom" element={<CommunityCom/>}/>
+     
         <Route path="/CommunityNotice" element={<CommunityNotice/>}/>
         <Route path="/CommunityFree" element={<CommunityFree/>}/>
         <Route path="/CommunityJob" element={<CommunityJob/>}/>

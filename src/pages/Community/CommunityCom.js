@@ -2,6 +2,7 @@ import React from "react";
 import PostList from "../../components/PostList";
 import { Link } from "react-router-dom";
 import SidebarCommunity from "../../components/SidebarCommunity";
+import Banner from "../../components/Banner";
 
 
 
@@ -18,7 +19,7 @@ const CommunityCom = props => {
                     </Link>
                 </button>
             </div>
-        
+        <Banner/>
         <SidebarCommunity/>
         <PostList/>
         </div>
