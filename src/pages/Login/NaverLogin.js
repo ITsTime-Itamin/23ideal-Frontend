@@ -1,7 +1,7 @@
 import { useLocation} from "react-router-dom";
 import React, { useEffect } from "react"; 
 
-const NaverLogin = (props)=> {
+const NaverLogin = ()=> {
     const Login=() => {
         const naverScript = document.createElement("script");
         naverScript.src="https://static.nid.naver.com/js/naveridlogin_js_sdk_2.0.0.js";

@@ -7,6 +7,7 @@
     margin:  0 auto;
     text-align: center;
     border-spacing :0 ;
+    
 }
 
 .common-table-header-column {
@@ -15,6 +16,8 @@
     font-size: 16px;
     padding: 10px 5px;
     font-weight: bold;
+    background-color: #FFC5B4;
+
 }
 
 .common-table-row :hover {

@@ -40,9 +40,6 @@ const Navbar = () => {
                             <Link to="/SupportGov" className="dropdown-item">정부의 보증금 지원 정책</Link>
                         </li>
                         <li>
-                            <Link to="SupportLiving" className="dropdown-item">주거 관련 사이트</Link>
-                        </li>
-                        <li>
                             <Link to="SupportLoan" className="dropdown-item">대출 관련 지원 정책</Link>
                         </li>
                         <li>

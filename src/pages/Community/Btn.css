@@ -1,0 +1,35 @@
+.editor_btn
+{
+    position : "absolute";
+    top : 2000px;
+    height :30px;
+    width:100px ;
+    background-color: #c4c4c4;
+    border: 0px;
+    border-radius: 5px;
+}
+.locate_btn :hover 
+{
+   background-color: #dadada;
+}
+.editor_go
+{
+    text-align: center;
+    font-family: 'Inter';
+    font-size: large;
+    font-weight: 600;
+    font-style: normal;
+    letter-spacing: 4px;
+    color: black;
+    list-style: none;
+    text-decoration: none;
+    display: inline-block;
+   
+}
+
+.locate_btn
+{
+    position: absolute;
+    top : 800px;
+    right: 20%;
+}
