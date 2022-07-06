@@ -1,0 +1,21 @@
+.colum
+{
+    position : relative ;
+    top : 93px ; 
+    left : 388px ; 
+    font-size : 25px ; 
+    text-align: center;
+    letter-spacing :2px ; 
+    background-color : #FDEEE9 ;
+    width : 120px;
+    height: 30px;
+    border: 1px solid #FFFFFF;
+}
+
+.line
+{
+    position : relative ;
+    top: 100px;
+    width: 1010px;
+    background-color: #F2F2F2;
+}
