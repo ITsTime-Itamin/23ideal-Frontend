@@ -15,14 +15,11 @@ const SidebarSupport=()=>{
                 <br></br>
                 <br></br>
                 <br></br>
+                <br></br>
+                <br></br>
+                <br></br>
             <li > 
                 <NavLink to="/SupportGov" className="sidebarTitle" activeClassName ="active">정부의 보조금 지원 정책</NavLink>
-            </li>
-            <br></br>
-            <br></br>
-            <br></br>
-            <li > 
-                <NavLink to="/SupportLiving" className="sidebarTitle" activeClassName ="active">주거 관련 사이트</NavLink>
             </li>
             <br></br>
             <br></br>
