@@ -3,11 +3,11 @@ import { Link } from "react-router-dom";
 import "./Editor.css"
 
 
-const Editor = props => {
+const Editor = ({title}) => {
     return (
         <div>
             <div style={{textAlign:"center", position : "relative" , top : "100px" }}> 
-                <h1>임대 주택 공고</h1>
+                <h1>{title}</h1>
                 <hr className="hr"></hr>
             </div>
             <div >
@@ -36,4 +36,5 @@ const Editor = props => {
         </div>
     )
 }
+
 export default Editor;

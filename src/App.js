@@ -26,7 +26,7 @@ import JobEditor from "./components/write/JobEditor";
 import AllEditor from "./components/write/AllEditor";
 import HappyEditior from "./components/write/HappyEditior";
 import YoungEditor from "./components/write/YoungEditor";
-import RentEditor from "./components/write/RentEditor";
+import Editor from "./components/write/Editor";
 import GovEditor from "./components/write/GovEditor";
 import BankEditor from "./components/write/BankEditor";
 import LoanEditor from "./components/write/LoanEditor";
@@ -56,8 +56,6 @@ const App=()=>{
         <Route path="FindHappy" element={<FindHappy/>}/>
         <Route path="FindRent" element={<FindRent/>}/>
         <Route path="FindYoung" element={<FindYoung/>}/>
-      
-
 
         <Route path="/FindAll" element={<SidebarFind />}/>
         <Route path="/FindHappy" element={<SidebarFind />}/>
@@ -82,7 +80,7 @@ const App=()=>{
 
         <Route path="/AllEditor" element={<AllEditor/>}/>
         <Route path="/YoungEditor" element={<YoungEditor/>}/>
-        <Route path="/RentEditor" element={<RentEditor/>}/>
+        <Route path="/Editor" element={<Editor/>}/>
         <Route path="/HappyEditior" element={<HappyEditior/>}/>
 
         <Route path="/GovEditor" index element={<GovEditor/>}></Route>

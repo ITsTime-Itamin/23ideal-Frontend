@@ -19,7 +19,7 @@ const CommunityCom = props => {
                     </Link>
                 </button>
             </div>
-        <Banner/>
+            <Banner/>
         <SidebarCommunity/>
         <PostList/>
         </div>

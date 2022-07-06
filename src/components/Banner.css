@@ -1,11 +1,16 @@
 .Banner
 {
     flex: 1;
-    height: 459px;
-    width: 220px;
+    height: 50px;
+    width: 30px;
     position: absolute;
     right: 6%;
     top: 300px;
     border-top-left-radius: 9px;
     border-top-right-radius: 9px;
+}
+
+.img
+{
+    width: 240px;
 }
