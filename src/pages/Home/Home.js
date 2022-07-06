@@ -22,9 +22,9 @@ const NaverMapAPI=({count})=> {
   icon2={
     content: '<div style="cursor:pointer; width:70px; height:70px; line-height:67px; '+
     'font-size:17px; color:white; text-align:center; font-weight:bold; background:url('+ HOME_PATH +'/img/markerIcon.png); '+
-    'background-size:contain;">'+/*countData.gangDongGuCount*/'2345'+'</div>',
+    'background-size:contain;">'+countData.gangDongGuCount+'</div>',
     anchor: new navermaps.Point(20, 20)
-  }/*,
+  },
   icon3={
     content: '<div style="cursor:pointer; width:70px; height:70px; line-height:42px; '+
     'font-size:10px; color:white; text-align:center; font-weight:bold; background:url('+ HOME_PATH +'/img/markerIcon.png); '+
@@ -163,7 +163,7 @@ const NaverMapAPI=({count})=> {
     'background-size:contain;">'+countData.jungNangGuCount+'</div>',
     anchor: new navermaps.Point(20, 20)
   } 
-*/
+
       return ( 
         <div>
           <NaverMap
@@ -184,6 +184,29 @@ const NaverMapAPI=({count})=> {
           
             <Marker key={1} icon={icon1} position={new navermaps.LatLng(37.4959854, 127.0664091)} onClick={()=>alert('강남구')} />
             <Marker key={2} icon={icon2} position={new navermaps.LatLng(37.5492077, 127.1464824)} onClick={()=>alert('강동구')} />
+            <Marker key={3} icon={icon3} position={new navermaps.LatLng(37.6469954, 127.0147158)} onClick={()=>alert('강북구')} />
+            <Marker key={4} icon={icon4} position={new navermaps.LatLng(37.5657617, 126.8226561)} onClick={()=>alert('강서구')} />
+            <Marker key={5} icon={icon5} position={new navermaps.LatLng(37.4603732, 126.9536086)} onClick={()=>alert('관악구')} />
+            <Marker key={6} icon={icon6} position={new navermaps.LatLng(37.5574120, 127.0796211)} onClick={()=>alert('광진구')} />
+            <Marker key={7} icon={icon7} position={new navermaps.LatLng(37.4954856, 126.858121)} onClick={()=>alert('구로구')} />
+            <Marker key={8} icon={icon8} position={new navermaps.LatLng(37.4600969, 126.9001546)} onClick={()=>alert('금천구')} />
+            <Marker key={9} icon={icon9} position={new navermaps.LatLng(37.6377533, 127.0754623)} onClick={()=>alert('노원구')} />
+            <Marker key={10} icon={icon10} position={new navermaps.LatLng(37.6658609, 127.0317674)} onClick={()=>alert('도봉구')} />
+            <Marker key={11} icon={icon11} position={new navermaps.LatLng(37.5838012, 127.0507003)} onClick={()=>alert('동대문구')} />
+            <Marker key={12} icon={icon12} position={new navermaps.LatLng(37.4965037, 126.9443073)} onClick={()=>alert('동작구')} />
+            <Marker key={13} icon={icon13} position={new navermaps.LatLng(37.5676507, 126.8854549)} onClick={()=>alert('마포구')} />
+            <Marker key={14} icon={icon14} position={new navermaps.LatLng(37.5820369,126.9356665)} onClick={()=>alert('서대문구')} />
+            <Marker key={15} icon={icon15} position={new navermaps.LatLng(37.4769528, 127.0378103)} onClick={()=>alert('서초구')} />
+            <Marker key={16} icon={icon16} position={new navermaps.LatLng(37.5506753, 127.0409622)} onClick={()=>alert('성동구')} />
+            <Marker key={17} icon={icon17} position={new navermaps.LatLng(37.606991, 127.0232185)} onClick={()=>alert('성북구')} />
+            <Marker key={18} icon={icon18} position={new navermaps.LatLng(37.5177941, 127.1127078)} onClick={()=>alert('송파구')} />
+            <Marker key={19} icon={icon19} position={new navermaps.LatLng(37.5270616, 126.8561534)} onClick={()=>alert('양천구')} />
+            <Marker key={20} icon={icon20} position={new navermaps.LatLng(37.520641, 126.9139242)} onClick={()=>alert('영등포구')} />
+            <Marker key={21} icon={icon21} position={new navermaps.LatLng(37.5311008, 126.9810742)} onClick={()=>alert('용산구')} />
+            <Marker key={22} icon={icon22} position={new navermaps.LatLng(37.6176125, 126.9227004)} onClick={()=>alert('은평구')} />
+            <Marker key={23} icon={icon23} position={new navermaps.LatLng(37.5990998, 126.9861493)} onClick={()=>alert('종로구')} />
+            <Marker key={24} icon={icon24} position={new navermaps.LatLng(37.5579452, 126.9941904)} onClick={()=>alert('중구')} />
+            <Marker key={25} icon={icon25} position={new navermaps.LatLng(37.598031, 127.092931)} onClick={()=>alert('중랑구')} />
            
           </NaverMap>
         </div>
@@ -210,6 +233,7 @@ const Home=()=> {
         loading={<p>Maps Loading...</p>} >
         <NaverMapAPI />
       </RenderAfterNavermapsLoaded>
+
 
       <div className="container" />
     </div>
