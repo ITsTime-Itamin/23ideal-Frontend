@@ -9,7 +9,6 @@ const NoticeRead = props => {
                 <h1>공지사항</h1>
                 <hr className="hr"></hr>
             </div>
-
             <div> 
                 <div className="colum">제목</div>
 
@@ -17,8 +16,6 @@ const NoticeRead = props => {
             
                 <div className="colum">작성일</div>
             </div>
-
-
         </div>
     )
 }
