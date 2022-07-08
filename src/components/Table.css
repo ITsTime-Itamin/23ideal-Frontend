@@ -20,7 +20,7 @@
 
 }
 
-.common-table-row :hover {
+.common-table :hover {
     background-color: #eceaea;
     cursor: pointer;
 }

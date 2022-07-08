@@ -1,11 +1,23 @@
-import React from "react";
+import React,{useState} from "react";
 import { Link } from "react-router-dom";
 import SidebarCommunity from "../../components/SidebarCommunity";
 import PostList from "../../components/PostList";
+import axios from 'axios';
+import BoardItem from "../../components/BoardItem";
 
+const CommunityNotice = ({accessToken}) => {
 
+    /*const [data, setData] = useState(null);
 
-const CommunityNotice = props => {
+    const onClick = async () => {
+        try {
+          const response = await axios.get('/api/v1/boards',{headers:{"Authorization":`Bearer ${'eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhZG1pbiIsImF1dGgiOiJST0xFX1VTRVIiLCJleHAiOjE2NTcwOTEyOTF9.iNIcEchzR2rjwgCEnBanoWYgT33l7E3qid5PnMqXD3kNCyl7XnJ9e1gjNXTqTLmMCTZA2uTq-JFa90a58CF9jw'}`}});
+          setData(response.data);
+        } catch (e) {
+          console.log(e);
+        }
+      }; */
+      
     return (
         <div style={{textAlign:"center"}}>
            <div style={{textAlign:"center", position : "relative" , top : "100px" }}>
@@ -17,9 +29,10 @@ const CommunityNotice = props => {
                         글쓰기
                     </Link>
                 </button>
+                
             </div>
         <SidebarCommunity/>
-        <PostList/>
+        <PostList />
         </div>
     )
 }

@@ -13,7 +13,7 @@ const Editor = props => {
             <div >
                 <button type="submit" className="submit_btn">등록</button>
                 <button className="goback_btn">
-                  <Link to = "/CommuniyFree">  뒤로가기 </Link> 
+                  <Link to = "/CommunityFree">  뒤로가기 </Link> 
                 </button>
             </div>
             <div> 

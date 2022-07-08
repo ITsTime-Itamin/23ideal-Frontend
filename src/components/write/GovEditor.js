@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import "./Editor.css"
 
 
@@ -6,13 +7,13 @@ const GovEditor = props => {
     return (
         <div>
             <div style={{textAlign:"center", position : "relative" , top : "100px" }}> 
-                <h1>정보의 보조금 지원 정책</h1>
+                <h1>정부의 보조금 지원 정책</h1>
                 <hr className="hr"></hr>
             </div>
             <div >
                 <button type="submit" className="submit_btn">등록</button>
                 <button className="goback_btn">
-                   뒤로가기 
+                   <Link to="/SupportGov">뒤로가기 </Link>
                 </button>
             </div>
             <div> 
