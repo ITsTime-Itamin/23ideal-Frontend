@@ -30,12 +30,14 @@ import Editor from "./components/write/Editor";
 import GovEditor from "./components/write/GovEditor";
 import BankEditor from "./components/write/BankEditor";
 import LoanEditor from "./components/write/LoanEditor";
+import NoticeRead from "./components/read/NoticeRead";
 
 const App=()=>{
 
   return(
     <div>
       <Navbar/>
+      <Banner/>
       <Routes>
         <Route path="/" element={<Home />}/>
         <Route path="/Login" element={<Login />}/>
@@ -77,6 +79,8 @@ const App=()=>{
         <Route path="/ComEditor" element={<ComEditor/>}/>
         <Route path="/JobEditor" element={<JobEditor/>}/>
         <Route path="/NoticeEditor" element={<NoticeEditor/>}/>
+
+        <Route path="/NoticeRead" element={<NoticeRead/>}/>
 
         <Route path="/AllEditor" element={<AllEditor/>}/>
         <Route path="/YoungEditor" element={<YoungEditor/>}/>

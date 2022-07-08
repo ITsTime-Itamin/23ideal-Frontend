@@ -1,9 +1,9 @@
 import React from "react";
-import { Link } from "react-router-dom";
 import "./Banner.css" ; 
 
 const Banner = () =>
  {
+    if (window.location.pathname === '/Home') return null;
     return (
           <div className="Banner">
                 <br></br>

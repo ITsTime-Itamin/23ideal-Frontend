@@ -29,8 +29,14 @@ const CommunityNotice = ({accessToken}) => {
                         글쓰기
                     </Link>
                 </button>
-                
+                <button className="editor_btn">  
+                    <Link to="/NoticeRead" className="editor_go">
+                        테스트
+                    </Link>
+                </button>
             </div>
+        
+            
         <SidebarCommunity/>
         <PostList />
         </div>
