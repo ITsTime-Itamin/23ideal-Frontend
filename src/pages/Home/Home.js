@@ -2,7 +2,11 @@ import { RenderAfterNavermapsLoaded, NaverMap, Marker} from 'react-naver-maps';
 import React, { useEffect, useState } from "react";
 
 
+
+
 const NaverMapAPI=({count})=> {
+
+
   const navermaps=window.naver.maps;
   const [countData,setCountData]=useState([]);
 
