@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import SidebarCommunity from "../../components/SidebarCommunity";
 import PostList from "../../components/PostList";
 import axios from 'axios';
-import BoardItem from "../../components/BoardItem";
+import BoardItem from "../../components/Table/BoardItem";
 
 const CommunityNotice = ({accessToken}) => {
 
@@ -37,7 +37,7 @@ const CommunityNotice = ({accessToken}) => {
             </div>
             
         <SidebarCommunity/>
-        <PostList />
+        <PostList/>
         </div>
     )
 }

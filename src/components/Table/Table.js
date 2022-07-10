@@ -1,8 +1,10 @@
 import React from "react";
 import './Table.css'; 
 
-const Table= props =>{
-    const { headersName, children} = props;
+const Table= ({articles}) =>{
+    const headersName=['no','제목','작성일' ,'작성자'];
+    const {boardId, title, createdDate, userName}=articles;
+    const array=[1,2];
 
     return (
         <table className="common-table">
@@ -20,12 +22,19 @@ const Table= props =>{
                 </tr>
             </thead>
             <tbody className="common-row">
-                <td>
-                {
-                    children
-                }
-                </td>
+                {articles.map(article=>{   
+                    return(
+                        <tr>
+                            <td>{article.boardId}</td>
+                            <td>{article.title}</td>
+                            <td>{article.createdDate}</td>
+                            <td>{article.userName}</td>
+                        </tr>
+                    )
+                } 
+                )}
             </tbody>
+            
         </table>
     )
 }

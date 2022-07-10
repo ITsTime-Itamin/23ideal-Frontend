@@ -18,7 +18,6 @@ import CommunityCom from "./pages/Community/CommunityCom";
 import CommunityJob from "./pages/Community/CommunityJob";
 import CommunityFree from "./pages/Community/CommunityFree";
 import CommunityNotice from "./pages/Community/CommunityNotice";
-import Table from "./components/Table";
 import FreeEditor from "./components/write/FreeEditor";
 import ComEditor from "./components/write/ComEditor";
 import NoticeEditor from "./components/write/NoticeEditor";
@@ -73,7 +72,6 @@ const App=()=>{
         <Route path="/CommunityFree" element={<SidebarCommunity />}/>
         <Route path="/CommunityJob" element={<SidebarCommunity />}/>
         <Route path="/CommunityNotice" element={<SidebarCommunity />}/>
-        <Route path="/CommuniyNotice" element={<Table/>}/>
 
         <Route path="/FreeEditor" element={<FreeEditor/>}/>
         <Route path="/ComEditor" element={<ComEditor/>}/>
