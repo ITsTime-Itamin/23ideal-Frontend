@@ -20,11 +20,11 @@
 
 }
 
-.common-table :hover {
-    background-color: #eceaea;
-    cursor: pointer;
+.common-table-column {
+    padding: 10px 5px;
 }
 
-.common-table-header-column {
-    padding: 10px 5px;
+.common-row :hover {
+    background-color: #eceaea;
+    cursor: pointer;
 }

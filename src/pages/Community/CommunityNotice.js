@@ -35,7 +35,6 @@ const CommunityNotice = ({accessToken}) => {
                     </Link>
                 </button>
             </div>
-        
             
         <SidebarCommunity/>
         <PostList />
