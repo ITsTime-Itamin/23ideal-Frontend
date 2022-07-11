@@ -9,38 +9,38 @@ const PostList = () => {
 
     const [postData, setPostData] = useState(null);
     
-    fetch('/api/v1/boards',{headers:{"Authorization":`Bearer ${'eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhZG1pbiIsImF1dGgiOiJST0xFX1VTRVIiLCJleHAiOjE2NTc0NTU3MDd9.fUBzKQoJ7R9MXk06mwQRGTUsp3CURQhpRPWj7R2w3WX2HANv_UG9JvmGIIy1udeAWFwtwOpG8XTZ-u0VkT7BEQ'}`}})
+    fetch('/api/v1/boards',{headers:{"Authorization":`Bearer ${'eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhZG1pbiIsImF1dGgiOiJST0xFX1VTRVIiLCJleHAiOjE2NTc0NzQwODl9.1hukXWR_thw0soemyi-WGIFL90Y1dB0clq3i85VklKScjZvFA_TX36OMpW_zVFKH2mND0r_Bsu1xNR7FTAbSWQ'}`}})
     .then(res=>(res.json())).then(response=>{setPostData(response.data);});
     //const response = await axios.get('/api/v1/boards',{headers:{"Authorization":`Bearer ${'eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhZG1pbiIsImF1dGgiOiJST0xFX1VTRVIiLCJleHAiOjE2NTcyNDQ1MzR9.Sc4ETVteuiO6KoJG5qZHlr08YBEiVhpuRxa1zbu3OXH5cTeMvxfxs6lS0a75rwG7OS4XwDOVgQwulVmF5RLBSA'}`}});
     //setPostData(response.data);
-/*
-const items=[
+
+const samples=[
   {  
     boardId:postData.data[0].boardId,
     title:postData.data[0].title,
-    createdDate:postData.data[0].createdDate,
+    createdDate:postData.data[0].createdDate.substring(0,10),
     userName:postData.data[0].userName
   },
   {  
     boardId:postData.data[1].boardId,
     title:postData.data[1].title,
-    createdDate:postData.data[1].createdDate,
+    createdDate:postData.data[1].createdDate.substring(0,10),
     userName:postData.data[1].userName
   },
   {  
     boardId:postData.data[2].boardId,
     title:postData.data[2].title,
-    createdDate:postData.data[2].createdDate,
+    createdDate:postData.data[2].createdDate.substring(0,10),
     userName:postData.data[2].userName
   },
-]; */
-
+]; 
+/*
 const samples=[{
   boardId:'1',title:"강서구",createdDate:"2202.13.4",userName:"관리자"
 },
 {
   boardId:'2',title:"강북구",createdDate:"2202.12.4",userName:"관리자"
-},];
+},];*/
 
   const headersName=['no','제목','작성일' ,'작성자'];
 
