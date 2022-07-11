@@ -13,6 +13,7 @@ import FindHappy from "./pages/Find/FindHappy";
 import FindRent from "./pages/Find/FindRent";
 import FindYoung from "./pages/Find/FindYoung";
 import Home from "./pages/Home/Home";
+
 import Login from "./pages/Login/Login";
 import CommunityCom from "./pages/Community/CommunityCom";
 import CommunityJob from "./pages/Community/CommunityJob";
@@ -38,6 +39,7 @@ const App=()=>{
       <Navbar/>
       <Banner/>
       <Routes>
+
         <Route path="/" element={<Home />}/>
         <Route path="/Login" element={<Login />}/>
         <Route path="/CommunityCom" element={<CommunityCom/>}/>
