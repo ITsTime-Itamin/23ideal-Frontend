@@ -12,7 +12,7 @@ const FindAll=()=>{
             </div>
             <div className="locate_btn"> 
                 <button className="editor_btn">  
-                    <Link to="/AllEditor" className="editor_go">
+                    <Link to="/Editor" state={{data:"모집공고 전체보기"}} className="editor_go">
                         글쓰기
                     </Link>
                 </button>

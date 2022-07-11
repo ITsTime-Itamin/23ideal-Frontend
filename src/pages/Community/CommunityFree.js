@@ -13,7 +13,7 @@ const CommunityFree = props => {
             </div> 
             <div className="locate_btn"> 
                 <button className="editor_btn">  
-                    <Link to="/FreeEditor" className="editor_go">
+                    <Link to="/Editor" state={{data:"자유게시판"}} className="editor_go">
                         글쓰기
                     </Link>
                 </button>

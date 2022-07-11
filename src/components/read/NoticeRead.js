@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useLocation } from "react-router-dom";
 import { Link } from "react-router-dom";
-import Load_API from "./Load_API";
 import "./Read.css"
 
 const NoticeRead = props => {

@@ -13,23 +13,12 @@ import FindHappy from "./pages/Find/FindHappy";
 import FindRent from "./pages/Find/FindRent";
 import FindYoung from "./pages/Find/FindYoung";
 import Home from "./pages/Home/Home";
-
 import Login from "./pages/Login/Login";
 import CommunityCom from "./pages/Community/CommunityCom";
 import CommunityJob from "./pages/Community/CommunityJob";
 import CommunityFree from "./pages/Community/CommunityFree";
 import CommunityNotice from "./pages/Community/CommunityNotice";
-import FreeEditor from "./components/write/FreeEditor";
-import ComEditor from "./components/write/ComEditor";
-import NoticeEditor from "./components/write/NoticeEditor";
-import JobEditor from "./components/write/JobEditor";
-import AllEditor from "./components/write/AllEditor";
-import HappyEditior from "./components/write/HappyEditior";
-import YoungEditor from "./components/write/YoungEditor";
 import Editor from "./components/write/Editor";
-import GovEditor from "./components/write/GovEditor";
-import BankEditor from "./components/write/BankEditor";
-import LoanEditor from "./components/write/LoanEditor";
 import NoticeRead from "./components/read/NoticeRead";
 
 const App=()=>{
@@ -75,21 +64,9 @@ const App=()=>{
         <Route path="/CommunityJob" element={<SidebarCommunity />}/>
         <Route path="/CommunityNotice" element={<SidebarCommunity />}/>
 
-        <Route path="/FreeEditor" element={<FreeEditor/>}/>
-        <Route path="/ComEditor" element={<ComEditor/>}/>
-        <Route path="/JobEditor" element={<JobEditor/>}/>
-        <Route path="/NoticeEditor" element={<NoticeEditor/>}/>
-
         <Route path="/NoticeRead" element={<NoticeRead/>}/>
 
-        <Route path="/AllEditor" element={<AllEditor/>}/>
-        <Route path="/YoungEditor" element={<YoungEditor/>}/>
         <Route path="/Editor" element={<Editor/>}/>
-        <Route path="/HappyEditior" element={<HappyEditior/>}/>
-
-        <Route path="/GovEditor" index element={<GovEditor/>}></Route>
-        <Route path="/BankEditor" element={<BankEditor/>}/>
-        <Route path="/LoanEditor" element={<LoanEditor/>}/>
 
       </Routes>
     </div>

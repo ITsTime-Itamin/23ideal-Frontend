@@ -12,7 +12,7 @@ const FindYoung=()=>{
             </div>
             <div className="locate_btn"> 
                 <button className="editor_btn">  
-                    <Link to="/YoungEditor" className="editor_go">
+                    <Link to="/Editor" state={{data:"청년주택"}} className="editor_go">
                         글쓰기
                     </Link>
                 </button>

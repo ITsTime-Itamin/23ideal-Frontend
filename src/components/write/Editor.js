@@ -1,9 +1,12 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import "./Editor.css"
 
 
-const Editor = ({title}) => {
+const Editor = () => {
+    const location=useLocation();
+    const title=location.state.data;
+
     return (
         <div>
             <div style={{textAlign:"center", position : "relative" , top : "100px" }}> 

@@ -2,7 +2,6 @@ import React,{useEffect, useState} from "react";
 import { Link } from "react-router-dom";
 import axios from "axios";
 import NoticeRead from "./read/NoticeRead";
-import Load_API from "./read/Load_API";
 
 
 const PostList = props => {

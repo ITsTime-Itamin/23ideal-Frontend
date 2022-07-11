@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import SidebarFind from "../../components/SidebarFind";
 import FindPostList from "../../components/FindPostList";
 import Editor from "../../components/write/Editor";
+import PostList from "../../components/PostList";
 
 const FindRent=()=>{
 
@@ -13,13 +14,13 @@ const FindRent=()=>{
             </div>
             <div className="locate_btn"> 
                 <button className="editor_btn">  
-                    <Link to="/Editor" className="editor_go" >
+                    <Link to="/Editor"  state={{data:"임대주택"}} className="editor_go" >
                         글쓰기
                     </Link>
                 </button>
             </div>
             <SidebarFind />
-            <FindPostList/>
+            <PostList/>
         </div>
     )
 }
