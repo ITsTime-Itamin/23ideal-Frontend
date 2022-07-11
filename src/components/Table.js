@@ -7,21 +7,24 @@ const Table= props =>{
     return (
         <table className="common-table">
             <thead>
-                <tr>
+                <tr >
                     {
                         headersName.map((item,index)=> {
                             return (
-                                <td className="common-table-header-column" key = {index}>{item}
+                                <td className="common-table-header-column" key = {index}>
+                                    {item}
                                 </td>
                             )
                         })
                     }
                 </tr>
             </thead>
-            <tbody>
+            <tbody className="common-row">
+                <td>
                 {
                     children
                 }
+                </td>
             </tbody>
         </table>
     )

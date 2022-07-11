@@ -7,8 +7,6 @@ const Navbar = () => {
             <hr />
             <div className="login-bar" style={{ float: "right", marginRight: "20px" }}>
                 <Link to="/Login" style={{ textDecoration: "none", color: "black", marginRight: "10px" }}> Login </Link>
-                |
-                <Link to="/" style={{ textDecoration: "none", color: "black", marginLeft: "7px" }}> 회원가입</Link>
             </div>
             <Link to="/"> 
                 <img className="nav-logo" src="img/MainLogo.png"/>

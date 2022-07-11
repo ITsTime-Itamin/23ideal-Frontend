@@ -5,22 +5,55 @@ import React, { useEffect, useState } from "react";
 
 
 const NaverMapAPI=({count})=> {
+  var HOME_PATH = window.HOME_PATH || '.';
 
+var gangnam = new navermaps.LatLng(37.4959854, 127.0664091),
+    map = new navermaps.Map('map', {
+        center: gangnam.destinationPoint(0, 500),
+        zoom: 15
+    }),
+    marker = new navermaps.Marker({
+        map: map,
+        position: gangnam
+    });
+
+var contentString = [
+        '<div class="iw_inner">',
+        '   <h3 style="color : #EB7E5D" >강남구 </h3>',
+        '   <h3>주택 공고 정보 </h3>',
+        '   <p>강남구 청년주택 공고 </p>',
+        '</div>'
+    ].join('');
+
+var infowindow = new navermaps.InfoWindow({
+    content: contentString
+});
+
+navermaps.Event.addListener(marker, "click", function(e) {
+    if (infowindow.getMap()) {
+        infowindow.close();
+    } else {
+        infowindow.open(map, marker);
+    }
+});
+
+infowindow.open(map, marker);
+  
 
   const navermaps=window.naver.maps;
   const [countData,setCountData]=useState([]);
 
-  fetch('http://localhost:3000/api/v1/houses').then(res=>(res.json())).then(response=>{setCountData(response.data);}); //json으로 변환 위해 axios->fetch
-  const countjson= JSON.stringify(countData,null,2);
+  fetch('/api/v1/houses').then(res=>(res.json())).then(response=>{setCountData(response.data);}); //json으로 변환 위해 axios->fetch
+//const countjson= JSON.stringify(countData,null,2);
 
-  console.log(countjson);
+ //console.log(countjson);  console.log(countData);
 
   var HOME_PATH= window.HOME_PATH||'.';
   
  const icon1= {
     content: '<div style="cursor:pointer; width:70px; height:70px; line-height:67px; '+
     'font-size:17px; color:white; text-align:center; font-weight:bold; background:url('+ HOME_PATH +'/img/markerIcon.png); '+
-    'background-size:contain;">'+'169'+'</div>',
+    'background-size:contain;">'+countData.gangNamGuCount+'</div>',
     anchor: new navermaps.Point(20, 20)
   } ,
   icon2={
@@ -30,140 +63,140 @@ const NaverMapAPI=({count})=> {
     anchor: new navermaps.Point(20, 20)
   },
   icon3={
-    content: '<div style="cursor:pointer; width:70px; height:70px; line-height:42px; '+
-    'font-size:10px; color:white; text-align:center; font-weight:bold; background:url('+ HOME_PATH +'/img/markerIcon.png); '+
+    content: '<div style="cursor:pointer; width:70px; height:70px; line-height:67px; '+
+    'font-size:17px; color:white; text-align:center; font-weight:bold; background:url('+ HOME_PATH +'/img/markerIcon.png); '+
     'background-size:contain;">'+countData.gangBukGuCount+'</div>',
     anchor: new navermaps.Point(20, 20)
   },
   icon4={
-    content: '<div style="cursor:pointer; width:70px; height:70px; line-height:42px; '+
-    'font-size:10px; color:white; text-align:center; font-weight:bold; background:url('+ HOME_PATH +'/img/markerIcon.png); '+
+    content: '<div style="cursor:pointer; width:70px; height:70px; line-height:67px; '+
+    'font-size:17px; color:white; text-align:center; font-weight:bold; background:url('+ HOME_PATH +'/img/markerIcon.png); '+
     'background-size:contain;">'+countData.gangSeoGuCount+'</div>',
     anchor: new navermaps.Point(20, 20)
   },
   icon5={
-    content: '<div style="cursor:pointer; width:70px; height:70px; line-height:42px; '+
-    'font-size:10px; color:white; text-align:center; font-weight:bold; background:url('+ HOME_PATH +'/img/markerIcon.png); '+
+    content: '<div style="cursor:pointer; width:70px; height:70px; line-height:67px; '+
+    'font-size:17px; color:white; text-align:center; font-weight:bold; background:url('+ HOME_PATH +'/img/markerIcon.png); '+
     'background-size:contain;">'+countData.gwanAkGuCount+'</div>',
     anchor: new navermaps.Point(20, 20)
   },
   icon6={
-    content: '<div style="cursor:pointer; width:70px; height:70px; line-height:42px; '+
-    'font-size:10px; color:white; text-align:center; font-weight:bold; background:url('+ HOME_PATH +'/img/markerIcon.png); '+
+    content: '<div style="cursor:pointer; width:70px; height:70px; line-height:67px; '+
+    'font-size:17px; color:white; text-align:center; font-weight:bold; background:url('+ HOME_PATH +'/img/markerIcon.png); '+
     'background-size:contain;">'+countData.gwangJinGuCount+'</div>',
     anchor: new navermaps.Point(20, 20)
   },
   icon7={
-    content: '<div style="cursor:pointer; width:70px; height:70px; line-height:42px; '+
-    'font-size:10px; color:white; text-align:center; font-weight:bold; background:url('+ HOME_PATH +'/img/markerIcon.png); '+
+    content: '<div style="cursor:pointer; width:70px; height:70px; line-height:67px; '+
+    'font-size:17px; color:white; text-align:center; font-weight:bold; background:url('+ HOME_PATH +'/img/markerIcon.png); '+
     'background-size:contain;">'+countData.guRoGuCount+'</div>',
     anchor: new navermaps.Point(20, 20)
   },
   icon8={
-    content: '<div style="cursor:pointer; width:70px; height:70px; line-height:42px; '+
-    'font-size:10px; color:white; text-align:center; font-weight:bold; background:url('+ HOME_PATH +'/img/markerIcon.png); '+
+    content: '<div style="cursor:pointer; width:70px; height:70px; line-height:67px; '+
+    'font-size:17px; color:white; text-align:center; font-weight:bold; background:url('+ HOME_PATH +'/img/markerIcon.png); '+
     'background-size:contain;">'+countData.geumCheonGuCount+'</div>',
     anchor: new navermaps.Point(20, 20)
   },
   icon9={
-    content: '<div style="cursor:pointer; width:70px; height:70px; line-height:42px; '+
-    'font-size:10px; color:white; text-align:center; font-weight:bold; background:url('+ HOME_PATH +'/img/markerIcon.png); '+
+    content: '<div style="cursor:pointer; width:70px; height:70px; line-height:67px; '+
+    'font-size:17px; color:white; text-align:center; font-weight:bold; background:url('+ HOME_PATH +'/img/markerIcon.png); '+
     'background-size:contain;">'+countData.noWonGuCount+'</div>',
     anchor: new navermaps.Point(20, 20)
   },
   icon10={
-    content: '<div style="cursor:pointer; width:70px; height:70px; line-height:42px; '+
-    'font-size:10px; color:white; text-align:center; font-weight:bold; background:url('+ HOME_PATH +'/img/markerIcon.png); '+
+    content: '<div style="cursor:pointer; width:70px; height:70px; line-height:67px; '+
+    'font-size:17px; color:white; text-align:center; font-weight:bold; background:url('+ HOME_PATH +'/img/markerIcon.png); '+
     'background-size:contain;">'+countData.doBongGuCount+'</div>',
     anchor: new navermaps.Point(20, 20)
   },
   icon11={
-    content: '<div style="cursor:pointer; width:70px; height:70px; line-height:42px; '+
-    'font-size:10px; color:white; text-align:center; font-weight:bold; background:url('+ HOME_PATH +'/img/markerIcon.png); '+
+    content: '<div style="cursor:pointer; width:70px; height:70px; line-height:67px; '+
+    'font-size:17px; color:white; text-align:center; font-weight:bold; background:url('+ HOME_PATH +'/img/markerIcon.png); '+
     'background-size:contain;">'+countData.dongDaeMunCount+'</div>',
     anchor: new navermaps.Point(20, 20)
   },
   icon12={
-    content: '<div style="cursor:pointer; width:70px; height:70px; line-height:42px; '+
-    'font-size:10px; color:white; text-align:center; font-weight:bold; background:url('+ HOME_PATH +'/img/markerIcon.png); '+
+    content: '<div style="cursor:pointer; width:70px; height:70px; line-height:67px; '+
+    'font-size:17px; color:white; text-align:center; font-weight:bold; background:url('+ HOME_PATH +'/img/markerIcon.png); '+
     'background-size:contain;">'+countData.dongJakGuCount+'</div>',
     anchor: new navermaps.Point(20, 20)
   },
   icon13={
-    content: '<div style="cursor:pointer; width:70px; height:70px; line-height:42px; '+
-    'font-size:10px; color:white; text-align:center; font-weight:bold; background:url('+ HOME_PATH +'/img/markerIcon.png); '+
+    content: '<div style="cursor:pointer; width:70px; height:70px; line-height:67px; '+
+    'font-size:17px; color:white; text-align:center; font-weight:bold; background:url('+ HOME_PATH +'/img/markerIcon.png); '+
     'background-size:contain;">'+countData.maPoGuCount+'</div>',
     anchor: new navermaps.Point(20, 20)
   },
   icon14={
-    content: '<div style="cursor:pointer; width:70px; height:70px; line-height:42px; '+
-    'font-size:10px; color:white; text-align:center; font-weight:bold; background:url('+ HOME_PATH +'/img/markerIcon.png); '+
+    content: '<div style="cursor:pointer; width:70px; height:70px; line-height:67px; '+
+    'font-size:17px; color:white; text-align:center; font-weight:bold; background:url('+ HOME_PATH +'/img/markerIcon.png); '+
     'background-size:contain;">'+countData.seoDaeMunGuCount+'</div>',
     anchor: new navermaps.Point(20, 20)
   },
   icon15={
-    content: '<div style="cursor:pointer; width:70px; height:70px; line-height:42px; '+
-    'font-size:10px; color:white; text-align:center; font-weight:bold; background:url('+ HOME_PATH +'/img/markerIcon.png); '+
+    content: '<div style="cursor:pointer; width:70px; height:70px; line-height:67px; '+
+    'font-size:17px; color:white; text-align:center; font-weight:bold; background:url('+ HOME_PATH +'/img/markerIcon.png); '+
     'background-size:contain;">'+countData.seoChoGuCount+'</div>',
     anchor: new navermaps.Point(20, 20)
   },
   icon16={
-    content: '<div style="cursor:pointer; width:70px; height:70px; line-height:42px; '+
-    'font-size:10px; color:white; text-align:center; font-weight:bold; background:url('+ HOME_PATH +'/img/markerIcon.png); '+
+    content: '<div style="cursor:pointer; width:70px; height:70px; line-height:67px; '+
+    'font-size:17px; color:white; text-align:center; font-weight:bold; background:url('+ HOME_PATH +'/img/markerIcon.png); '+
     'background-size:contain;">'+countData.seongDongGuCount+'</div>',
     anchor: new navermaps.Point(20, 20)
   },
   icon17={
-    content: '<div style="cursor:pointer; width:70px; height:70px; line-height:42px; '+
-    'font-size:10px; color:white; text-align:center; font-weight:bold; background:url('+ HOME_PATH +'/img/markerIcon.png); '+
+    content: '<div style="cursor:pointer; width:70px; height:70px; line-height:67px; '+
+    'font-size:17px; color:white; text-align:center; font-weight:bold; background:url('+ HOME_PATH +'/img/markerIcon.png); '+
     'background-size:contain;">'+countData.seongBukGuCount+'</div>',
     anchor: new navermaps.Point(20, 20)
   },
   icon18={
-    content: '<div style="cursor:pointer; width:70px; height:70px; line-height:42px; '+
-    'font-size:10px; color:white; text-align:center; font-weight:bold; background:url('+ HOME_PATH +'/img/markerIcon.png); '+
+    content: '<div style="cursor:pointer; width:70px; height:70px; line-height:67px; '+
+    'font-size:17px; color:white; text-align:center; font-weight:bold; background:url('+ HOME_PATH +'/img/markerIcon.png); '+
     'background-size:contain;">'+countData.songPaGuCount+'</div>',
     anchor: new navermaps.Point(20, 20)
   },
   icon19={
-    content: '<div style="cursor:pointer; width:70px; height:70px; line-height:42px; '+
-    'font-size:10px; color:white; text-align:center; font-weight:bold; background:url('+ HOME_PATH +'/img/markerIcon.png); '+
+    content: '<div style="cursor:pointer; width:70px; height:70px; line-height:67px; '+
+    'font-size:17px; color:white; text-align:center; font-weight:bold; background:url('+ HOME_PATH +'/img/markerIcon.png); '+
     'background-size:contain;">'+countData.yangCheonGuCount+'</div>',
     anchor: new navermaps.Point(20, 20)
   },
   icon20={
-    content: '<div style="cursor:pointer; width:70px; height:70px; line-height:42px; '+
-    'font-size:10px; color:white; text-align:center; font-weight:bold; background:url('+ HOME_PATH +'/img/markerIcon.png); '+
+    content: '<div style="cursor:pointer; width:70px; height:70px; line-height:67px; '+
+    'font-size:17px; color:white; text-align:center; font-weight:bold; background:url('+ HOME_PATH +'/img/markerIcon.png); '+
     'background-size:contain;">'+countData.yeongDeungPoGuCount+'</div>',
     anchor: new navermaps.Point(20, 20)
   },
   icon21={
-    content: '<div style="cursor:pointer; width:70px; height:70px; line-height:42px; '+
-    'font-size:10px; color:white; text-align:center; font-weight:bold; background:url('+ HOME_PATH +'/img/markerIcon.png); '+
+    content: '<div style="cursor:pointer; width:70px; height:70px; line-height:67px; '+
+    'font-size:17px; color:white; text-align:center; font-weight:bold; background:url('+ HOME_PATH +'/img/markerIcon.png); '+
     'background-size:contain;">'+countData.yongSanGuCount+'</div>',
     anchor: new navermaps.Point(20, 20)
   },
   icon22={
-    content: '<div style="cursor:pointer; width:70px; height:70px; line-height:42px; '+
-    'font-size:10px; color:white; text-align:center; font-weight:bold; background:url('+ HOME_PATH +'/img/markerIcon.png); '+
+    content: '<div style="cursor:pointer; width:70px; height:70px; line-height:67px; '+
+    'font-size:17px; color:white; text-align:center; font-weight:bold; background:url('+ HOME_PATH +'/img/markerIcon.png); '+
     'background-size:contain;">'+countData.eunPyeongGuCount+'</div>',
     anchor: new navermaps.Point(20, 20)
   },
   icon23={
-    content: '<div style="cursor:pointer; width:70px; height:70px; line-height:42px; '+
-    'font-size:10px; color:white; text-align:center; font-weight:bold; background:url('+ HOME_PATH +'/img/markerIcon.png); '+
+    content: '<div style="cursor:pointer; width:70px; height:70px; line-height:67px; '+
+    'font-size:17px; color:white; text-align:center; font-weight:bold; background:url('+ HOME_PATH +'/img/markerIcon.png); '+
     'background-size:contain;">'+countData.jongNoGuCount+'</div>',
     anchor: new navermaps.Point(20, 20)
   },
   icon24={
-    content: '<div style="cursor:pointer; width:70px; height:70px; line-height:42px; '+
-    'font-size:10px; color:white; text-align:center; font-weight:bold; background:url('+ HOME_PATH +'/img/markerIcon.png); '+
+    content: '<div style="cursor:pointer; width:70px; height:70px; line-height:67px; '+
+    'font-size:17px; color:white; text-align:center; font-weight:bold; background:url('+ HOME_PATH +'/img/markerIcon.png); '+
     'background-size:contain;">'+countData.jungGuCount+'</div>',
     anchor: new navermaps.Point(20, 20)
   },
   icon25={
-    content: '<div style="cursor:pointer; width:70px; height:70px; line-height:42px; '+
-    'font-size:10px; color:white; text-align:center; font-weight:bold; background:url('+ HOME_PATH +'/img/markerIcon.png); '+
+    content: '<div style="cursor:pointer; width:70px; height:70px; line-height:67px; '+
+    'font-size:17px; color:white; text-align:center; font-weight:bold; background:url('+ HOME_PATH +'/img/markerIcon.png); '+
     'background-size:contain;">'+countData.jungNangGuCount+'</div>',
     anchor: new navermaps.Point(20, 20)
   } 
@@ -186,7 +219,7 @@ const NaverMapAPI=({count})=> {
             defaultCenter={{ lat: 37.554722, lng: 126.970833 }} // 지도 초기 위치
             defaultZoom={12} > /지도 초기 확대 배율 
           
-            <Marker key={1} icon={icon1} position={new navermaps.LatLng(37.4959854, 127.0664091)} onClick={()=>alert('강남구')} />
+          <Marker key={1} icon={icon1} position={new navermaps.LatLng(37.4959854, 127.0664091)} onClick={()=>alert('강남구')} />
             <Marker key={2} icon={icon2} position={new navermaps.LatLng(37.5492077, 127.1464824)} onClick={()=>alert('강동구')} />
             <Marker key={3} icon={icon3} position={new navermaps.LatLng(37.6469954, 127.0147158)} onClick={()=>alert('강북구')} />
             <Marker key={4} icon={icon4} position={new navermaps.LatLng(37.5657617, 126.8226561)} onClick={()=>alert('강서구')} />
