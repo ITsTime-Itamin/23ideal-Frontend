@@ -1,48 +1,13 @@
 import { RenderAfterNavermapsLoaded, NaverMap, Marker} from 'react-naver-maps';
-import React, { useEffect, useState } from "react";
-
-
+import React, { Fragment, useEffect, useState } from "react";
+import { Link } from 'react-router-dom';
+import Categories from './Categories';
 
 
 const NaverMapAPI=({count})=> {
-  var HOME_PATH = window.HOME_PATH || '.';
-
-var gangnam = new navermaps.LatLng(37.4959854, 127.0664091),
-    map = new navermaps.Map('map', {
-        center: gangnam.destinationPoint(0, 500),
-        zoom: 15
-    }),
-    marker = new navermaps.Marker({
-        map: map,
-        position: gangnam
-    });
-
-var contentString = [
-        '<div class="iw_inner">',
-        '   <h3 style="color : #EB7E5D" >강남구 </h3>',
-        '   <h3>주택 공고 정보 </h3>',
-        '   <p>강남구 청년주택 공고 </p>',
-        '</div>'
-    ].join('');
-
-var infowindow = new navermaps.InfoWindow({
-    content: contentString
-});
-
-navermaps.Event.addListener(marker, "click", function(e) {
-    if (infowindow.getMap()) {
-        infowindow.close();
-    } else {
-        infowindow.open(map, marker);
-    }
-});
-
-infowindow.open(map, marker);
-  
-
   const navermaps=window.naver.maps;
   const [countData,setCountData]=useState([]);
-
+  
   fetch('/api/v1/houses').then(res=>(res.json())).then(response=>{setCountData(response.data);}); //json으로 변환 위해 axios->fetch
 //const countjson= JSON.stringify(countData,null,2);
 
@@ -203,6 +168,7 @@ infowindow.open(map, marker);
 
       return ( 
         <div>
+           
           <NaverMap
             mapDivId={'maps-getting-started-uncontrolled'} // default: react-naver-map
             style={{
@@ -217,10 +183,10 @@ infowindow.open(map, marker);
             }}
         
             defaultCenter={{ lat: 37.554722, lng: 126.970833 }} // 지도 초기 위치
-            defaultZoom={12} > /지도 초기 확대 배율 
+            defaultZoom={12} > // 지도 초기 위치 확대 비율
           
-          <Marker key={1} icon={icon1} position={new navermaps.LatLng(37.4959854, 127.0664091)} onClick={()=>alert('강남구')} />
-            <Marker key={2} icon={icon2} position={new navermaps.LatLng(37.5492077, 127.1464824)} onClick={()=>alert('강동구')} />
+            <Link to="/HomeClick"> <Marker key={1} icon={icon1} position={new navermaps.LatLng(37.4959854, 127.0664091)} onClick={() => alert('강남구')} /></Link>
+            <Marker key={2} icon={icon2} position={new navermaps.LatLng(37.5492077, 127.1464824)} onClick={() => <Link to ="HomeClick"></Link>} />
             <Marker key={3} icon={icon3} position={new navermaps.LatLng(37.6469954, 127.0147158)} onClick={()=>alert('강북구')} />
             <Marker key={4} icon={icon4} position={new navermaps.LatLng(37.5657617, 126.8226561)} onClick={()=>alert('강서구')} />
             <Marker key={5} icon={icon5} position={new navermaps.LatLng(37.4603732, 126.9536086)} onClick={()=>alert('관악구')} />
@@ -246,9 +212,31 @@ infowindow.open(map, marker);
             <Marker key={25} icon={icon25} position={new navermaps.LatLng(37.598031, 127.092931)} onClick={()=>alert('중랑구')} />
            
           </NaverMap>
+
+        
         </div>
       )
     }
+
+    /*const Categories_List = () => {
+      const Product_Data [
+        {id : 'gangNamGu',
+        value : '강남구'},
+        {id : 'gangDongGu',
+        value : '강동구'},
+        {id : 'gangBukGu',
+        value : '강북구'},
+        {id : 'gangSeoGu',
+        value : '강서구'},
+        {id : 'gwanAkGu',
+        value : '관악구'},
+        {id : 'gwangJinGu',
+        value : '광진구'},
+        {id : 'guRoGu',
+        value: '구로구'},
+    ];
+    } */
+  
 
 const Home=()=> {
 
@@ -263,6 +251,7 @@ const Home=()=> {
       <br></br>
       <br></br>
       <img classname = "MainBanner" src='img/MainBanner.png'></img>
+      <Categories/>
         
       <RenderAfterNavermapsLoaded
         ncpClientId={'optd2y01e0'} // 자신의 네이버 계정에서 발급받은 Client ID

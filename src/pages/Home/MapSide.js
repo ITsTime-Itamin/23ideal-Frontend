@@ -7,7 +7,7 @@ const MapSide = () =>
     /*const onClickEnter = () => setImg('강남구 수첩');
     const onClickLeave = () => setImg('강남구 수첩 !!!');*/
 
-/*    return (
+    /*return (
         <div>
             <button onClick={onClick}>강남구</button>
             <div>

@@ -13,7 +13,7 @@ import FindHappy from "./pages/Find/FindHappy";
 import FindRent from "./pages/Find/FindRent";
 import FindYoung from "./pages/Find/FindYoung";
 import Home from "./pages/Home/Home";
-
+import HomeClick from "./pages/Home/HomeClick";
 import Login from "./pages/Login/Login";
 import CommunityCom from "./pages/Community/CommunityCom";
 import CommunityJob from "./pages/Community/CommunityJob";
@@ -32,6 +32,7 @@ import GovEditor from "./components/write/GovEditor";
 import BankEditor from "./components/write/BankEditor";
 import LoanEditor from "./components/write/LoanEditor";
 import NoticeRead from "./components/read/NoticeRead";
+import Categories from "./pages/Home/Categories";
 
 const App=()=>{
 
@@ -39,9 +40,11 @@ const App=()=>{
     <div>
       <Navbar/>
       <Banner/>
+     <Categories/>
       <Routes>
 
         <Route path="/" element={<Home />}/>
+        <Route path="/HomeClick" element={<HomeClick/>}/>
         <Route path="/Login" element={<Login />}/>
         <Route path="/CommunityCom" element={<CommunityCom/>}/>
      

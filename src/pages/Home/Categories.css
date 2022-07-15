@@ -1,0 +1,7 @@
+.categoriesBox
+{
+    display: flex;
+    padding: 1rem;
+    width: 768px;
+    margin: 0 auto;
+}
