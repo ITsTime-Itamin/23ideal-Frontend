@@ -20,6 +20,7 @@ import CommunityFree from "./pages/Community/CommunityFree";
 import CommunityNotice from "./pages/Community/CommunityNotice";
 import Editor from "./components/write/Editor";
 import NoticeRead from "./components/read/NoticeRead";
+import EditPost from "./components/write/EditPost";
 
 const App=()=>{
 
@@ -67,6 +68,7 @@ const App=()=>{
         <Route path="/NoticeRead" element={<NoticeRead/>}/>
 
         <Route path="/Editor" element={<Editor/>}/>
+        <Route path="/EditPost" element={<EditPost/>} />
 
       </Routes>
     </div>

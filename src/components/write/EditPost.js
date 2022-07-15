@@ -2,15 +2,19 @@ import React, { useState } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import "./Editor.css";
 
-const Editor = () => {
+const EditPost = () => {
   const location = useLocation();
-  const Boardtitle = location.state.data;
   const boardType = location.state.boardType;
+  const propsBoardId = location.state.boardId;
+  const propsTitle = location.state.title;
+  const propsDeadLineDate=location.state.deadLineDate;
+  const propsContent=location.state.content;
   const navigate=useNavigate();
 
-  const [title, setTitle] = useState("");
-  const [content, setContent] = useState("");
-  const [deadLineDate, setDeadLineDate] = useState("");
+  const [boardId,setBoardId]=useState(propsBoardId);
+  const [title, setTitle] = useState(propsTitle);
+  const [content, setContent] = useState(propsContent);
+  const [deadLineDate, setDeadLineDate] = useState(propsDeadLineDate);
   const [files, setFiles] = useState([]);
 
   const handleUpload = (e) => {
@@ -19,7 +23,7 @@ const Editor = () => {
     setFiles([...files, { uploadedFile: file }]);
   };
 
-  const AddPost = async () => {
+  const Edit = async () => {
     const formData = new FormData();
     formData.append("files", files.length && files[0].uploadedFile);
     /*const value = [
@@ -34,27 +38,28 @@ const Editor = () => {
       "data",
       new Blob([JSON.stringify(value)], { type: "application/json" })
     );*/
+    formData.append("boardId",boardId);
     formData.append("title",title);
     formData.append("content",content);
     formData.append("deadLineDate",deadLineDate);
     formData.append("boardType",boardType);
 
     fetch("api/v1/boards", {
-      method: "POST",
+      method: "PUT",
       cache: "no-cache",
       headers: {
        // "Content-Type": "multipart/form-data",
-        Authorization: `Bearer ${"eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhZG1pbiIsImF1dGgiOiJST0xFX1VTRVIiLCJleHAiOjE2NTc4NTQ5NDB9.z6-wqkP3gPJXSnCRzrr3rliwgrXhTWkyBbrcphrZg9ac70zlyNafuRE5b12T_syk_v1CGCtoMDFKW437rTcZMQ"}`,
+        Authorization: `Bearer ${"eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhZG1pbiIsImF1dGgiOiJST0xFX1VTRVIiLCJleHAiOjE2NTc4NTMxMjF9.K7IH2LetJRhvg-69eLDghYh1IG5HonY9F9LVW-dubTfP9lnVlrA20lhAp4TkmuhS73TMeiJuOK9EQjsrs8GBVA"}`,
       },
       body: formData,
     })
       .then((response) => response.json())
       .then((data) => {
         console.log(data);
-        /*setTitle("");
+      /*  setTitle("");
         setContent("");
         setFiles([]);
-        setDeadLineDate("");*/
+        setDeadLineDate(""); */
     });
 
     return false;
@@ -62,13 +67,13 @@ const Editor = () => {
 
   return (
     <div>
-       <form  /*onSubmit={()=>{return AddPost()}} action="./"*/ entype="multipart/formdata" >
+      <form onSubmit={()=>{return Edit()}} /*action="./"*/ entype="multipart/formdata" >
       <div style={{ textAlign: "center", position: "relative", top: "100px" }}>
-        <h1>{Boardtitle}</h1>
+        <h1>수정하기</h1>
         <hr className="hr"></hr>
       </div>
       <div>
-        < input value="등록" type="submit" className="submit_btn" /> 
+        <input value="등록" type="submit" className="submit_btn" /> 
       </div>
 
       <div>
@@ -101,8 +106,9 @@ const Editor = () => {
       </div>
       </form>
       <button onClick={() => navigate(-1)} className="goback_btn"> 뒤로가기  </button>
+      {boardId}<br/>{title}<br/>{deadLineDate}<br/>{content}
     </div>
   );
 };
 
-export default Editor;
+export default EditPost;

@@ -2,8 +2,6 @@ import React,{useState} from "react";
 import { Link } from "react-router-dom";
 import SidebarCommunity from "../../components/SidebarCommunity";
 import PostList from "../../components/PostList";
-import axios from 'axios';
-import BoardItem from "../../components/Table/BoardItem";
 
 const CommunityNotice = ({accessToken}) => {
 
@@ -29,15 +27,10 @@ const CommunityNotice = ({accessToken}) => {
                         글쓰기
                     </Link>
                 </button>
-                <button className="editor_btn">  
-                    <Link to="/NoticeRead" className="editor_go">
-                        테스트
-                    </Link>
-                </button>
             </div>
             
         <SidebarCommunity/>
-        <PostList/>
+        <PostList boardType={"NOTICE"}/>
         </div>
     )
 }

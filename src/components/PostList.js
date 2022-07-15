@@ -1,13 +1,12 @@
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-import axios from "axios";
 import NoticeRead from "./read/NoticeRead";
 
-const PostList = (props) => {
+const PostList = ({boardType}) => {
   const [postData, setPostData] = useState([]);
   fetch("/api/v1/boards", {
     headers: {
-      Authorization: `Bearer ${"eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhZG1pbiIsImF1dGgiOiJST0xFX1VTRVIiLCJleHAiOjE2NTc3MjAyNDl9.oZU0B7oZj6cHkhIxVZhQo2r1KUIQ3m4t86yujDvpjAc068Xvklz5kvd-IEBYcgeixxlqKjRxbWzTJnag_mq3-w"}`,
+      Authorization: `Bearer ${"eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhZG1pbiIsImF1dGgiOiJST0xFX1VTRVIiLCJleHAiOjE2NTc4NTMxMjF9.K7IH2LetJRhvg-69eLDghYh1IG5HonY9F9LVW-dubTfP9lnVlrA20lhAp4TkmuhS73TMeiJuOK9EQjsrs8GBVA"}`,
     },
   })
     .then((res) => res.json())
@@ -15,7 +14,7 @@ const PostList = (props) => {
       setPostData(response.data);
     });
 
-  console.log(postData.data);
+ // console.log(postData.data);
 // const samples = postData.data;
  //console.log(samples);
 
@@ -79,7 +78,7 @@ const PostList = (props) => {
                 <td>{i + 1}</td>
                 <Link
                   to="/NoticeRead"
-                  state={{ data: sample.boardId }}
+                  state={{ data: sample.boardId , boardType:boardType }}
                   className="title"
                   style={{
                     textAlign: "center",

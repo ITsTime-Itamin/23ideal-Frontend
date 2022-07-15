@@ -6,6 +6,7 @@ import "./Read.css";
 const NoticeRead = (props) => {
   const location = useLocation();
   const id = location.state.data;
+  const boardType=location.state.boardType;
 
   /*useEffect(()=>{
     console.log(id);});*/
@@ -15,7 +16,7 @@ const NoticeRead = (props) => {
 
   fetch(path, {
     headers: {
-      Authorization: `Bearer ${"eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhZG1pbiIsImF1dGgiOiJST0xFX1VTRVIiLCJleHAiOjE2NTc3MjAyNDl9.oZU0B7oZj6cHkhIxVZhQo2r1KUIQ3m4t86yujDvpjAc068Xvklz5kvd-IEBYcgeixxlqKjRxbWzTJnag_mq3-w"}`,
+      Authorization: `Bearer ${"eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhZG1pbiIsImF1dGgiOiJST0xFX1VTRVIiLCJleHAiOjE2NTc4NTMxMjF9.K7IH2LetJRhvg-69eLDghYh1IG5HonY9F9LVW-dubTfP9lnVlrA20lhAp4TkmuhS73TMeiJuOK9EQjsrs8GBVA"}`,
     },
   })
     .then((res) => res.json())
@@ -43,6 +44,9 @@ const NoticeRead = (props) => {
         <br />
         {content.content}
       </div>
+      <Link to="/EditPost" state={{boardId:content.boardId, boardType:boardType, title:content.title, deadLineDate:content.deadLineDate,content:content.content}}>
+      <button>수정하기</button>
+      </Link>
     </div>
   );
 };

@@ -292,12 +292,18 @@ const NaverMapAPI = ({ count }) => {
       anchor: new navermaps.Point(20, 20),
     };
 
+    const [width,setWidth]=useState("80%");
+
+    const onClick=()=>{
+      setWidth("50%");
+    }
+
   return (
     <div>
       <NaverMap
         mapDivId={"maps-getting-started-uncontrolled"} // default: react-naver-map
         style={{
-          width: "80%",
+          width: width,
           height: "600px",
           alignItems: "center",
           justifyContent: "auto",
@@ -309,8 +315,8 @@ const NaverMapAPI = ({ count }) => {
         defaultCenter={{ lat: 37.554722, lng: 126.970833 }} // 지도 초기 위치
         defaultZoom={12}
       >
-        {" "}
-        /지도 초기 확대 배율
+
+        //지도 초기 확대 배율
         <Marker
           key={1}
           icon={icon1}
@@ -320,13 +326,13 @@ const NaverMapAPI = ({ count }) => {
           key={2}
           icon={icon2}
           position={new navermaps.LatLng(37.5492077, 127.1464824)}
-          onClick={() => alert("강동구")}
+          onClick={() => onClick()}
         />
         <Marker
           key={3}
           icon={icon3}
           position={new navermaps.LatLng(37.6469954, 127.0147158)}
-          onClick={() => alert("강북구")}
+          onClick={()=>setWidth("80%")}
         />
         <Marker
           key={4}
