@@ -23,6 +23,8 @@ const EditPost = () => {
     setFiles([...files, { uploadedFile: file }]);
   };
 
+
+
   const Edit = async () => {
     const formData = new FormData();
     formData.append("files", files.length && files[0].uploadedFile);
@@ -44,12 +46,12 @@ const EditPost = () => {
     formData.append("deadLineDate",deadLineDate);
     formData.append("boardType",boardType);
 
-    fetch("api/v1/boards", {
-      method: "PUT",
+    fetch("api/v1/boards/update", {
+      method: "POST",
       cache: "no-cache",
       headers: {
        // "Content-Type": "multipart/form-data",
-        Authorization: `Bearer ${"eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhZG1pbiIsImF1dGgiOiJST0xFX1VTRVIiLCJleHAiOjE2NTc4NTMxMjF9.K7IH2LetJRhvg-69eLDghYh1IG5HonY9F9LVW-dubTfP9lnVlrA20lhAp4TkmuhS73TMeiJuOK9EQjsrs8GBVA"}`,
+        Authorization: `Bearer ${"eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhZG1pbiIsImF1dGgiOiJST0xFX1VTRVIiLCJleHAiOjE2NTc5NzM0MzB9.D5AKjHRxYg-Et6Of-9VLPKpEiOt92SmczUDE_oBOa1y79e-XnrtjpBOtfwQnSGSsOW7Wc-QYHlJGxgM-D4n74A"}`,
       },
       body: formData,
     })
@@ -65,17 +67,19 @@ const EditPost = () => {
     return false;
   };
 
+
+
   return (
     <div>
-      <form onSubmit={()=>{return Edit()}} /*action="./"*/ entype="multipart/formdata" >
       <div style={{ textAlign: "center", position: "relative", top: "100px" }}>
         <h1>수정하기</h1>
         <hr className="hr"></hr>
       </div>
       <div>
-        <input value="등록" type="submit" className="submit_btn" /> 
+        <button onClick={()=>Edit()}
+            /*input value="등록" type="submit" className="submit_btn"*/ >등록</button>
       </div>
-
+      <form /*onSubmit={()=>{return Edit()}} action="./"*/ entype="multipart/formdata" >
       <div>
         <div style={{ position: "relative", top: "140px", left: "380px", fontSize: "28px", letterSpacing: "2px", }} >
           제목

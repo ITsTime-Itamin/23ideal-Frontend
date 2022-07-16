@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { useLocation } from "react-router-dom";
+import { useLocation} from "react-router-dom";
 import { Link } from "react-router-dom";
 import "./Read.css";
 
@@ -8,15 +8,12 @@ const NoticeRead = (props) => {
   const id = location.state.data;
   const boardType=location.state.boardType;
 
-  /*useEffect(()=>{
-    console.log(id);});*/
-
   const [content, setContent] = useState([]);
   const path = "/api/v1/boards/" + id;
 
   fetch(path, {
     headers: {
-      Authorization: `Bearer ${"eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhZG1pbiIsImF1dGgiOiJST0xFX1VTRVIiLCJleHAiOjE2NTc4NTMxMjF9.K7IH2LetJRhvg-69eLDghYh1IG5HonY9F9LVW-dubTfP9lnVlrA20lhAp4TkmuhS73TMeiJuOK9EQjsrs8GBVA"}`,
+      Authorization: `Bearer ${"eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhZG1pbiIsImF1dGgiOiJST0xFX1VTRVIiLCJleHAiOjE2NTc5NzUyMzh9.P8wgzmr83f-IWaSKGCS6HeXdf6tBCfExah6OZGs5zshM_wU6RFTQvSXRdQzbWJ1oykAcl7t0b-fGvfh18Mi3-A"}`,
     },
   })
     .then((res) => res.json())
@@ -26,6 +23,41 @@ const NoticeRead = (props) => {
 
   const unformatDate = "" + content.createdDate;
   const date = unformatDate.substring(0, 10);
+
+  const DeletePost=()=>{
+    fetch(path, {
+      headers: {
+        Authorization: `Bearer ${"eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhZG1pbiIsImF1dGgiOiJST0xFX1VTRVIiLCJleHAiOjE2NTc5NzUyMzh9.P8wgzmr83f-IWaSKGCS6HeXdf6tBCfExah6OZGs5zshM_wU6RFTQvSXRdQzbWJ1oykAcl7t0b-fGvfh18Mi3-A"}`,
+      },
+      method: "DELETE",
+    })
+      .then((res) => res.json())
+      .then((data) => { 
+        console.log(data);
+        alert("삭제되었습니다");
+      });
+  }
+
+  //const ID = ""+id;
+
+  const Scrap=()=>{
+
+    console.log( JSON.stringify("boardId:"+id));
+
+    fetch("/api/v1/scraps", {
+      method: "POST",
+      cache: "no-cache",
+      headers: {
+       'Content-Type': 'application/json',  //이걸 꼭 써야된다
+        Authorization: `Bearer ${"eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhZG1pbiIsImF1dGgiOiJST0xFX1VTRVIiLCJleHAiOjE2NTc5NzUyMzh9.P8wgzmr83f-IWaSKGCS6HeXdf6tBCfExah6OZGs5zshM_wU6RFTQvSXRdQzbWJ1oykAcl7t0b-fGvfh18Mi3-A"}`,
+      },
+      body: JSON.stringify({'boardId':id}),
+    })
+      .then((response) => response.json())
+      .then((data) => {
+        console.log(data);
+    });
+  }
 
   return (
     <div>
@@ -47,6 +79,8 @@ const NoticeRead = (props) => {
       <Link to="/EditPost" state={{boardId:content.boardId, boardType:boardType, title:content.title, deadLineDate:content.deadLineDate,content:content.content}}>
       <button>수정하기</button>
       </Link>
+      <button onClick={()=>DeletePost()}>삭제하기</button>
+      <button onClick={()=>Scrap()}>스크랩</button>
     </div>
   );
 };

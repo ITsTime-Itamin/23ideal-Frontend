@@ -14,7 +14,7 @@ const NaverMapAPI = ({ count }) => {
     }); //json으로 변환 위해 axios->fetch
   //const countjson= JSON.stringify(countData,null,2);
 
-  //console.log(countjson);   console.log(countData);
+  //console.log(countjson);   
 
   const icon1 = {
       content:

@@ -44,7 +44,7 @@ const Editor = () => {
       cache: "no-cache",
       headers: {
        // "Content-Type": "multipart/form-data",
-        Authorization: `Bearer ${"eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhZG1pbiIsImF1dGgiOiJST0xFX1VTRVIiLCJleHAiOjE2NTc4NTQ5NDB9.z6-wqkP3gPJXSnCRzrr3rliwgrXhTWkyBbrcphrZg9ac70zlyNafuRE5b12T_syk_v1CGCtoMDFKW437rTcZMQ"}`,
+        Authorization: `Bearer ${"eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhZG1pbiIsImF1dGgiOiJST0xFX1VTRVIiLCJleHAiOjE2NTc5NzM0MzB9.D5AKjHRxYg-Et6Of-9VLPKpEiOt92SmczUDE_oBOa1y79e-XnrtjpBOtfwQnSGSsOW7Wc-QYHlJGxgM-D4n74A"}`,
       },
       body: formData,
     })
@@ -62,7 +62,7 @@ const Editor = () => {
 
   return (
     <div>
-       <form  /*onSubmit={()=>{return AddPost()}} action="./"*/ entype="multipart/formdata" >
+       <form  onSubmit={()=>{return AddPost()}} action="./" entype="multipart/formdata" >
       <div style={{ textAlign: "center", position: "relative", top: "100px" }}>
         <h1>{Boardtitle}</h1>
         <hr className="hr"></hr>
