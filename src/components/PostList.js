@@ -4,12 +4,13 @@ import NoticeRead from "./read/NoticeRead";
 
 const PostList = ({boardType}) => {
 
-  const [postData, setPostData] = useState({});
+  const headersName = ["no", "제목", "작성일", "작성자", "스크랩수"];
+  const [postData,setPostData]=useState([]);
 
   useEffect(()=>{
     fetch("/api/v1/boards", {
       headers: {
-        Authorization: `Bearer ${"eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhZG1pbiIsImF1dGgiOiJST0xFX1VTRVIiLCJleHAiOjE2NTc5NzM0MzB9.D5AKjHRxYg-Et6Of-9VLPKpEiOt92SmczUDE_oBOa1y79e-XnrtjpBOtfwQnSGSsOW7Wc-QYHlJGxgM-D4n74A"}`,
+        Authorization: `Bearer ${"eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhZG1pbiIsImF1dGgiOiJST0xFX1VTRVIiLCJleHAiOjE2NTgxMjM2ODd9.JPuJg4fgCI0iTlnOOvVZTcOW6M1e5I1PhqLww43vtvPJhgwxtpiyHqsQF7jVKCdmQYCEhRwqBfVwF2bGaI3P8g"}`,
       },
     })
       .then((res) => res.json())
@@ -18,41 +19,36 @@ const PostList = ({boardType}) => {
       });
   },[]);
 
-  const samples /*items*/ = [
-    {
-      boardId: "16",
-      title: "강동구",
-      createdDate: "2202.13.4",
-      userName: "관리자",
-    },
-    {
-      boardId: "17",
-      title: "강서구",
-      createdDate: "2202.12.4",
-      userName: "관리자",
-    },
-    {
-      boardId: "18",
-      title: "강남구",
-      createdDate: "2202.12.04dadsc",
-      userName: "관리자",
-    },
-    {
-      boardId: "19",
-      title: "강북구",
-      createdDate: "2202.12.04dddd",
-      userName: "관리자",
-    },
+ /* useEffect(()=>{
+   const posts=[postData.data];
+   console.log(posts[0]);
+  },[postData])*/
+
+  //posts.push(postData.data);
+  //console.log(postData);
+
+  const NUM=[
+    {id:'13',data:1},
+    {id:"14",data:3}
   ];
 
-  const headersName = ["no", "제목", "작성일", "작성자"];
+  //게시물 스크랩 수 조회
+  if( postData.length != 0) {
+ postData.data.map((sample)=>{
+    const path = "/api/v1/scraps/"+sample.boardId;
+    fetch(path, {
+      headers: {
+        Authorization: `Bearer ${"eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhZG1pbiIsImF1dGgiOiJST0xFX1VTRVIiLCJleHAiOjE2NTgxMjM2ODd9.JPuJg4fgCI0iTlnOOvVZTcOW6M1e5I1PhqLww43vtvPJhgwxtpiyHqsQF7jVKCdmQYCEhRwqBfVwF2bGaI3P8g"}`,
+      },
+    })
+      .then((res) => res.json())
+      .then((response) => {
+        NUM.push({id:sample.boardId, data: response.data.scrapCount});
+      });
+  }); }
 
   return (
     <>
-      <div>
-        {postData && ( <textarea rows={7} value={JSON.stringify(postData, null, 2)} readOnly={true} /> )}
-      </div>
-
       <table className="common-table">
         <thead>
           <tr>
@@ -65,8 +61,9 @@ const PostList = ({boardType}) => {
             })}
           </tr>
         </thead>
-        <tbody>
-          {  /*(Object.values(postData.data))*/samples.map((sample, i) => {
+        <tbody >
+          
+          { postData.length != 0 ? postData.data.map((sample, i) => {
             return (
               <tr>
                 <td>{i + 1}</td>
@@ -76,11 +73,17 @@ const PostList = ({boardType}) => {
                 </Link>
                 <td>{sample.createdDate.substring(0, 10)}</td>
                 <td>{sample.userName}</td>
+                <td>{sample.scraps}</td>
               </tr>
             );
-          })}
+          })
+        : <div style={{textAlign:'center'}}>loading...</div>}
+
         </tbody>
       </table>
+              <Link to="/ScrapPosts" state={{ data: postData.data }}>
+              <button> 내가 스크랩한 게시물 보기</button>
+              </Link>
     </>
   );
 };

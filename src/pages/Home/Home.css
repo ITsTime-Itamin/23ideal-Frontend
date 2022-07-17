@@ -9,6 +9,8 @@
     border-style: solid;
     border-width: medium;
     border-color: #D8D8D8;
+    position: relative;
+    left: 290px;
 }
 .MainBanner
 {
@@ -20,4 +22,15 @@
     border-style: solid;
     border-width: medium;
 
+}
+
+.mapside
+{
+    position: absolute;
+    align-items: center;
+    justify-content: auto;
+    margin-left: 200px;
+    width: 300px;
+    height: 600px;
+  
 }
