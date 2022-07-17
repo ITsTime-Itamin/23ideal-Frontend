@@ -11,7 +11,7 @@ const SupportLoan=()=>{
         </div>
         <div className="locate_btn"> 
             <button className="editor_btn">  
-                <Link to="/LoanEditor" className="editor_go">
+                <Link to="/Editor" state={{data:"대출관련 지원책"}} className="editor_go">
                     글쓰기
                 </Link>
             </button>

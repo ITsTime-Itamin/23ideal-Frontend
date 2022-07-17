@@ -13,31 +13,28 @@ import FindHappy from "./pages/Find/FindHappy";
 import FindRent from "./pages/Find/FindRent";
 import FindYoung from "./pages/Find/FindYoung";
 import Home from "./pages/Home/Home";
+import HomeClick from "./pages/Home/HomeClick";
 import Login from "./pages/Login/Login";
 import CommunityCom from "./pages/Community/CommunityCom";
 import CommunityJob from "./pages/Community/CommunityJob";
 import CommunityFree from "./pages/Community/CommunityFree";
 import CommunityNotice from "./pages/Community/CommunityNotice";
-import Table from "./components/Table";
-import FreeEditor from "./components/write/FreeEditor";
-import ComEditor from "./components/write/ComEditor";
-import NoticeEditor from "./components/write/NoticeEditor";
-import JobEditor from "./components/write/JobEditor";
-import AllEditor from "./components/write/AllEditor";
-import HappyEditior from "./components/write/HappyEditior";
-import YoungEditor from "./components/write/YoungEditor";
 import Editor from "./components/write/Editor";
-import GovEditor from "./components/write/GovEditor";
-import BankEditor from "./components/write/BankEditor";
-import LoanEditor from "./components/write/LoanEditor";
+import NoticeRead from "./components/read/NoticeRead";
+import EditPost from "./components/write/EditPost";
+import ScrapPosts from "./components/ScrapPosts";
+//import Categories from "./pages/Home/Categories";
 
 const App=()=>{
 
   return(
     <div>
       <Navbar/>
+      <Banner/>
       <Routes>
+
         <Route path="/" element={<Home />}/>
+        <Route path="/HomeClick" element={<HomeClick/>}/>
         <Route path="/Login" element={<Login />}/>
         <Route path="/CommunityCom" element={<CommunityCom/>}/>
      
@@ -71,21 +68,13 @@ const App=()=>{
         <Route path="/CommunityFree" element={<SidebarCommunity />}/>
         <Route path="/CommunityJob" element={<SidebarCommunity />}/>
         <Route path="/CommunityNotice" element={<SidebarCommunity />}/>
-        <Route path="/CommuniyNotice" element={<Table/>}/>
 
-        <Route path="/FreeEditor" element={<FreeEditor/>}/>
-        <Route path="/ComEditor" element={<ComEditor/>}/>
-        <Route path="/JobEditor" element={<JobEditor/>}/>
-        <Route path="/NoticeEditor" element={<NoticeEditor/>}/>
+        <Route path="/NoticeRead" element={<NoticeRead/>}/>
 
-        <Route path="/AllEditor" element={<AllEditor/>}/>
-        <Route path="/YoungEditor" element={<YoungEditor/>}/>
         <Route path="/Editor" element={<Editor/>}/>
-        <Route path="/HappyEditior" element={<HappyEditior/>}/>
+        <Route path="/EditPost" element={<EditPost/>} />
 
-        <Route path="/GovEditor" index element={<GovEditor/>}></Route>
-        <Route path="/BankEditor" element={<BankEditor/>}/>
-        <Route path="/LoanEditor" element={<LoanEditor/>}/>
+        <Route path="/ScrapPosts" element={<ScrapPosts/>} />
 
       </Routes>
     </div>
