@@ -2,6 +2,8 @@ import { RenderAfterNavermapsLoaded, NaverMap, Marker} from 'react-naver-maps';
 import React, { Fragment, useEffect, useState } from "react";
 import { Link } from 'react-router-dom';
 import Categories from './Categories';
+import './Home.css'
+import styled from "styled-components";
 
 
 const NaverMapAPI=({count})=> {
@@ -166,9 +168,20 @@ const NaverMapAPI=({count})=> {
     anchor: new navermaps.Point(20, 20)
   } 
 
+const [zoom,setZoom] = useState(13);
+const [state,setState] = useState({
+  center : {lat:37.4959854, lng:127.0664091}, //지도 초기 위치
+  isPanto: true, //지도 위치 변경시 panto를 이용할지 (부드럽게 이동)
+});
+
+
+
+
+
+
       return ( 
         <div>
-           
+          <Categories/>
           <NaverMap
             mapDivId={'maps-getting-started-uncontrolled'} // default: react-naver-map
             style={{
@@ -183,10 +196,10 @@ const NaverMapAPI=({count})=> {
             }}
         
             defaultCenter={{ lat: 37.554722, lng: 126.970833 }} // 지도 초기 위치
-            defaultZoom={12} > // 지도 초기 위치 확대 비율
+            defaultZoom={zoom} > // 지도 초기 위치 확대 비율
           
-            <Link to="/HomeClick"> <Marker key={1} icon={icon1} position={new navermaps.LatLng(37.4959854, 127.0664091)} onClick={() => alert('강남구')} /></Link>
-            <Marker key={2} icon={icon2} position={new navermaps.LatLng(37.5492077, 127.1464824)} onClick={() => <Link to ="HomeClick"></Link>} />
+            <Marker key={1} icon={icon1} position={new navermaps.LatLng(37.4959854, 127.0664091)} onClick={() => setZoom(20)} />
+            <Marker key={2} icon={icon2} position={new navermaps.LatLng(37.5492077, 127.1464824)} onClick={() =>alert('강동구') }/>
             <Marker key={3} icon={icon3} position={new navermaps.LatLng(37.6469954, 127.0147158)} onClick={()=>alert('강북구')} />
             <Marker key={4} icon={icon4} position={new navermaps.LatLng(37.5657617, 126.8226561)} onClick={()=>alert('강서구')} />
             <Marker key={5} icon={icon5} position={new navermaps.LatLng(37.4603732, 126.9536086)} onClick={()=>alert('관악구')} />
@@ -218,24 +231,7 @@ const NaverMapAPI=({count})=> {
       )
     }
 
-    /*const Categories_List = () => {
-      const Product_Data [
-        {id : 'gangNamGu',
-        value : '강남구'},
-        {id : 'gangDongGu',
-        value : '강동구'},
-        {id : 'gangBukGu',
-        value : '강북구'},
-        {id : 'gangSeoGu',
-        value : '강서구'},
-        {id : 'gwanAkGu',
-        value : '관악구'},
-        {id : 'gwangJinGu',
-        value : '광진구'},
-        {id : 'guRoGu',
-        value: '구로구'},
-    ];
-    } */
+
   
 
 const Home=()=> {

@@ -1,7 +1,45 @@
-.categoriesBox
+.categoryBox
 {
-    display: flex;
-    padding: 1rem;
-    width: 768px;
-    margin: 0 auto;
+    flex: 1;
+    z-index: 2;
+    height: 40px;
+    border: 1px solid #EB7E5D;
+    background-color: #FFFFFF;
+    width: 500px;
+    position: absolute;
+    left: 38%;
+    top: 220px;
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
+    border-bottom-left-radius: 20px;
+    border-bottom-right-radius: 20px;
+    flex-direction: row;
+}
+
+.default
+{
+    position: relative;
+    left: 20%;
+    top: 5px;;
+    text-align: left;
+    font-family: 'Inter';
+    font-weight: 700;
+    font-size: 25px;
+    flex-direction: row;
+}
+
+.categoryItem
+{
+    position: absolute;
+    left: 60%;
+    width: 200px;
+    height: 30px;
+    top: 0px;;
+    text-align: left;
+    font-family: 'Inter';
+    font-weight: 700;
+    font-size: 25px;
+    flex-direction: row;
+    background-color: transparent;
+
 }

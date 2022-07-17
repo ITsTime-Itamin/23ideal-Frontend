@@ -32,7 +32,7 @@ import GovEditor from "./components/write/GovEditor";
 import BankEditor from "./components/write/BankEditor";
 import LoanEditor from "./components/write/LoanEditor";
 import NoticeRead from "./components/read/NoticeRead";
-import Categories from "./pages/Home/Categories";
+
 
 const App=()=>{
 
@@ -40,7 +40,7 @@ const App=()=>{
     <div>
       <Navbar/>
       <Banner/>
-     <Categories/>
+
       <Routes>
 
         <Route path="/" element={<Home />}/>
