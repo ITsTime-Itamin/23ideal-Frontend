@@ -85,3 +85,20 @@
     position: relative;
     top: 400px;
 }
+.categoryBox
+{
+    flex: 1;
+    z-index: 4;
+    height: 40px;
+    border: 1px solid #EB7E5D;
+    background-color: #FFFFFF;
+    width: 500px;
+    position: absolute;
+    left: 38%;
+    top: 220px;
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
+    border-bottom-left-radius: 20px;
+    border-bottom-right-radius: 20px;
+    flex-direction: row;
+}
