@@ -1,6 +1,7 @@
 import { RenderAfterNavermapsLoaded, NaverMap, Marker} from 'react-naver-maps';
 import React, { Fragment, useEffect, useState } from "react";
 import { Link } from 'react-router-dom';
+import Categories from './Categories';
 //import Categories from './Categories';
 
 
@@ -166,13 +167,15 @@ const NaverMapAPI=({count})=> {
     anchor: new navermaps.Point(20, 20)
   } 
 
+  const [width,setWidth]=useState('80%');
+
       return ( 
         <div>
-           
+          <Categories />
           <NaverMap
             mapDivId={'maps-getting-started-uncontrolled'} // default: react-naver-map
             style={{
-              width: '80%',
+              width: width,
               height: '600px',
               alignItems: 'center',
               justifyContent: 'auto',
@@ -185,12 +188,13 @@ const NaverMapAPI=({count})=> {
             defaultCenter={{ lat: 37.554722, lng: 126.970833 }} // 지도 초기 위치
             defaultZoom={12} > // 지도 초기 위치 확대 비율
           
-            <Link to="/HomeClick"> <Marker key={1} icon={icon1} position={new navermaps.LatLng(37.4959854, 127.0664091)} onClick={() => alert('강남구')} /></Link>
-            <Marker key={2} icon={icon2} position={new navermaps.LatLng(37.5492077, 127.1464824)} onClick={() => <Link to ="HomeClick"></Link>} />
-            <Marker key={3} icon={icon3} position={new navermaps.LatLng(37.6469954, 127.0147158)} onClick={()=>alert('강북구')} />
-            <Marker key={4} icon={icon4} position={new navermaps.LatLng(37.5657617, 126.8226561)} onClick={()=>alert('강서구')} />
-            <Marker key={5} icon={icon5} position={new navermaps.LatLng(37.4603732, 126.9536086)} onClick={()=>alert('관악구')} />
-            <Marker key={6} icon={icon6} position={new navermaps.LatLng(37.5574120, 127.0796211)} onClick={()=>alert('광진구')} />
+            <Link to="/HomeClick"> 
+            <Marker key={1} icon={icon1} position={new navermaps.LatLng(37.4959854, 127.0664091)} onClick={() =>setWidth('50%')} /></Link>
+            <Marker key={2} icon={icon2} position={new navermaps.LatLng(37.5492077, 127.1464824)} onClick={() => setWidth('50%')} />
+            <Marker key={3} icon={icon3} position={new navermaps.LatLng(37.6469954, 127.0147158)} onClick={()=>setWidth('50%')} />
+            <Marker key={4} icon={icon4} position={new navermaps.LatLng(37.5657617, 126.8226561)} onClick={()=>setWidth('50%')} />
+            <Marker key={5} icon={icon5} position={new navermaps.LatLng(37.4603732, 126.9536086)} onClick={()=>setWidth('50%')} />
+            <Marker key={6} icon={icon6} position={new navermaps.LatLng(37.5574120, 127.0796211)} onClick={()=>setWidth('50%')} />
             <Marker key={7} icon={icon7} position={new navermaps.LatLng(37.4954856, 126.858121)} onClick={()=>alert('구로구')} />
             <Marker key={8} icon={icon8} position={new navermaps.LatLng(37.4600969, 126.9001546)} onClick={()=>alert('금천구')} />
             <Marker key={9} icon={icon9} position={new navermaps.LatLng(37.6377533, 127.0754623)} onClick={()=>alert('노원구')} />
@@ -258,7 +262,6 @@ const Home=()=> {
         loading={<p>Maps Loading...</p>} >
         <NaverMapAPI />
       </RenderAfterNavermapsLoaded>
-
 
       <div className="container" />
     </div>

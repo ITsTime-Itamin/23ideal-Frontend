@@ -62,7 +62,7 @@ const PostComment = (props) => {
   return (
     <div>
       <div style={{ textAlign: "center", position: "relative", top: "100px" }}>
-        <h1>입주 및 모집 후기</h1>
+        <h1>입주 </h1>
         <hr className="hr"></hr>
       </div>
       <div>

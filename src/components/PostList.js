@@ -6,8 +6,9 @@ const PostList = ({boardType}) => {
 
   const headersName = ["no", "제목", "작성일", "작성자", "스크랩수"];
   const [postData,setPostData]=useState([]);
-  const [currentPage, setCurrentPage] = useState(1);
-  const [postsPerPage, setPostsPerPage] = useState(10);
+  const [limit, setLimit] = useState(10);
+  const [page, setPage] = useState(1);
+  const offset = (page - 1) * limit;
 
   useEffect(()=>{
     fetch("/api/v1/boards", {
@@ -39,17 +40,18 @@ const PostList = ({boardType}) => {
       });
     }); 
   }
-
-  const indexOfLast = currentPage * postsPerPage;
+  
+ /* const indexOfLast = currentPage * postsPerPage;
   const indexOfFirst = indexOfLast - postsPerPage;
   let currentPosts = 0;
   if(postData.length != 0){
   currentPosts = postData.data.slice(indexOfFirst, indexOfLast);}
 
-  console.log(currentPosts);
+  console.log(currentPosts);*/
 
   return (
     <>
+    <main>
       <table className="common-table">
         <thead>
           <tr>
@@ -63,7 +65,7 @@ const PostList = ({boardType}) => {
           </tr>
         </thead>
         <tbody >
-          { boardType === "NOTICE" ?
+        { boardType === "NOTICE" ?
           ( postData.length != 0 ? postData.data.map((post, i) => {
             return (
               <tr>
@@ -100,11 +102,17 @@ const PostList = ({boardType}) => {
       <Link to="/ScrapPosts" state={{ data: postData.data }}>
         <button> 내가 스크랩한 게시물 보기</button>
       </Link>
-      {postData.length != 0 ? 
-      <Pagination postsPerPage={postsPerPage}
-        totalPosts={postData.data.length}
-        paginate={setCurrentPage} totalPage={postData.totalPage} /> 
-        : null}
+      </main>
+      <footer>
+      {/* postData.length != 0 ?
+        <Pagination
+          total={postData.data.length}
+          limit={limit}
+          page={page}
+          setPage={setPage}
+          totalPage={postData.totalPage} />
+    : null*/ }
+       </footer>
     </>
   );
 };

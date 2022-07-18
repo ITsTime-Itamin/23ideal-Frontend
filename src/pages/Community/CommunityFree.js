@@ -19,7 +19,7 @@ const CommunityFree = props => {
                 </button>
             </div>
             <SidebarCommunity/>
-            <PostList/>
+            <PostList boardType={"FREE"}/>
         </div>
         
     
