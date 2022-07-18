@@ -8,7 +8,7 @@ const Banner = () =>
           <div className="Banner">
                 <br></br>
                 <br></br>
-                <a target="서울주거포털" href="https://housing.seoul.go.kr/">        
+               {/* <a target="서울주거포털" href="https://housing.seoul.go.kr/">        
                   <img alt="서울주거포털" src="img/Seoul.png" className="img"/>
                 </a>
                 <br></br>
@@ -25,7 +25,7 @@ const Banner = () =>
                 <br></br>
                 <a target="서울주거상담" href="https://www.seoulhousing.kr/">    
                   <img alt="서울주거상담" src="img/서울주거상담.png"  className="img"/>
-                </a>
+    </a> */ }
             </div>
     )
  }

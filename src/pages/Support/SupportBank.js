@@ -18,7 +18,6 @@ const SupportBank=()=>{
             </div>
              
            <SidebarSupport  />
-           <PostList/>
         </div>
     );
 };

@@ -21,7 +21,7 @@ const CommunityCom = props => {
             </div>
             <Banner/>
         <SidebarCommunity/>
-        <PostList/>
+        <PostList boardType={"REVIEW"}/>
         </div>
     )
 }

@@ -18,7 +18,7 @@ const SupportLoan=()=>{
         </div>
          
        <SidebarSupport  />
-       <PostList/>
+       <PostList boardType={"LOAN_SUPPORT"}/>
     </div>
     );
 };

@@ -1,9 +1,5 @@
-/*import "./Categories.css";
+import "./Categories.css";
 import styled from "styled-components";
-import Home from "./Home";
-import React,{useState} from "react";
-
-
 
 export const Select = styled.select`
 	margin: 0;
@@ -29,15 +25,9 @@ const SelectBoxWrapper = styled.div`
 	display: flex;
 `;
 
-
-
-
 const Categories = () => {
     return (
-
         <div className="categoryBox">
-            <Home/>
-            
             <div className="default">서울 특별시 </div>
             <div className="categoryItem"> 
                     <Select>
@@ -78,7 +68,7 @@ const Categories = () => {
     return <Categories option={OPTIONS} defaultVaule="gangNamGU"></Categories>;
 }*/
 
-//export default Categories; 
+export default Categories;
 
 /*const Categories_List = const Product_Data [
     {id : 'gangNamGu',
@@ -109,4 +99,4 @@ const Categories = () => {
     </div>
 };
 
-export default Categories;*/ 
+export default Categories;*/

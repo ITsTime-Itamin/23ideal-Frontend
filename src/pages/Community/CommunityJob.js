@@ -20,7 +20,7 @@ const CommunityJob = props => {
             </div>
     
         <SidebarCommunity/>
-        <PostList/>
+        <PostList boardType={"JOB"}/>
         </div>
     )
 }

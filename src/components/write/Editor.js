@@ -22,18 +22,6 @@ const Editor = () => {
   const AddPost = async () => {
     const formData = new FormData();
     formData.append("files", files.length && files[0].uploadedFile);
-    /*const value = [
-      {
-        title: title,
-        content: content,
-        deadLineDate: deadLineDate,
-        boardType: "NOTICE",
-      },
-    ];
-    formData.append(
-      "data",
-      new Blob([JSON.stringify(value)], { type: "application/json" })
-    );*/
     formData.append("title",title);
     formData.append("content",content);
     formData.append("deadLineDate",deadLineDate);
@@ -44,17 +32,14 @@ const Editor = () => {
       cache: "no-cache",
       headers: {
        // "Content-Type": "multipart/form-data",
-        Authorization: `Bearer ${"eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhZG1pbiIsImF1dGgiOiJST0xFX1VTRVIiLCJleHAiOjE2NTgyMzgwNzd9.mrclnP8N8tZXc50RS6daDAxFYGLhw5v2EyBruZtF5al7ffYLpCBPW9OcQVB99e6Jnnx9D-jQZhVL2ru8SnXnww"}`,
+        Authorization: `Bearer ${"eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhZG1pbiIsImF1dGgiOiJST0xFX1VTRVIiLCJleHAiOjE2NTgyMDQ3MDd9.TANacKhSh5u3Md23mm9bOvGO_5jvegXIG9ATmR9aVyaDl01KdT3m_5m3Np5_IwBJZCS897F03kVk_6m-WhsXlw"}`,
       },
       body: formData,
     })
       .then((response) => response.json())
       .then((data) => {
-        console.log(data);
-        /*setTitle("");
-        setContent("");
-        setFiles([]);
-        setDeadLineDate("");*/
+        alert("게시물 등록이 완료되었습니다");
+        window.location.assign("http://localhost:3000/");
     });
 
     return false;
