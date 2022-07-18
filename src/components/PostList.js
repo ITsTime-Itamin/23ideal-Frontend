@@ -1,16 +1,18 @@
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-import NoticeRead from "./read/PostRead";
+import Pagination from "./Pagination";
 
 const PostList = ({boardType}) => {
 
   const headersName = ["no", "제목", "작성일", "작성자", "스크랩수"];
   const [postData,setPostData]=useState([]);
+  const [currentPage, setCurrentPage] = useState(1);
+  const [postsPerPage, setPostsPerPage] = useState(10);
 
   useEffect(()=>{
     fetch("/api/v1/boards", {
       headers: {
-        Authorization: `Bearer ${"eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhZG1pbiIsImF1dGgiOiJST0xFX1VTRVIiLCJleHAiOjE2NTgxOTkxMzd9.b-kYHJCklTMm6LbH6nEIUsxsaAa4x2Ob2g4fW8ZIWHYcMSqExoJ0ZBjqgbZOe8wobf5I7bM2ImAOOticT05GlQ"}`,
+        Authorization: `Bearer ${"eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhZG1pbiIsImF1dGgiOiJST0xFX1VTRVIiLCJleHAiOjE2NTgyMDQ3MDd9.TANacKhSh5u3Md23mm9bOvGO_5jvegXIG9ATmR9aVyaDl01KdT3m_5m3Np5_IwBJZCS897F03kVk_6m-WhsXlw"}`,
       },
     })
       .then((res) => res.json())
@@ -21,20 +23,30 @@ const PostList = ({boardType}) => {
 
   //게시물 스크랩 수 조회
   const [scrapNum,setScrapNum]=useState([]);
+  const num=[];
 
   if( postData.length != 0) {
- postData.data.map((sample)=>{
-    const path = "/api/v1/scraps/"+sample.boardId;
-    fetch(path, {
-      headers: {
-        Authorization: `Bearer ${"eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhZG1pbiIsImF1dGgiOiJST0xFX1VTRVIiLCJleHAiOjE2NTgxOTkxMzd9.b-kYHJCklTMm6LbH6nEIUsxsaAa4x2Ob2g4fW8ZIWHYcMSqExoJ0ZBjqgbZOe8wobf5I7bM2ImAOOticT05GlQ"}`,
-      },
-    })
+    postData.data.map((post)=>{
+      const path = "/api/v1/scraps/"+post.boardId;
+      fetch(path, {
+        headers: {
+          Authorization: `Bearer ${"eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhZG1pbiIsImF1dGgiOiJST0xFX1VTRVIiLCJleHAiOjE2NTgyMDQ3MDd9.TANacKhSh5u3Md23mm9bOvGO_5jvegXIG9ATmR9aVyaDl01KdT3m_5m3Np5_IwBJZCS897F03kVk_6m-WhsXlw"}`,
+        },
+      })
       .then((res) => res.json())
       .then((response) => {
-        setScrapNum(response.data);
+        num.push(response.data.scrapCount);
       });
-  }); }
+    }); 
+  }
+
+  const indexOfLast = currentPage * postsPerPage;
+  const indexOfFirst = indexOfLast - postsPerPage;
+  let currentPosts = 0;
+  if(postData.length != 0){
+  currentPosts = postData.data.slice(indexOfFirst, indexOfLast);}
+
+  console.log(currentPosts);
 
   return (
     <>
@@ -52,43 +64,47 @@ const PostList = ({boardType}) => {
         </thead>
         <tbody >
           { boardType === "NOTICE" ?
-          ( postData.length != 0 ? postData.data.map((sample, i) => {
+          ( postData.length != 0 ? postData.data.map((post, i) => {
             return (
               <tr>
                 <td>{i + 1}</td>
-                
-                <Link to="/PostRead" state={{ data: sample.boardId , boardType: boardType }} className="title"
+                <Link to="/PostRead" state={{ data: post.boardId , boardType: boardType }} className="title"
                   style={{ textAlign: "center", color: "black", listStyle: "none", textDecoration: "none", display: "inline-block", cursor: "pointer", }} >
-                  <td> {sample.title}</td>
+                  <td> {post.title}</td>
                 </Link>
-                <td>{sample.createdDate.substring(0, 10)}</td>
-                <td>{sample.userName}</td>
-                <td>{sample.scraps}</td>
+                <td>{post.createdDate.substring(0, 10)}</td>
+                <td>{post.userName}</td>
+                <td>{post.scraps}</td>
               </tr>
             );
           })
         : <div style={{textAlign:'center'}}>loading...</div>) 
-        : ( postData.length != 0 ? postData.data.map((sample, i) => {
+        : ( postData.length != 0 ? postData.data.map((post, i) => {
           return (
             <tr>
               <td>{i + 1}</td>
-              <Link to="/PostComment" state={{ data: sample.boardId , boardType: boardType }} className="title"
+              <Link to="/PostComment" state={{ data: post.boardId , boardType: boardType }} className="title"
                 style={{ textAlign: "center", color: "black", listStyle: "none", textDecoration: "none", display: "inline-block", cursor: "pointer", }} >
-                <td> {sample.title}</td>
+                <td> {post.title}</td>
               </Link>
-              <td>{sample.createdDate.substring(0, 10)}</td>
-              <td>{sample.userName}</td>
-              <td>{sample.scraps}</td>
+              <td>{post.createdDate.substring(0, 10)}</td>
+              <td>{post.userName}</td>
+              <td>{post.scraps}</td>
             </tr>
           );
         })
       : <div style={{textAlign:'center'}}>loading...</div>) 
-}
+      }
         </tbody>
       </table>
-              <Link to="/ScrapPosts" state={{ data: postData.data }}>
-              <button> 내가 스크랩한 게시물 보기</button>
-              </Link>
+      <Link to="/ScrapPosts" state={{ data: postData.data }}>
+        <button> 내가 스크랩한 게시물 보기</button>
+      </Link>
+      {postData.length != 0 ? 
+      <Pagination postsPerPage={postsPerPage}
+        totalPosts={postData.data.length}
+        paginate={setCurrentPage} totalPage={postData.totalPage} /> 
+        : null}
     </>
   );
 };

@@ -22,18 +22,6 @@ const Editor = () => {
   const AddPost = async () => {
     const formData = new FormData();
     formData.append("files", files.length && files[0].uploadedFile);
-    /*const value = [
-      {
-        title: title,
-        content: content,
-        deadLineDate: deadLineDate,
-        boardType: "NOTICE",
-      },
-    ];
-    formData.append(
-      "data",
-      new Blob([JSON.stringify(value)], { type: "application/json" })
-    );*/
     formData.append("title",title);
     formData.append("content",content);
     formData.append("deadLineDate",deadLineDate);
@@ -44,7 +32,7 @@ const Editor = () => {
       cache: "no-cache",
       headers: {
        // "Content-Type": "multipart/form-data",
-        Authorization: `Bearer ${"eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhZG1pbiIsImF1dGgiOiJST0xFX1VTRVIiLCJleHAiOjE2NTgxOTkxMzd9.b-kYHJCklTMm6LbH6nEIUsxsaAa4x2Ob2g4fW8ZIWHYcMSqExoJ0ZBjqgbZOe8wobf5I7bM2ImAOOticT05GlQ"}`,
+        Authorization: `Bearer ${"eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhZG1pbiIsImF1dGgiOiJST0xFX1VTRVIiLCJleHAiOjE2NTgyMDQ3MDd9.TANacKhSh5u3Md23mm9bOvGO_5jvegXIG9ATmR9aVyaDl01KdT3m_5m3Np5_IwBJZCS897F03kVk_6m-WhsXlw"}`,
       },
       body: formData,
     })

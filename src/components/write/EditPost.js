@@ -9,6 +9,7 @@ const EditPost = () => {
   const propsTitle = location.state.title;
   const propsDeadLineDate=location.state.deadLineDate;
   const propsContent=location.state.content;
+ // const propsFile=location.state.file;
   const navigate=useNavigate();
 
   const [boardId,setBoardId]=useState(propsBoardId);
@@ -16,6 +17,8 @@ const EditPost = () => {
   const [content, setContent] = useState(propsContent);
   const [deadLineDate, setDeadLineDate] = useState(propsDeadLineDate);
   const [files, setFiles] = useState([]);
+
+  //console.log(propsFile);
 
   const handleUpload = (e) => {
     e.preventDefault();
@@ -49,7 +52,7 @@ const EditPost = () => {
       cache: "no-cache",
       headers: {
        // "Content-Type": "multipart/form-data",
-        Authorization: `Bearer ${"eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhZG1pbiIsImF1dGgiOiJST0xFX1VTRVIiLCJleHAiOjE2NTgxOTkxMzd9.b-kYHJCklTMm6LbH6nEIUsxsaAa4x2Ob2g4fW8ZIWHYcMSqExoJ0ZBjqgbZOe8wobf5I7bM2ImAOOticT05GlQ"}`,
+        Authorization: `Bearer ${"eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhZG1pbiIsImF1dGgiOiJST0xFX1VTRVIiLCJleHAiOjE2NTgyMDQ3MDd9.TANacKhSh5u3Md23mm9bOvGO_5jvegXIG9ATmR9aVyaDl01KdT3m_5m3Np5_IwBJZCS897F03kVk_6m-WhsXlw"}`,
       },
       body: formData,
     })
