@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from "react";
 import { Link, useLocation } from "react-router-dom";
-import NoticeRead from "./read/NoticeRead";
 
 const ScrapPosts = () => {
 
@@ -16,7 +15,7 @@ const ScrapPosts = () => {
     fetch("/api/v1/scraps/whether/users?=", {
       headers: {
        //'Content-Type': 'application/json',
-        Authorization: `Bearer ${"eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhZG1pbiIsImF1dGgiOiJST0xFX1VTRVIiLCJleHAiOjE2NTgxMjM2ODd9.JPuJg4fgCI0iTlnOOvVZTcOW6M1e5I1PhqLww43vtvPJhgwxtpiyHqsQF7jVKCdmQYCEhRwqBfVwF2bGaI3P8g"}`,
+        Authorization: `Bearer ${"eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhZG1pbiIsImF1dGgiOiJST0xFX1VTRVIiLCJleHAiOjE2NTgxOTkxMzd9.b-kYHJCklTMm6LbH6nEIUsxsaAa4x2Ob2g4fW8ZIWHYcMSqExoJ0ZBjqgbZOe8wobf5I7bM2ImAOOticT05GlQ"}`,
       },
     })
       .then((res) => res.json())
@@ -55,7 +54,7 @@ const ScrapPosts = () => {
             return (
               <tr>
                 <td>{i + 1}</td>
-                <Link to="/NoticeRead" state={{ data: sample.boardId , boardType: sample.boardType }} className="title"
+                <Link to="/PostRead" state={{ data: sample.boardId , boardType: sample.boardType }} className="title"
                   style={{ textAlign: "center", color: "black", listStyle: "none", textDecoration: "none", display: "inline-block", cursor: "pointer", }} >
                   <td> {sample.title}</td>
                 </Link>

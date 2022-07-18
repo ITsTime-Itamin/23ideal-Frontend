@@ -13,7 +13,7 @@ const NoticeRead = (props) => {
 
   fetch(path, {
     headers: {
-      Authorization: `Bearer ${"eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhZG1pbiIsImF1dGgiOiJST0xFX1VTRVIiLCJleHAiOjE2NTgxMjM2ODd9.JPuJg4fgCI0iTlnOOvVZTcOW6M1e5I1PhqLww43vtvPJhgwxtpiyHqsQF7jVKCdmQYCEhRwqBfVwF2bGaI3P8g"}`,
+      Authorization: `Bearer ${"eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhZG1pbiIsImF1dGgiOiJST0xFX1VTRVIiLCJleHAiOjE2NTgxOTkxMzd9.b-kYHJCklTMm6LbH6nEIUsxsaAa4x2Ob2g4fW8ZIWHYcMSqExoJ0ZBjqgbZOe8wobf5I7bM2ImAOOticT05GlQ"}`,
     },
   })
     .then((res) => res.json())
@@ -27,7 +27,7 @@ const NoticeRead = (props) => {
   const DeletePost=()=>{
     fetch(path, {
       headers: {
-        Authorization: `Bearer ${"eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhZG1pbiIsImF1dGgiOiJST0xFX1VTRVIiLCJleHAiOjE2NTgxMjM2ODd9.JPuJg4fgCI0iTlnOOvVZTcOW6M1e5I1PhqLww43vtvPJhgwxtpiyHqsQF7jVKCdmQYCEhRwqBfVwF2bGaI3P8g"}`,
+        Authorization: `Bearer ${"eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhZG1pbiIsImF1dGgiOiJST0xFX1VTRVIiLCJleHAiOjE2NTgxOTkxMzd9.b-kYHJCklTMm6LbH6nEIUsxsaAa4x2Ob2g4fW8ZIWHYcMSqExoJ0ZBjqgbZOe8wobf5I7bM2ImAOOticT05GlQ"}`,
       },
       method: "DELETE",
     })
@@ -35,11 +35,11 @@ const NoticeRead = (props) => {
       .then((data) => { 
         console.log(data);
         alert("삭제되었습니다");
+        window.location.assign("http://localhost:3000/");
       });
   }
 
-  //const ID = ""+id;
-
+  //스크랩하기
   const Scrap=()=>{
 
     console.log( JSON.stringify("boardId:"+id));
@@ -49,13 +49,13 @@ const NoticeRead = (props) => {
       cache: "no-cache",
       headers: {
        'Content-Type': 'application/json',  //이걸 꼭 써야된다
-        Authorization: `Bearer ${"eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhZG1pbiIsImF1dGgiOiJST0xFX1VTRVIiLCJleHAiOjE2NTgxMjM2ODd9.JPuJg4fgCI0iTlnOOvVZTcOW6M1e5I1PhqLww43vtvPJhgwxtpiyHqsQF7jVKCdmQYCEhRwqBfVwF2bGaI3P8g"}`,
+        Authorization: `Bearer ${"eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhZG1pbiIsImF1dGgiOiJST0xFX1VTRVIiLCJleHAiOjE2NTgxOTkxMzd9.b-kYHJCklTMm6LbH6nEIUsxsaAa4x2Ob2g4fW8ZIWHYcMSqExoJ0ZBjqgbZOe8wobf5I7bM2ImAOOticT05GlQ"}`,
       },
       body: JSON.stringify({'boardId':id}),
     })
-      .then((response) => response.json())
-      .then((data) => {
-        console.log(data);
+      .then(() => {
+        alert("스크랩을 완료하였습니다");
+        window.location.assign("http://localhost:3000/");
     });
   }
 
