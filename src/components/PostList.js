@@ -6,12 +6,12 @@ const PostList = ({boardType}) => {
 
   const headersName = ["no", "제목", "작성일", "작성자", "스크랩수"];
   const [postData,setPostData]=useState([]);
-  const [limit, setLimit] = useState(10);
-  const [page, setPage] = useState(1);
-  const offset = (page - 1) * limit;
+ /* const [currentPage, setCurrentPage] = useState(1);
+  const [postsPerPage, setPostsPerPage] = useState(10);*/
+  const path="/api/v1/boards?boardType="+boardType;
 
   useEffect(()=>{
-    fetch("/api/v1/boards", {
+    fetch(path, {
       headers: {
         Authorization: `Bearer ${"eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhZG1pbiIsImF1dGgiOiJST0xFX1VTRVIiLCJleHAiOjE2NTgyMDQ3MDd9.TANacKhSh5u3Md23mm9bOvGO_5jvegXIG9ATmR9aVyaDl01KdT3m_5m3Np5_IwBJZCS897F03kVk_6m-WhsXlw"}`,
       },
@@ -23,7 +23,7 @@ const PostList = ({boardType}) => {
   },[]);
 
   //게시물 스크랩 수 조회
-  const [scrapNum,setScrapNum]=useState([]);
+  /*const [scrapNum,setScrapNum]=useState([]);
   const num=[];
 
   if( postData.length != 0) {
@@ -40,18 +40,16 @@ const PostList = ({boardType}) => {
       });
     }); 
   }
-  
- /* const indexOfLast = currentPage * postsPerPage;
+
+  const indexOfLast = currentPage * postsPerPage;
   const indexOfFirst = indexOfLast - postsPerPage;
   let currentPosts = 0;
   if(postData.length != 0){
   currentPosts = postData.data.slice(indexOfFirst, indexOfLast);}
-
   console.log(currentPosts);*/
 
   return (
     <>
-    <main>
       <table className="common-table">
         <thead>
           <tr>
@@ -65,7 +63,7 @@ const PostList = ({boardType}) => {
           </tr>
         </thead>
         <tbody >
-        { boardType === "NOTICE" ?
+          { boardType === "NOTICE" ?
           ( postData.length != 0 ? postData.data.map((post, i) => {
             return (
               <tr>
@@ -102,17 +100,6 @@ const PostList = ({boardType}) => {
       <Link to="/ScrapPosts" state={{ data: postData.data }}>
         <button> 내가 스크랩한 게시물 보기</button>
       </Link>
-      </main>
-      <footer>
-      {/* postData.length != 0 ?
-        <Pagination
-          total={postData.data.length}
-          limit={limit}
-          page={page}
-          setPage={setPage}
-          totalPage={postData.totalPage} />
-    : null*/ }
-       </footer>
     </>
   );
 };

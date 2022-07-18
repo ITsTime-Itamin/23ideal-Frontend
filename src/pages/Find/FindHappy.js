@@ -18,7 +18,7 @@ const FindHappy=()=>{
                 </button>
             </div>
             <SidebarFind />
-            <FindPostList/>
+            <FindPostList boardType={"HAPPY_HOUSE"}/>
         </div>
     )
 }

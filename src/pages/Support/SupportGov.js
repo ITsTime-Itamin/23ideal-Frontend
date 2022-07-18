@@ -18,7 +18,7 @@ const SupportGov=()=>{
             </div>
              
            <SidebarSupport  />
-           <PostList/>
+           <PostList boardType={"DEPOSIT"}/>
         </div>
     );
 };

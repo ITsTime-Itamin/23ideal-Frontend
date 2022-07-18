@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 import styled from "styled-components";
 import "./Read.css";
 
-const NoticeRead = (props) => {
+const PostRead = (props) => {
   const location = useLocation();
   const id = location.state.data;
   const boardType=location.state.boardType;
@@ -133,4 +133,4 @@ const StyleButton = styled.button`
   }
 `
 
-export default NoticeRead;
+export default PostRead;

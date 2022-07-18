@@ -20,7 +20,7 @@ const FindRent=()=>{
                 </button>
             </div>
             <SidebarFind />
-            <PostList/>
+            <PostList boardType={"RENTAL_HOUSE"}/>
         </div>
     )
 }

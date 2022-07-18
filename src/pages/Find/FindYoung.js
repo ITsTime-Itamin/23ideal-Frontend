@@ -18,7 +18,7 @@ const FindYoung=()=>{
                 </button>
             </div>
             <SidebarFind />
-            <FindPostList/>
+            <FindPostList boardType={"YOUTH_HOUSE"}/>
         </div>
     )
 }

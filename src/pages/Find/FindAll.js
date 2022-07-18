@@ -18,7 +18,7 @@ const FindAll=()=>{
                 </button>
             </div>
             <SidebarFind />
-            <FindPostList/>
+            <FindPostList boardType={"ALL"}/>
         </div>
     )
 }
