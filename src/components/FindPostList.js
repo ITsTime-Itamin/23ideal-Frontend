@@ -1,7 +1,5 @@
 import React from "react";
-import Table from "../components/Table";
-import TableColumn from "./TableColumn";
-import TableRow from "./TableRow";
+import Table from "./Table/Table"; import TableColumn from "./Table/TableColumn"; import TableRow from "./Table/TableRow";
 
 const FindPostList = props => {
     return (

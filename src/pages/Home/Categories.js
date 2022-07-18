@@ -1,5 +1,7 @@
-import "./Categories.css";
+/*import "./Categories.css";
 import styled from "styled-components";
+import Home from "./Home";
+import React,{useState} from "react";
 
 
 
@@ -29,9 +31,13 @@ const SelectBoxWrapper = styled.div`
 
 
 
+
 const Categories = () => {
     return (
+
         <div className="categoryBox">
+            <Home/>
+            
             <div className="default">서울 특별시 </div>
             <div className="categoryItem"> 
                     <Select>
@@ -72,7 +78,7 @@ const Categories = () => {
     return <Categories option={OPTIONS} defaultVaule="gangNamGU"></Categories>;
 }*/
 
-export default Categories;
+//export default Categories; 
 
 /*const Categories_List = const Product_Data [
     {id : 'gangNamGu',
@@ -103,4 +109,4 @@ const Categories = () => {
     </div>
 };
 
-export default Categories;*/
+export default Categories;*/ 

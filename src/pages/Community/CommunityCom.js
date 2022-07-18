@@ -14,7 +14,7 @@ const CommunityCom = props => {
             </div>
             <div className="locate_btn"> 
                 <button className="editor_btn">  
-                    <Link to="/ComEditor" className="editor_go">
+                    <Link to="/Editor" state={{data:"입주 및 당첨 후기"}} className="editor_go">
                         글쓰기
                     </Link>
                 </button>

@@ -1,9 +1,7 @@
 import { RenderAfterNavermapsLoaded, NaverMap, Marker} from 'react-naver-maps';
 import React, { Fragment, useEffect, useState } from "react";
-import { Link } from 'react-router-dom';
 import Categories from './Categories';
-import './Home.css'
-import styled from "styled-components";
+import styled from "styled-components"
 
 
 const NaverMapAPI=({count})=> {
@@ -169,19 +167,63 @@ const NaverMapAPI=({count})=> {
   } 
 
 const [zoom,setZoom] = useState(13);
-const [state,setState] = useState({
-  center : {lat:37.4959854, lng:127.0664091}, //지도 초기 위치
-  isPanto: true, //지도 위치 변경시 panto를 이용할지 (부드럽게 이동)
-});
+//const [lat,setLat] = useState(37.554722);
+//const [lng,setLng] = useState(126.970833);
 
+const handleCategory = () =>
+{
+  setZoom(20);
+};
 
+const SelectBoxWrapper = styled.div`
+	display: flex;
+`;
+const Select = () => {
+
+}
+
+const Categories = () => {
+  <div className='HomeCat'>
+                <div className="default">서울 특별시 </div>
+                <div className="categoryItem"> 
+                    <Select>
+                        <option key="gangNamGu" value="강남구" onClick={handleCategory}>강남구</option>
+                        <option key="gangDongGu" value="강동구">강동구</option>
+                        <option key="gangBukGu" value="강북구">강북구</option>
+                        <option key="gangSeoGu" value="강서구">강서구</option>
+                        <option key="gwanAkGu" value="관악구">강동구</option>
+                        <option key="gwangJinGu" value="광진구">광진구</option>
+                        <option key="guRoGu" value="구로구">구로구</option>
+                        <option key="geumCheonGu" value="금천구">금천구</option>
+                        <option key="noWonGu" value="노원구">노원구</option>
+                        <option key="doBongGu" value="도봉구">도봉구</option>
+                        <option key="dongDaeMun" value="동대문구">동대문구</option>
+                        <option key="dongJakGu" value="동작구">동작구</option>
+                        <option key="maPoGu" value="마포구">마포구</option>
+                        <option key="seoDaeMunGu" value="서대문구">서대문구</option>
+                        <option key="seoChoGu" value="서초구">서초구</option>
+                        <option key="seongDongGu" value="성동구">성동구</option>
+                        <option key="seongBukGu" value="성북구">성북구</option>
+                        <option key="songPaGu" value="송파구">송파구</option>
+                        <option key="yangCheonGu" value="양천구">양천구</option>
+                        <option key="yeongDeungPoGu" value="영등포구">영등포구</option>
+                        <option key="yongSanGu" value="용산구">용산구</option>
+                        <option key="eunPyeongGu" value="은평구">은평구</option>
+                        <option key="jongNoGu" value="종로구">종로구</option>
+                        <option key="jungGu" value="중구">중구</option>
+                        <option key="jungNangGu" value="중랑구">중랑구</option>
+                       
+                    </Select>
+            </div>
+  </div>
+}
 
 
 
 
       return ( 
         <div>
-          <Categories/>
+
           <NaverMap
             mapDivId={'maps-getting-started-uncontrolled'} // default: react-naver-map
             style={{
@@ -198,7 +240,7 @@ const [state,setState] = useState({
             defaultCenter={{ lat: 37.554722, lng: 126.970833 }} // 지도 초기 위치
             defaultZoom={zoom} > // 지도 초기 위치 확대 비율
           
-            <Marker key={1} icon={icon1} position={new navermaps.LatLng(37.4959854, 127.0664091)} onClick={() => setZoom(20)} />
+            <Marker key={1} icon={icon1} position={new navermaps.LatLng(37.4959854, 127.0664091)} onClick={() =>alert('강남구')}/>
             <Marker key={2} icon={icon2} position={new navermaps.LatLng(37.5492077, 127.1464824)} onClick={() =>alert('강동구') }/>
             <Marker key={3} icon={icon3} position={new navermaps.LatLng(37.6469954, 127.0147158)} onClick={()=>alert('강북구')} />
             <Marker key={4} icon={icon4} position={new navermaps.LatLng(37.5657617, 126.8226561)} onClick={()=>alert('강서구')} />
@@ -248,7 +290,6 @@ const Home=()=> {
       <br></br>
       <img classname = "MainBanner" src='img/MainBanner.png'></img>
       <Categories/>
-        
       <RenderAfterNavermapsLoaded
         ncpClientId={'optd2y01e0'} // 자신의 네이버 계정에서 발급받은 Client ID
         error={<p>Maps Load Error</p>}

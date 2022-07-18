@@ -1,60 +1,91 @@
-import React,{useEffect, useState} from "react";
-import BoardItem from "./BoardItem";
-import Table from "./Table";
-import TableRow from "./TableRow";
-import TableColumn from "./TableColumn";
-import axios from "axios";
+import React, { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
+import NoticeRead from "./read/NoticeRead";
 
+const PostList = ({boardType}) => {
 
-const PostList = () => {
+  const headersName = ["no", "제목", "작성일", "작성자", "스크랩수"];
+  const [postData,setPostData]=useState([]);
 
-    const [postData, setPostData] = useState(null);
-    
-    fetch('/api/v1/boards',{headers:{"Authorization":`Bearer ${'eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhZG1pbiIsImF1dGgiOiJST0xFX1VTRVIiLCJleHAiOjE2NTc0NDAyNTZ9.ODRdvV0mzd_0w5fgZkeQnjrMT777uCFxRbHI5YJxbbjZCz-gU4KbYkWW0AgCKOicw6DKEFi4oadcPQIQr4bAYg'}`}}).then(res=>(res.json())).then(response=>{setPostData(response.data);});
-    //const response = await axios.get('/api/v1/boards',{headers:{"Authorization":`Bearer ${'eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhZG1pbiIsImF1dGgiOiJST0xFX1VTRVIiLCJleHAiOjE2NTcyNDQ1MzR9.Sc4ETVteuiO6KoJG5qZHlr08YBEiVhpuRxa1zbu3OXH5cTeMvxfxs6lS0a75rwG7OS4XwDOVgQwulVmF5RLBSA'}`}});
-    //setPostData(response.data);
+  useEffect(()=>{
+    fetch("/api/v1/boards", {
+      headers: {
+        Authorization: `Bearer ${"eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhZG1pbiIsImF1dGgiOiJST0xFX1VTRVIiLCJleHAiOjE2NTgyMzgwNzd9.mrclnP8N8tZXc50RS6daDAxFYGLhw5v2EyBruZtF5al7ffYLpCBPW9OcQVB99e6Jnnx9D-jQZhVL2ru8SnXnww"}`,
+      },
+    })
+      .then((res) => res.json())
+      .then((response) => {
+        setPostData(response.data);
+      });
+  },[]);
 
-    /*
-const [items,setItems]=useState([
-  {  
-    boardId:postData.data[0].boardId,
-    title:postData.data[0].title,
-    createdDate:postData.data[0].createdDate,
-    userName:postData.data[0].userName
-  },
-  {  
-    boardId:postData.data[1].boardId,
-    title:postData.data[1].title,
-    createdDate:postData.data[1].createdDate,
-    userName:postData.data[1].userName
-  },
-  {  
-    boardId:postData.data[2].boardId,
-    title:postData.data[2].title,
-    createdDate:postData.data[2].createdDate,
-    userName:postData.data[2].userName
-  },
-]);*/
+ /* useEffect(()=>{
+   const posts=[postData.data];
+   console.log(posts[0]);
+  },[postData])*/
 
-const samples=[{
-  boardId:'1',title:"강서구",createdDate:"2202.13.4",userName:"관리자"
-},
-{
-  boardId:'2',title:"강북구",createdDate:"2202.12.4",userName:"관리자"
-},]
-;
+  //posts.push(postData.data);
+  //console.log(postData);
 
-    return (
-        <>
-        <div>
-          {postData && <textarea rows={7} value={JSON.stringify(postData, null, 2)} readOnly={true} />} 
-        </div>
-        
-        <Table headersName={['no','제목','작성일' ,'작성자']}>
-          <BoardItem article={samples[0]} />
-        </Table>
-        </>
-    )
-}
+  const NUM=[
+    {id:'13',data:1},
+    {id:"14",data:3}
+  ];
+
+  //게시물 스크랩 수 조회
+  if( postData.length != 0) {
+ postData.data.map((sample)=>{
+    const path = "/api/v1/scraps/"+sample.boardId;
+    fetch(path, {
+      headers: {
+        Authorization: `Bearer ${"eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhZG1pbiIsImF1dGgiOiJST0xFX1VTRVIiLCJleHAiOjE2NTgyMzgwNzd9.mrclnP8N8tZXc50RS6daDAxFYGLhw5v2EyBruZtF5al7ffYLpCBPW9OcQVB99e6Jnnx9D-jQZhVL2ru8SnXnww"}`,
+      },
+    })
+      .then((res) => res.json())
+      .then((response) => {
+        NUM.push({id:sample.boardId, data: response.data.scrapCount});
+      });
+  }); }
+
+  return (
+    <>
+      <table className="common-table">
+        <thead>
+          <tr>
+            {headersName.map((item, index) => {
+              return (
+                <td className="common-table-header-column" key={index}>
+                  {item}
+                </td>
+              );
+            })}
+          </tr>
+        </thead>
+        <tbody >
+          
+          { postData.length != 0 ? postData.data.map((sample, i) => {
+            return (
+              <tr>
+                <td>{i + 1}</td>
+                <Link to="/NoticeRead" state={{ data: sample.boardId , boardType: boardType }} className="title"
+                  style={{ textAlign: "center", color: "black", listStyle: "none", textDecoration: "none", display: "inline-block", cursor: "pointer", }} >
+                  <td> {sample.title}</td>
+                </Link>
+                <td>{sample.createdDate.substring(0, 10)}</td>
+                <td>{sample.userName}</td>
+                <td>{sample.scraps}</td>
+              </tr>
+            );
+          })
+        : <div style={{textAlign:'center'}}>loading...</div>}
+
+        </tbody>
+      </table>
+              <Link to="/ScrapPosts" state={{ data: postData.data }}>
+              <button> 내가 스크랩한 게시물 보기</button>
+              </Link>
+    </>
+  );
+};
 
 export default PostList;

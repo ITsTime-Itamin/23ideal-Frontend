@@ -41,6 +41,8 @@ const NaverLogin = ()=> {
                 }
             });
         };
+
+        
     }
 
     const location = useLocation();  
@@ -56,7 +58,11 @@ const NaverLogin = ()=> {
         getNaverToken();
     });
 
-    return (<div id="naverIdLogin"/>);
+    return (
+        <div>
+    <div id="naverIdLogin"/>
+    </div>
+    );
 }
 
 export default NaverLogin;

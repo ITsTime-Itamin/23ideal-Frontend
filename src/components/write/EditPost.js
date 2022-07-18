@@ -2,15 +2,19 @@ import React, { useState } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import "./Editor.css";
 
-const Editor = () => {
+const EditPost = () => {
   const location = useLocation();
-  const Boardtitle = location.state.data;
   const boardType = location.state.boardType;
+  const propsBoardId = location.state.boardId;
+  const propsTitle = location.state.title;
+  const propsDeadLineDate=location.state.deadLineDate;
+  const propsContent=location.state.content;
   const navigate=useNavigate();
 
-  const [title, setTitle] = useState("");
-  const [content, setContent] = useState("");
-  const [deadLineDate, setDeadLineDate] = useState("");
+  const [boardId,setBoardId]=useState(propsBoardId);
+  const [title, setTitle] = useState(propsTitle);
+  const [content, setContent] = useState(propsContent);
+  const [deadLineDate, setDeadLineDate] = useState(propsDeadLineDate);
   const [files, setFiles] = useState([]);
 
   const handleUpload = (e) => {
@@ -19,7 +23,9 @@ const Editor = () => {
     setFiles([...files, { uploadedFile: file }]);
   };
 
-  const AddPost = async () => {
+
+
+  const Edit = async () => {
     const formData = new FormData();
     formData.append("files", files.length && files[0].uploadedFile);
     /*const value = [
@@ -34,12 +40,13 @@ const Editor = () => {
       "data",
       new Blob([JSON.stringify(value)], { type: "application/json" })
     );*/
+    formData.append("boardId",boardId);
     formData.append("title",title);
     formData.append("content",content);
     formData.append("deadLineDate",deadLineDate);
     formData.append("boardType",boardType);
 
-    fetch("api/v1/boards", {
+    fetch("api/v1/boards/update", {
       method: "POST",
       cache: "no-cache",
       headers: {
@@ -51,26 +58,28 @@ const Editor = () => {
       .then((response) => response.json())
       .then((data) => {
         console.log(data);
-        /*setTitle("");
+      /*  setTitle("");
         setContent("");
         setFiles([]);
-        setDeadLineDate("");*/
+        setDeadLineDate(""); */
     });
 
     return false;
   };
 
+
+
   return (
     <div>
-       <form  onSubmit={()=>{return AddPost()}} action="./" entype="multipart/formdata" >
       <div style={{ textAlign: "center", position: "relative", top: "100px" }}>
-        <h1>{Boardtitle}</h1>
+        <h1>수정하기</h1>
         <hr className="hr"></hr>
       </div>
       <div>
-        < input value="등록" type="submit" className="submit_btn" /> 
+        <button onClick={()=>Edit()}
+            /*input value="등록" type="submit" className="submit_btn"*/ >등록</button>
       </div>
-
+      <form /*onSubmit={()=>{return Edit()}} action="./"*/ entype="multipart/formdata" >
       <div>
         <div style={{ position: "relative", top: "140px", left: "380px", fontSize: "28px", letterSpacing: "2px", }} >
           제목
@@ -101,8 +110,9 @@ const Editor = () => {
       </div>
       </form>
       <button onClick={() => navigate(-1)} className="goback_btn"> 뒤로가기  </button>
+      {boardId}<br/>{title}<br/>{deadLineDate}<br/>{content}
     </div>
   );
 };
 
-export default Editor;
+export default EditPost;

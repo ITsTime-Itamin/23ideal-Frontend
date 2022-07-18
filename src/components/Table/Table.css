@@ -24,7 +24,8 @@
     padding: 10px 5px;
 }
 
-.common-row :hover {
-    background-color: #eceaea;
+.title :hover {
+    color:dimgray;
+    text-decoration-line: underline;
     cursor: pointer;
 }
