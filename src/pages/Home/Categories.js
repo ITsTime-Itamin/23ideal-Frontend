@@ -1,4 +1,4 @@
-/*import "./Categories.css";
+import "./Categories.css";
 import styled from "styled-components";
 
 export const Select = styled.select`
@@ -31,7 +31,7 @@ const Categories = () => {
             <div className="default">서울 특별시 </div>
             <div className="categoryItem"> 
                     <Select>
-                        <option key="gangNamGu" value="강남구">강남구</option>
+                        <option key="gangNamGu" value="강남구" >강남구</option>
                         <option key="gangDongGu" value="강동구">강동구</option>
                         <option key="gangBukGu" value="강북구">강북구</option>
                         <option key="gangSeoGu" value="강서구">강서구</option>
@@ -68,7 +68,7 @@ const Categories = () => {
     return <Categories option={OPTIONS} defaultVaule="gangNamGU"></Categories>;
 }*/
 
-//export default Categories;
+export default Categories;
 
 /*const Categories_List = const Product_Data [
     {id : 'gangNamGu',

@@ -15,7 +15,7 @@ const PostList = ({boardType}) => {
   if(boardType != "ALL") {
     fetch(path, {
       headers: {
-        Authorization: `Bearer ${"eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhZG1pbiIsImF1dGgiOiJST0xFX1VTRVIiLCJleHAiOjE2NTgyOTQ4MzN9.e-FJ4hTYzdnDMSdSant9s6CEvW2hCH-jT2rQErsPgisUYf-iHatqvHhU2_Dr3Oybm9UcwKxtIcNIWRJT5rssUQ"}`,
+        Authorization: `Bearer ${"eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhZG1pbiIsImF1dGgiOiJST0xFX1VTRVIiLCJleHAiOjE2NTgzMzE4Mjd9.c3_Swxk_6MEGnJs4fgIwwhYGgGisijOQekEGk7H7z0ANc_vUPemA6P2y0387M2ATdUkyGzJmssOORBz7MbmMhg"}`,
       },
     })
       .then((res) => res.json())

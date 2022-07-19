@@ -14,7 +14,7 @@ const PostList = ({boardType}) => {
   useEffect(()=>{
     fetch(path, {
       headers: {
-        Authorization: `Bearer ${"eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhZG1pbiIsImF1dGgiOiJST0xFX1VTRVIiLCJleHAiOjE2NTgyOTQ4MzN9.e-FJ4hTYzdnDMSdSant9s6CEvW2hCH-jT2rQErsPgisUYf-iHatqvHhU2_Dr3Oybm9UcwKxtIcNIWRJT5rssUQ"}`,
+        Authorization: `Bearer ${"eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhZG1pbiIsImF1dGgiOiJST0xFX1VTRVIiLCJleHAiOjE2NTgzMzE4Mjd9.c3_Swxk_6MEGnJs4fgIwwhYGgGisijOQekEGk7H7z0ANc_vUPemA6P2y0387M2ATdUkyGzJmssOORBz7MbmMhg"}`,
       },
     })
       .then((res) => res.json())
@@ -23,7 +23,7 @@ const PostList = ({boardType}) => {
       });
   },[]);
 
-  const TotalBoardType=["NOTICE","DEPOSIT","REVIEW","JOB","YOUTH_HOUSE","RENTAL_HOUSE","HAPPY_HOUSE","LOAN_HOUSE"];
+  /*const TotalBoardType=["NOTICE","DEPOSIT","REVIEW","JOB","YOUTH_HOUSE","RENTAL_HOUSE","HAPPY_HOUSE","LOAN_HOUSE"];
   const totalposts=[];
   TotalBoardType.map((data)=>{
     fetch("/api/v1/boards?boardType="+data, {
@@ -35,9 +35,7 @@ const PostList = ({boardType}) => {
       .then((response) => {
         totalposts.push(response.data.data);
       });
-  })
-
-  console.log(totalposts.length);
+  })*/
 
   //게시물 스크랩 수 조회
   /*const [scrapNum,setScrapNum]=useState([]);
@@ -114,7 +112,7 @@ const PostList = ({boardType}) => {
       }
         </tbody>
       </table>
-      <Link to="/ScrapPosts" state={{ data: totalposts }}>
+      <Link to="/ScrapPosts" /*state={{ data: totalposts }}*/>
         <button> 내가 스크랩한 게시물 보기</button>
       </Link>
     </>
