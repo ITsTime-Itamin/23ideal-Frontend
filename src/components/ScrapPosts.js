@@ -6,16 +6,16 @@ const ScrapPosts = () => {
   const headersName = ["no", "제목", "작성일", "작성자"];
   const [scrapData,setScrapData]=useState([]);
   const location = useLocation();
-  const post =[]; //기존 전체 게시물
+  const totalpost =[]; //기존 전체 게시물
   const scrapPosts=[]; //스크랩한 게시물
-  post.push(location.state.data); //PostList에서 게시물 props로 넘겨받음
+  totalpost.push(location.state.data); //PostList에서 게시물 props로 넘겨받음
 
 //유저가 스크랩 한 게시물 목록 조회
   useEffect(()=>{
     fetch("api/v1/scraps/whether/users", {
       headers: {
        //'Content-Type': 'application/json',
-        Authorization: `Bearer ${"eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhZG1pbiIsImF1dGgiOiJST0xFX1VTRVIiLCJleHAiOjE2NTgyMzgwNzd9.mrclnP8N8tZXc50RS6daDAxFYGLhw5v2EyBruZtF5al7ffYLpCBPW9OcQVB99e6Jnnx9D-jQZhVL2ru8SnXnww"}`,
+        Authorization: `Bearer ${"eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhZG1pbiIsImF1dGgiOiJST0xFX1VTRVIiLCJleHAiOjE2NTgyOTQ4MzN9.e-FJ4hTYzdnDMSdSant9s6CEvW2hCH-jT2rQErsPgisUYf-iHatqvHhU2_Dr3Oybm9UcwKxtIcNIWRJT5rssUQ"}`,
       },
     })
       .then((res) => res.json())
@@ -24,15 +24,32 @@ const ScrapPosts = () => {
       });
   },[]);
 
-  console.log(post);
-
- for (var i=0;i<1000;i++){
-    for(var j=0;j<scrapData.length;j++){
-      if(post[0][i].boardId==scrapData[j].boardId){
-        scrapPosts.push(post[0][i]);
-      }
+  const num=[];
+  for (var i=0;i<totalpost[0].length;i++){
+    num.push(totalpost[0][i].length);
     }
+
+  /*num.map((num)=>{
+    for(var i=0;i<num;i++){
+      for (var k=0;k<scrapData.length;j++){
+        if(totalpost[0][i][j].boardId ==scrapData[k].boardId){
+          scrapPosts.push(totalpost[0][i][j]);
+        }
+    }
+  }})*/
+
+ for(var i=0;i<totalpost[0].length;i++){
+  num.map((num)=>{
+    for (var j=0;j<num;j++){
+      for (var k=0;k<scrapData.length;j++){
+        if(totalpost[0][i][j].boardId ==scrapData[k].boardId){
+          scrapPosts.push(totalpost[0][i][j]);
+        }
+      }
+    }})
   }
+
+  console.log(scrapPosts);
 
   return (
     <>

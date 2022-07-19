@@ -9,12 +9,12 @@ const PostList = ({boardType}) => {
   const [postData,setPostData]=useState([]);
  /* const [currentPage, setCurrentPage] = useState(1);
   const [postsPerPage, setPostsPerPage] = useState(10);*/
-  const path="/api/v1/boards?boardType="+boardType;
 
+  const path="/api/v1/boards?boardType="+boardType;
   useEffect(()=>{
     fetch(path, {
       headers: {
-        Authorization: `Bearer ${"eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhZG1pbiIsImF1dGgiOiJST0xFX1VTRVIiLCJleHAiOjE2NTgyMzgwNzd9.mrclnP8N8tZXc50RS6daDAxFYGLhw5v2EyBruZtF5al7ffYLpCBPW9OcQVB99e6Jnnx9D-jQZhVL2ru8SnXnww"}`,
+        Authorization: `Bearer ${"eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhZG1pbiIsImF1dGgiOiJST0xFX1VTRVIiLCJleHAiOjE2NTgyOTQ4MzN9.e-FJ4hTYzdnDMSdSant9s6CEvW2hCH-jT2rQErsPgisUYf-iHatqvHhU2_Dr3Oybm9UcwKxtIcNIWRJT5rssUQ"}`,
       },
     })
       .then((res) => res.json())
@@ -22,6 +22,22 @@ const PostList = ({boardType}) => {
         setPostData(response.data);
       });
   },[]);
+
+  const TotalBoardType=["NOTICE","DEPOSIT","REVIEW","JOB","YOUTH_HOUSE","RENTAL_HOUSE","HAPPY_HOUSE","LOAN_HOUSE"];
+  const totalposts=[];
+  TotalBoardType.map((data)=>{
+    fetch("/api/v1/boards?boardType="+data, {
+      headers: {
+        Authorization: `Bearer ${"eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhZG1pbiIsImF1dGgiOiJST0xFX1VTRVIiLCJleHAiOjE2NTgyOTQ4MzN9.e-FJ4hTYzdnDMSdSant9s6CEvW2hCH-jT2rQErsPgisUYf-iHatqvHhU2_Dr3Oybm9UcwKxtIcNIWRJT5rssUQ"}`,
+      },
+    })
+      .then((res) => res.json())
+      .then((response) => {
+        totalposts.push(response.data.data);
+      });
+  })
+
+  console.log(totalposts.length);
 
   //게시물 스크랩 수 조회
   /*const [scrapNum,setScrapNum]=useState([]);
@@ -64,12 +80,12 @@ const PostList = ({boardType}) => {
           </tr>
         </thead>
         <tbody >
-          { boardType === "NOTICE" ?
+          { boardType === "FREE" || "REVIEW" ?
           ( postData.length != 0 ? postData.data.map((post, i) => {
             return (
               <tr>
                 <td>{i + 1}</td>
-                <Link to="/PostRead" state={{ data: post.boardId , boardType: boardType }} className="title"
+                <Link to="/PostComment" state={{ data: post.boardId , boardType: boardType }} className="title"
                   style={{ textAlign: "center", color: "black", listStyle: "none", textDecoration: "none", display: "inline-block", cursor: "pointer", }} >
                   <td> {post.title}</td>
                 </Link>
@@ -84,7 +100,7 @@ const PostList = ({boardType}) => {
           return (
             <tr>
               <td>{i + 1}</td>
-              <Link to="/PostComment" state={{ data: post.boardId , boardType: boardType }} className="title"
+              <Link to="/PostRead" state={{ data: post.boardId , boardType: boardType }} className="title"
                 style={{ textAlign: "center", color: "black", listStyle: "none", textDecoration: "none", display: "inline-block", cursor: "pointer", }} >
                 <td> {post.title}</td>
               </Link>
@@ -98,7 +114,7 @@ const PostList = ({boardType}) => {
       }
         </tbody>
       </table>
-      <Link to="/ScrapPosts" state={{ data: postData.data }}>
+      <Link to="/ScrapPosts" state={{ data: totalposts }}>
         <button> 내가 스크랩한 게시물 보기</button>
       </Link>
     </>
