@@ -1,5 +1,10 @@
-/*import "./Categories.css";
+import "./Categories.css";
 import styled from "styled-components";
+
+/*Interface propTypes {
+    zoom : Number;
+    setZoom : (num: Number) => void
+}*/
 
 export const Select = styled.select`
 	margin: 0;
@@ -25,15 +30,31 @@ const SelectBoxWrapper = styled.div`
 	display: flex;
 `;
 
-const Categories = () => {
+/*const onClickHandler = ({props}) =>
+{
     return (
+        props.setZoom(props.zoom +10)
+    )
+}*/
+
+const Categories =  props  => {
+    return (
+
         <div className="categoryBox">
+  
+                    
             <div className="default">서울 특별시 </div>
             <div className="categoryItem"> 
                     <Select>
-                        <option key="gangNamGu" value="강남구">강남구</option>
-                        <option key="gangDongGu" value="강동구">강동구</option>
-                        <option key="gangBukGu" value="강북구">강북구</option>
+
+                    {props.zoom}
+                    {props.lat}
+                    {props.lng}
+                    {props.setZoom}
+
+                        <option key="gangNamGu" value="강남구" onClick={() => props.setZoom(20)}>강남구</option>
+                        <option key="gangDongGu" value="강동구"onClick={() => props.setZoom(20)}>강동구</option>
+                        <option key="gangBukGu" value="강북구" onClick={() => props.setZoom(20)}>강북구</option>
                         <option key="gangSeoGu" value="강서구">강서구</option>
                         <option key="gwanAkGu" value="관악구">강동구</option>
                         <option key="gwangJinGu" value="광진구">광진구</option>
@@ -63,7 +84,7 @@ const Categories = () => {
         
     )
 };
-
+export default Categories;
 /*function CategoryItem () {
     return <Categories option={OPTIONS} defaultVaule="gangNamGU"></Categories>;
 }*/

@@ -24,7 +24,7 @@ import PostRead from "./components/read/PostRead";
 import PostComment from "./components/read/PostComment";
 import EditPost from "./components/write/EditPost";
 import ScrapPosts from "./components/ScrapPosts";
-//import Categories from "./pages/Home/Categories";
+import Categories from "./pages/Home/Categories";
 
 const App=()=>{
 
