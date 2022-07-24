@@ -191,10 +191,10 @@ const NaverMapAPI=({count})=> {
             }}
     
             defaultCenter={{ lat: 37.554722, lng: 126.970833 }} // 지도 초기 위치
-            defaultZoom={12}> // 지도 초기 위치 확대 비율
+        defaultZoom = {12}> // 지도 초기 위치 확대 비율
           
 
-            <Marker key={1} icon={icon1} position={new navermaps.LatLng(37.4959854, 127.0664091)} onClick={() =>setWidth('50%')} />
+            <Marker key={1} icon={icon1} position={new navermaps.LatLng(37.4959854, 127.0664091)} onClick={()=> setWidth('50%')} />
             <Marker key={2} icon={icon2} position={new navermaps.LatLng(37.5492077, 127.1464824)} onClick={() => setWidth('50%')} />
             <Marker key={3} icon={icon3} position={new navermaps.LatLng(37.6469954, 127.0147158)} onClick={()=>setWidth('50%')} />
             <Marker key={4} icon={icon4} position={new navermaps.LatLng(37.5657617, 126.8226561)} onClick={()=>setWidth('50%')} />

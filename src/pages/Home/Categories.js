@@ -41,18 +41,17 @@ const Categories =  props  => {
     return (
 
         <div className="categoryBox">
-  
-                    
-            <div className="default">서울 특별시 </div>
-            <div className="categoryItem"> 
-                    <Select>
 
                     {props.zoom}
                     {props.lat}
                     {props.lng}
                     {props.setZoom}
+            <div className="default">서울 특별시 </div>
+            <div className="categoryItem"> 
+                    <Select>
 
-                        <option key="gangNamGu" value="강남구" onClick={() => props.setZoom(20)}>강남구</option>
+
+                        <option key="gangNamGu" value="강남구" onClick={() =>this.props.setZoom(20)}>강남구</option>
                         <option key="gangDongGu" value="강동구"onClick={() => props.setZoom(20)}>강동구</option>
                         <option key="gangBukGu" value="강북구" onClick={() => props.setZoom(20)}>강북구</option>
                         <option key="gangSeoGu" value="강서구">강서구</option>
