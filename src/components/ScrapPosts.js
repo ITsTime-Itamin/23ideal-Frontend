@@ -15,7 +15,7 @@ const ScrapPosts = () => {
     fetch("api/v1/scraps/whether/users", {
       headers: {
        //'Content-Type': 'application/json',
-        Authorization: `Bearer ${"eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhZG1pbiIsImF1dGgiOiJST0xFX1VTRVIiLCJleHAiOjE2NTgzMzE4Mjd9.c3_Swxk_6MEGnJs4fgIwwhYGgGisijOQekEGk7H7z0ANc_vUPemA6P2y0387M2ATdUkyGzJmssOORBz7MbmMhg"}`,
+        Authorization: `Bearer ${"eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhZG1pbiIsImF1dGgiOiJST0xFX1VTRVIiLCJleHAiOjE2NTg0MDA5ODZ9.JwV1UJzO1oC6JbXYBR6eCkGXdTpoUAm95ZrpUb0Jap2Z7rhnUXNaVh2QWJJN5JlaxWvSdvbPKlNMKuu4zvWpDQ"}`,
       },
     })
       .then((res) => res.json())

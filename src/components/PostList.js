@@ -14,7 +14,7 @@ const PostList = ({boardType}) => {
   useEffect(()=>{
     fetch(path, {
       headers: {
-        Authorization: `Bearer ${"eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhZG1pbiIsImF1dGgiOiJST0xFX1VTRVIiLCJleHAiOjE2NTgzMzE4Mjd9.c3_Swxk_6MEGnJs4fgIwwhYGgGisijOQekEGk7H7z0ANc_vUPemA6P2y0387M2ATdUkyGzJmssOORBz7MbmMhg"}`,
+        Authorization: `Bearer ${"eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhZG1pbiIsImF1dGgiOiJST0xFX1VTRVIiLCJleHAiOjE2NTg0MDA5ODZ9.JwV1UJzO1oC6JbXYBR6eCkGXdTpoUAm95ZrpUb0Jap2Z7rhnUXNaVh2QWJJN5JlaxWvSdvbPKlNMKuu4zvWpDQ"}`,
       },
     })
       .then((res) => res.json())
@@ -37,26 +37,7 @@ const PostList = ({boardType}) => {
       });
   })*/
 
-  //게시물 스크랩 수 조회
-  /*const [scrapNum,setScrapNum]=useState([]);
-  const num=[];
-
-  if( postData.length != 0) {
-    postData.data.map((post)=>{
-      const path = "/api/v1/scraps/"+post.boardId;
-      fetch(path, {
-        headers: {
-          Authorization: `Bearer ${"eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhZG1pbiIsImF1dGgiOiJST0xFX1VTRVIiLCJleHAiOjE2NTgyMDQ3MDd9.TANacKhSh5u3Md23mm9bOvGO_5jvegXIG9ATmR9aVyaDl01KdT3m_5m3Np5_IwBJZCS897F03kVk_6m-WhsXlw"}`,
-        },
-      })
-      .then((res) => res.json())
-      .then((response) => {
-        num.push(response.data.scrapCount);
-      });
-    }); 
-  }
-
-  const indexOfLast = currentPage * postsPerPage;
+  /*const indexOfLast = currentPage * postsPerPage;
   const indexOfFirst = indexOfLast - postsPerPage;
   let currentPosts = 0;
   if(postData.length != 0){
@@ -78,7 +59,7 @@ const PostList = ({boardType}) => {
           </tr>
         </thead>
         <tbody >
-          { boardType === "FREE" || "REVIEW" ?
+          { (boardType === "FREE" || boardType === "REVIEW") ?
           ( postData.length != 0 ? postData.data.map((post, i) => {
             return (
               <tr>
@@ -89,7 +70,7 @@ const PostList = ({boardType}) => {
                 </Link>
                 <td>{post.createdDate.substring(0, 10)}</td>
                 <td>{post.userName}</td>
-                <td>{post.scraps}</td>
+                <td>{post.scrapCount}</td>
               </tr>
             );
           })
@@ -104,7 +85,7 @@ const PostList = ({boardType}) => {
               </Link>
               <td>{post.createdDate.substring(0, 10)}</td>
               <td>{post.userName}</td>
-              <td>{post.scraps}</td>
+              <td>{post.scrapCount}</td>
             </tr>
           );
         })

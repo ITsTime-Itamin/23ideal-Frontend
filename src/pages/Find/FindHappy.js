@@ -12,7 +12,7 @@ const FindHappy=()=>{
             </div>
             <div className="locate_btn"> 
                 <button className="editor_btn">  
-                    <Link to="/Editior" state={{data:"행복주택"}} className="editor_go">
+                    <Link to="/Editior" state={{data:"행복주택", boardType:"HAPPY_HOUSE"}} className="editor_go">
                         글쓰기
                     </Link>
                 </button>
