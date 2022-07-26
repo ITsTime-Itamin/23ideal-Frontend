@@ -110,7 +110,6 @@ const PostComment = (props) => {
   }
 
   //댓글 조회하기
- // const comment=[];
   const [getcomment,setGetcomment]=useState([]);
   const GetComment=()=>{
     const commentpath="api/v1/comments/"+id;
