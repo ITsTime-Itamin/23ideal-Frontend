@@ -56,21 +56,6 @@ const App=()=>{
         <Route path="FindRent" element={<FindRent/>}/>
         <Route path="FindYoung" element={<FindYoung/>}/>
 
-        <Route path="/FindAll" element={<SidebarFind />}/>
-        <Route path="/FindHappy" element={<SidebarFind />}/>
-        <Route path="/FindRent" element={<SidebarFind/>}/>
-        <Route path="/FindYoung" element={<SidebarFind/>}/>
-
-        <Route path="/SupportGov" element={<SidebarSupport />}/>
-        <Route path="/SupportBank" element={<SidebarSupport/>}/>
-        <Route path="/SupportLiving" element={<SidebarSupport />}/>
-        <Route path="/SupportLoan" element={<SidebarSupport />}/>
-
-        <Route path="/CommunityCom" element={<SidebarCommunity />}/>
-        <Route path="/CommunityFree" element={<SidebarCommunity />}/>
-        <Route path="/CommunityJob" element={<SidebarCommunity />}/>
-        <Route path="/CommunityNotice" element={<SidebarCommunity />}/>
-
         <Route path="/PostRead" element={<PostRead/>}/>
         <Route path="/PostComment" element={<PostComment/>}/>
 
