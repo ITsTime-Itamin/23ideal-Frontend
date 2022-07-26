@@ -2,12 +2,26 @@
       position: relative;
       text-align: center;
       color: black;
-      width: auto;
+      width: 400px;
       height: 500px;
+      float: left;
+      left: 8%;
+      top:10px;
     }
     .centered {
       position: absolute;
-      top: 50%;
+      width: 400px;
+      top: 70%;
+      left: 60%;
+      transform: translate(-50%, -50%);
+      text-align: left;
+      line-height: 35px;
+    }
+    .title {
+      position: absolute;
+      width: 400px;
+      top: 13%;
       left: 50%;
       transform: translate(-50%, -50%);
+      text-align: center;
     }

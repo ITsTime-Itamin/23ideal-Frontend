@@ -175,24 +175,25 @@ const NaverMapAPI=()=> {
 
   const guCode=(singleguCode)=>{
    const path='/api/v1/houses/'+singleguCode;
-    fetch(path).then(res=>(res.json())).then(response=>{setGuInfo(response.data.data);})
+    fetch(path).then(res=>(res.json())).then(response=>{
+      console.log(response.data.data);
+      setGuInfo(response.data.data);})
   }
 
   if(change==true){
     width='50%';
   }
   else if(change==false){
-    width='80%';
+    width='1300px';
   }
 
       return ( 
         <div> 
           <Categories setState={setMap} />
-          <div style={{background:'black',width: width,float:'right',height:'600px'}}>
           <NaverMap
             mapDivId={'maps-getting-started-uncontrolled'} // default: react-naver-map
             style={{
-             // width: width,
+              width: width,
               alignItems: 'center',
               height: '600px',
               borderWidth: 'medium',
@@ -200,7 +201,8 @@ const NaverMapAPI=()=> {
               justifyContent: 'auto',
               marginLeft:'auto',
               marginRight: 'auto',
-              right:'15%',
+              right:'10%',
+              float:'right'
             }}
             center={map.center}
             zoom={map.zoom} >
@@ -234,7 +236,15 @@ const NaverMapAPI=()=> {
             <Marker key={25} icon={icon25} position={new navermaps.LatLng(37.598031, 127.092931)} onClick={()=>{setChange(true); setMap({center:{lat:37.598031,lng:127.092931},isPanto: true}); guCode("260")}} />
           </>
           </NaverMap>
+          {change===true ?
+          <>
+          <div className="container">
+            <img src="/img/MapSide.png" alt="Snow" style={{width:'100%', height:'600px'}} />
+            <h1 className="title">공공주택 정보</h1>
+            <div className="centered">{guInfo.length !=0 ? guInfo.map((info)=>(<li>[{info.insttNm}] {info.hsmpNm}</li>)):null}</div>
           </div>
+          </>
+          :null}
         </div>
       )
     }
