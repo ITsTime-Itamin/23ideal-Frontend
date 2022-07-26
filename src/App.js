@@ -20,9 +20,11 @@ import CommunityJob from "./pages/Community/CommunityJob";
 import CommunityFree from "./pages/Community/CommunityFree";
 import CommunityNotice from "./pages/Community/CommunityNotice";
 import Editor from "./components/write/Editor";
-import NoticeRead from "./components/read/NoticeRead";
+import PostRead from "./components/read/PostRead";
+import PostComment from "./components/read/PostComment";
 import EditPost from "./components/write/EditPost";
 import ScrapPosts from "./components/ScrapPosts";
+import Calculator from "./pages/Calculator";
 //import Categories from "./pages/Home/Categories";
 
 const App=()=>{
@@ -69,12 +71,15 @@ const App=()=>{
         <Route path="/CommunityJob" element={<SidebarCommunity />}/>
         <Route path="/CommunityNotice" element={<SidebarCommunity />}/>
 
-        <Route path="/NoticeRead" element={<NoticeRead/>}/>
+        <Route path="/PostRead" element={<PostRead/>}/>
+        <Route path="/PostComment" element={<PostComment/>}/>
 
         <Route path="/Editor" element={<Editor/>}/>
         <Route path="/EditPost" element={<EditPost/>} />
 
         <Route path="/ScrapPosts" element={<ScrapPosts/>} />
+
+        <Route path="Customized" element={<Calculator/>}/>
 
       </Routes>
     </div>

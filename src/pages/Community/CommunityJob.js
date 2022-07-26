@@ -13,14 +13,14 @@ const CommunityJob = props => {
             </div>
             <div className="locate_btn"> 
                 <button className="editor_btn">  
-                    <Link to="/Editor" state={{data:"취업 공고"}} className="editor_go">
+                    <Link to="/Editor" state={{data:"취업 공고", boardType:"JOB"}} className="editor_go">
                         글쓰기
                     </Link>
                 </button>
             </div>
     
         <SidebarCommunity/>
-        <PostList/>
+        <PostList boardType={"JOB"}/>
         </div>
     )
 }

@@ -13,7 +13,7 @@ const NoticeRead = (props) => {
 
   fetch(path, {
     headers: {
-      Authorization: `Bearer ${"eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhZG1pbiIsImF1dGgiOiJST0xFX1VTRVIiLCJleHAiOjE2NTgxMjM2ODd9.JPuJg4fgCI0iTlnOOvVZTcOW6M1e5I1PhqLww43vtvPJhgwxtpiyHqsQF7jVKCdmQYCEhRwqBfVwF2bGaI3P8g"}`,
+      Authorization: `Bearer ${"eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhZG1pbiIsImF1dGgiOiJST0xFX1VTRVIiLCJleHAiOjE2NTgyMzgwNzd9.mrclnP8N8tZXc50RS6daDAxFYGLhw5v2EyBruZtF5al7ffYLpCBPW9OcQVB99e6Jnnx9D-jQZhVL2ru8SnXnww"}`,
     },
   })
     .then((res) => res.json())
@@ -27,7 +27,7 @@ const NoticeRead = (props) => {
   const DeletePost=()=>{
     fetch(path, {
       headers: {
-        Authorization: `Bearer ${"eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhZG1pbiIsImF1dGgiOiJST0xFX1VTRVIiLCJleHAiOjE2NTgxMjM2ODd9.JPuJg4fgCI0iTlnOOvVZTcOW6M1e5I1PhqLww43vtvPJhgwxtpiyHqsQF7jVKCdmQYCEhRwqBfVwF2bGaI3P8g"}`,
+        Authorization: `Bearer ${"eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhZG1pbiIsImF1dGgiOiJST0xFX1VTRVIiLCJleHAiOjE2NTgyMzgwNzd9.mrclnP8N8tZXc50RS6daDAxFYGLhw5v2EyBruZtF5al7ffYLpCBPW9OcQVB99e6Jnnx9D-jQZhVL2ru8SnXnww"}`,
       },
       method: "DELETE",
     })
@@ -49,7 +49,7 @@ const NoticeRead = (props) => {
       cache: "no-cache",
       headers: {
        'Content-Type': 'application/json',  //이걸 꼭 써야된다
-        Authorization: `Bearer ${"eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhZG1pbiIsImF1dGgiOiJST0xFX1VTRVIiLCJleHAiOjE2NTgxMjM2ODd9.JPuJg4fgCI0iTlnOOvVZTcOW6M1e5I1PhqLww43vtvPJhgwxtpiyHqsQF7jVKCdmQYCEhRwqBfVwF2bGaI3P8g"}`,
+        Authorization: `Bearer ${"eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhZG1pbiIsImF1dGgiOiJST0xFX1VTRVIiLCJleHAiOjE2NTgyMzgwNzd9.mrclnP8N8tZXc50RS6daDAxFYGLhw5v2EyBruZtF5al7ffYLpCBPW9OcQVB99e6Jnnx9D-jQZhVL2ru8SnXnww"}`,
       },
       body: JSON.stringify({'boardId':id}),
     })

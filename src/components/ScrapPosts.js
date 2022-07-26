@@ -1,22 +1,21 @@
 import React, { useEffect, useState } from "react";
 import { Link, useLocation } from "react-router-dom";
-import NoticeRead from "./read/NoticeRead";
 
 const ScrapPosts = () => {
 
   const headersName = ["no", "제목", "작성일", "작성자"];
   const [scrapData,setScrapData]=useState([]);
   const location = useLocation();
-  const post =[]; //기존 전체 게시물
+  const totalpost =[]; //기존 전체 게시물
   const scrapPosts=[]; //스크랩한 게시물
-  post.push(location.state.data); //PostList에서 게시물 props로 넘겨받음
+  totalpost.push(location.state.data); //PostList에서 게시물 props로 넘겨받음
 
 //유저가 스크랩 한 게시물 목록 조회
   useEffect(()=>{
-    fetch("/api/v1/scraps/whether/users?=", {
+    fetch("api/v1/scraps/whether/users", {
       headers: {
        //'Content-Type': 'application/json',
-        Authorization: `Bearer ${"eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhZG1pbiIsImF1dGgiOiJST0xFX1VTRVIiLCJleHAiOjE2NTgxMjM2ODd9.JPuJg4fgCI0iTlnOOvVZTcOW6M1e5I1PhqLww43vtvPJhgwxtpiyHqsQF7jVKCdmQYCEhRwqBfVwF2bGaI3P8g"}`,
+        Authorization: `Bearer ${"eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhZG1pbiIsImF1dGgiOiJST0xFX1VTRVIiLCJleHAiOjE2NTg0MDA5ODZ9.JwV1UJzO1oC6JbXYBR6eCkGXdTpoUAm95ZrpUb0Jap2Z7rhnUXNaVh2QWJJN5JlaxWvSdvbPKlNMKuu4zvWpDQ"}`,
       },
     })
       .then((res) => res.json())
@@ -25,13 +24,32 @@ const ScrapPosts = () => {
       });
   },[]);
 
- for (var i=0;i<post[0].length;i++){
-    for(var j=0;j<scrapData.length;j++){
-      if(post[0][i].boardId==scrapData[j].boardId){
-        scrapPosts.push(post[0][i]);
-      }
+  const num=[];
+  for (var i=0;i<totalpost[0].length;i++){
+    num.push(totalpost[0][i].length);
     }
+
+  /*num.map((num)=>{
+    for(var i=0;i<num;i++){
+      for (var k=0;k<scrapData.length;j++){
+        if(totalpost[0][i][j].boardId ==scrapData[k].boardId){
+          scrapPosts.push(totalpost[0][i][j]);
+        }
+    }
+  }})*/
+
+ for(var i=0;i<totalpost[0].length;i++){
+  num.map((num)=>{
+    for (var j=0;j<num;j++){
+      for (var k=0;k<scrapData.length;j++){
+        if(totalpost[0][i][j].boardId ==scrapData[k].boardId){
+          scrapPosts.push(totalpost[0][i][j]);
+        }
+      }
+    }})
   }
+
+  console.log(scrapPosts);
 
   return (
     <>
@@ -55,7 +73,7 @@ const ScrapPosts = () => {
             return (
               <tr>
                 <td>{i + 1}</td>
-                <Link to="/NoticeRead" state={{ data: sample.boardId , boardType: sample.boardType }} className="title"
+                <Link to="/PostRead" state={{ data: sample.boardId , boardType: sample.boardType }} className="title"
                   style={{ textAlign: "center", color: "black", listStyle: "none", textDecoration: "none", display: "inline-block", cursor: "pointer", }} >
                   <td> {sample.title}</td>
                 </Link>

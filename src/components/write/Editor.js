@@ -22,18 +22,6 @@ const Editor = () => {
   const AddPost = async () => {
     const formData = new FormData();
     formData.append("files", files.length && files[0].uploadedFile);
-    /*const value = [
-      {
-        title: title,
-        content: content,
-        deadLineDate: deadLineDate,
-        boardType: "NOTICE",
-      },
-    ];
-    formData.append(
-      "data",
-      new Blob([JSON.stringify(value)], { type: "application/json" })
-    );*/
     formData.append("title",title);
     formData.append("content",content);
     formData.append("deadLineDate",deadLineDate);
@@ -44,17 +32,14 @@ const Editor = () => {
       cache: "no-cache",
       headers: {
        // "Content-Type": "multipart/form-data",
-        Authorization: `Bearer ${"eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhZG1pbiIsImF1dGgiOiJST0xFX1VTRVIiLCJleHAiOjE2NTgxMjM2ODd9.JPuJg4fgCI0iTlnOOvVZTcOW6M1e5I1PhqLww43vtvPJhgwxtpiyHqsQF7jVKCdmQYCEhRwqBfVwF2bGaI3P8g"}`,
+        Authorization: `Bearer ${"eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhZG1pbiIsImF1dGgiOiJST0xFX1VTRVIiLCJleHAiOjE2NTg0MDA5ODZ9.JwV1UJzO1oC6JbXYBR6eCkGXdTpoUAm95ZrpUb0Jap2Z7rhnUXNaVh2QWJJN5JlaxWvSdvbPKlNMKuu4zvWpDQ"}`,
       },
       body: formData,
     })
       .then((response) => response.json())
       .then((data) => {
-        console.log(data);
-        /*setTitle("");
-        setContent("");
-        setFiles([]);
-        setDeadLineDate("");*/
+        alert("게시물 등록이 완료되었습니다");
+        window.location.assign("http://localhost:3000/");
     });
 
     return false;
@@ -62,7 +47,7 @@ const Editor = () => {
 
   return (
     <div>
-       <form  onSubmit={()=>{return AddPost()}} action="./" entype="multipart/formdata" >
+       <form  onSubmit={()=>{return AddPost()}} action="./"  entype="multipart/formdata" >
       <div style={{ textAlign: "center", position: "relative", top: "100px" }}>
         <h1>{Boardtitle}</h1>
         <hr className="hr"></hr>

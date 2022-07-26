@@ -11,14 +11,14 @@ const SupportGov=()=>{
             </div>
             <div className="locate_btn"> 
                 <button className="editor_btn">  
-                    <Link to="/Editor" state={{data:"정부의 보조금 지원 정책"}} className="editor_go">
+                    <Link to="/Editor" state={{data:"정부의 보조금 지원 정책", boardType:"DEPOSIT"}} className="editor_go">
                         글쓰기
                     </Link>
                 </button>
             </div>
              
            <SidebarSupport  />
-           <PostList/>
+           <PostList boardType={"DEPOSIT"}/>
         </div>
     );
 };

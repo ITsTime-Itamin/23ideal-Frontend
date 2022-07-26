@@ -1,17 +1,19 @@
-import { RenderAfterNavermapsLoaded, NaverMap, Marker} from 'react-naver-maps';
-import React, { Fragment, useEffect, useState } from "react";
-import { Link } from 'react-router-dom';
-//import Categories from './Categories';
+import { RenderAfterNavermapsLoaded, NaverMap, Marker, GroundOverlay} from 'react-naver-maps';
+import React, { useEffect, useState } from "react";
+import './MapSide.css'
+import { Link, useNavigate } from 'react-router-dom';
+import Categories from './Categories';
 
-
-const NaverMapAPI=({count})=> {
+const NaverMapAPI=()=> {
   const navermaps=window.naver.maps;
   const [countData,setCountData]=useState([]);
+  const [map,setMap]=useState({
+    center:{lat:37.554722,lng:126.970833},
+    isPanto:false,
+    zoom:12,
+  })
   
   fetch('/api/v1/houses').then(res=>(res.json())).then(response=>{setCountData(response.data);}); //json으로 변환 위해 axios->fetch
-//const countjson= JSON.stringify(countData,null,2);
-
- //console.log(countjson);  console.log(countData);
 
   var HOME_PATH= window.HOME_PATH||'.';
   
@@ -166,77 +168,86 @@ const NaverMapAPI=({count})=> {
     anchor: new navermaps.Point(20, 20)
   } 
 
+  let width='80%'; let left='0%'; let float=null;
+
+  const [change,setChange]=useState(false);
+  const [guInfo,setGuInfo]=useState([]);
+
+  const guCode=(singleguCode)=>{
+   const path='/api/v1/houses/'+singleguCode;
+    fetch(path).then(res=>(res.json())).then(response=>{
+      console.log(response.data.data);
+      setGuInfo(response.data.data);})
+  }
+
+  if(change==true){
+    width='50%';
+  }
+  else if(change==false){
+    width='1300px';
+  }
+
       return ( 
-        <div>
-           
+        <div> 
+          <Categories setState={setMap} />
           <NaverMap
             mapDivId={'maps-getting-started-uncontrolled'} // default: react-naver-map
             style={{
-              width: '80%',
-              height: '600px',
+              width: width,
               alignItems: 'center',
-              justifyContent: 'auto',
-              marginLeft: 'auto',
-              marginRight: 'auto',
+              height: '600px',
               borderWidth: 'medium',
-              borderColor: '#D8D8D8'
+              borderColor: '#D8D8D8',
+              justifyContent: 'auto',
+              marginLeft:'auto',
+              marginRight: 'auto',
+              right:'10%',
+              float:'right'
             }}
-        
-            defaultCenter={{ lat: 37.554722, lng: 126.970833 }} // 지도 초기 위치
-            defaultZoom={12} > // 지도 초기 위치 확대 비율
-          
-            <Link to="/HomeClick"> <Marker key={1} icon={icon1} position={new navermaps.LatLng(37.4959854, 127.0664091)} onClick={() => alert('강남구')} /></Link>
-            <Marker key={2} icon={icon2} position={new navermaps.LatLng(37.5492077, 127.1464824)} onClick={() => <Link to ="HomeClick"></Link>} />
-            <Marker key={3} icon={icon3} position={new navermaps.LatLng(37.6469954, 127.0147158)} onClick={()=>alert('강북구')} />
-            <Marker key={4} icon={icon4} position={new navermaps.LatLng(37.5657617, 126.8226561)} onClick={()=>alert('강서구')} />
-            <Marker key={5} icon={icon5} position={new navermaps.LatLng(37.4603732, 126.9536086)} onClick={()=>alert('관악구')} />
-            <Marker key={6} icon={icon6} position={new navermaps.LatLng(37.5574120, 127.0796211)} onClick={()=>alert('광진구')} />
-            <Marker key={7} icon={icon7} position={new navermaps.LatLng(37.4954856, 126.858121)} onClick={()=>alert('구로구')} />
-            <Marker key={8} icon={icon8} position={new navermaps.LatLng(37.4600969, 126.9001546)} onClick={()=>alert('금천구')} />
-            <Marker key={9} icon={icon9} position={new navermaps.LatLng(37.6377533, 127.0754623)} onClick={()=>alert('노원구')} />
-            <Marker key={10} icon={icon10} position={new navermaps.LatLng(37.6658609, 127.0317674)} onClick={()=>alert('도봉구')} />
-            <Marker key={11} icon={icon11} position={new navermaps.LatLng(37.5838012, 127.0507003)} onClick={()=>alert('동대문구')} />
-            <Marker key={12} icon={icon12} position={new navermaps.LatLng(37.4965037, 126.9443073)} onClick={()=>alert('동작구')} />
-            <Marker key={13} icon={icon13} position={new navermaps.LatLng(37.5676507, 126.8854549)} onClick={()=>alert('마포구')} />
-            <Marker key={14} icon={icon14} position={new navermaps.LatLng(37.5820369,126.9356665)} onClick={()=>alert('서대문구')} />
-            <Marker key={15} icon={icon15} position={new navermaps.LatLng(37.4769528, 127.0378103)} onClick={()=>alert('서초구')} />
-            <Marker key={16} icon={icon16} position={new navermaps.LatLng(37.5506753, 127.0409622)} onClick={()=>alert('성동구')} />
-            <Marker key={17} icon={icon17} position={new navermaps.LatLng(37.606991, 127.0232185)} onClick={()=>alert('성북구')} />
-            <Marker key={18} icon={icon18} position={new navermaps.LatLng(37.5177941, 127.1127078)} onClick={()=>alert('송파구')} />
-            <Marker key={19} icon={icon19} position={new navermaps.LatLng(37.5270616, 126.8561534)} onClick={()=>alert('양천구')} />
-            <Marker key={20} icon={icon20} position={new navermaps.LatLng(37.520641, 126.9139242)} onClick={()=>alert('영등포구')} />
-            <Marker key={21} icon={icon21} position={new navermaps.LatLng(37.5311008, 126.9810742)} onClick={()=>alert('용산구')} />
-            <Marker key={22} icon={icon22} position={new navermaps.LatLng(37.6176125, 126.9227004)} onClick={()=>alert('은평구')} />
-            <Marker key={23} icon={icon23} position={new navermaps.LatLng(37.5990998, 126.9861493)} onClick={()=>alert('종로구')} />
-            <Marker key={24} icon={icon24} position={new navermaps.LatLng(37.5579452, 126.9941904)} onClick={()=>alert('중구')} />
-            <Marker key={25} icon={icon25} position={new navermaps.LatLng(37.598031, 127.092931)} onClick={()=>alert('중랑구')} />
-           
+            center={map.center}
+            zoom={map.zoom} >
+           {/* defaultCenter={{ lat: lat, lng: lng }} // 지도 초기 위치
+            defaultZoom = {zoom}> // 지도 초기 위치 확대 비 율 */}
+          <>
+            <Marker key={1} icon={icon1} position={new navermaps.LatLng(37.4959854, 127.0664091)} onClick={()=>{setChange(true); setMap({center:{lat:37.4959854,lng:127.0664091},isPanto: true}); guCode("680")}} />
+            <Marker key={2} icon={icon2} position={new navermaps.LatLng(37.5492077, 127.1464824)} onClick={()=>{setChange(true); setMap({center:{lat:37.5492077,lng:127.1464824},isPanto: true}); guCode("740")}} />
+            <Marker key={3} icon={icon3} position={new navermaps.LatLng(37.6469954, 127.0147158)} onClick={()=>{setChange(true); setMap({center:{lat:37.6469954,lng:127.0147158},isPanto: true}); guCode("305")}} />
+            <Marker key={4} icon={icon4} position={new navermaps.LatLng(37.5657617, 126.8226561)} onClick={()=>{setChange(true); setMap({center:{lat:37.5657617,lng: 126.8226561},isPanto: true}); guCode("500")}}/>
+            <Marker key={5} icon={icon5} position={new navermaps.LatLng(37.4603732, 126.9536086)} onClick={()=>{setChange(true); setMap({center:{lat:37.4603732,lng:126.9536086},isPanto: true}); guCode("620")}} />
+            <Marker key={6} icon={icon6} position={new navermaps.LatLng(37.5574120, 127.0796211)} onClick={()=>{setChange(true); setMap({center:{lat:37.5574120,lng:127.0796211},isPanto: true}); guCode("215")}}/>
+            <Marker key={7} icon={icon7} position={new navermaps.LatLng(37.4954856, 126.858121)} onClick={()=>{setChange(true); setMap({center:{lat:37.4954856,lng:126.858121},isPanto: true}); guCode("530")}}/>
+            <Marker key={8} icon={icon8} position={new navermaps.LatLng(37.4600969, 126.9001546)} onClick={()=>{setChange(true); setMap({center:{lat:37.4600969,lng:126.9001546},isPanto: true}); guCode("545")}}/>
+            <Marker key={9} icon={icon9} position={new navermaps.LatLng(37.6377533, 127.0754623)} onClick={()=>{setChange(true); setMap({center:{lat:37.6377533,lng:127.0754623},isPanto: true}); guCode("350")}} />
+            <Marker key={10} icon={icon10} position={new navermaps.LatLng(37.6658609, 127.0317674)} onClick={()=>{setChange(true); setMap({center:{lat:37.6658609,lng:127.0317674},isPanto: true}); guCode("320")}} />
+            <Marker key={11} icon={icon11} position={new navermaps.LatLng(37.5838012, 127.0507003)} onClick={()=>{setChange(true); setMap({center:{lat:37.5838012,lng:127.0507003},isPanto: true}); guCode("230")}} />
+            <Marker key={12} icon={icon12} position={new navermaps.LatLng(37.4965037, 126.9443073)} onClick={()=>{setChange(true); setMap({center:{lat:37.4965037,lng:126.9443073},isPanto: true}); guCode("590")}} />
+            <Marker key={13} icon={icon13} position={new navermaps.LatLng(37.5676507, 126.8854549)} onClick={()=>{setChange(true); setMap({center:{lat:37.5676507,lng: 126.8854549},isPanto: true}); guCode("440")}} />
+            <Marker key={14} icon={icon14} position={new navermaps.LatLng(37.5820369,126.9356665)} onClick={()=>{setChange(true); setMap({center:{lat:37.5820369,lng:126.9356665},isPanto: true}); guCode("410")}} />
+            <Marker key={15} icon={icon15} position={new navermaps.LatLng(37.4769528, 127.0378103)} onClick={()=>{setChange(true); setMap({center:{lat:37.4769528,lng:127.0378103},isPanto: true}); guCode("650")}} />
+            <Marker key={16} icon={icon16} position={new navermaps.LatLng(37.5506753, 127.0409622)} onClick={()=>{setChange(true); setMap({center:{lat:37.5506753,lng:127.0409622},isPanto: true}); guCode("200")}} />
+            <Marker key={17} icon={icon17} position={new navermaps.LatLng(37.606991, 127.0232185)} onClick={()=>{setChange(true); setMap({center:{lat:37.606991,lng:127.0232185},isPanto: true}); guCode("290")}} />
+            <Marker key={18} icon={icon18} position={new navermaps.LatLng(37.5177941, 127.1127078)} onClick={()=>{setChange(true); setMap({center:{lat:37.5177941,lng:127.1127078},isPanto: true}); guCode("710")}} />
+            <Marker key={19} icon={icon19} position={new navermaps.LatLng(37.5270616, 126.8561534)} onClick={()=>{setChange(true); setMap({center:{lat:37.5270616,lng:126.8561534},isPanto: true}); guCode("470")}} />
+            <Marker key={20} icon={icon20} position={new navermaps.LatLng(37.520641, 126.9139242)} onClick={()=>{setChange(true); setMap({center:{lat:37.520641,lng:126.9139242},isPanto: true}); guCode("560")}} />
+            <Marker key={21} icon={icon21} position={new navermaps.LatLng(37.5311008, 126.9810742)} onClick={()=>{setChange(true); setMap({center:{lat:37.5311008,lng:126.9810742},isPanto: true}); guCode("170")}} />
+            <Marker key={22} icon={icon22} position={new navermaps.LatLng(37.6176125, 126.9227004)} onClick={()=>{setChange(true); setMap({center:{lat:37.6176125,lng:126.9227004},isPanto: true}); guCode("380")}} />
+            <Marker key={23} icon={icon23} position={new navermaps.LatLng(37.5990998, 126.9861493)} onClick={()=>{setChange(true); setMap({center:{lat:37.5990998,lng:126.9861493},isPanto: true}); guCode("110")}} />
+            <Marker key={24} icon={icon24} position={new navermaps.LatLng(37.5579452, 126.9941904)} onClick={()=>{setChange(true); setMap({center:{lat:37.5579452,lng:126.9941904},isPanto: true}); guCode("140")}} />
+            <Marker key={25} icon={icon25} position={new navermaps.LatLng(37.598031, 127.092931)} onClick={()=>{setChange(true); setMap({center:{lat:37.598031,lng:127.092931},isPanto: true}); guCode("260")}} />
+          </>
           </NaverMap>
-
-        
+          {change===true ?
+          <>
+          <div className="container">
+            <img src="/img/MapSide.png" alt="Snow" style={{width:'100%', height:'600px'}} />
+            <h1 className="title">공공주택 정보</h1>
+            <div className="centered">{guInfo.length !=0 ? guInfo.map((info)=>(<li>[{info.insttNm}] {info.hsmpNm}</li>)):null}</div>
+          </div>
+          </>
+          :null}
         </div>
       )
     }
-
-    /*const Categories_List = () => {
-      const Product_Data [
-        {id : 'gangNamGu',
-        value : '강남구'},
-        {id : 'gangDongGu',
-        value : '강동구'},
-        {id : 'gangBukGu',
-        value : '강북구'},
-        {id : 'gangSeoGu',
-        value : '강서구'},
-        {id : 'gwanAkGu',
-        value : '관악구'},
-        {id : 'gwangJinGu',
-        value : '광진구'},
-        {id : 'guRoGu',
-        value: '구로구'},
-    ];
-    } */
-  
 
 const Home=()=> {
 
@@ -258,7 +269,6 @@ const Home=()=> {
         loading={<p>Maps Loading...</p>} >
         <NaverMapAPI />
       </RenderAfterNavermapsLoaded>
-
 
       <div className="container" />
     </div>

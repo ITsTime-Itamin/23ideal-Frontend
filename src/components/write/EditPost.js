@@ -9,6 +9,7 @@ const EditPost = () => {
   const propsTitle = location.state.title;
   const propsDeadLineDate=location.state.deadLineDate;
   const propsContent=location.state.content;
+ // const propsFile=location.state.file;
   const navigate=useNavigate();
 
   const [boardId,setBoardId]=useState(propsBoardId);
@@ -17,13 +18,13 @@ const EditPost = () => {
   const [deadLineDate, setDeadLineDate] = useState(propsDeadLineDate);
   const [files, setFiles] = useState([]);
 
+  //console.log(propsFile);
+
   const handleUpload = (e) => {
     e.preventDefault();
     const file = e.target.files[0];
     setFiles([...files, { uploadedFile: file }]);
   };
-
-
 
   const Edit = async () => {
     const formData = new FormData();
@@ -51,17 +52,15 @@ const EditPost = () => {
       cache: "no-cache",
       headers: {
        // "Content-Type": "multipart/form-data",
-        Authorization: `Bearer ${"eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhZG1pbiIsImF1dGgiOiJST0xFX1VTRVIiLCJleHAiOjE2NTgxMjM2ODd9.JPuJg4fgCI0iTlnOOvVZTcOW6M1e5I1PhqLww43vtvPJhgwxtpiyHqsQF7jVKCdmQYCEhRwqBfVwF2bGaI3P8g"}`,
+        Authorization: `Bearer ${"eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhZG1pbiIsImF1dGgiOiJST0xFX1VTRVIiLCJleHAiOjE2NTg0MDA5ODZ9.JwV1UJzO1oC6JbXYBR6eCkGXdTpoUAm95ZrpUb0Jap2Z7rhnUXNaVh2QWJJN5JlaxWvSdvbPKlNMKuu4zvWpDQ"}`,
       },
       body: formData,
     })
       .then((response) => response.json())
       .then((data) => {
         console.log(data);
-      /*  setTitle("");
-        setContent("");
-        setFiles([]);
-        setDeadLineDate(""); */
+        alert("수정을 완료했습니다");
+        window.location.assign("http://localhost:3000/");
     });
 
     return false;
