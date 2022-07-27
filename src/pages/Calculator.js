@@ -6,6 +6,7 @@ const Calculator =()=>{
   const [house,setHouse]=useState(0);
   const [family,setFamily]=useState(0);
   const [account,setAccount]=useState(0);
+  let total=house+family+account
   
   const [year,setYear]=useState(0); //선택한 연도
   const [month,setMonth]=useState(0); //선택한 월
@@ -22,10 +23,10 @@ const Calculator =()=>{
   let nowDay=now.getDate();
 
   //오늘이 2022-09-20 이라고 하면
-  /*if(year=='2007 이전'){ //15년 이상
+  if(year=='2007 이전'){ //15년 이상
     setAccount(17);
   }
-  if( (nowYear==year && ((day==nowDay)||(day<nowDay)) &&(nowMonth-month<6)) || (nowYear==year && (day>nowDay) &&(nowMonth-month==6)) ){ //6개월 미만
+ else if( (nowYear==year && ((day==nowDay)||(day<nowDay)) &&(nowMonth-month<6)) || (nowYear==year && (day>nowDay) &&(nowMonth-month==6)) ){ //6개월 미만
     setAccount(1);
   }
   else if( nowYear==year && ((day==nowDay)||(day<nowDay)) && ((nowMonth-month==6) || (nowMonth-month>6)) ){ //2022.01.20
@@ -36,7 +37,8 @@ const Calculator =()=>{
   }
   else if( nowYear!=year && nowYear-year==1 &&((day==nowDay)||(day<nowDay)) && ((nowMonth-month==6) || (nowMonth-month>6)) ){
     setAccount(2);
-  }*/
+  }
+  /*else if (nowYear != year && nowYear==1)*/
 
 
     return(
@@ -88,11 +90,11 @@ const Calculator =()=>{
         <select onChange={(e)=>setDay(e.target.value)}>
           {selectday.map((i)=>{ return ( <option>{i}</option> )})}
         </select>일
+
+
+        <h3>총점</h3> {total}
         </div>
-        <div style={{left:'200px' , top :'1100px' , position :'absolute'}}>
-        
-        <button>청약가점 계산하기</button>
-        </div>
+  
       </>
     )
 }

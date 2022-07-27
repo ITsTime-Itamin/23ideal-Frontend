@@ -247,7 +247,7 @@ const NaverMapAPI=()=> {
             <Link to="/FindAll" className="link">
               전체공고 보러가기 → → 
             </Link>
-            <button className="close" type='button' onClick={()=>{setChange(true); setMap({center:{lat:37.554722, lng:126.970833},isPanto:true})}}>접기</button>
+            <button className="close" type='button' onClick={()=>{setChange(false); }}>접기</button>
           </div>
           </>
           :null}
