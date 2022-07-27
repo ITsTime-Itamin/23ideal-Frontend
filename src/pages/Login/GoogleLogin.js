@@ -19,7 +19,6 @@ const GoogleButton=({onSocial})=> {
             email,
             nickname:name
         });*/
-        useEffect(()=>
         fetch("/api/v1/users/googleLogin", {
             method: "POST",
             cache: "no-cache",
@@ -32,13 +31,13 @@ const GoogleButton=({onSocial})=> {
         .then((response) => {
           setToken(response.data.accessToken);
           alert("로그인 완료");
-      }),[])
+      })
+      
     }
 
     if(token != null){
         GoogleToken=token;
     }
-    console.log(GoogleToken)
 
     const onFailure = (error) => {
         console.log(error);

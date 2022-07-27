@@ -8,7 +8,7 @@ const Calculator =()=>{
   const [account,setAccount]=useState(0);
   let total=house+family+account;
   
-  const [year,setYear]=useState(""); //선택한 연도
+ /* const [year,setYear]=useState(""); //선택한 연도
   const [month,setMonth]=useState(""); //선택한 월
   const [day,setDay]=useState(""); //선택한 일
 
@@ -20,10 +20,10 @@ const Calculator =()=>{
   let now = new Date();
   let nowYear=now.getFullYear();
   let nowMonth=now.getMonth()+1;
-  let nowDay=now.getDate();
+  let nowDay=now.getDate();*/
 
   //오늘이 2022-09-20 이라고 하면
-  if(year=='2007 이전'){ //15년 이상
+  /*if(year=='2007 이전'){ //15년 이상
     setAccount(17);
   }
  else if( (nowYear==year && ((day==nowDay)||(day<nowDay)) &&(nowMonth-month<6)) || (nowYear==year && (day>nowDay) &&(nowMonth-month==6)) ){ //6개월 미만
@@ -79,81 +79,30 @@ const Calculator =()=>{
           <input type="radio" name="family" onChange={()=>setFamily(35)}/> 6명 이상 (35점)  <br/>
         </div>
         <div style={{left: '200px', top: '950px' ,position: 'absolute'}}>
-        <h3>청약통장</h3>
-        가입일 : 
-        <select onChange={(e)=>setYear(e.target.value)}>
-          {selectyear.map((i)=>{ return ( <option>{i}</option> )  })}
-        </select>년  
-        <select onChange={(e)=>setMonth(e.target.value)}>
-          {selectmonth.map((i)=>{ return ( <option>{i}</option> )})}
-        </select>월
-        <select onChange={(e)=>setDay(e.target.value)}>
-          {selectday.map((i)=>{ return ( <option>{i}</option> )})}
-        </select>일
-
-
+        <h3>청약통장 가입기간을 선택해주세요</h3>
+          <input type="radio" name="account" onChange={()=>setAccount(1)}/> 만 6월 미만 (1점) <br/>
+          <input type="radio" name="account" onChange={()=>setAccount(2)}/> 만 6월 이상 ~ 만 1년 미만 (2점) <br/>
+          <input type="radio" name="account" onChange={()=>setAccount(3)}/> 만 1년 이상 ~ 2년 미만 (3점) <br/>
+          <input type="radio" name="account" onChange={()=>setAccount(4)}/> 만 2년 이상 ~ 3년 미만 (4점) <br/>
+          <input type="radio" name="account" onChange={()=>setAccount(5)}/> 만 3년 이상 ~ 4년 미만 (5점) <br/>
+          <input type="radio" name="account" onChange={()=>setAccount(6)}/> 만 4년 이상 ~ 5년 미만 (6점) <br/>
+          <input type="radio" name="account" onChange={()=>setAccount(7)}/> 만 5년 이상 ~ 6년 미만 (7점) <br/>
+          <input type="radio" name="account" onChange={()=>setAccount(8)}/> 만 6년 이상 ~ 7년 미만 (8점) <br/>
+          <input type="radio" name="account" onChange={()=>setAccount(9)}/> 만 7년 이상 ~ 8년 미만 (9점) <br/>
+          <input type="radio" name="account" onChange={()=>setAccount(10)}/> 만 8년 이상 ~ 9년 미만 (10점) <br/>
+          <input type="radio" name="account" onChange={()=>setAccount(11)}/> 만 9년 이상 ~ 10년 미만 (11점) <br/>
+          <input type="radio" name="account" onChange={()=>setAccount(12)}/> 만 10년 이상 ~ 11년 미만 (12점) <br/>
+          <input type="radio" name="account" onChange={()=>setAccount(13)}/> 만 11년 이상 ~ 12년 미만 (13점) <br/>
+          <input type="radio" name="account" onChange={()=>setAccount(14)}/> 만 12년 이상 ~ 13년 미만 (14점) <br/>
+          <input type="radio" name="account" onChange={()=>setAccount(15)}/> 만 13년 이상 ~ 14년 미만 (15점) <br/>
+          <input type="radio" name="account" onChange={()=>setAccount(16)}/> 만 14년 이상 ~ 15년 미만 (16점) <br/>
+          <input type="radio" name="account" onChange={()=>setAccount(17)}/> 만 15년 이상 (17점) <br/>
         <h3>총점</h3> {total}
         </div>
   
       </>
     )
 }
-
-/*addTolnput = num => {
-  console.log({input: setFamily() + setHouse()});
-  this.setState({input:setFamily() + setHouse()});
-}; //이런식으로 했는데 set 가져오는걸 이렇게 하는게 맞는지 모르겠넵 .... 
-
-calculateResult = () =>
-{
-  this.setState({input:eval(this.state.input)})
-};/*
-
-
-
-/*const Increase = () => {
-  state = {
-    number1 :'',
-    number2 : '',
-  };*/
-
-  /*result = (e) => {
-    this.setState ({
-      number: parseInt(this.state.number1) + parseInt(this.state.number2),
-    });
-  }
-
-  numberChange1 = (e) => {
-    this.setState({
-      number1 : e.target.value,
-    });
-  };
-
-  numberChange2 = (e) => {
-    this.setState ({
-      number2:e.target.value,
-    });
-  };
-
-  render () 
-    const {number1,number2,number} = this.state;
-    return (
-      <div>
-        <div>
-          {number1} + {number2} = {number}
-        </div>
-      </div>
-    );
-  
-
-  
-}
-
-/*function Increase(setFamily, setHouse) {
- return (
- setFamily + setHouse ;
-  )
-}*/
 
 const Title = styled.body`
   margin: 20px;

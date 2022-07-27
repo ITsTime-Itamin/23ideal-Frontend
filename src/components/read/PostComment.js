@@ -144,7 +144,7 @@ const PostComment = (props) => {
 
   let imgPath="";
   if(content.imageKeys != undefined) {
-   imgPath="https://itamin-backend-images.s3.ap-northeast-2.amazonaws.com/" + content.imageKeys[0];
+   imgPath='s3' + content.imageKeys[0];
   }
 
    //게시물 이미지 불러오기

@@ -72,8 +72,6 @@ const PostList = ({boardType}) => {
   currentPosts = postData.data.slice(indexOfFirst, indexOfLast);}
   console.log(currentPosts);*/
 
-console.log(postData);
-
   return (
     <>
     <main>
@@ -100,7 +98,7 @@ console.log(postData);
                   <td> {post.title}</td>
                 </Link>
                 <td>{post.createdDate.substring(0, 10)}</td>
-                <td>{post.deadLineDate}</td>
+                <td>{post.deadLineDate.substring(0, 10)}</td>
                 <td>관리자</td>
                 <td>{post.scrapCount}</td>
               </tr>
@@ -116,7 +114,7 @@ console.log(postData);
                 <td> {post.title}</td>
               </Link>
               <td>{post.createdDate.substring(0, 10)}</td>
-              <td>{post.deadLineDate}</td>
+              <td>{post.deadLineDate.substring(0, 10)}</td>
               <td>관리자</td>
               <td>{post.scrapCount}</td>
             </tr>
