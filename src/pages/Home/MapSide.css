@@ -1,0 +1,46 @@
+    .container {
+      position: relative;
+      text-align: center;
+      color: black;
+      width: 430px;
+      height: 500px;
+      float: left;
+      left: 8%;
+      top:10px;
+    }
+    .centered {
+      position: absolute;
+      width: 400px;
+      top: 66%;
+      left: 63%;
+      transform: translate(-50%, -50%);
+      text-align: left;
+      line-height: 35px;
+    }
+    .title {
+      position: absolute;
+      width: 400px;
+      top: 13%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      text-align: center;
+    }
+    .link {
+      position: absolute;
+      width: 400px;
+      top: 110%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      text-align: center;
+      font-size: small;
+      color: gray;
+    }
+    .close {
+      position: absolute;
+      top: 110%;
+      left: 80%;
+      transform: translate(-50%, -50%);
+      text-align: center;
+      font-size: small;
+      color: black;
+    }

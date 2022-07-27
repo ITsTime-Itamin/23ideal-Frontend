@@ -89,21 +89,21 @@ const Calculator =()=>{
         </select>일
         </div>
         <div style={{left:'200px' , top :'1100px' , position :'absolute'}}>
-        <button onClick={() => this.calculateResult()}>청약가점 계산하기</button>
+        <button>청약가점 계산하기</button>
         </div>
       </>
     )
 }
 
-addTolnput = num => {
+/*addTolnput = num => {
   console.log({input: setFamily() + setHouse()});
   this.setState({input:setFamily() + setHouse()});
-};
+}; //이런식으로 했는데 set 가져오는걸 이렇게 하는게 맞는지 모르겠넵 .... 
 
 calculateResult = () =>
 {
   this.setState({input:eval(this.state.input)})
-};
+};/*
 
 
 
