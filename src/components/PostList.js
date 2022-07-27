@@ -7,6 +7,7 @@ import { GoogleToken } from "../pages/Login/GoogleLogin";
 const PostList = ({boardType}) => {
 
   const headersName = ["no", "제목", "작성일", "작성자", "스크랩수"];
+  const headersName_comment = ["no", "제목", "작성일", "작성자", "공감수"];
   const [postData,setPostData]=useState([]);
  /* const [currentPage, setCurrentPage] = useState(1);
   const [postsPerPage, setPostsPerPage] = useState(10);*/
@@ -50,13 +51,22 @@ const PostList = ({boardType}) => {
       <table className="common-table">
         <thead>
           <tr>
-            {headersName.map((item, index) => {
+            {(boardType === "FREE" || boardType === "REVIEW") ?
+            headersName_comment.map((item, index) => {
               return (
                 <td className="common-table-header-column" key={index}>
                   {item}
                 </td>
               );
-            })}
+            }):
+            headersName.map((item, index) => {
+              return (
+                <td className="common-table-header-column" key={index}>
+                  {item}
+                </td>
+              );
+            })
+          }
           </tr>
         </thead>
         <tbody >
@@ -70,7 +80,7 @@ const PostList = ({boardType}) => {
                   <td> {post.title}</td>
                 </Link>
                 <td>{post.createdDate.substring(0, 10)}</td>
-                <td>{post.userName}</td>
+                <td>관리자</td>
                 <td>{post.scrapCount}</td>
               </tr>
             );
@@ -94,7 +104,7 @@ const PostList = ({boardType}) => {
       }
         </tbody>
       </table>
-      <Link to="/ScrapPosts" /*state={{ data: totalposts }}*/>
+      <Link to="/ScrapPosts" state={{ data: postData.data }}>
         <button> 내가 스크랩한 게시물 보기</button>
       </Link>
     </>
