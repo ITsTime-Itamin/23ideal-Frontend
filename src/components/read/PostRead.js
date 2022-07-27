@@ -15,7 +15,6 @@ const PostRead = (props) => {
   const [scrapTF,setScrapTF]=useState(false);
   const path = "/api/v1/boards/" + id;
 
-
   fetch(path, {
     headers: {
       Authorization: `Bearer ${GoogleToken}`,
@@ -38,7 +37,6 @@ const PostRead = (props) => {
     })
       .then((res) => res.json())
       .then((data) => { 
-        console.log(data);
         alert("삭제되었습니다");
         window.location.assign("http://localhost:3000/");
       });
@@ -80,7 +78,6 @@ const PostRead = (props) => {
     })
       .then((res) => res.json())
       .then((response) => {
-        console.log(response.data.isScraped);
         setScrapTF(response.data.isScraped);
     });
   }

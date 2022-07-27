@@ -6,6 +6,7 @@ const Calculator =()=>{
   const [house,setHouse]=useState(0);
   const [family,setFamily]=useState(0);
   const [account,setAccount]=useState(0);
+  
   const [year,setYear]=useState(0); //선택한 연도
   const [month,setMonth]=useState(0); //선택한 월
   const [day,setDay]=useState(0); //선택한 일

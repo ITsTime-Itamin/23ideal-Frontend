@@ -30,7 +30,7 @@
       width: 400px;
       top: 110%;
       left: 50%;
-      transform: translate(-50%, -50%);
+      text-decoration: none;
       text-align: center;
       font-size: small;
       color: gray;
@@ -44,3 +44,10 @@
       font-size: small;
       color: black;
     }
+
+    /*@font-face {
+      font-family: 'InfinitySans-R';
+      src: url('/fonts/InfinitySansR-Regular.ttf');
+      font-weight: normal;
+      font-style: normal;
+    }*/

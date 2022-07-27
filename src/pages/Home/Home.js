@@ -1,4 +1,4 @@
-import { RenderAfterNavermapsLoaded, NaverMap, Marker, GroundOverlay} from 'react-naver-maps';
+import { RenderAfterNavermapsLoaded, NaverMap, Marker } from 'react-naver-maps';
 import React, { useEffect, useState } from "react";
 import './MapSide.css'
 import { Link, useNavigate } from 'react-router-dom';
@@ -256,11 +256,6 @@ const NaverMapAPI=()=> {
     }
 
 const Home=()=> {
-
-  /*const [countData,setCountData]=useState(null);
-
-  fetch('http://localhost:3000/api/v1/houses').then(res=>(res.json())).then(response=>{setCountData(response.data);}); //json으로 변환 위해 axios->fetch
-  const countjson= JSON.stringify(countData,null,2);*/
 
   return (
     <div>
