@@ -37,7 +37,6 @@
     }
     .close {
       position: absolute;
-      width: 400px;
       top: 110%;
       left: 80%;
       transform: translate(-50%, -50%);
