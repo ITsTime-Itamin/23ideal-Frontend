@@ -186,7 +186,7 @@ const PostComment = (props) => {
           <img src="img/GoScrapIcon.png" style={{width:'14px', height :'14px'}}/> 공감 </StyleButton>
         : 
         <StyleButton> 
-          <img src="img/noLike.png" style={{width:'14px', height :'14px'}}/> 공감 </StyleButton>
+          <img src="img/like-09.png" style={{width:'14px', height :'14px'}}/> 공감 </StyleButton>
       } 
 
       {GetComment()}

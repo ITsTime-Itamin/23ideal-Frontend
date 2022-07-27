@@ -23,10 +23,10 @@ const Calculator =()=>{
   let nowDay=now.getDate();
 
   //오늘이 2022-09-20 이라고 하면
-  if(year==='2007 이전'){ //15년 이상
+  if(year=='2007 이전'){ //15년 이상
     setAccount(17);
   }
-  /*else if( (nowYear==year && ((day==nowDay)||(day<nowDay)) &&(nowMonth-month<6)) || (nowYear==year && (day>nowDay) &&(nowMonth-month==6)) ){ //6개월 미만
+ else if( (nowYear==year && ((day==nowDay)||(day<nowDay)) &&(nowMonth-month<6)) || (nowYear==year && (day>nowDay) &&(nowMonth-month==6)) ){ //6개월 미만
     setAccount(1);
   }
   else if( nowYear==year && ((day==nowDay)||(day<nowDay)) && ((nowMonth-month==6) || (nowMonth-month>6)) ){ //2022.01.20
@@ -37,12 +37,17 @@ const Calculator =()=>{
   }
   else if( nowYear!=year && nowYear-year==1 &&((day==nowDay)||(day<nowDay)) && ((nowMonth-month==6) || (nowMonth-month>6)) ){
     setAccount(2);
-  }*/
+  }
+  /*else if (nowYear != year && nowYear==1)*/
 
 
     return(
       <>
-        <Title style={{textAlign:'center'}}>청약가점계산기</Title>
+        <h1>
+        <Title style={{textAlign:'center', position : "relative" , top : "100px"}}>
+        청약가점계산기 </Title>
+        </h1>
+   
         <div style={{left: '200px', top: '250px' ,position: 'absolute'}}>
         <h3>무주택기간을 선택해주세요 (미혼인 경우 만 30세부터 기간을 산정)</h3>
           <input type="radio" name="house" onChange={()=>setHouse(0)}/>만 30세 미만 미혼자 (0점) <br/>
@@ -86,11 +91,69 @@ const Calculator =()=>{
           {selectday.map((i)=>{ return ( <option>{i}</option> )})}
         </select>일
 
+
         <h3>총점</h3> {total}
         </div>
+  
       </>
     )
 }
+
+/*addTolnput = num => {
+  console.log({input: setFamily() + setHouse()});
+  this.setState({input:setFamily() + setHouse()});
+}; //이런식으로 했는데 set 가져오는걸 이렇게 하는게 맞는지 모르겠넵 .... 
+
+calculateResult = () =>
+{
+  this.setState({input:eval(this.state.input)})
+};/*
+
+
+
+/*const Increase = () => {
+  state = {
+    number1 :'',
+    number2 : '',
+  };*/
+
+  /*result = (e) => {
+    this.setState ({
+      number: parseInt(this.state.number1) + parseInt(this.state.number2),
+    });
+  }
+
+  numberChange1 = (e) => {
+    this.setState({
+      number1 : e.target.value,
+    });
+  };
+
+  numberChange2 = (e) => {
+    this.setState ({
+      number2:e.target.value,
+    });
+  };
+
+  render () 
+    const {number1,number2,number} = this.state;
+    return (
+      <div>
+        <div>
+          {number1} + {number2} = {number}
+        </div>
+      </div>
+    );
+  
+
+  
+}
+
+/*function Increase(setFamily, setHouse) {
+ return (
+ setFamily + setHouse ;
+  )
+}*/
 
 const Title = styled.body`
   margin: 20px;
