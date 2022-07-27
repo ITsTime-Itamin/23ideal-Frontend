@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
+import { GoogleToken } from "../../pages/Login/GoogleLogin";
 import "./Editor.css";
 
 const EditPost = () => {
@@ -52,7 +53,7 @@ const EditPost = () => {
       cache: "no-cache",
       headers: {
        // "Content-Type": "multipart/form-data",
-        Authorization: `Bearer ${"eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhZG1pbiIsImF1dGgiOiJST0xFX1VTRVIiLCJleHAiOjE2NTg0MDA5ODZ9.JwV1UJzO1oC6JbXYBR6eCkGXdTpoUAm95ZrpUb0Jap2Z7rhnUXNaVh2QWJJN5JlaxWvSdvbPKlNMKuu4zvWpDQ"}`,
+        Authorization: `Bearer ${GoogleToken}`,
       },
       body: formData,
     })

@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import "./Table/Table.css"
 import Pagination from "./Pagination";
+import { GoogleToken } from "../pages/Login/GoogleLogin";
 
 const PostList = ({boardType}) => {
 
@@ -14,7 +15,7 @@ const PostList = ({boardType}) => {
   useEffect(()=>{
     fetch(path, {
       headers: {
-        Authorization: `Bearer ${"eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhZG1pbiIsImF1dGgiOiJST0xFX1VTRVIiLCJleHAiOjE2NTg0MDA5ODZ9.JwV1UJzO1oC6JbXYBR6eCkGXdTpoUAm95ZrpUb0Jap2Z7rhnUXNaVh2QWJJN5JlaxWvSdvbPKlNMKuu4zvWpDQ"}`,
+        Authorization: `Bearer ${GoogleToken}`,
       },
     })
       .then((res) => res.json())
@@ -28,7 +29,7 @@ const PostList = ({boardType}) => {
   TotalBoardType.map((data)=>{
     fetch("/api/v1/boards?boardType="+data, {
       headers: {
-        Authorization: `Bearer ${"eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhZG1pbiIsImF1dGgiOiJST0xFX1VTRVIiLCJleHAiOjE2NTgyOTQ4MzN9.e-FJ4hTYzdnDMSdSant9s6CEvW2hCH-jT2rQErsPgisUYf-iHatqvHhU2_Dr3Oybm9UcwKxtIcNIWRJT5rssUQ"}`,
+        Authorization: `Bearer ${GoogleToken}`,
       },
     })
       .then((res) => res.json())
@@ -64,7 +65,7 @@ const PostList = ({boardType}) => {
             return (
               <tr>
                 <td>{i + 1}</td>
-                <Link to="/PostComment" state={{ data: post.boardId , boardType: boardType }} className="title"
+                <Link to="/PostComment" state={{ data: post.boardId , boardType: boardType }} className="postTitle"
                   style={{ textAlign: "center", color: "black", listStyle: "none", textDecoration: "none", display: "inline-block", cursor: "pointer", }} >
                   <td> {post.title}</td>
                 </Link>
@@ -79,7 +80,7 @@ const PostList = ({boardType}) => {
           return (
             <tr>
               <td>{i + 1}</td>
-              <Link to="/PostRead" state={{ data: post.boardId , boardType: boardType }} className="title"
+              <Link to="/PostRead" state={{ data: post.boardId , boardType: boardType }} className="postTitle"
                 style={{ textAlign: "center", color: "black", listStyle: "none", textDecoration: "none", display: "inline-block", cursor: "pointer", }} >
                 <td> {post.title}</td>
               </Link>

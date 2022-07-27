@@ -1,9 +1,6 @@
 import { Route, Routes } from "react-router-dom";
 import Navbar from "./components/Navbar";
 import Banner from "./components/Banner";
-import SidebarFind from "./components/SidebarFind";
-import SidebarSupport from "./components/SidebarSupport";
-import SidebarCommunity from "./components/SidebarCommunity";
 import SupportBank from "./pages/Support/SupportBank";
 import SupportGov from "./pages/Support/SupportGov";
 import SupportLiving from "./pages/Support/SupportLiving";
@@ -13,7 +10,6 @@ import FindHappy from "./pages/Find/FindHappy";
 import FindRent from "./pages/Find/FindRent";
 import FindYoung from "./pages/Find/FindYoung";
 import Home from "./pages/Home/Home";
-import HomeClick from "./pages/Home/HomeClick";
 import Login from "./pages/Login/Login";
 import CommunityCom from "./pages/Community/CommunityCom";
 import CommunityJob from "./pages/Community/CommunityJob";
@@ -36,25 +32,22 @@ const App=()=>{
       <Routes>
 
         <Route path="/" element={<Home />}/>
-        <Route path="/HomeClick" element={<HomeClick/>}/>
         <Route path="/Login" element={<Login />}/>
         <Route path="/CommunityCom" element={<CommunityCom/>}/>
      
         <Route path="/CommunityNotice" element={<CommunityNotice/>}/>
         <Route path="/CommunityFree" element={<CommunityFree/>}/>
         <Route path="/CommunityJob" element={<CommunityJob/>}/>
-      
 
-        <Route path="SupportBank" element={<SupportBank/>}/>
-        <Route path="SupportGov" element={<SupportGov/>}/>
-        <Route path="SupportLiving" element={<SupportLiving/>}/>
-        <Route path="SupportLoan" element={<SupportLoan/>}/>
+        <Route path="/SupportBank" element={<SupportBank/>}/>
+        <Route path="/SupportGov" element={<SupportGov/>}/>
+        <Route path="/SupportLiving" element={<SupportLiving/>}/>
+        <Route path="/SupportLoan" element={<SupportLoan/>}/>
         
-
-        <Route path="FindAll" element={<FindAll/>}/>
-        <Route path="FindHappy" element={<FindHappy/>}/>
-        <Route path="FindRent" element={<FindRent/>}/>
-        <Route path="FindYoung" element={<FindYoung/>}/>
+        <Route path="/FindAll" element={<FindAll/>}/>
+        <Route path="/FindHappy" element={<FindHappy/>}/>
+        <Route path="/FindRent" element={<FindRent/>}/>
+        <Route path="/FindYoung" element={<FindYoung/>}/>
 
         <Route path="/PostRead" element={<PostRead/>}/>
         <Route path="/PostComment" element={<PostComment/>}/>

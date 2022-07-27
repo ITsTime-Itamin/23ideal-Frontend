@@ -1,7 +1,7 @@
 import React, { useState } from "react";
-import { useLocation} from "react-router-dom";
-import { Link } from "react-router-dom";
+import { useLocation , Link} from "react-router-dom";
 import styled from "styled-components";
+import { GoogleToken } from "../../pages/Login/GoogleLogin";
 import "./Read.css";
 
 const PostRead = (props) => {
@@ -18,7 +18,7 @@ const PostRead = (props) => {
 
   fetch(path, {
     headers: {
-      Authorization: `Bearer ${"eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhZG1pbiIsImF1dGgiOiJST0xFX1VTRVIiLCJleHAiOjE2NTg0MDA5ODZ9.JwV1UJzO1oC6JbXYBR6eCkGXdTpoUAm95ZrpUb0Jap2Z7rhnUXNaVh2QWJJN5JlaxWvSdvbPKlNMKuu4zvWpDQ"}`,
+      Authorization: `Bearer ${GoogleToken}`,
     },
   })
     .then((res) => res.json())
@@ -32,7 +32,7 @@ const PostRead = (props) => {
   const DeletePost=()=>{
     fetch(path, {
       headers: {
-        Authorization: `Bearer ${"eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhZG1pbiIsImF1dGgiOiJST0xFX1VTRVIiLCJleHAiOjE2NTg0MDA5ODZ9.JwV1UJzO1oC6JbXYBR6eCkGXdTpoUAm95ZrpUb0Jap2Z7rhnUXNaVh2QWJJN5JlaxWvSdvbPKlNMKuu4zvWpDQ"}`,
+        Authorization: `Bearer ${GoogleToken}`,
       },
       method: "DELETE",
     })
@@ -51,7 +51,7 @@ const PostRead = (props) => {
       cache: "no-cache",
       headers: {
        'Content-Type': 'application/json',  //이걸 꼭 써야된다
-        Authorization: `Bearer ${"eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhZG1pbiIsImF1dGgiOiJST0xFX1VTRVIiLCJleHAiOjE2NTg0MDA5ODZ9.JwV1UJzO1oC6JbXYBR6eCkGXdTpoUAm95ZrpUb0Jap2Z7rhnUXNaVh2QWJJN5JlaxWvSdvbPKlNMKuu4zvWpDQ"}`,
+        Authorization: `Bearer ${GoogleToken}`,
       },
       body: JSON.stringify({'boardId':id}),
     })
@@ -74,7 +74,7 @@ const PostRead = (props) => {
       cache: "no-cache",
       headers: { 
         'Content-Type': 'application/json',
-        Authorization: `Bearer ${"eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhZG1pbiIsImF1dGgiOiJST0xFX1VTRVIiLCJleHAiOjE2NTg0MDA5ODZ9.JwV1UJzO1oC6JbXYBR6eCkGXdTpoUAm95ZrpUb0Jap2Z7rhnUXNaVh2QWJJN5JlaxWvSdvbPKlNMKuu4zvWpDQ"}`,
+        Authorization: `Bearer ${GoogleToken}`,
       },
       body:JSON.stringify({'boardId':id}),
     })

@@ -1,4 +1,4 @@
-import GoogleButton from "./GoogleLogin";
+import {GoogleButton} from "./GoogleLogin.js";
 import NaverLogin from "./NaverLogin";
 
 const Login=()=>{

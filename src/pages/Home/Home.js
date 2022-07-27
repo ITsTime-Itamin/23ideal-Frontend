@@ -247,7 +247,7 @@ const NaverMapAPI=()=> {
             <Link to="/FindAll" className="link">
               전체공고 보러가기 → → 
             </Link>
-            <div className="close">접기</div>
+            <button className="close" type='button' onClick={()=>{alert('확인')}}>접기</button>
           </div>
           </>
           :null}
