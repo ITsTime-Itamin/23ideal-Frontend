@@ -6,6 +6,7 @@ const Calculator =()=>{
   const [house,setHouse]=useState(0);
   const [family,setFamily]=useState(0);
   const [account,setAccount]=useState(0);
+  let total=house+family+account
   
   const [year,setYear]=useState(0); //선택한 연도
   const [month,setMonth]=useState(0); //선택한 월
@@ -84,6 +85,8 @@ const Calculator =()=>{
         <select onChange={(e)=>setDay(e.target.value)}>
           {selectday.map((i)=>{ return ( <option>{i}</option> )})}
         </select>일
+
+        <h3>총점</h3> {total}
         </div>
       </>
     )
