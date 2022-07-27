@@ -106,7 +106,7 @@ export const Select = styled.select`
 	padding: 8px 8px;
     font-family: 'Inter';
     font-weight: 700;
-    font-size: 25px;
+    font-size: 20px;
 	line-height: inherit;
     border-color : white;
     border-color : rgba( 0, 0, 0, 0 );
