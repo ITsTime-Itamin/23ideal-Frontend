@@ -28,8 +28,7 @@ const PostComment = (props) => {
       });
   },[])
   const unformatDate = "" + content.createdDate;
-    const date = unformatDate.substring(0, 10);
- //   console.log(content);
+  const date = unformatDate.substring(0, 10);
 
   //게시물 삭제하기
   const DeletePost=()=>{
@@ -61,11 +60,10 @@ const PostComment = (props) => {
       .then(() => {
         if(scrapTF==true){
           scrapImg="img/ScrapIcon.png"
-          alert("스크랩 취소");
         }
         else if(scrapTF==false) {
           scrapImg="img/GoScrapIcon.png"
-          alert("스크랩 완료");
+          alert("공감 완료");
         }
     });
   }
@@ -125,12 +123,6 @@ const PostComment = (props) => {
       .then((response) => 
       setGetcomment(response.data)
     )
-    //comment.push(getcomment);
-   /* if(comment[0].length != 0){
-      for (var i=0;i<comment[0].length;i++){
-        console.log(comment[0][i].commentId,comment[0][i].children);
-      }
-    }*/
   }
 
   //댓글 삭제하기
@@ -150,10 +142,22 @@ const PostComment = (props) => {
   console.log(commentId);
   }
 
- /* let imgPath="";
+  let imgPath="";
   if(content.imageKeys != undefined) {
-   imgPath="/s3/image" + content.imageKeys[0];
-  }*/
+   imgPath='s3' + content.imageKeys[0];
+  }
+
+   //게시물 이미지 불러오기
+   fetch(imgPath, {
+    headers: {
+      Authorization: `Bearer ${GoogleToken}`,
+    },
+  })
+    .then((res) => res.json())
+    .then((response) => {
+      console.log(response.data);
+    });
+
 
   return (
     <div>
@@ -166,7 +170,6 @@ const PostComment = (props) => {
         <div className="colum">제목</div>
         <div className="colum">작성자</div>
         <div className="colum">작성일</div>
-        {content.boardId}<br/>
         {content.title} <br />
         {content.userName} <br />
         {date}
@@ -184,10 +187,10 @@ const PostComment = (props) => {
       {ScrapTF()}
       { scrapTF === false ? 
         <StyleButton onClick={()=>Scrap()}> 
-          <img src="img/GoScrapIcon.png" style={{width:'14px', height :'14px'}}/> 스크랩 </StyleButton>
+          <img src="img/like-09.png" style={{width:'14px', height :'14px'}}/> 공감 </StyleButton>
         : 
-        <StyleButton onClick={()=>Scrap()}> 
-          <img src="img/ScrapIcon.png" style={{width:'14px', height :'14px'}}/> 스크랩 취소 </StyleButton>
+        <StyleButton> 
+          <img src="img/like_fill-10.png" style={{width:'14px', height :'14px'}}/> 공감 </StyleButton>
       } 
 
       {GetComment()}

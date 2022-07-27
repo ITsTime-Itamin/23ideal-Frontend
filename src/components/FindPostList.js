@@ -6,7 +6,7 @@ import Pagination from "./Pagination";
 
 const PostList = ({boardType}) => {
 
-  const headersName = ["no", "제목", "작성일", "작성자", "스크랩수"];
+  const headersName = ["no", "제목", "작성일", "마감일","작성자", "스크랩수"];
   const [postData,setPostData]=useState([]);
   const [limit, setLimit] = useState(10);
   const [page, setPage] = useState(1);
@@ -72,7 +72,6 @@ const PostList = ({boardType}) => {
   currentPosts = postData.data.slice(indexOfFirst, indexOfLast);}
   console.log(currentPosts);*/
 
-
   return (
     <>
     <main>
@@ -99,6 +98,7 @@ const PostList = ({boardType}) => {
                   <td> {post.title}</td>
                 </Link>
                 <td>{post.createdDate.substring(0, 10)}</td>
+                <td>{post.deadLineDate.substring(0, 10)}</td>
                 <td>관리자</td>
                 <td>{post.scrapCount}</td>
               </tr>
@@ -114,6 +114,7 @@ const PostList = ({boardType}) => {
                 <td> {post.title}</td>
               </Link>
               <td>{post.createdDate.substring(0, 10)}</td>
+              <td>{post.deadLineDate.substring(0, 10)}</td>
               <td>관리자</td>
               <td>{post.scrapCount}</td>
             </tr>

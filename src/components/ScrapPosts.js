@@ -61,7 +61,7 @@ const ScrapPosts = () => {
                   <td> {sample.title}</td>
                 </Link>
                 <td>{sample.createdDate.substring(0, 10)}</td>
-                <td>{sample.userName}</td>
+                <td>관리자</td>
               </tr>
             );
           })}

@@ -104,9 +104,13 @@ const PostList = ({boardType}) => {
       }
         </tbody>
       </table>
-      <Link to="/ScrapPosts" state={{ data: postData.data }}>
+      { (boardType === "FREE" || boardType === "REVIEW") ?
+        null
+        :
+        <Link to="/ScrapPosts" state={{ data: postData.data }}>
         <button> 내가 스크랩한 게시물 보기</button>
       </Link>
+      }
     </>
   );
 };

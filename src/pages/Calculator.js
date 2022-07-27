@@ -6,21 +6,21 @@ const Calculator =()=>{
   const [house,setHouse]=useState(0);
   const [family,setFamily]=useState(0);
   const [account,setAccount]=useState(0);
-  let total=house+family+account
+  let total=house+family+account;
   
-  const [year,setYear]=useState(0); //선택한 연도
-  const [month,setMonth]=useState(0); //선택한 월
-  const [day,setDay]=useState(0); //선택한 일
+ /* const [year,setYear]=useState(""); //선택한 연도
+  const [month,setMonth]=useState(""); //선택한 월
+  const [day,setDay]=useState(""); //선택한 일
 
-  const selectyear=['2007 이전','2007','2008','2009','2010','2011','2012','2013','2014','2015','2016','2017','2018','2019','2020','2021','2022'];
-  const selectmonth=['1','2','3','4','5','6','7','8','9','10','11','12'];
-  const selectday=['1','2','3','4','5','6','7','8','9','10','11','12','13','14','15','16','17','18','19','20','21','22','23','24','25','26','27','28','29','30','31'];
+  const selectyear=['선택','2007 이전','2007','2008','2009','2010','2011','2012','2013','2014','2015','2016','2017','2018','2019','2020','2021','2022'];
+  const selectmonth=['선택','1','2','3','4','5','6','7','8','9','10','11','12'];
+  const selectday=['선택','1','2','3','4','5','6','7','8','9','10','11','12','13','14','15','16','17','18','19','20','21','22','23','24','25','26','27','28','29','30','31'];
 
   //오늘 날짜 
   let now = new Date();
   let nowYear=now.getFullYear();
   let nowMonth=now.getMonth()+1;
-  let nowDay=now.getDate();
+  let nowDay=now.getDate();*/
 
   //오늘이 2022-09-20 이라고 하면
   /*if(year=='2007 이전'){ //15년 이상
@@ -97,73 +97,12 @@ const Calculator =()=>{
           <input type="radio" name="account" onChange={()=>setAccount(15)}/> 만 13년 이상 ~ 14년 미만 (15점) <br/>
           <input type="radio" name="account" onChange={()=>setAccount(16)}/> 만 14년 이상 ~ 15년 미만 (16점) <br/>
           <input type="radio" name="account" onChange={()=>setAccount(17)}/> 만 15년 이상 (17점) <br/>
-
-
-      
-        
-
         <h3>총점</h3> {total}
         </div>
   
       </>
     )
 }
-
-/*addTolnput = num => {
-  console.log({input: setFamily() + setHouse()});
-  this.setState({input:setFamily() + setHouse()});
-}; //이런식으로 했는데 set 가져오는걸 이렇게 하는게 맞는지 모르겠넵 .... 
-
-calculateResult = () =>
-{
-  this.setState({input:eval(this.state.input)})
-};/*
-
-
-
-/*const Increase = () => {
-  state = {
-    number1 :'',
-    number2 : '',
-  };*/
-
-  /*result = (e) => {
-    this.setState ({
-      number: parseInt(this.state.number1) + parseInt(this.state.number2),
-    });
-  }
-
-  numberChange1 = (e) => {
-    this.setState({
-      number1 : e.target.value,
-    });
-  };
-
-  numberChange2 = (e) => {
-    this.setState ({
-      number2:e.target.value,
-    });
-  };
-
-  render () 
-    const {number1,number2,number} = this.state;
-    return (
-      <div>
-        <div>
-          {number1} + {number2} = {number}
-        </div>
-      </div>
-    );
-  
-
-  
-}
-
-/*function Increase(setFamily, setHouse) {
- return (
- setFamily + setHouse ;
-  )
-}*/
 
 const Title = styled.body`
   margin: 20px;
