@@ -24,8 +24,12 @@
     padding: 10px 5px;
 }
 
-.title :hover {
+.postTitle :hover {
     color:dimgray;
     text-decoration-line: underline;
     cursor: pointer;
+}
+
+.postTitle{
+    color: black;
 }

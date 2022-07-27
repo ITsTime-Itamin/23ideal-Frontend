@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import "./Table/Table.css"
-import "./Find.css"
 import Pagination from "./Pagination";
 
 const PostList = ({boardType}) => {
@@ -95,8 +94,8 @@ const finalallpost=[];
             return (
               <tr>
                 <td>{i + 1}</td>
-                <Link to="/PostRead" state={{ data: post.boardId , boardType: boardType }} className="title"
-                  style={{/* textAlign: "center", color: "black", listStyle: "none", textDecoration: "none", display: "inline-block", cursor: "pointer", */}} >
+                <Link to="/PostRead" state={{ data: post.boardId , boardType: boardType }} className="postTitle"
+                  style={{ textAlign: "center", color: "black", listStyle: "none", textDecoration: "none", display: "inline-block", cursor: "pointer",}} >
                   <td> {post.title}</td>
                 </Link>
                 <td>{post.createdDate.substring(0, 10)}</td>

@@ -73,7 +73,7 @@ const ScrapPosts = () => {
             return (
               <tr>
                 <td>{i + 1}</td>
-                <Link to="/PostRead" state={{ data: sample.boardId , boardType: sample.boardType }} className="title"
+                <Link to="/PostRead" state={{ data: sample.boardId , boardType: sample.boardType }} className="postTitle"
                   style={{ textAlign: "center", color: "black", listStyle: "none", textDecoration: "none", display: "inline-block", cursor: "pointer", }} >
                   <td> {sample.title}</td>
                 </Link>
