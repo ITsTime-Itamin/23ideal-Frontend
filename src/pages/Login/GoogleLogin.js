@@ -31,7 +31,7 @@ const GoogleButton=({onSocial})=> {
         .then((response) => response.json())
         .then((response) => {
           setToken(response.data.accessToken);
-          alert(()=>"로그인 완료");
+          alert("로그인 완료");
       });
     }
 
