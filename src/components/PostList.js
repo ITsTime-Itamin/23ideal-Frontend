@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import "./Table/Table.css"
 import Pagination from "./Pagination";
+import { GoogleToken } from "../pages/Login/GoogleLogin";
 
 const PostList = ({boardType}) => {
 
@@ -14,7 +15,7 @@ const PostList = ({boardType}) => {
   useEffect(()=>{
     fetch(path, {
       headers: {
-        Authorization: `Bearer ${"eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhZG1pbiIsImF1dGgiOiJST0xFX1VTRVIiLCJleHAiOjE2NTg5NDEwMTR9.F9FtZRdxJWuf-vDWAYYeqkTtz11e9IRXkoZtpBE4EggPKfE4fDefVf6-MneoRzAOUUlNQ5lOcB4x4-__cEsOdw"}`,
+        Authorization: `Bearer ${GoogleToken}`,
       },
     })
       .then((res) => res.json())
@@ -28,7 +29,7 @@ const PostList = ({boardType}) => {
   TotalBoardType.map((data)=>{
     fetch("/api/v1/boards?boardType="+data, {
       headers: {
-        Authorization: `Bearer ${"eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhZG1pbiIsImF1dGgiOiJST0xFX1VTRVIiLCJleHAiOjE2NTgyOTQ4MzN9.e-FJ4hTYzdnDMSdSant9s6CEvW2hCH-jT2rQErsPgisUYf-iHatqvHhU2_Dr3Oybm9UcwKxtIcNIWRJT5rssUQ"}`,
+        Authorization: `Bearer ${GoogleToken}`,
       },
     })
       .then((res) => res.json())

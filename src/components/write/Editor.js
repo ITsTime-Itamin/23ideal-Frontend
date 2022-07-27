@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
+import { GoogleToken } from "../../pages/Login/GoogleLogin";
 import "./Editor.css";
 
 const Editor = () => {
@@ -32,7 +33,7 @@ const Editor = () => {
       cache: "no-cache",
       headers: {
        // "Content-Type": "multipart/form-data",
-        Authorization: `Bearer ${"eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhZG1pbiIsImF1dGgiOiJST0xFX1VTRVIiLCJleHAiOjE2NTg5NDEwMTR9.F9FtZRdxJWuf-vDWAYYeqkTtz11e9IRXkoZtpBE4EggPKfE4fDefVf6-MneoRzAOUUlNQ5lOcB4x4-__cEsOdw"}`,
+        Authorization: `Bearer ${GoogleToken}`,
       },
       body: formData,
     })
