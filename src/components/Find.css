@@ -1,5 +1,5 @@
 .title{
-    flex: 1;
+   /* flex: 1;
     height: 200px;
     text-align: center;
     width: 220px;
@@ -8,5 +8,12 @@
     left: 6%;
     top: 100px;
     border-top-left-radius: 9px;
-    border-top-right-radius: 9px;
+    border-top-right-radius: 9px; */
+
+    text-align: "center"; 
+    color: "black"; 
+    list-style: "none"; 
+    text-decoration: "none";
+    display: "inline-block";
+    cursor: "pointer";
 }
