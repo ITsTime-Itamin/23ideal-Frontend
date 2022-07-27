@@ -80,7 +80,7 @@ const PostList = ({boardType}) => {
                   <td> {post.title}</td>
                 </Link>
                 <td>{post.createdDate.substring(0, 10)}</td>
-                <td>관리자</td>
+                <td>{post.userName}</td>
                 <td>{post.scrapCount}</td>
               </tr>
             );
@@ -95,7 +95,7 @@ const PostList = ({boardType}) => {
                 <td> {post.title}</td>
               </Link>
               <td>{post.createdDate.substring(0, 10)}</td>
-              <td>{post.userName}</td>
+              <td>관리자</td>
               <td>{post.scrapCount}</td>
             </tr>
           );
@@ -104,9 +104,13 @@ const PostList = ({boardType}) => {
       }
         </tbody>
       </table>
-      <Link to="/ScrapPosts" state={{ data: postData.data }}>
+      { (boardType === "FREE" || boardType === "REVIEW") ?
+        null
+        :
+        <Link to="/ScrapPosts" state={{ data: postData.data }}>
         <button> 내가 스크랩한 게시물 보기</button>
       </Link>
+      }
     </>
   );
 };

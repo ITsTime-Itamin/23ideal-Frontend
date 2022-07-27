@@ -6,15 +6,15 @@ const Calculator =()=>{
   const [house,setHouse]=useState(0);
   const [family,setFamily]=useState(0);
   const [account,setAccount]=useState(0);
-  let total=house+family+account
+  let total=house+family+account;
   
-  const [year,setYear]=useState(0); //선택한 연도
-  const [month,setMonth]=useState(0); //선택한 월
-  const [day,setDay]=useState(0); //선택한 일
+  const [year,setYear]=useState(""); //선택한 연도
+  const [month,setMonth]=useState(""); //선택한 월
+  const [day,setDay]=useState(""); //선택한 일
 
-  const selectyear=['2007 이전','2007','2008','2009','2010','2011','2012','2013','2014','2015','2016','2017','2018','2019','2020','2021','2022'];
-  const selectmonth=['1','2','3','4','5','6','7','8','9','10','11','12'];
-  const selectday=['1','2','3','4','5','6','7','8','9','10','11','12','13','14','15','16','17','18','19','20','21','22','23','24','25','26','27','28','29','30','31'];
+  const selectyear=['선택','2007 이전','2007','2008','2009','2010','2011','2012','2013','2014','2015','2016','2017','2018','2019','2020','2021','2022'];
+  const selectmonth=['선택','1','2','3','4','5','6','7','8','9','10','11','12'];
+  const selectday=['선택','1','2','3','4','5','6','7','8','9','10','11','12','13','14','15','16','17','18','19','20','21','22','23','24','25','26','27','28','29','30','31'];
 
   //오늘 날짜 
   let now = new Date();
@@ -23,10 +23,10 @@ const Calculator =()=>{
   let nowDay=now.getDate();
 
   //오늘이 2022-09-20 이라고 하면
-  /*if(year=='2007 이전'){ //15년 이상
+  if(year==='2007 이전'){ //15년 이상
     setAccount(17);
   }
-  if( (nowYear==year && ((day==nowDay)||(day<nowDay)) &&(nowMonth-month<6)) || (nowYear==year && (day>nowDay) &&(nowMonth-month==6)) ){ //6개월 미만
+  /*else if( (nowYear==year && ((day==nowDay)||(day<nowDay)) &&(nowMonth-month<6)) || (nowYear==year && (day>nowDay) &&(nowMonth-month==6)) ){ //6개월 미만
     setAccount(1);
   }
   else if( nowYear==year && ((day==nowDay)||(day<nowDay)) && ((nowMonth-month==6) || (nowMonth-month>6)) ){ //2022.01.20
@@ -77,7 +77,7 @@ const Calculator =()=>{
         <h3>청약통장</h3>
         가입일 : 
         <select onChange={(e)=>setYear(e.target.value)}>
-          {selectyear.map((i)=>{  return ( <option>{i}</option> )  })}
+          {selectyear.map((i)=>{ return ( <option>{i}</option> )  })}
         </select>년  
         <select onChange={(e)=>setMonth(e.target.value)}>
           {selectmonth.map((i)=>{ return ( <option>{i}</option> )})}

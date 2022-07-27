@@ -61,11 +61,10 @@ const PostComment = (props) => {
       .then(() => {
         if(scrapTF==true){
           scrapImg="img/ScrapIcon.png"
-          alert("스크랩 취소");
         }
         else if(scrapTF==false) {
           scrapImg="img/GoScrapIcon.png"
-          alert("스크랩 완료");
+          alert("공감 완료");
         }
     });
   }
@@ -184,10 +183,10 @@ const PostComment = (props) => {
       {ScrapTF()}
       { scrapTF === false ? 
         <StyleButton onClick={()=>Scrap()}> 
-          <img src="img/GoScrapIcon.png" style={{width:'14px', height :'14px'}}/> 스크랩 </StyleButton>
+          <img src="img/GoScrapIcon.png" style={{width:'14px', height :'14px'}}/> 공감 </StyleButton>
         : 
-        <StyleButton onClick={()=>Scrap()}> 
-          <img src="img/ScrapIcon.png" style={{width:'14px', height :'14px'}}/> 스크랩 취소 </StyleButton>
+        <StyleButton> 
+          <img src="img/noLike.png" style={{width:'14px', height :'14px'}}/> 공감 </StyleButton>
       } 
 
       {GetComment()}
