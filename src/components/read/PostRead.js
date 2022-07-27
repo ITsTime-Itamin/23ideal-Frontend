@@ -14,7 +14,8 @@ const PostRead = (props) => {
   const [content, setContent] = useState([]);
   const [scrapTF,setScrapTF]=useState(false);
   const path = "/api/v1/boards/" + id;
-
+  
+  //게시물 상세내용 조회
   fetch(path, {
     headers: {
       Authorization: `Bearer ${GoogleToken}`,
@@ -24,6 +25,22 @@ const PostRead = (props) => {
     .then((response) => {
       setContent(response.data);
     });
+
+//게시물 이미지 불러오기
+    let imgPath="";
+    if(content.imageKeys != undefined) {
+     imgPath="https://itamin-backend-images.s3.ap-northeast-2.amazonaws.com/" + content.imageKeys[0];
+    }
+
+     fetch(imgPath, {
+      headers: {
+        Authorization: `Bearer ${GoogleToken}`,
+      },
+    })
+      .then((res) => res.json())
+      .then((response) => {
+        console.log(response.data);
+      });
 
   const unformatDate = "" + content.createdDate;
   const date = unformatDate.substring(0, 10);
@@ -82,11 +99,6 @@ const PostRead = (props) => {
     });
   }
 
-  let imgPath="";
-  if(content.imageKeys != undefined) {
-   imgPath="/s3/image" + content.imageKeys[0];
-  }
-
   return (
     <div>
       <div style={{ textAlign: "center", position: "relative", top: "100px" }}>
@@ -97,13 +109,11 @@ const PostRead = (props) => {
         <div className="colum">제목</div>
         <div className="colum">작성자</div>
         <div className="colum">작성일</div>
-        {content.boardId}<br/>
         {content.title} <br />
-        {content.userName} <br />
+        관리자 <br />
         {date}
         <br />
         {content.content}
-        <img src={imgPath}/>
       </div>
       <Link to="/EditPost" state={{boardId:content.boardId, boardType:boardType, title:content.title, deadLineDate:content.deadLineDate,content:content.content, file:content.imageKeys}}>
       <StyleButton>수정하기</StyleButton>
