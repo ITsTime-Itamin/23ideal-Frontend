@@ -39,15 +39,15 @@ const App=()=>{
         <Route path="/CommunityFree" element={<CommunityFree/>}/>
         <Route path="/CommunityJob" element={<CommunityJob/>}/>
 
-        <Route path="SupportBank" element={<SupportBank/>}/>
-        <Route path="SupportGov" element={<SupportGov/>}/>
-        <Route path="SupportLiving" element={<SupportLiving/>}/>
-        <Route path="SupportLoan" element={<SupportLoan/>}/>
+        <Route path="/SupportBank" element={<SupportBank/>}/>
+        <Route path="/SupportGov" element={<SupportGov/>}/>
+        <Route path="/SupportLiving" element={<SupportLiving/>}/>
+        <Route path="/SupportLoan" element={<SupportLoan/>}/>
         
-        <Route path="FindAll" element={<FindAll/>}/>
-        <Route path="FindHappy" element={<FindHappy/>}/>
-        <Route path="FindRent" element={<FindRent/>}/>
-        <Route path="FindYoung" element={<FindYoung/>}/>
+        <Route path="/FindAll" element={<FindAll/>}/>
+        <Route path="/FindHappy" element={<FindHappy/>}/>
+        <Route path="/FindRent" element={<FindRent/>}/>
+        <Route path="/FindYoung" element={<FindYoung/>}/>
 
         <Route path="/PostRead" element={<PostRead/>}/>
         <Route path="/PostComment" element={<PostComment/>}/>

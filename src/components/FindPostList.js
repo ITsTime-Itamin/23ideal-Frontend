@@ -24,7 +24,7 @@ const PostList = ({boardType}) => {
       .then((response) => {
         setPostData(response.data);
       });
-  }
+  }/*
   else if(boardType == "ALL") {
     for (var i=0;i<board.length;i++){
     fetch("/api/v1/boards?boardType="+board[i], {
@@ -44,7 +44,7 @@ const finalallpost=[];
     if(allpost.length==3){
       allpost.map((post)=>finalallpost.push(post));
     }
-  },[allpost])
+  },[allpost])*/
 
   //게시물 스크랩 수 조회
  /* const [scrapNum,setScrapNum]=useState([]);
