@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useLocation} from "react-router-dom";
 import { Link } from "react-router-dom";
 import styled from "styled-components";
@@ -15,24 +15,27 @@ const PostComment = (props) => {
   const [scrapTF,setScrapTF]=useState(false);
   const path = "/api/v1/boards/" + id;
 
-
-  fetch(path, {
-    headers: {
-      Authorization: `Bearer ${"eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhZG1pbiIsImF1dGgiOiJST0xFX1VTRVIiLCJleHAiOjE2NTgyMzgwNzd9.mrclnP8N8tZXc50RS6daDAxFYGLhw5v2EyBruZtF5al7ffYLpCBPW9OcQVB99e6Jnnx9D-jQZhVL2ru8SnXnww"}`,
-    },
-  })
-    .then((res) => res.json())
-    .then((response) => {
-      setContent(response.data);
-    });
-
+  //게시물 상세내용 불러오기
+  useEffect(()=>{
+    fetch(path, {
+      headers: {
+        Authorization: `Bearer ${"eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhZG1pbiIsImF1dGgiOiJST0xFX1VTRVIiLCJleHAiOjE2NTg0MDA5ODZ9.JwV1UJzO1oC6JbXYBR6eCkGXdTpoUAm95ZrpUb0Jap2Z7rhnUXNaVh2QWJJN5JlaxWvSdvbPKlNMKuu4zvWpDQ"}`,
+      },
+    })
+      .then((res) => res.json())
+      .then((response) => {
+        setContent(response.data);
+      });
+  },[])
   const unformatDate = "" + content.createdDate;
-  const date = unformatDate.substring(0, 10);
+    const date = unformatDate.substring(0, 10);
+ //   console.log(content);
 
+  //게시물 삭제하기
   const DeletePost=()=>{
     fetch(path, {
       headers: {
-        Authorization: `Bearer ${"eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhZG1pbiIsImF1dGgiOiJST0xFX1VTRVIiLCJleHAiOjE2NTgyMzgwNzd9.mrclnP8N8tZXc50RS6daDAxFYGLhw5v2EyBruZtF5al7ffYLpCBPW9OcQVB99e6Jnnx9D-jQZhVL2ru8SnXnww"}`,
+        Authorization: `Bearer ${"eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhZG1pbiIsImF1dGgiOiJST0xFX1VTRVIiLCJleHAiOjE2NTg0MDA5ODZ9.JwV1UJzO1oC6JbXYBR6eCkGXdTpoUAm95ZrpUb0Jap2Z7rhnUXNaVh2QWJJN5JlaxWvSdvbPKlNMKuu4zvWpDQ"}`,
       },
       method: "DELETE",
     })
@@ -51,7 +54,7 @@ const PostComment = (props) => {
       cache: "no-cache",
       headers: {
        'Content-Type': 'application/json',  //이걸 꼭 써야된다
-        Authorization: `Bearer ${"eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhZG1pbiIsImF1dGgiOiJST0xFX1VTRVIiLCJleHAiOjE2NTgyMDQ3MDd9.TANacKhSh5u3Md23mm9bOvGO_5jvegXIG9ATmR9aVyaDl01KdT3m_5m3Np5_IwBJZCS897F03kVk_6m-WhsXlweyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhZG1pbiIsImF1dGgiOiJST0xFX1VTRVIiLCJleHAiOjE2NTgyMzgwNzd9.mrclnP8N8tZXc50RS6daDAxFYGLhw5v2EyBruZtF5al7ffYLpCBPW9OcQVB99e6Jnnx9D-jQZhVL2ru8SnXnww"}`,
+        Authorization: `Bearer ${"eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhZG1pbiIsImF1dGgiOiJST0xFX1VTRVIiLCJleHAiOjE2NTg0MDA5ODZ9.JwV1UJzO1oC6JbXYBR6eCkGXdTpoUAm95ZrpUb0Jap2Z7rhnUXNaVh2QWJJN5JlaxWvSdvbPKlNMKuu4zvWpDQ"}`,
       },
       body: JSON.stringify({'boardId':id}),
     })
@@ -74,21 +77,84 @@ const PostComment = (props) => {
       cache: "no-cache",
       headers: { 
         'Content-Type': 'application/json',
-        Authorization: `Bearer ${"eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhZG1pbiIsImF1dGgiOiJST0xFX1VTRVIiLCJleHAiOjE2NTgyMzgwNzd9.mrclnP8N8tZXc50RS6daDAxFYGLhw5v2EyBruZtF5al7ffYLpCBPW9OcQVB99e6Jnnx9D-jQZhVL2ru8SnXnww"}`,
+        Authorization: `Bearer ${"eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhZG1pbiIsImF1dGgiOiJST0xFX1VTRVIiLCJleHAiOjE2NTg0MDA5ODZ9.JwV1UJzO1oC6JbXYBR6eCkGXdTpoUAm95ZrpUb0Jap2Z7rhnUXNaVh2QWJJN5JlaxWvSdvbPKlNMKuu4zvWpDQ"}`,
       },
       body:JSON.stringify({'boardId':id}),
     })
       .then((res) => res.json())
       .then((response) => {
-        console.log(response.data.isScraped);
         setScrapTF(response.data.isScraped);
     });
   }
 
-  let imgPath="";
+//댓글입력하기
+  const [postcomment,setPostcomment]=useState("");
+  const [reComment,setReComment]=useState(false);
+  const [parentsid,setParentsid]=useState(null); //답글달기 (부모아이디)
+
+  const postComment =(commentId)=>{
+    fetch("api/v1/comments", {
+      method:"POST",
+      cache: "no-cache",
+      headers: { 
+        'Content-Type': 'application/json',
+        Authorization: `Bearer ${"eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhZG1pbiIsImF1dGgiOiJST0xFX1VTRVIiLCJleHAiOjE2NTg0MDA5ODZ9.JwV1UJzO1oC6JbXYBR6eCkGXdTpoUAm95ZrpUb0Jap2Z7rhnUXNaVh2QWJJN5JlaxWvSdvbPKlNMKuu4zvWpDQ"}`,
+      },
+      body:JSON.stringify({'parentCommentId':commentId,'boardId':id,'content':postcomment}),
+    })
+      .then((res) => res.json())
+      .then((response) => {
+        console.log(response.data);
+    });
+    setPostcomment("");
+  }
+
+  //댓글 조회하기
+ // const comment=[];
+  const [getcomment,setGetcomment]=useState([]);
+  const GetComment=()=>{
+    const commentpath="api/v1/comments/"+id;
+
+    fetch(commentpath, {
+      cache: "no-cache",
+      headers: { 
+        'Content-Type': 'application/json',
+        Authorization: `Bearer ${"eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhZG1pbiIsImF1dGgiOiJST0xFX1VTRVIiLCJleHAiOjE2NTg0MDA5ODZ9.JwV1UJzO1oC6JbXYBR6eCkGXdTpoUAm95ZrpUb0Jap2Z7rhnUXNaVh2QWJJN5JlaxWvSdvbPKlNMKuu4zvWpDQ"}`,
+      },
+    })
+      .then((res) => res.json())
+      .then((response) => 
+      setGetcomment(response.data)
+    )
+    //comment.push(getcomment);
+   /* if(comment[0].length != 0){
+      for (var i=0;i<comment[0].length;i++){
+        console.log(comment[0][i].commentId,comment[0][i].children);
+      }
+    }*/
+  }
+
+  //댓글 삭제하기
+  const deleteComment=(commentId)=>{
+    fetch("api/v1/comments", {
+      headers: {
+        'Content-Type': 'application/json',
+        Authorization: `Bearer ${"eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhZG1pbiIsImF1dGgiOiJST0xFX1VTRVIiLCJleHAiOjE2NTg0MDA5ODZ9.JwV1UJzO1oC6JbXYBR6eCkGXdTpoUAm95ZrpUb0Jap2Z7rhnUXNaVh2QWJJN5JlaxWvSdvbPKlNMKuu4zvWpDQ"}`,
+      },
+      method: "DELETE",
+      body:JSON.stringify({'commentId':commentId})
+    })
+      .then((res) => res.json())
+      .then((data) => { 
+        console.log(data);
+      });
+  console.log(commentId);
+  }
+
+ /* let imgPath="";
   if(content.imageKeys != undefined) {
    imgPath="/s3/image" + content.imageKeys[0];
-  }
+  }*/
 
   return (
     <div>
@@ -96,6 +162,7 @@ const PostComment = (props) => {
         <h1>PostComment</h1>
         <hr className="hr"></hr>
       </div>
+      {content.length != 0 ? 
       <div>
         <div className="colum">제목</div>
         <div className="colum">작성자</div>
@@ -106,12 +173,15 @@ const PostComment = (props) => {
         {date}
         <br />
         {content.content}
-        <img src={imgPath}/>
       </div>
+      :
+      <div>loading...</div>
+      }
       <Link to="/EditPost" state={{boardId:content.boardId, boardType:boardType, title:content.title, deadLineDate:content.deadLineDate,content:content.content, file:content.imageKeys}}>
       <StyleButton>수정하기</StyleButton>
       </Link>
       <StyleButton onClick={()=>DeletePost()}>삭제하기</StyleButton>
+      
       {ScrapTF()}
       { scrapTF === false ? 
         <StyleButton onClick={()=>Scrap()}> 
@@ -120,6 +190,36 @@ const PostComment = (props) => {
         <StyleButton onClick={()=>Scrap()}> 
           <img src="img/ScrapIcon.png" style={{width:'14px', height :'14px'}}/> 스크랩 취소 </StyleButton>
       } 
+
+      {GetComment()}
+      { getcomment.length != 0 ? getcomment.map( com =>
+        ( <div>
+          {com.userId}
+          {com.content}<br/>
+          {com.children.length != 0 ? com.children.map((i)=>(
+            <div>{i.content}</div>
+          )) : null}
+          <StyleButton onClick={()=>{setReComment((prev) => !prev); setParentsid(com.commentId) }}> 답글 </StyleButton>
+          <StyleButton onClick={()=>{deleteComment(com.commentId)}}>삭제</StyleButton>
+          </div>
+         )) : null
+      }
+      {reComment===false ?
+      <>
+        <input onChange={(e)=>setPostcomment(e.target.value)} placeholder="댓글을 입력하세요" /> 
+        <StyleButton onClick={()=>{
+          postComment(null) 
+          setReComment(false)
+        }}>입력</StyleButton> 
+      </>
+      :
+      <>
+        <input onChange={(e)=>setPostcomment(e.target.value)} placeholder="답글을 입력하세요" /> 
+        <StyleButton onClick={()=>{
+          postComment(parentsid)
+          setReComment(false)}}>입력</StyleButton> 
+      </>
+      }
     </div>
   );
 };

@@ -1,9 +1,8 @@
 import { RenderAfterNavermapsLoaded, NaverMap, Marker} from 'react-naver-maps';
 import React, { Fragment, useEffect, useState } from "react";
+import { Link } from 'react-router-dom';
 import Categories from './Categories';
-
-
-
+//import Categories from './Categories';
 
 
 const NaverMapAPI=({count})=> {
@@ -169,14 +168,10 @@ const NaverMapAPI=({count})=> {
   } 
 
   const [width,setWidth]=useState('80%');
-  const [zoom,setZoom] = useState(12);
-  const [lat,setLat] = useState(37.554722);
-  const [lng,setLng] = useState(126.970833);
-
 
       return ( 
-        <div> 
-          <Categories zoom={zoom} setZoom={setZoom} lat={lat} setLat={setLat} lng={lng} setLng={setLng} />
+        <div>
+          <Categories />
           <NaverMap
             mapDivId={'maps-getting-started-uncontrolled'} // default: react-naver-map
             style={{
@@ -189,12 +184,12 @@ const NaverMapAPI=({count})=> {
               borderWidth: 'medium',
               borderColor: '#D8D8D8'
             }}
-    
+        
             defaultCenter={{ lat: 37.554722, lng: 126.970833 }} // 지도 초기 위치
-        defaultZoom = {12}> // 지도 초기 위치 확대 비율
+            defaultZoom={12} > // 지도 초기 위치 확대 비율
           
-
-            <Marker key={1} icon={icon1} position={new navermaps.LatLng(37.4959854, 127.0664091)} onClick={()=> setWidth('50%')} />
+            <Link to="/HomeClick"> 
+            <Marker key={1} icon={icon1} position={new navermaps.LatLng(37.4959854, 127.0664091)} onClick={() =>setWidth('50%')} /></Link>
             <Marker key={2} icon={icon2} position={new navermaps.LatLng(37.5492077, 127.1464824)} onClick={() => setWidth('50%')} />
             <Marker key={3} icon={icon3} position={new navermaps.LatLng(37.6469954, 127.0147158)} onClick={()=>setWidth('50%')} />
             <Marker key={4} icon={icon4} position={new navermaps.LatLng(37.5657617, 126.8226561)} onClick={()=>setWidth('50%')} />
@@ -227,7 +222,24 @@ const NaverMapAPI=({count})=> {
       )
     }
 
-
+    /*const Categories_List = () => {
+      const Product_Data [
+        {id : 'gangNamGu',
+        value : '강남구'},
+        {id : 'gangDongGu',
+        value : '강동구'},
+        {id : 'gangBukGu',
+        value : '강북구'},
+        {id : 'gangSeoGu',
+        value : '강서구'},
+        {id : 'gwanAkGu',
+        value : '관악구'},
+        {id : 'gwangJinGu',
+        value : '광진구'},
+        {id : 'guRoGu',
+        value: '구로구'},
+    ];
+    } */
   
 
 const Home=()=> {
@@ -242,10 +254,8 @@ const Home=()=> {
       <br></br>
       <br></br>
       <br></br>
-  
-
       <img classname = "MainBanner" src='img/MainBanner.png'></img>
-
+        
       <RenderAfterNavermapsLoaded
         ncpClientId={'optd2y01e0'} // 자신의 네이버 계정에서 발급받은 Client ID
         error={<p>Maps Load Error</p>}

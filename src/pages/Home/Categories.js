@@ -49,11 +49,9 @@ const Categories =  props  => {
             <div className="default">서울 특별시 </div>
             <div className="categoryItem"> 
                     <Select>
-
-
-                        <option key="gangNamGu" value="강남구" onClick={() =>this.props.setZoom(20)}>강남구</option>
-                        <option key="gangDongGu" value="강동구"onClick={() => props.setZoom(20)}>강동구</option>
-                        <option key="gangBukGu" value="강북구" onClick={() => props.setZoom(20)}>강북구</option>
+                        <option key="gangNamGu" value="강남구" >강남구</option>
+                        <option key="gangDongGu" value="강동구">강동구</option>
+                        <option key="gangBukGu" value="강북구">강북구</option>
                         <option key="gangSeoGu" value="강서구">강서구</option>
                         <option key="gwanAkGu" value="관악구">강동구</option>
                         <option key="gwangJinGu" value="광진구">광진구</option>
@@ -88,7 +86,7 @@ export default Categories;
     return <Categories option={OPTIONS} defaultVaule="gangNamGU"></Categories>;
 }*/
 
-//export default Categories;
+
 
 /*const Categories_List = const Product_Data [
     {id : 'gangNamGu',

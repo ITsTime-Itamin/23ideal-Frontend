@@ -14,7 +14,7 @@ const FindRent=()=>{
             </div>
             <div className="locate_btn"> 
                 <button className="editor_btn">  
-                    <Link to="/Editor"  state={{data:"임대주택"}} className="editor_go" >
+                    <Link to="/Editor"  state={{data:"임대주택", boardType:"LOAN_HOUSE"}} className="editor_go" >
                         글쓰기
                     </Link>
                 </button>

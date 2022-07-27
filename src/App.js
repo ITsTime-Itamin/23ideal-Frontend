@@ -24,7 +24,8 @@ import PostRead from "./components/read/PostRead";
 import PostComment from "./components/read/PostComment";
 import EditPost from "./components/write/EditPost";
 import ScrapPosts from "./components/ScrapPosts";
-import Categories from "./pages/Home/Categories";
+import Calculator from "./pages/Calculator";
+//import Categories from "./pages/Home/Categories";
 
 const App=()=>{
 
@@ -77,6 +78,8 @@ const App=()=>{
         <Route path="/EditPost" element={<EditPost/>} />
 
         <Route path="/ScrapPosts" element={<ScrapPosts/>} />
+
+        <Route path="Customized" element={<Calculator/>}/>
 
       </Routes>
     </div>

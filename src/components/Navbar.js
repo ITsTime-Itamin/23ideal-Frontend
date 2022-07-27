@@ -83,7 +83,7 @@ const Navbar = () => {
           <hr style={{ border: "none", border: "0.05px solid #EB7E5D" }} />
           <div className="dropdown-content">
             <li>
-              <Link to="/Community" className="dropdown-item">
+              <Link to="/Customized" className="dropdown-item">
                 내 청약가점 계산하기
               </Link>
             </li>
