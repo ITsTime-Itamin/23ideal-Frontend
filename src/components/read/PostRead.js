@@ -26,22 +26,6 @@ const PostRead = (props) => {
       setContent(response.data);
     });
 
-//게시물 이미지 불러오기
-    let imgPath="";
-    if(content.imageKeys != undefined) {
-     imgPath='s3' + content.imageKeys[0];
-    }
-
-     fetch(imgPath, {
-      headers: {
-        Authorization: `Bearer ${GoogleToken}`,
-      },
-    })
-      .then((res) => res.json())
-      .then((response) => {
-        console.log(response.data);
-      });
-
   const unformatDate = "" + content.createdDate;
   const date = unformatDate.substring(0, 10);
 
@@ -114,6 +98,8 @@ const PostRead = (props) => {
         {date}
         <br />
         {content.content}
+        { content.imageKeys != undefined ?
+        <img src={'https://itamin-backend-images.s3.ap-northeast-2.amazonaws.com/'+content.imageKeys[0]} /> : null}
       </div>
       <Link to="/EditPost" state={{boardId:content.boardId, boardType:boardType, title:content.title, deadLineDate:content.deadLineDate,content:content.content, file:content.imageKeys}}>
       <StyleButton>수정하기</StyleButton>

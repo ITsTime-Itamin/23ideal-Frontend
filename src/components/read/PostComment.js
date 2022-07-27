@@ -142,23 +142,6 @@ const PostComment = (props) => {
   console.log(commentId);
   }
 
-  let imgPath="";
-  if(content.imageKeys != undefined) {
-   imgPath='s3' + content.imageKeys[0];
-  }
-
-   //게시물 이미지 불러오기
-   fetch(imgPath, {
-    headers: {
-      Authorization: `Bearer ${GoogleToken}`,
-    },
-  })
-    .then((res) => res.json())
-    .then((response) => {
-      console.log(response.data);
-    });
-
-
   return (
     <div>
       <div style={{ textAlign: "center", position: "relative", top: "100px" }}>
@@ -175,6 +158,8 @@ const PostComment = (props) => {
         {date}
         <br />
         {content.content}
+        { content.imageKeys != undefined ?
+        <img src={'https://itamin-backend-images.s3.ap-northeast-2.amazonaws.com/'+content.imageKeys[0]} /> : null}
       </div>
       :
       <div>loading...</div>
