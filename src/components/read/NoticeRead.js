@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useLocation} from "react-router-dom";
 import { Link } from "react-router-dom";
+import { GoogleToken } from "../../pages/Login/GoogleLogin";
 import "./Read.css";
 
 const NoticeRead = (props) => {
@@ -13,7 +14,7 @@ const NoticeRead = (props) => {
 
   fetch(path, {
     headers: {
-      Authorization: `Bearer ${"eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhZG1pbiIsImF1dGgiOiJST0xFX1VTRVIiLCJleHAiOjE2NTgyMzgwNzd9.mrclnP8N8tZXc50RS6daDAxFYGLhw5v2EyBruZtF5al7ffYLpCBPW9OcQVB99e6Jnnx9D-jQZhVL2ru8SnXnww"}`,
+      Authorization: `Bearer ${GoogleToken}`,
     },
   })
     .then((res) => res.json())
@@ -27,7 +28,7 @@ const NoticeRead = (props) => {
   const DeletePost=()=>{
     fetch(path, {
       headers: {
-        Authorization: `Bearer ${"eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhZG1pbiIsImF1dGgiOiJST0xFX1VTRVIiLCJleHAiOjE2NTgyMzgwNzd9.mrclnP8N8tZXc50RS6daDAxFYGLhw5v2EyBruZtF5al7ffYLpCBPW9OcQVB99e6Jnnx9D-jQZhVL2ru8SnXnww"}`,
+        Authorization: `Bearer ${GoogleToken}`,
       },
       method: "DELETE",
     })
@@ -49,7 +50,7 @@ const NoticeRead = (props) => {
       cache: "no-cache",
       headers: {
        'Content-Type': 'application/json',  //이걸 꼭 써야된다
-        Authorization: `Bearer ${"eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhZG1pbiIsImF1dGgiOiJST0xFX1VTRVIiLCJleHAiOjE2NTgyMzgwNzd9.mrclnP8N8tZXc50RS6daDAxFYGLhw5v2EyBruZtF5al7ffYLpCBPW9OcQVB99e6Jnnx9D-jQZhVL2ru8SnXnww"}`,
+        Authorization: `Bearer ${GoogleToken}`,
       },
       body: JSON.stringify({'boardId':id}),
     })
