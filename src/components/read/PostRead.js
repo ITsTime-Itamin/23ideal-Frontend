@@ -4,7 +4,6 @@ import styled from "styled-components";
 import { GoogleToken } from "../../pages/Login/GoogleLogin";
 import "./Read.css";
 
-
 const PostRead = (props) => {
   const location = useLocation();
   const id = location.state.data;
@@ -102,12 +101,11 @@ const PostRead = (props) => {
 
         <div  className="title"> {date} </div>
         <br />
-
         <div className="content">  {content.content} </div>
- 
-        <div className="content"> 
-        <img src={'https://itamin-backend-images.s3.ap-northeast-2.amazonaws.com/'+content.imageKeys[0]} /> 
-        </div>
+        { content.imageKeys != undefined ?
+         <div className="content"> 
+         <img src={'https://itamin-backend-images.s3.ap-northeast-2.amazonaws.com/'+content.imageKeys[0]} /> 
+         </div> : null}
       </div>
       <Link to="/EditPost" state={{boardId:content.boardId, boardType:boardType, title:content.title, deadLineDate:content.deadLineDate,content:content.content, file:content.imageKeys}}>
       <StyleButton>수정하기</StyleButton>
@@ -128,8 +126,7 @@ const PostRead = (props) => {
 const StyleButton = styled.button`
   margin: 20px;
   border: 1px solid;
-
-  background: #000000;
+  background: #ffffff;
   color: #000000;
   cursor: pointer;
   &:focus {
