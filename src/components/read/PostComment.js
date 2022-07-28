@@ -153,21 +153,26 @@ const PostComment = (props) => {
         <div className="colum">제목</div>
         <div className="colum">작성자</div>
         <div className="colum">작성일</div>
-        {content.title} <br />
-        {content.userName} <br />
-        {date}
-        <br />
-        {content.content}
+        <div className="title"> {content.title} <br /></div>
+        <div className="title"> {content.userName} <br /></div>
+        <div className="title"> {date} <br /></div>
+        <br/>
+        <div className="content">  {content.content} </div>
         { content.imageKeys != undefined ?
-        <img src={'https://itamin-backend-images.s3.ap-northeast-2.amazonaws.com/'+content.imageKeys[0]} /> : null}
+        <div className="content"> 
+        <img src={'https://itamin-backend-images.s3.ap-northeast-2.amazonaws.com/'+content.imageKeys[0]} /> 
+        </div> : null}
       </div>
       :
       <div>loading...</div>
       }
-      <Link to="/EditPost" state={{boardId:content.boardId, boardType:boardType, title:content.title, deadLineDate:content.deadLineDate,content:content.content, file:content.imageKeys}}>
-      <StyleButton>수정하기</StyleButton>
-      </Link>
-      <StyleButton onClick={()=>DeletePost()}>삭제하기</StyleButton>
+      <div className="fix_btn">
+          <Link to="/EditPost" state={{boardId:content.boardId, boardType:boardType, title:content.title, deadLineDate:content.deadLineDate,content:content.content, file:content.imageKeys}}>
+          <StyleButton>수정하기</StyleButton>
+          </Link>
+          <StyleButton onClick={()=>DeletePost()}>삭제하기</StyleButton>
+      </div>
+
       
       {ScrapTF()}
       { scrapTF === false ? 
@@ -193,15 +198,17 @@ const PostComment = (props) => {
       }
       {reComment===false ?
       <>
-        <input onChange={(e)=>setPostcomment(e.target.value)} placeholder="댓글을 입력하세요" /> 
+        <div className="comment">
+        <input style={{width:"1000px"}} onChange={(e)=>setPostcomment(e.target.value)} placeholder="댓글을 입력하세요" /> 
         <StyleButton onClick={()=>{
           postComment(null) 
           setReComment(false)
         }}>입력</StyleButton> 
+        </div>
       </>
       :
-      <>
-        <input onChange={(e)=>setPostcomment(e.target.value)} placeholder="답글을 입력하세요" /> 
+      <> 
+        <input style={{width:"1000px"}} onChange={(e)=>setPostcomment(e.target.value)} placeholder="답글을 입력하세요" /> 
         <StyleButton onClick={()=>{
           postComment(parentsid)
           setReComment(false)}}>입력</StyleButton> 
@@ -213,7 +220,9 @@ const PostComment = (props) => {
 
 const StyleButton = styled.button`
   margin: 20px;
-  border: 1px solid;
+  border: 1px solid #EB7E5D;
+  width : 100px;
+  font-size : 20px;
   background: #ffffff;
   color: #000000;
   cursor: pointer;

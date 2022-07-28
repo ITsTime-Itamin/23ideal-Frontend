@@ -14,11 +14,9 @@
 }
 .MainBanner
 {
-    width: 150px;
+    width: 100px;
     align-items: center;
     justify-content: auto;
-    margin-left: 200px;
-    margin-right: auto;
     border-style: solid;
     border-width: medium;
 

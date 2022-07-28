@@ -4,6 +4,7 @@ import "./Table/Table.css"
 import Pagination from "./Pagination";
 import { GoogleToken } from "../pages/Login/GoogleLogin";
 import styled from "styled-components";
+import Banner from "./Banner";
 
 const PostList = ({boardType}) => {
 
@@ -115,6 +116,7 @@ const PostList = ({boardType}) => {
         </StyleButton>
       </Link>
       }
+      <Banner />
     </>
   );
 };

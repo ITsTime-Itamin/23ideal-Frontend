@@ -1,6 +1,7 @@
 import { RenderAfterNavermapsLoaded, NaverMap, Marker } from 'react-naver-maps';
 import React, { useEffect, useState } from "react";
 import './MapSide.css'
+import './Home.css'
 import { Link, useNavigate } from 'react-router-dom';
 import Categories from './Categories';
 
@@ -244,7 +245,7 @@ const NaverMapAPI=()=> {
             <img src="/img/MapSide.png" alt="Snow" style={{width:'100%', height:'600px'}} />
             <h1 className="title">{area} 공공주택 정보</h1>
             <div className="centered">
-               {guInfo.length !=0 ? guInfo.map((info)=>(<li>[{info.insttNm}] {info.hsmpNm}</li>)):null}</div>
+               {guInfo.length !=0 ? guInfo.map((info)=>(<li style={{fontSize:'20px'}}>[{info.insttNm}] {info.hsmpNm}</li>)):null}</div>
             <Link to="/FindAll" className="link">
               전체공고 보러가기 → → 
             </Link>

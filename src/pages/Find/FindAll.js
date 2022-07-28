@@ -10,7 +10,6 @@ const FindAll=()=>{
              <div style={{textAlign:"center", position : "relative" , top : "100px" }}>
                 <h1>모집공고 전체보기</h1>
             </div>
-            <SidebarFind />
             <FindPostList boardType={"ALL"}/>
         </div>
     )

@@ -2,7 +2,9 @@ import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { GoogleToken } from "../pages/Login/GoogleLogin";
 import "./Table/Table.css"
+import SidebarFind from "./SidebarFind";
 import Pagination from "./Pagination";
+import Banner from "./Banner";
 
 const PostList = ({boardType}) => {
 
@@ -74,6 +76,7 @@ const PostList = ({boardType}) => {
 
   return (
     <>
+    <SidebarFind />
     <main>
       <table className="common-table">
         <thead>
@@ -137,6 +140,7 @@ const PostList = ({boardType}) => {
           totalPage={postData.totalPage} />
     : null*/ }
        </footer>
+       <Banner/>
     </>
   );
 };

@@ -6,7 +6,6 @@ const SidebarFind=()=>{
     return(
         <div className="sidebar">
             <div className="sidebarTop">
-
             </div>
         
             <div className="sidebarTitle">
