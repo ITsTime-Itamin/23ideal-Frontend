@@ -2,8 +2,6 @@ import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import SidebarFind from "../../components/SidebarFind";
 import FindPostList from "../../components/FindPostList";
-import Editor from "../../components/write/Editor";
-import PostList from "../../components/PostList";
 
 const FindRent=()=>{
 
@@ -19,8 +17,7 @@ const FindRent=()=>{
                     </Link>
                 </button>
             </div>
-            <SidebarFind />
-            <PostList boardType={"RENTAL_HOUSE"}/>
+            <FindPostList boardType={"RENTAL_HOUSE"}/>
         </div>
     )
 }
