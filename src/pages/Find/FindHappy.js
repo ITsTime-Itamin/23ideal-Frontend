@@ -1,6 +1,5 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import SidebarFind from "../../components/SidebarFind";
 import FindPostList from "../../components/FindPostList";
 
 
@@ -17,7 +16,6 @@ const FindHappy=()=>{
                     </Link>
                 </button>
             </div>
-            <SidebarFind />
             <FindPostList boardType={"HAPPY_HOUSE"}/>
         </div>
     )

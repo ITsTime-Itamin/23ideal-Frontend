@@ -89,9 +89,9 @@ const Categories =  ({setState})  => {
         <div className="categoryBox">
             <div className="default">서울 특별시 </div>
             <div className="categoryItem"> 
-                    <Select onChange={(e)=>{change(e.target.value)}}>
-                        <option>선택</option>
-                        {area.map((i)=>{ return (<option value={i}>{i}</option>)})}
+                    <Select className="select" onChange={(e)=>{change(e.target.value)}}>
+                        <Option>선택</Option>
+                        {area.map((i)=>{ return (<Option value={i}>{i}</Option>)})}
                     </Select>
             </div>
         </div>
@@ -103,10 +103,30 @@ export const Select = styled.select`
 	min-width: 0;
 	display: block;
 	width: 50%;
-	padding: 8px 8px;
+	padding: 3px 8px;
     font-family: 'Inter';
     font-weight: 700;
-    font-size: 25px;
+    font-size: 20px;
+	line-height: inherit;
+    border-color : white;
+    border-color : rgba( 0, 0, 0, 0 );
+	border-radius: 4px;
+	color: inherit;
+    flexdirection: row;
+    background-color: #ffffff;
+    background-color: rgba( 0, 0, 0, 0 );
+
+`;
+
+export const Option = styled.option`
+	margin: 0;
+	min-width: 0;
+	display: block;
+	width: 50%;
+	padding: 3px 8px;
+    font-family: 'Inter';
+    font-weight: 500;
+    font-size: 20px;
 	line-height: inherit;
     border-color : white;
     border-color : rgba( 0, 0, 0, 0 );

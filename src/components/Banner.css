@@ -2,10 +2,10 @@
 {
     flex: 1;
     height: 50px;
-    width: 30px;
+    width: 28px;
     position: absolute;
-    right: 6%;
-    top: 300px;
+    right: 12%;
+    top: 253px;
     border-top-left-radius: 9px;
     border-top-right-radius: 9px;
 }

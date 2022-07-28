@@ -19,6 +19,7 @@
     text-decoration: none;
     display: inline-block;
     text-align: center;
+    z-index :2; 
 
     font-family: 'Inter';
     font-style: normal;
@@ -43,6 +44,7 @@
     cursor: pointer;
     padding: 10px;
     border: none;
+    z-index :2; 
 }
 
 .dropdown-content {
@@ -63,6 +65,7 @@
     text-decoration: none;
     display: block;
     list-style: none;
+    z-index :2; 
 }
 
 .dropdown-content li:hover {
@@ -71,6 +74,7 @@
 
 .nav-item:hover .dropdown-content {
     display: block;
+    z-index :2; 
 }
 
 .dropdown-item {

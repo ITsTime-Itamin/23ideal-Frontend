@@ -1,6 +1,5 @@
 import { Route, Routes } from "react-router-dom";
 import Navbar from "./components/Navbar";
-import Banner from "./components/Banner";
 import SupportBank from "./pages/Support/SupportBank";
 import SupportGov from "./pages/Support/SupportGov";
 import SupportLiving from "./pages/Support/SupportLiving";
@@ -28,7 +27,6 @@ const App=()=>{
   return(
     <div>
       <Navbar/>
-      <Banner/>
       <Routes>
 
         <Route path="/" element={<Home />}/>

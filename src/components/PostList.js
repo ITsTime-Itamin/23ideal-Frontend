@@ -3,10 +3,13 @@ import { Link } from "react-router-dom";
 import "./Table/Table.css"
 import Pagination from "./Pagination";
 import { GoogleToken } from "../pages/Login/GoogleLogin";
+import styled from "styled-components";
+import Banner from "./Banner";
 
 const PostList = ({boardType}) => {
 
   const headersName = ["no", "제목", "작성일", "작성자", "스크랩수"];
+  const headersName_comment = ["no", "제목", "작성일", "작성자", "공감수"];
   const [postData,setPostData]=useState([]);
  /* const [currentPage, setCurrentPage] = useState(1);
   const [postsPerPage, setPostsPerPage] = useState(10);*/
@@ -50,13 +53,22 @@ const PostList = ({boardType}) => {
       <table className="common-table">
         <thead>
           <tr>
-            {headersName.map((item, index) => {
+            {(boardType === "FREE" || boardType === "REVIEW") ?
+            headersName_comment.map((item, index) => {
               return (
                 <td className="common-table-header-column" key={index}>
                   {item}
                 </td>
               );
-            })}
+            }):
+            headersName.map((item, index) => {
+              return (
+                <td className="common-table-header-column" key={index}>
+                  {item}
+                </td>
+              );
+            })
+          }
           </tr>
         </thead>
         <tbody >
@@ -65,7 +77,7 @@ const PostList = ({boardType}) => {
             return (
               <tr>
                 <td>{i + 1}</td>
-                <Link to="/PostComment" state={{ data: post.boardId , boardType: boardType }} className="postTitle"
+                <Link to="/PostComment" state={{ data: post.boardId , boardType: boardType, scrap: post.scrapCount }} className="postTitle"
                   style={{ textAlign: "center", color: "black", listStyle: "none", textDecoration: "none", display: "inline-block", cursor: "pointer", }} >
                   <td> {post.title}</td>
                 </Link>
@@ -80,12 +92,12 @@ const PostList = ({boardType}) => {
           return (
             <tr>
               <td>{i + 1}</td>
-              <Link to="/PostRead" state={{ data: post.boardId , boardType: boardType }} className="postTitle"
+              <Link to="/PostRead" state={{ data: post.boardId , boardType: boardType, scrap: post.scrapCount }} className="postTitle"
                 style={{ textAlign: "center", color: "black", listStyle: "none", textDecoration: "none", display: "inline-block", cursor: "pointer", }} >
                 <td> {post.title}</td>
               </Link>
               <td>{post.createdDate.substring(0, 10)}</td>
-              <td>{post.userName}</td>
+              <td>관리자</td>
               <td>{post.scrapCount}</td>
             </tr>
           );
@@ -94,11 +106,32 @@ const PostList = ({boardType}) => {
       }
         </tbody>
       </table>
-      <Link to="/ScrapPosts" /*state={{ data: totalposts }}*/>
-        <button> 내가 스크랩한 게시물 보기</button>
+
+      { (boardType === "FREE" || boardType === "REVIEW") ?
+        null
+        :
+        <Link to="/ScrapPosts" state={{ data: postData.data }} >
+        <StyleButton> 
+        <img src="img/GoScrapIcon.png" style={{width:'13px', height :'13px'}}/>
+          &nbsp; 내가 스크랩한 게시물 보기 
+        </StyleButton>
       </Link>
+      }
+      <Banner />
     </>
   );
 };
+
+const StyleButton = styled.button`
+  margin: 20px;
+  border: 0px solid;
+  background: transparent;
+  color: #000000;
+  cursor: pointer;
+  font-size :14px;
+  &:focus {
+   color: #808080;
+  }
+`
 
 export default PostList;

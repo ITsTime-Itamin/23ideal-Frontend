@@ -40,7 +40,7 @@ const Editor = () => {
       .then((response) => response.json())
       .then((response) => {
         alert("게시물 등록이 완료되었습니다");
-        window.location.assign("http://localhost:3000/");
+       // window.location.assign("http://localhost:3000/");
         console.log(response.data)
     });
 
@@ -66,7 +66,7 @@ const Editor = () => {
       </div>
       <div>
         <div style={{   position: "relative", top: "140px",  left: "380px",  fontSize: "28px", letterSpacing: "2px",}} >
-          마감일
+          작성일
         </div>
         <input onChange={(e) => setDeadLineDate(e.target.value)} type="text" className="title_txt"  name="title" placeholder="  마감일을 입력해주세요" />
       </div>

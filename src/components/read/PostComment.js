@@ -28,8 +28,7 @@ const PostComment = (props) => {
       });
   },[])
   const unformatDate = "" + content.createdDate;
-    const date = unformatDate.substring(0, 10);
- //   console.log(content);
+  const date = unformatDate.substring(0, 10);
 
   //게시물 삭제하기
   const DeletePost=()=>{
@@ -61,11 +60,10 @@ const PostComment = (props) => {
       .then(() => {
         if(scrapTF==true){
           scrapImg="img/ScrapIcon.png"
-          alert("스크랩 취소");
         }
         else if(scrapTF==false) {
           scrapImg="img/GoScrapIcon.png"
-          alert("스크랩 완료");
+          alert("공감 완료");
         }
     });
   }
@@ -125,12 +123,6 @@ const PostComment = (props) => {
       .then((response) => 
       setGetcomment(response.data)
     )
-    //comment.push(getcomment);
-   /* if(comment[0].length != 0){
-      for (var i=0;i<comment[0].length;i++){
-        console.log(comment[0][i].commentId,comment[0][i].children);
-      }
-    }*/
   }
 
   //댓글 삭제하기
@@ -150,11 +142,6 @@ const PostComment = (props) => {
   console.log(commentId);
   }
 
- /* let imgPath="";
-  if(content.imageKeys != undefined) {
-   imgPath="/s3/image" + content.imageKeys[0];
-  }*/
-
   return (
     <div>
       <div style={{ textAlign: "center", position: "relative", top: "100px" }}>
@@ -166,28 +153,34 @@ const PostComment = (props) => {
         <div className="colum">제목</div>
         <div className="colum">작성자</div>
         <div className="colum">작성일</div>
-        {content.boardId}<br/>
-        {content.title} <br />
-        {content.userName} <br />
-        {date}
-        <br />
-        {content.content}
+        <div className="title"> {content.title} <br /></div>
+        <div className="title"> {content.userName} <br /></div>
+        <div className="title"> {date} <br /></div>
+        <br/>
+        <div className="content">  {content.content} </div>
+        { content.imageKeys != undefined ?
+        <div className="content"> 
+        <img src={'https://itamin-backend-images.s3.ap-northeast-2.amazonaws.com/'+content.imageKeys[0]} /> 
+        </div> : null}
       </div>
       :
       <div>loading...</div>
       }
-      <Link to="/EditPost" state={{boardId:content.boardId, boardType:boardType, title:content.title, deadLineDate:content.deadLineDate,content:content.content, file:content.imageKeys}}>
-      <StyleButton>수정하기</StyleButton>
-      </Link>
-      <StyleButton onClick={()=>DeletePost()}>삭제하기</StyleButton>
+      <div className="fix_btn">
+          <Link to="/EditPost" state={{boardId:content.boardId, boardType:boardType, title:content.title, deadLineDate:content.deadLineDate,content:content.content, file:content.imageKeys}}>
+          <StyleButton>수정하기</StyleButton>
+          </Link>
+          <StyleButton onClick={()=>DeletePost()}>삭제하기</StyleButton>
+      </div>
+
       
       {ScrapTF()}
       { scrapTF === false ? 
         <StyleButton onClick={()=>Scrap()}> 
-          <img src="img/GoScrapIcon.png" style={{width:'14px', height :'14px'}}/> 스크랩 </StyleButton>
+          <img src="img/like-09.png" style={{width:'14px', height :'14px'}}/> 공감 </StyleButton>
         : 
-        <StyleButton onClick={()=>Scrap()}> 
-          <img src="img/ScrapIcon.png" style={{width:'14px', height :'14px'}}/> 스크랩 취소 </StyleButton>
+        <StyleButton> 
+          <img src="img/like_fill-10.png" style={{width:'14px', height :'14px'}}/> 공감 </StyleButton>
       } 
 
       {GetComment()}
@@ -205,15 +198,17 @@ const PostComment = (props) => {
       }
       {reComment===false ?
       <>
-        <input onChange={(e)=>setPostcomment(e.target.value)} placeholder="댓글을 입력하세요" /> 
+        <div className="comment">
+        <input style={{width:"1000px"}} onChange={(e)=>setPostcomment(e.target.value)} placeholder="댓글을 입력하세요" /> 
         <StyleButton onClick={()=>{
           postComment(null) 
           setReComment(false)
         }}>입력</StyleButton> 
+        </div>
       </>
       :
-      <>
-        <input onChange={(e)=>setPostcomment(e.target.value)} placeholder="답글을 입력하세요" /> 
+      <> 
+        <input style={{width:"1000px"}} onChange={(e)=>setPostcomment(e.target.value)} placeholder="답글을 입력하세요" /> 
         <StyleButton onClick={()=>{
           postComment(parentsid)
           setReComment(false)}}>입력</StyleButton> 
@@ -225,7 +220,9 @@ const PostComment = (props) => {
 
 const StyleButton = styled.button`
   margin: 20px;
-  border: 1px solid;
+  border: 1px solid #EB7E5D;
+  width : 100px;
+  font-size : 20px;
   background: #ffffff;
   color: #000000;
   cursor: pointer;

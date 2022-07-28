@@ -1,6 +1,7 @@
-import { RenderAfterNavermapsLoaded, NaverMap, Marker, GroundOverlay} from 'react-naver-maps';
+import { RenderAfterNavermapsLoaded, NaverMap, Marker } from 'react-naver-maps';
 import React, { useEffect, useState } from "react";
 import './MapSide.css'
+import './Home.css'
 import { Link, useNavigate } from 'react-router-dom';
 import Categories from './Categories';
 
@@ -243,11 +244,12 @@ const NaverMapAPI=()=> {
           <div className="container">
             <img src="/img/MapSide.png" alt="Snow" style={{width:'100%', height:'600px'}} />
             <h1 className="title">{area} 공공주택 정보</h1>
-            <div className="centered">{guInfo.length !=0 ? guInfo.map((info)=>(<li>[{info.insttNm}] {info.hsmpNm}</li>)):null}</div>
+            <div className="centered">
+               {guInfo.length !=0 ? guInfo.map((info)=>(<li style={{fontSize:'20px'}}>[{info.insttNm}] {info.hsmpNm}</li>)):null}</div>
             <Link to="/FindAll" className="link">
               전체공고 보러가기 → → 
             </Link>
-            <button className="close" type='button' onClick={()=>{alert('확인')}}>접기</button>
+            <button className="close" type='button' onClick={()=>{setChange(false); }}>접기</button>
           </div>
           </>
           :null}
@@ -256,11 +258,6 @@ const NaverMapAPI=()=> {
     }
 
 const Home=()=> {
-
-  /*const [countData,setCountData]=useState(null);
-
-  fetch('http://localhost:3000/api/v1/houses').then(res=>(res.json())).then(response=>{setCountData(response.data);}); //json으로 변환 위해 axios->fetch
-  const countjson= JSON.stringify(countData,null,2);*/
 
   return (
     <div>
