@@ -67,7 +67,8 @@ const NoticeRead = (props) => {
         <hr className="hr"></hr>
       </div>
       <div>
-        <div className="colum">제목</div>
+        <div className="colum">제목
+        </div>
         <div className="colum">작성자</div>
         <div className="colum">작성일</div>
         {content.boardId} <br />

@@ -75,7 +75,7 @@ const EditPost = () => {
         <h1>수정하기</h1>
         <hr className="hr"></hr>
       </div>
-      <div>
+      <div className="goback_btn"> 
         <button onClick={()=>Edit()}
             /*input value="등록" type="submit" className="submit_btn"*/ >등록</button>
       </div>
