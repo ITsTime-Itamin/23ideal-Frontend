@@ -243,7 +243,8 @@ const NaverMapAPI=()=> {
           <div className="container">
             <img src="/img/MapSide.png" alt="Snow" style={{width:'100%', height:'600px'}} />
             <h1 className="title">{area} 공공주택 정보</h1>
-            <div className="centered">{guInfo.length !=0 ? guInfo.map((info)=>(<li>[{info.insttNm}] {info.hsmpNm}</li>)):null}</div>
+            <div className="centered">
+               {guInfo.length !=0 ? guInfo.map((info)=>(<li>[{info.insttNm}] {info.hsmpNm}</li>)):null}</div>
             <Link to="/FindAll" className="link">
               전체공고 보러가기 → → 
             </Link>

@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import "./Table/Table.css"
 import Pagination from "./Pagination";
 import { GoogleToken } from "../pages/Login/GoogleLogin";
+import styled from "styled-components";
 
 const PostList = ({boardType}) => {
 
@@ -108,11 +109,26 @@ const PostList = ({boardType}) => {
         null
         :
         <Link to="/ScrapPosts" state={{ data: postData.data }}>
-        <button> 내가 스크랩한 게시물 보기</button>
+        <StyleButton> 
+          <img src="img/GoScrapIcon.png" style={{width:'20px', height :'20px'}}/>
+          내가 스크랩한 게시물 보기
+        </StyleButton>
       </Link>
       }
     </>
   );
 };
+
+const StyleButton = styled.button`
+  margin: 20px;
+  border: 0px solid;
+  background: transparent;
+  color: #000000;
+  cursor: pointer;
+  font-size :20px;
+  &:focus {
+   color: #808080;
+  }
+`
 
 export default PostList;

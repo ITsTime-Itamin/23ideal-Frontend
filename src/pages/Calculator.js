@@ -48,7 +48,7 @@ const Calculator =()=>{
         청약가점계산기 </Title>
         </h1>
    
-        <div style={{left: '200px', top: '250px' ,position: 'absolute'}}>
+        <div style={{left: '200px', top: '250px' ,position: 'absolute', textAlign:'center'}}>
         <h3>무주택기간을 선택해주세요 (미혼인 경우 만 30세부터 기간을 산정)</h3>
           <input type="radio" name="house" onChange={()=>setHouse(0)}/>만 30세 미만 미혼자 (0점) <br/>
           <input type="radio" name="house" onChange={()=>setHouse(2)}/>1년 미만 (2점) <br/>
@@ -68,7 +68,7 @@ const Calculator =()=>{
           <input type="radio" name="house" onChange={()=>setHouse(30)}/>14년 이상 ~ 15년 미만 (30점)<br/>
           <input type="radio" name="house" onChange={()=>setHouse(32)}/>15년 이상 (32점) <br/>
         </div>
-        <div style={{left: '200px', top: '700px' ,position: 'absolute'}}>
+        <div style={{left: '200px', top: '700px' ,position: 'absolute',textAlign:'center'}}>
         <h3>부양가족 수를 선택해주세요</h3>
           <input type="radio" name="family" onChange={()=>setFamily(5)}/> 0명 (5점) <br/>
           <input type="radio" name="family" onChange={()=>setFamily(10)}/> 1명 (10점) <br/>
@@ -78,7 +78,7 @@ const Calculator =()=>{
           <input type="radio" name="family" onChange={()=>setFamily(30)}/> 5명 (30점) <br/>
           <input type="radio" name="family" onChange={()=>setFamily(35)}/> 6명 이상 (35점)  <br/>
         </div>
-        <div style={{left: '200px', top: '950px' ,position: 'absolute'}}>
+        <div style={{left: '200px', top: '950px' ,position: 'absolute',textAlign:'center'}}>
         <h3>청약통장 가입기간을 선택해주세요</h3>
           <input type="radio" name="account" onChange={()=>setAccount(1)}/> 만 6월 미만 (1점) <br/>
           <input type="radio" name="account" onChange={()=>setAccount(2)}/> 만 6월 이상 ~ 만 1년 미만 (2점) <br/>
@@ -98,6 +98,8 @@ const Calculator =()=>{
           <input type="radio" name="account" onChange={()=>setAccount(16)}/> 만 14년 이상 ~ 15년 미만 (16점) <br/>
           <input type="radio" name="account" onChange={()=>setAccount(17)}/> 만 15년 이상 (17점) <br/>
         <h3>총점</h3> {total}
+        <br></br>
+        <br></br>
         </div>
   
       </>
