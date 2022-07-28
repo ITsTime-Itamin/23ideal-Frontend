@@ -148,7 +148,24 @@ const PostComment = (props) => {
         <h1>PostComment</h1>
         <hr className="hr"></hr>
       </div>
-      {content.length != 0 ? 
+      <div style={{textAlign:'center'}}>
+        <table style={{position : 'relative', top : '100px', left : '270px' ,width:'1000px',top:'63px',height:'90px'}}>
+          <tr style={{border:'1px solid'}}>
+            <td style={{background:'rgba(234, 81, 32, 0.1)',border: '1px solid #FFFFFF'}}>제목</td>
+            <td colSpan="3" style={{border:'2px solid #F2F2F2'}}>{content.title}</td>
+          </tr>
+          <tr>
+            <td style={{background:'rgba(234, 81, 32, 0.1)',border: '1px solid #FFFFFF'}}>작성자</td>
+            <td colSpan="3" style={{border:'2px solid #F2F2F2'}}>관리자</td>
+          </tr>
+          <tr>
+            <td style={{background:'rgba(234, 81, 32, 0.1)',border: '1px solid #FFFFFF'}}>작성일</td>
+            <td style={{border:'2px solid #F2F2F2'}}>{date}</td>
+            
+          </tr>
+        </table></div>
+      {/*content.length != 0 ? 
+      
       <div>
         <div className="colum">제목</div>
         <div className="colum">작성자</div>
@@ -156,14 +173,14 @@ const PostComment = (props) => {
         <div className="title"> {content.title} <br /></div>
         <div className="title"> {content.userName} <br /></div>
         <div className="title"> {date} <br /></div>
-        <br/>
+        <br/
         <div className="content">  {content.content} </div>
         { content.imageKeys != undefined ?
         <div className="content"> 
         <img src={'https://itamin-backend-images.s3.ap-northeast-2.amazonaws.com/'+content.imageKeys[0]} /> 
         </div> : null}
       </div>
-      :
+      :*/
       <div>loading...</div>
       }
       <div className="fix_btn">
