@@ -128,7 +128,6 @@ const PostRead = (props) => {
 const StyleButton = styled.button`
   margin: 20px;
   border: 1px solid;
-
   background: #000000;
   color: #000000;
   cursor: pointer;
