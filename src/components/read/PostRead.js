@@ -8,6 +8,7 @@ const PostRead = (props) => {
   const location = useLocation();
   const id = location.state.data;
   const boardType=location.state.boardType;
+  const scrapCount=location.state.scrap;
 
   let scrapImg="img/GoScrapIcon.png";
 
@@ -85,39 +86,64 @@ const PostRead = (props) => {
 
   return (
     <div>
-      <div style={{ textAlign: "center", position: "relative", top: "100px" }}>
-        <h1>PostRead</h1>
-        <hr className="hr"></hr>
+      <div style={{  position: "relative", top: "70px" }}>
+        <h1 style={{textAlign: "center",}}>PostRead</h1>
+        <hr style={{width:'1000px', height:'0.7px', background:'black',border:'0px',textAlign: "center",}}></hr>
       </div>
-      <div>
-        <div className="colum">제목</div>
+      <div style={{textAlign:'center'}}>
+        <table style={{position : 'relative', top : '85px', left : '270px' ,width:'1000px',top:'63px',height:'90px'}}>
+          <tr style={{border:'1px solid'}}>
+            <td style={{background:'rgba(234, 81, 32, 0.1)',border: '1px solid #FFFFFF'}}>제목</td>
+            <td colSpan="3" style={{border:'2px solid #F2F2F2'}}>{content.title}</td>
+          </tr>
+          <tr>
+            <td style={{background:'rgba(234, 81, 32, 0.1)',border: '1px solid #FFFFFF'}}>작성자</td>
+            <td colSpan="3" style={{border:'2px solid #F2F2F2'}}>관리자</td>
+          </tr>
+          <tr>
+            <td style={{background:'rgba(234, 81, 32, 0.1)',border: '1px solid #FFFFFF'}}>작성일</td>
+            <td style={{border:'2px solid #F2F2F2'}}>{date}</td>
+            <td style={{background:'rgba(234, 81, 32, 0.1)',border: '1px solid #FFFFFF'}}>스크랩수</td>
+            <td style={{border:'2px solid #F2F2F2'}}>{scrapCount}</td>
+          </tr>
+        </table></div>
+        <br/><br/><br/>
+        {/*<div className="colum">제목</div>
         <div className="colum">작성자</div>
-        <div className="colum">작성일</div>
+  <div className="colum">작성일</div>
+  
         <div className="title">
           {content.title} 
         </div>
 
         <div className="title"> 관리자</div>
 
-        <div  className="title"> {date} </div>
-        <br />
-        <div className="content">  {content.content} </div>
+        <div  className="title"> {date} </div>*/}
+        <div>
+        <div className="content">  
+        { content.content != undefined ?
+          content.content.split('\n').map( line => {
+            return (<span>{line}<br/></span>)
+          }) :null
+        }
+        {/*content.content*/} <br/><br/>
         { content.imageKeys != undefined ?
-         <div className="content"> 
          <img src={'https://itamin-backend-images.s3.ap-northeast-2.amazonaws.com/'+content.imageKeys[0]} /> 
-         </div> : null}
-      </div>
+        : null}  </div> 
+        <hr style={{width:'1010px', height:'0.4px', background:'black',border:'0px',textAlign: "center",}}></hr>
+        </div>
+
       <Link to="/EditPost" state={{boardId:content.boardId, boardType:boardType, title:content.title, deadLineDate:content.deadLineDate,content:content.content, file:content.imageKeys}}>
-      <StyleButton>수정하기</StyleButton>
+      <StyleButton style={{right:'10px'}}>수정하기</StyleButton>
       </Link>
-      <StyleButton onClick={()=>DeletePost()}>삭제하기</StyleButton>
+      <StyleButton  style={{right:'50%'}} onClick={()=>DeletePost()}>삭제하기</StyleButton>
       {ScrapTF()}
       { scrapTF === false ? 
-        <StyleButton onClick={()=>Scrap()}> 
-          <img src="img/GoScrapIcon.png" style={{width:'14px', height :'14px'}}/> 스크랩 </StyleButton>
+        <StyleButton  onClick={()=>Scrap()}> 
+          <img src="img/GoScrapIcon.png" style={{width:'14px', height :'14px',left:'1300px'}}/> 스크랩 </StyleButton>
         : 
-        <StyleButton onClick={()=>Scrap()}> 
-          <img src="img/ScrapIcon.png" style={{width:'14px', height :'14px'}}/> 스크랩 취소 </StyleButton>
+        <StyleButton  onClick={()=>Scrap()}> 
+          <img src="img/ScrapIcon.png" style={{width:'14px', height :'14px',right:'10%'}}/> 스크랩 취소 </StyleButton>
       } 
     </div>
   );
@@ -125,13 +151,13 @@ const PostRead = (props) => {
 
 const StyleButton = styled.button`
   margin: 20px;
-  border: 1px solid;
+  border: 1.5px solid #EB7E5D;
   background: #ffffff;
-  color: #000000;
   cursor: pointer;
   &:focus {
    color: #808080;
   }
+  border-radius: 10%;
 `
 
 export default PostRead;

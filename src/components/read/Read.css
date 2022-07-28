@@ -1,12 +1,12 @@
 .colum
 {
     position : relative ;
-    top : 93px ; 
-    left : 388px ; 
-    font-size : 25px ; 
+    top : 85px ; 
+    left : 300px ; 
+    font-size : 18px ; 
     text-align: center;
-    letter-spacing :2px ; 
-    background-color : #FDEEE9 ;
+    /*background-color : #FDEEE9 ;*/
+    font-weight: bold;
     width : 120px;
     height: 30px;
     border: 1px solid #FFFFFF;
@@ -23,16 +23,21 @@
 .title
 {
     position: relative;
-    top : 10px;
-    left: 580px;
-    font-size: 24px;
-  
+    top : 7px;
+    left: 950px;
+    font-size: 18px;
+    height: 31px;
+    width: 1000px;
+    text-align: left;
+  line-height: 20px;
 }
 
 .content
 {
     position: relative;
     top: 2px;
-    left: 520px;
-    font-size: 24px;
+    left: 260px;
+    width: 1000px;
+    height: auto;
+    padding: 15px;
 }

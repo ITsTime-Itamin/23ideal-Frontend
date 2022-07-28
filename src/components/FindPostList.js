@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import { GoogleToken } from "../pages/Login/GoogleLogin";
 import "./Table/Table.css"
 import SidebarFind from "./SidebarFind";
-import Pagination from "./Pagination";
+import styled from "styled-components";
 import Banner from "./Banner";
 
 const PostList = ({boardType}) => {
@@ -77,7 +77,6 @@ const PostList = ({boardType}) => {
   return (
     <>
     <SidebarFind />
-    <main>
       <table className="common-table">
         <thead>
           <tr>
@@ -96,7 +95,7 @@ const PostList = ({boardType}) => {
             return (
               <tr>
                 <td>{i + 1}</td>
-                <Link to="/PostRead" state={{ data: post.boardId , boardType: boardType }} className="postTitle"
+                <Link to="/PostRead" state={{ data: post.boardId , boardType: boardType , scrap: post.scrapCount }} className="postTitle"
                   style={{ textAlign: "center", color: "black", listStyle: "none", textDecoration: "none", display: "inline-block", cursor: "pointer",}} >
                   <td> {post.title}</td>
                 </Link>
@@ -112,7 +111,7 @@ const PostList = ({boardType}) => {
           return (
             <tr>
               <td>{i + 1}</td>
-              <Link to="/PostRead" state={{ data: post.boardId , boardType: boardType }} className="postTitle"
+              <Link to="/PostRead" state={{ data: post.boardId , boardType: boardType, scrap: post.scrapCount  }} className="postTitle"
                 style={{ textAlign: "center", color: "black", listStyle: "none", textDecoration: "none", display: "inline-block", cursor: "pointer",}} >
                 <td> {post.title}</td>
               </Link>
@@ -126,23 +125,27 @@ const PostList = ({boardType}) => {
         }
         </tbody>
       </table>
+
       <Link to="/ScrapPosts" state={{ data: postData.data }}>
-        <button> 내가 스크랩한 게시물 보기</button>
+        <StyleButton> 
+          <img src="img/GoScrapIcon.png" style={{width:'13px', height :'13px'}}/>
+          &nbsp; 내가 스크랩한 게시물 보기</StyleButton>
       </Link>
-      </main>
-      <footer>
-      {/* postData.length != 0 ?
-        <Pagination
-          total={postData.data.length}
-          limit={limit}
-          page={page}
-          setPage={setPage}
-          totalPage={postData.totalPage} />
-    : null*/ }
-       </footer>
        <Banner/>
     </>
   );
 };
+
+const StyleButton = styled.button`
+  margin: 20px;
+  border: 0px solid;
+  background: transparent;
+  color: #000000;
+  cursor: pointer;
+  font-size :14px;
+  &:focus {
+   color: #808080;
+  }
+`
 
 export default PostList;

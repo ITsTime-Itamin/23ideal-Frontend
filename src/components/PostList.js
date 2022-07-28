@@ -77,7 +77,7 @@ const PostList = ({boardType}) => {
             return (
               <tr>
                 <td>{i + 1}</td>
-                <Link to="/PostComment" state={{ data: post.boardId , boardType: boardType }} className="postTitle"
+                <Link to="/PostComment" state={{ data: post.boardId , boardType: boardType, scrap: post.scrapCount }} className="postTitle"
                   style={{ textAlign: "center", color: "black", listStyle: "none", textDecoration: "none", display: "inline-block", cursor: "pointer", }} >
                   <td> {post.title}</td>
                 </Link>
@@ -92,7 +92,7 @@ const PostList = ({boardType}) => {
           return (
             <tr>
               <td>{i + 1}</td>
-              <Link to="/PostRead" state={{ data: post.boardId , boardType: boardType }} className="postTitle"
+              <Link to="/PostRead" state={{ data: post.boardId , boardType: boardType, scrap: post.scrapCount }} className="postTitle"
                 style={{ textAlign: "center", color: "black", listStyle: "none", textDecoration: "none", display: "inline-block", cursor: "pointer", }} >
                 <td> {post.title}</td>
               </Link>
@@ -106,13 +106,14 @@ const PostList = ({boardType}) => {
       }
         </tbody>
       </table>
+
       { (boardType === "FREE" || boardType === "REVIEW") ?
         null
         :
-        <Link to="/ScrapPosts" state={{ data: postData.data }}>
+        <Link to="/ScrapPosts" state={{ data: postData.data }} >
         <StyleButton> 
-          <img src="img/GoScrapIcon.png" style={{width:'20px', height :'20px'}}/>
-          내가 스크랩한 게시물 보기
+        <img src="img/GoScrapIcon.png" style={{width:'13px', height :'13px'}}/>
+          &nbsp; 내가 스크랩한 게시물 보기 
         </StyleButton>
       </Link>
       }
@@ -127,7 +128,7 @@ const StyleButton = styled.button`
   background: transparent;
   color: #000000;
   cursor: pointer;
-  font-size :20px;
+  font-size :14px;
   &:focus {
    color: #808080;
   }
