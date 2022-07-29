@@ -81,13 +81,13 @@ const EditPost = () => {
       </div>
       <form /*onSubmit={()=>{return Edit()}} action="./"*/ entype="multipart/formdata" >
       <div>
-        <div style={{ position: "relative", top: "140px", left: "380px", fontSize: "28px", letterSpacing: "2px", }} >
+        <div style={{ position: "relative", top: "100px", left: "300px", fontSize: "26px", letterSpacing: "2px", }} >
           제목
         </div>
         <input onChange={(e) => setTitle(e.target.value)}  type="text"  className="title_txt"  name="title" placeholder="  제목을 입력해주세요" />
       </div>
       <div>
-        <div style={{   position: "relative", top: "140px",  left: "380px",  fontSize: "28px", letterSpacing: "2px",}} >
+        <div style={{   position: "relative", top: "98px",  left: "280px",  fontSize: "26px", letterSpacing: "2px",}} >
           마감일
         </div>
         <input onChange={(e) => setDeadLineDate(e.target.value)} type="text" className="title_txt"  name="title" placeholder="  마감일을 입력해주세요" />
@@ -96,14 +96,14 @@ const EditPost = () => {
       <br></br>
       <br></br>
       <div>
-        <div style={{  position: "relative",  top: "60px", left: "340px",fontSize: "28px",letterSpacing: "2px",}}>
+        <div style={{  position: "relative",  top: "25px", left: "265px",fontSize: "26px",letterSpacing: "2px",}}>
           첨부파일
         </div>
         <input  accept="image/*.csv" onChange={e=>handleUpload(e)} type="file"  className="paste" id="file" name="file"   placeholder="  파일을 업로드 해주세요"  />
       </div>
 
       <div>
-        <div style={{  position: "relative", top: "60px",  left: "380px",  fontSize: "28px",  letterSpacing: "2px",}}>
+        <div style={{  position: "relative", top: "30px",  left: "300px",  fontSize: "26px",  letterSpacing: "2px",}}>
           내용
         </div>
         <input type="text"  onChange={(e) => setContent(e.target.value)}  className="txt" name="content"  placeholder=" 내용을 입력해주세요" />

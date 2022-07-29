@@ -93,7 +93,7 @@ const PostList = ({boardType}) => {
           {  (boardType!="ALL" && postData.length != 0) ? postData.data.map((post, i) => {
            // const unfomat=""+post.deadLineDate;
             return (
-              <tr>
+              <tr style={{border:'1px solid'}}>
                 <td>{i + 1}</td>
                 <Link to="/PostRead" state={{ data: post.boardId , boardType: boardType , scrap: post.scrapCount }} className="postTitle"
                   style={{ textAlign: "center", color: "black", listStyle: "none", textDecoration: "none", display: "inline-block", cursor: "pointer",}} >
@@ -109,7 +109,7 @@ const PostList = ({boardType}) => {
         : /*<div style={{textAlign:'center'}}>loading...</div>*/
         allpost.map((post,i)=>{
           return (
-            <tr>
+            <tr style={{border:'1px solid'}}>
               <td>{i + 1}</td>
               <Link to="/PostRead" state={{ data: post.boardId , boardType: boardType, scrap: post.scrapCount  }} className="postTitle"
                 style={{ textAlign: "center", color: "black", listStyle: "none", textDecoration: "none", display: "inline-block", cursor: "pointer",}} >
@@ -127,7 +127,7 @@ const PostList = ({boardType}) => {
       </table>
 
       <Link to="/ScrapPosts" state={{ data: postData.data }}>
-        <StyleButton> 
+        <StyleButton style={{float:'revert'}}> 
           <img src="img/GoScrapIcon.png" style={{width:'13px', height :'13px'}}/>
           &nbsp; 내가 스크랩한 게시물 보기</StyleButton>
       </Link>
@@ -138,8 +138,8 @@ const PostList = ({boardType}) => {
 
 const StyleButton = styled.button`
 position:relative;
-top: 90px;
-left :900px;
+top: 80px;
+left :1070px;
   margin: 20px;
   border: 0px solid;
   background: transparent;

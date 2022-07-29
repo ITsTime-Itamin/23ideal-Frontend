@@ -1,11 +1,10 @@
 import React, { useEffect, useState } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { GoogleToken } from "../pages/Login/GoogleLogin";
-import NoticeRead from "./read/NoticeRead";
 
 const ScrapPosts = () => {
 
-  const headersName = ["no", "제목", "작성일", "작성자"];
+  const headersName = ["no", "제목", "작성일", "작성자","스크랩수"];
   const [scrapData,setScrapData]=useState([]);
   const location = useLocation();
   const post =[]; //기존 전체 게시물
@@ -56,12 +55,13 @@ const ScrapPosts = () => {
             return (
               <tr>
                 <td>{i + 1}</td>
-                <Link to="/NoticeRead" state={{ data: sample.boardId , boardType: sample.boardType }} className="postTitle"
-                  style={{ textAlign: "center", color: "black", listStyle: "none", textDecoration: "none", display: "inline-block", cursor: "pointer", }} >
-                  <td> {sample.title}</td>
-                </Link>
+                <Link to="/PostRead" state={{ data: sample.boardId , scrap: sample.scrapCount  }} className="postTitle"
+                style={{ textAlign: "center", color: "black", listStyle: "none", textDecoration: "none", display: "inline-block", cursor: "pointer",}} >
+                <td> {sample.title}</td>
+              </Link>
                 <td>{sample.createdDate.substring(0, 10)}</td>
                 <td>관리자</td>
+                <td>{sample.scrapCount}</td>
               </tr>
             );
           })}

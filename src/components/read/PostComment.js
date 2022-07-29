@@ -149,14 +149,14 @@ const PostComment = (props) => {
         <hr className="hr"></hr>
       </div>
       <div style={{textAlign:'center'}}>
-        <table style={{position : 'relative', top : '200px', left : '270px' ,width:'1000px',top:'63px',height:'90px'}}>
+        <table style={{position : 'relative', top : '400px', left : '270px' ,width:'1000px',top:'63px',height:'90px'}}>
           <tr style={{border:'1px solid'}}>
             <td style={{background:'rgba(234, 81, 32, 0.1)',border: '1px solid #FFFFFF'}}>제목</td>
             <td colSpan="3" style={{border:'2px solid #F2F2F2'}}>{content.title}</td>
           </tr>
           <tr>
             <td style={{background:'rgba(234, 81, 32, 0.1)',border: '1px solid #FFFFFF'}}>작성자</td>
-            <td colSpan="3" style={{border:'2px solid #F2F2F2'}}>관리자</td>
+            <td colSpan="3" style={{border:'2px solid #F2F2F2'}}>{content.userName}</td>
           </tr>
           <tr>
             <td style={{background:'rgba(234, 81, 32, 0.1)',border: '1px solid #FFFFFF'}}>작성일</td>
@@ -187,7 +187,7 @@ const PostComment = (props) => {
           <Link to="/EditPost" state={{boardId:content.boardId, boardType:boardType, title:content.title, deadLineDate:content.deadLineDate,content:content.content, file:content.imageKeys}}>
           <StyleButton style={{right:'10px', position:"relative"}} >수정하기</StyleButton>
           </Link>
-          <StyleButton style={{right:'50%'}} onClick={()=>DeletePost()}>삭제하기</StyleButton>
+          <StyleButton style={{right:'50%', position:'relative'}} onClick={()=>DeletePost()}>삭제하기</StyleButton>
       </div>
 
       
@@ -237,11 +237,12 @@ const PostComment = (props) => {
 
 const StyleButton = styled.button`
   positin : relative;
-  left : 400px;
+  left : 200px;
+  top: 40px;
   margin: 20px;
   border: 1px solid #EB7E5D;
   width : 100px;
-  font-size : 20px;
+  font-size : 18px;
   background: #ffffff;
   color: #000000;
   cursor: pointer;
