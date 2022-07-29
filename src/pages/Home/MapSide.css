@@ -1,61 +1,61 @@
-    .container {
-      position: relative;
-      text-align: center;
-      color: black;
-      width: 430px;
-      height: 500px;
-      float: left;
-      left: 8%;
-      top:10px;
-    }
-    .centered {
-      position: absolute;
-      width: 400px;
-      top: 66%;
-      left: 63%;
-      transform: translate(-50%, -50%);
-      text-align: left;
-      line-height: 35px;
-    }
-    .title {
-      position: absolute;
-      width: 400px;
-      top: 13%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-      text-align: center;
-    }
-    .link {
-      position: absolute;
-      width: 400px;
-      font-family: 'Inter';
-      font-weight: 600;
-      font-size: 20px;
-      top: 100%;
-      left: 4%;
-      text-decoration: none;
-      text-align: center;
-      color: black;
-    }
-    .close {
-      position: absolute;
-      top: 110%;
-      left: 50%;
-      width: 80px;
-      height: 30px;
-      transform: translate(-50%, -50%);
-      text-align: center;
-      font-family: 'Inter';
-      font-weight: 500;
-      font-size: 18px;
-      color: black;
-      background-color: #FFC5B4;
-      border: 0px;
-    }
+.container {
+  position: relative;
+  text-align: center;
+  color: black;
+  width: 430px;
+  height: 500px;
+  float: left;
+  left: 8%;
+  top:10px;
+}
+.centered {
+  position: absolute;
+  width: 400px;
+  top: 66%;
+  left: 63%;
+  transform: translate(-50%, -50%);
+  text-align: left;
+  line-height: 35px;
+}
+.title {
+  position: absolute;
+  width: 400px;
+  top: 13%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+}
+.link {
+  position: absolute;
+  width: 400px;
+  font-family: 'Inter';
+  font-weight: 600;
+  font-size: 20px;
+  top: 100%;
+  left: 4%;
+  text-decoration: none;
+  text-align: center;
+  color: black;
+}
+.close {
+  position: absolute;
+  top: 110%;
+  left: 50%;
+  width: 80px;
+  height: 30px;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  font-family: 'Inter';
+  font-weight: 500;
+  font-size: 15px;
+  color: black;
+  background-color: #FFC5B4;
+  border: 0px;
+}
 
-    /*@font-face {
-      font-family: 'InfinitySans-R';
-      src: url('/fonts/InfinitySansR-Regular.ttf');
-      font-weight: normal;
-      font-style: normal;
-    }*/
+/*@font-face {
+  font-family: 'InfinitySans-R';
+  src: url('/fonts/InfinitySansR-Regular.ttf');
+  font-weight: normal;
+  font-style: normal;
+}*/

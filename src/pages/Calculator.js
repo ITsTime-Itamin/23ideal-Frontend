@@ -48,8 +48,8 @@ const Calculator =()=>{
         청약가점계산기 </Title>
         </h1>
 
-        <div style={{left: '350px', top: '250px' ,position: 'absolute',  lineHeight:'25px'}}>
-        <h3 style={{textAlign:'center'}}>무주택기간을 선택해주세요 (미혼인 경우 만 30세부터 기간을 산정)</h3>
+        <div style={{left: '350px', top: '250px' ,position: 'absolute',  lineHeight:'25px',margin:'0px'}}>
+        <h3 style={{textAlign:'center'}}><img src="./img/house.png" style={{width:'25px',height:'29px'}}/>&nbsp;무주택기간을 선택해주세요 (미혼인 경우 만 30세부터 기간을 산정)</h3>
         <hr style={{width: '800px'}}></hr>
           <input type="radio" name="house" onChange={()=>setHouse(0)}/>만 30세 미만 미혼자(0점) <br/>
           <input type="radio" name="house" onChange={()=>setHouse(2)}/>1년 미만 (2점) <br/>
@@ -60,7 +60,7 @@ const Calculator =()=>{
           <input type="radio" name="house" onChange={()=>setHouse(12)}/>5년 이상 ~ 6년 미만 (12점)<br/>
           <input type="radio" name="house" onChange={()=>setHouse(14)}/>6년 이상 ~ 7년 미만 (14점)<br/>
           </div>
-          <div style={{left: '800px', top: '320px' ,position: 'absolute',  lineHeight:'25px'}}>
+          <div style={{left: '800px', top: '320px' ,position: 'absolute',  lineHeight:'29px'}}>
           <input type="radio" name="house" onChange={()=>setHouse(16)}/>7년 이상 ~ 8년 미만 (16점) <br/>
           <input type="radio" name="house" onChange={()=>setHouse(18)}/>8년 이상 ~ 9년 미만 (18점)<br/>
           <input type="radio" name="house" onChange={()=>setHouse(20)}/>9년 이상 ~ 10년 미만 (20점)<br/>
@@ -74,7 +74,7 @@ const Calculator =()=>{
 
         <hr style={{ top: '1000px' ,position: 'absolute',  lineHeight:'25px'}}></hr>
         <div style={{left: '350px', top: '580px' ,position: 'absolute',lineHeight:'25px'}}>
-        <h3  style={{textAlign:'center'}}>부양가족 수를 선택해주세요</h3>
+        <h3  style={{textAlign:'center'}}><img src="./img/house.png" style={{width:'25px',height:'29px'}}/> &nbsp; 부양가족 수를 선택해주세요</h3>
         <hr style={{width: '800px'}}></hr>
           <input type="radio" name="family" onChange={()=>setFamily(5)}/> 0명 (5점) <br/>
           <input type="radio" name="family" onChange={()=>setFamily(10)}/> 1명 (10점) <br/>
@@ -88,7 +88,7 @@ const Calculator =()=>{
         </div>
 
         <div style={{left: '350px', top: '800px' ,position: 'absolute',lineHeight:'25px'}}>
-        <h3  style={{textAlign:'center'}}>청약통장 가입기간을 선택해주세요</h3>
+        <h3  style={{textAlign:'center'}}><img src="./img/house.png" style={{width:'25px',height:'25px'}}/>&nbsp;청약통장 가입기간을 선택해주세요</h3>
         <hr style={{width: '800px'}}></hr>
           <input type="radio" name="account" onChange={()=>setAccount(1)}/> 만 6월 미만 (1점) <br/>
           <input type="radio" name="account" onChange={()=>setAccount(2)}/> 만 6월 이상 ~ 만 1년 미만 (2점) <br/>
@@ -111,7 +111,7 @@ const Calculator =()=>{
           <input type="radio" name="account" onChange={()=>setAccount(17)}/> 만 15년 이상 (17점) <br/>
           </div>
         <div style={{left: '370px', top: '1000px' ,position: 'relative', backgroundColor:'lightgray',fontSize:'30px', width:"700px", height:'80px', textAlign:"center"}}>
-        <h3 style={{textAlign:'center'}}>총점 &nbsp; {total}</h3> 
+        <h3 style={{textAlign:'center'}}>총점  : &nbsp; {total}</h3> 
         </div>
 
   

@@ -81,7 +81,7 @@ const EditPost = () => {
       </div>
       <form /*onSubmit={()=>{return Edit()}} action="./"*/ entype="multipart/formdata" >
       <div>
-        <div style={{ position: "relative", top: "100px", left: "300px", fontSize: "26px", letterSpacing: "2px", }} >
+      <div style={{ position: "relative", top: "100px", left: "300px", fontSize: "26px", letterSpacing: "2px", }} >
           제목
         </div>
         <input onChange={(e) => setTitle(e.target.value)}  type="text"  className="title_txt"  name="title" placeholder="  제목을 입력해주세요" />
