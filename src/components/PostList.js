@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-import "./Table/Table.css"
-import Pagination from "./Pagination";
+import "./Table/Table.css";
 import { GoogleToken } from "../pages/Login/GoogleLogin";
 import styled from "styled-components";
 import Banner from "./Banner";
@@ -56,7 +55,7 @@ const PostList = ({boardType}) => {
             {(boardType === "FREE" || boardType === "REVIEW") ?
             headersName_comment.map((item, index) => {
               return (
-                <td className="common-table-header-column" key={index}>
+                <td style={{fontStyle:'San Francisco'}} className="common-table-header-column" key={index}>
                   {item}
                 </td>
               );
@@ -78,7 +77,7 @@ const PostList = ({boardType}) => {
               <tr>
                 <td>{i + 1}</td>
                 <Link to="/PostComment" state={{ data: post.boardId , boardType: boardType, scrap: post.scrapCount }} className="postTitle"
-                  style={{ textAlign: "center", color: "black", listStyle: "none", textDecoration: "none", display: "inline-block", cursor: "pointer", }} >
+                  style={{ textAlign: "center", color: "black", listStyle: "none", textDecoration: "none", display: "inline-block", cursor: "pointer", fontStyle:'San Francisco'}} >
                   <td> {post.title}</td>
                 </Link>
                 <td>{post.createdDate.substring(0, 10)}</td>

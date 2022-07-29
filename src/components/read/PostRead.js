@@ -93,17 +93,17 @@ const PostRead = (props) => {
       <div style={{textAlign:'center'}}>
         <table style={{position : 'relative', top : '85px', left : '270px' ,width:'1000px',top:'63px',height:'90px'}}>
           <tr style={{border:'1px solid'}}>
-            <td style={{background:'rgba(234, 81, 32, 0.1)',border: '1px solid #FFFFFF'}}>제목</td>
+            <td style={{background:'rgba(234, 81, 32, 0.1)',border: '1px solid #FFFFFF',fontWeight:"bold"}}>제목</td>
             <td colSpan="3" style={{border:'2px solid #F2F2F2'}}>{content.title}</td>
           </tr>
           <tr>
-            <td style={{background:'rgba(234, 81, 32, 0.1)',border: '1px solid #FFFFFF'}}>작성자</td>
+            <td style={{background:'rgba(234, 81, 32, 0.1)',border: '1px solid #FFFFFF',fontWeight:"bold"}}>작성자</td>
             <td colSpan="3" style={{border:'2px solid #F2F2F2'}}>관리자</td>
           </tr>
           <tr>
-            <td style={{background:'rgba(234, 81, 32, 0.1)',border: '1px solid #FFFFFF'}}>작성일</td>
+            <td style={{background:'rgba(234, 81, 32, 0.1)',border: '1px solid #FFFFFF',fontWeight:"bold"}}>작성일</td>
             <td style={{border:'2px solid #F2F2F2'}}>{date}</td>
-            <td style={{background:'rgba(234, 81, 32, 0.1)',border: '1px solid #FFFFFF'}}>스크랩수</td>
+            <td style={{background:'rgba(234, 81, 32, 0.1)',border: '1px solid #FFFFFF',fontWeight:"bold"}}>스크랩수</td>
             <td style={{border:'2px solid #F2F2F2'}}>{scrapCount}</td>
           </tr>
         </table></div>

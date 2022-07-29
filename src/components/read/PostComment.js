@@ -151,23 +151,23 @@ const PostComment = (props) => {
           </Link>
           <Modify onClick={()=>DeletePost()}>삭제</Modify>
       </div>
-      <div style={{ textAlign: "center", position: "relative", top: "70px",width:'50px',left:'40%' }}>
-        <h1 style={{width:'50px', textAlign: "center",position: "relative",left:'40%'}}>게시글 보기</h1>
+      <div style={{ textAlign: "center", position: "relative", top: "70px",width:'70px',left:'40%' }}>
+        <h1 style={{width:'200px', textAlign: "center",position: "relative",left:'40%'}}>게시글 보기</h1>
       </div>
       <div style={{textAlign:'center'}}>
         <table style={{position : 'relative', top : '400px', left : '270px' ,width:'1000px',top:'63px',height:'90px'}}>
         <tr style={{border:'1px solid'}}>
-            <td style={{background:'rgba(234, 81, 32, 0.1)',border: '1px solid #FFFFFF'}}>제목</td>
+            <td style={{background:'rgba(234, 81, 32, 0.1)',border: '1px solid #FFFFFF',fontWeight:"bold"}}>제목</td>
             <td colSpan="3" style={{border:'2px solid #F2F2F2'}}>{content.title}</td>
           </tr>
           <tr>
-            <td style={{background:'rgba(234, 81, 32, 0.1)',border: '1px solid #FFFFFF'}}>작성자</td>
-            <td colSpan="3" style={{border:'2px solid #F2F2F2'}}>관리자</td>
+            <td style={{background:'rgba(234, 81, 32, 0.1)',border: '1px solid #FFFFFF',fontWeight:"bold"}}>작성자</td>
+            <td colSpan="3" style={{border:'2px solid #F2F2F2'}}>{content.userName}</td>
           </tr>
           <tr>
-            <td style={{background:'rgba(234, 81, 32, 0.1)',border: '1px solid #FFFFFF'}}>작성일</td>
+            <td style={{background:'rgba(234, 81, 32, 0.1)',border: '1px solid #FFFFFF',fontWeight:"bold"}}>작성일</td>
             <td style={{border:'2px solid #F2F2F2'}}>{date}</td>
-            <td style={{background:'rgba(234, 81, 32, 0.1)',border: '1px solid #FFFFFF'}}>공감수</td>
+            <td style={{background:'rgba(234, 81, 32, 0.1)',border: '1px solid #FFFFFF',fontWeight:"bold"}}>공감수</td>
             <td style={{border:'2px solid #F2F2F2'}}>{scrapCount}</td>
           </tr>
         </table></div>
@@ -213,6 +213,7 @@ const PostComment = (props) => {
       }
     </div> 
 
+    <hr className="hr"></hr>
       {GetComment()}
       { getcomment.length != 0 ? getcomment.map( com =>
         ( 
@@ -245,6 +246,7 @@ height:30px;
 width:800px; 
 float:right;
 margin:10px;
+fontFamily:San Francisco;
 `
 
 const Sumbit = styled.button`

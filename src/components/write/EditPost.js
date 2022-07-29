@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { GoogleToken } from "../../pages/Login/GoogleLogin";
+import styled from "styled-components";
 import "./Editor.css";
 
 const EditPost = () => {
@@ -75,26 +76,26 @@ const EditPost = () => {
         <h1>수정하기</h1>
         <hr className="hr"></hr>
       </div>
-      <div className="goback_btn"> 
-        <button onClick={()=>Edit()}
-            /*input value="등록" type="submit" className="submit_btn"*/ >등록</button>
+      <div > 
+        <StyleButton onClick={()=>Edit()}
+            /*input value="등록" type="submit" className="submit_btn"*/ >등록</StyleButton>
       </div>
       <form /*onSubmit={()=>{return Edit()}} action="./"*/ entype="multipart/formdata" >
       <div>
       <div style={{ position: "relative", top: "100px", left: "300px", fontSize: "26px", letterSpacing: "2px", }} >
           제목
         </div>
-        <input onChange={(e) => setTitle(e.target.value)}  type="text"  className="title_txt"  name="title" placeholder="  제목을 입력해주세요" />
+        <input value={title} onChange={(e) => setTitle(e.target.value)}  type="text"  className="title_txt"  name="title" placeholder="  제목을 입력해주세요" />
       </div>
       <div>
         <div style={{   position: "relative", top: "98px",  left: "280px",  fontSize: "26px", letterSpacing: "2px",}} >
           마감일
         </div>
-        <input onChange={(e) => setDeadLineDate(e.target.value)} type="text" className="title_txt"  name="title" placeholder="  마감일을 입력해주세요" />
+        <input value={deadLineDate.substring(0,10)} onChange={(e) => setDeadLineDate(e.target.value)} type="text" className="title_txt"  name="title" placeholder="  마감일을 입력해주세요" />
       </div>
       <br></br>
       <br></br>
-      <br></br>
+      <br></br> 
       <div>
         <div style={{  position: "relative",  top: "25px", left: "265px",fontSize: "26px",letterSpacing: "2px",}}>
           첨부파일
@@ -106,13 +107,38 @@ const EditPost = () => {
         <div style={{  position: "relative", top: "30px",  left: "300px",  fontSize: "26px",  letterSpacing: "2px",}}>
           내용
         </div>
-        <input type="text"  onChange={(e) => setContent(e.target.value)}  className="txt" name="content"  placeholder=" 내용을 입력해주세요" />
+        <input value={content} type="text"  onChange={(e) => setContent(e.target.value)}  className="txt" name="content"  placeholder=" 내용을 입력해주세요" />
       </div>
       </form>
-      <button onClick={() => navigate(-1)} className="goback_btn"> 뒤로가기  </button>
-      {boardId}<br/>{title}<br/>{deadLineDate}<br/>{content}
+      <BackButton onClick={() => navigate(-1)} className="goback_btn"> 뒤로가기  </BackButton>
     </div>
   );
 };
+
+const StyleButton = styled.button`
+  position: relative;
+    top: 55px;
+    left: 1150px;
+    color: #000;
+    background-color: #FFCBBC;
+    border: 0px;
+    font-size: 20px;
+    height: 30px;
+    width: 100px;
+  }
+`
+
+const BackButton = styled.button`
+    position: relative;
+    top: 50px;
+    left: 1240px;
+    color: #000;
+    background-color: #FFCBBC;
+    border: 0px;
+    font-size: 20px;
+    height: 30px;
+    width: 100px;
+  }
+`
 
 export default EditPost;

@@ -24,6 +24,7 @@
   left: 50%;
   transform: translate(-50%, -50%);
   text-align: center;
+  font-style:'San Francisco';
 }
 .link {
   position: absolute;
@@ -36,6 +37,7 @@
   text-decoration: none;
   text-align: center;
   color: black;
+  font-style:'San Francisco';
 }
 .close {
   position: absolute;
@@ -45,12 +47,12 @@
   height: 30px;
   transform: translate(-50%, -50%);
   text-align: center;
-  font-family: 'Inter';
   font-weight: 500;
   font-size: 15px;
   color: black;
   background-color: #FFC5B4;
   border: 0px;
+  font-style:'San Francisco';
 }
 
 /*@font-face {
