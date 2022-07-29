@@ -200,6 +200,7 @@ const PostComment = (props) => {
         <div >
         <Input onChange={(e)=>setPostcomment(e.target.value)} placeholder="댓글을 입력하세요" /> 
         <Sumbit onClick={()=>{
+          setPostcomment('')
           postComment(null)
           setReComment(false)}}>입력</Sumbit> 
       </div>
@@ -207,6 +208,7 @@ const PostComment = (props) => {
       <div>
         <Input onChange={(e)=>setPostcomment(e.target.value)} placeholder="답글을 입력하세요" /> 
         <Sumbit onClick={()=>{
+          setPostcomment('')
           postComment(parentsid)
           setReComment(false)}}>입력</Sumbit> 
       </div>

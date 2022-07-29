@@ -240,18 +240,16 @@ const NaverMapAPI=()=> {
           </>
           </NaverMap>
           {change===true ?
-          <>
           <div className="container">
-            <img src="/img/MapSide.png" alt="Snow" style={{width:'100%', height:'600px'}} />
+            <img src="/img/MapSide.png" alt="Snow" style={{width:'100%', height:'550px'}} />
             <h1 className="title">{area} 공공주택 정보</h1>
             <div className="centered">
                {guInfo.length !=0 ? guInfo.map((info)=>(<li style={{fontSize:'20px'}}>[{info.insttNm}] {info.hsmpNm}</li>)):null}</div>
             <Link to="/FindAll" className="link">
-              전체공고 보러가기 → → 
+              전체공고 보러가기
             </Link>
-            <button className="close" type='button' onClick={()=>{setChange(false); }}>접기</button>
+            <button className="close" onClick={()=>{setChange(false) }}>접기</button>
           </div>
-          </>
           :null}
         </div>
       )

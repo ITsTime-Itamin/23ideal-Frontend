@@ -107,13 +107,18 @@ const PostList = ({boardType}) => {
       </table>
 
       { (boardType === "FREE" || boardType === "REVIEW") ?
-        null
+         <Link to="/Editor">
+         <EditorButton> 
+         <img src="img/pencil.png" style={{width:'13px', height :'13px'}}/>
+           &nbsp; 글쓰기
+         </EditorButton>
+       </Link>
         :
         <Link to="/ScrapPosts" state={{ data: postData.data }} >
-        <StyleButton> 
+        <ScrapButton> 
         <img src="img/GoScrapIcon.png" style={{width:'13px', height :'13px'}}/>
           &nbsp; 내가 스크랩한 게시물 보기 
-        </StyleButton>
+        </ScrapButton>
       </Link>
       }
       <Banner />
@@ -121,10 +126,25 @@ const PostList = ({boardType}) => {
   );
 };
 
-const StyleButton = styled.button`
+const EditorButton = styled.button`
 position:relative;
 top: 80px;
-left :1070px;
+left :490px;
+  margin: 20px;
+  border: 0px solid;
+  background: transparent;
+  color: #000000;
+  cursor: pointer;
+  font-size :14px;
+  &:focus {
+   color: #808080;
+  }
+`
+
+const ScrapButton = styled.button`
+position:relative;
+top: 80px;
+left :435px;
   margin: 20px;
   border: 0px solid;
   background: transparent;

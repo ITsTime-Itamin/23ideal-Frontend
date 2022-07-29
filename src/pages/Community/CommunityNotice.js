@@ -2,6 +2,7 @@ import React,{useState} from "react";
 import { Link } from "react-router-dom";
 import SidebarCommunity from "../../components/SidebarCommunity";
 import PostList from "../../components/PostList";
+import styled from "styled-components";
 
 const CommunityNotice = ({accessToken}) => {
 
@@ -21,14 +22,6 @@ const CommunityNotice = ({accessToken}) => {
            <div style={{textAlign:"center", position : "relative" , top : "100px" }}>
                 <h1>공지사항</h1>
             </div>
-            <div className="locate_btn"> 
-                <button className="editor_btn">  
-                    <Link to="/Editor" state={{data:"공지사항", boardType:"NOTICE"}} className="editor_go">
-                        글쓰기
-                    </Link>
-                </button>
-            </div>
-            
         <SidebarCommunity/>
         <PostList boardType={"NOTICE"}/>
         </div>

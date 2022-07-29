@@ -134,9 +134,7 @@ const PostRead = (props) => {
         </div>
 
       <Link to="/EditPost" state={{boardId:content.boardId, boardType:boardType, title:content.title, deadLineDate:content.deadLineDate,content:content.content, file:content.imageKeys}}>
-      <StyleButton>수정</StyleButton>
       </Link>
-      <StyleButton onClick={()=>DeletePost()}>삭제</StyleButton>
       {ScrapTF()}
       { scrapTF === false ? 
         <StyleButton1  onClick={()=>Scrap()}> 

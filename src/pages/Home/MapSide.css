@@ -3,7 +3,6 @@
   text-align: center;
   color: black;
   width: 430px;
-  height: 500px;
   float: left;
   left: 8%;
   top:10px;
@@ -11,7 +10,7 @@
 .centered {
   position: absolute;
   width: 400px;
-  top: 66%;
+  top: 58%;
   left: 63%;
   transform: translate(-50%, -50%);
   text-align: left;
@@ -20,7 +19,7 @@
 .title {
   position: absolute;
   width: 400px;
-  top: 13%;
+  top: 11%;
   left: 50%;
   transform: translate(-50%, -50%);
   text-align: center;
@@ -30,29 +29,28 @@
   position: absolute;
   width: 400px;
   font-family: 'Inter';
-  font-weight: 600;
-  font-size: 20px;
+  font-size: 15px;
   top: 100%;
-  left: 4%;
+  left: -13%;
+  color: #323232;
+  font-weight: bold;
   text-decoration: none;
   text-align: center;
-  color: black;
   font-style:'San Francisco';
 }
 .close {
   position: absolute;
-  top: 110%;
-  left: 50%;
+  top: 102%;
+  left: 70%;
   width: 80px;
   height: 30px;
   transform: translate(-50%, -50%);
   text-align: center;
-  font-weight: 500;
+  font-weight: bold;
   font-size: 15px;
   color: black;
-  background-color: #FFC5B4;
+  background-color:white;
   border: 0px;
-  font-style:'San Francisco';
 }
 
 /*@font-face {

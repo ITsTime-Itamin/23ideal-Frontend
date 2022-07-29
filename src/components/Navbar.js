@@ -15,10 +15,11 @@ const Navbar = () => {
             textDecoration: "none",
             color: "black",
             marginRight: "10px",
+            fontSize:'17px'
           }}
         >
           {" "}
-          Login{" "}
+          로그인{" "}
         </Link>
       </div>
       <Link to="/">
