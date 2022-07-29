@@ -246,8 +246,11 @@ const NaverMapAPI=()=> {
             <h1 className="title">{area} 공공주택 정보</h1>
             <div className="centered">
                {guInfo.length !=0 ? guInfo.map((info)=>(<li style={{fontSize:'20px'}}>[{info.insttNm}] {info.hsmpNm}</li>)):null}</div>
+
             <Link to="/FindAll" className="link">
+            <hr style={{color:"lightgray"}}></hr>
               전체공고 보러가기 → → 
+              <hr style={{color:"lightgray"}}></hr>
             </Link>
             <button className="close" type='button' onClick={()=>{setChange(false); }}>접기</button>
           </div>

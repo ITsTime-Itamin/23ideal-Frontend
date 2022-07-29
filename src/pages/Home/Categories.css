@@ -7,7 +7,7 @@
     background-color: #FFFFFF;
     width: 500px;
     position: absolute;
-    left: 44%;
+    left: 37%;
     top: 225px;
     border-top-left-radius: 20px;
     border-top-right-radius: 20px;
@@ -19,8 +19,8 @@
 .default
 {
     position: relative;
-    left: 20%;
-    top: 4px;;
+    left: 23%;
+    top: 7px;;
     text-align: left;
     font-family: 'Inter';
     font-weight: 700;
@@ -34,7 +34,7 @@
     left: 60%;
     width: 200px;
     height: 30px;
-    top: 0px;;
+    top: 3px;;
     text-align: left;
     font-family: 'Inter';
     font-weight: 700;
