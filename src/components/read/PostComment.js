@@ -149,7 +149,7 @@ const PostComment = (props) => {
         <hr className="hr"></hr>
       </div>
       <div style={{textAlign:'center'}}>
-        <table style={{position : 'relative', top : '100px', left : '270px' ,width:'1000px',top:'63px',height:'90px'}}>
+        <table style={{position : 'relative', top : '200px', left : '270px' ,width:'1000px',top:'63px',height:'90px'}}>
           <tr style={{border:'1px solid'}}>
             <td style={{background:'rgba(234, 81, 32, 0.1)',border: '1px solid #FFFFFF'}}>제목</td>
             <td colSpan="3" style={{border:'2px solid #F2F2F2'}}>{content.title}</td>
@@ -185,9 +185,9 @@ const PostComment = (props) => {
       }
       <div className="fix_btn">
           <Link to="/EditPost" state={{boardId:content.boardId, boardType:boardType, title:content.title, deadLineDate:content.deadLineDate,content:content.content, file:content.imageKeys}}>
-          <StyleButton>수정하기</StyleButton>
+          <StyleButton style={{right:'10px', position:"relative"}} >수정하기</StyleButton>
           </Link>
-          <StyleButton onClick={()=>DeletePost()}>삭제하기</StyleButton>
+          <StyleButton style={{right:'50%'}} onClick={()=>DeletePost()}>삭제하기</StyleButton>
       </div>
 
       
@@ -236,6 +236,8 @@ const PostComment = (props) => {
 };
 
 const StyleButton = styled.button`
+  positin : relative;
+  left : 400px;
   margin: 20px;
   border: 1px solid #EB7E5D;
   width : 100px;
