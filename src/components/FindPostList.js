@@ -138,8 +138,8 @@ const PostList = ({boardType}) => {
 
 const StyleButton = styled.button`
 position:relative;
-top: 90px;
-left :900px;
+top: 80px;
+left :1070px;
   margin: 20px;
   border: 0px solid;
   background: transparent;
@@ -149,9 +149,6 @@ left :900px;
   &:focus {
    color: #808080;
   }
-  position: absolute;
-  top:245px;
-  right:100px;
 `
 
 export default PostList;

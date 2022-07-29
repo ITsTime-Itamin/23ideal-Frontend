@@ -156,7 +156,7 @@ const PostComment = (props) => {
           </tr>
           <tr>
             <td style={{background:'rgba(234, 81, 32, 0.1)',border: '1px solid #FFFFFF'}}>작성자</td>
-            <td colSpan="3" style={{border:'2px solid #F2F2F2'}}>관리자</td>
+            <td colSpan="3" style={{border:'2px solid #F2F2F2'}}>{content.userName}</td>
           </tr>
           <tr>
             <td style={{background:'rgba(234, 81, 32, 0.1)',border: '1px solid #FFFFFF'}}>작성일</td>
@@ -239,7 +239,7 @@ const StyleButton = styled.button`
   margin: 20px;
   border: 1px solid #EB7E5D;
   width : 100px;
-  font-size : 20px;
+  font-size : 18px;
   background: #ffffff;
   color: #000000;
   cursor: pointer;

@@ -15,11 +15,9 @@
 .editor_go
 {
     text-align: center;
-    font-family: 'Inter';
     font-size: large;
-    font-weight: 600;
+    font-weight: bold;
     font-style: normal;
-    letter-spacing: 4px;
     color: black;
     list-style: none;
     text-decoration: none;

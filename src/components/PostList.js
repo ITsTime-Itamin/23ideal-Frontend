@@ -123,9 +123,9 @@ const PostList = ({boardType}) => {
 };
 
 const StyleButton = styled.button`
-  position:relative;
-  top: 90px;
-  left :350px;
+position:relative;
+top: 80px;
+left :1070px;
   margin: 20px;
   border: 0px solid;
   background: transparent;
