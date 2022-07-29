@@ -93,27 +93,27 @@ const PostList = ({boardType}) => {
           {  (boardType!="ALL" && postData.length != 0) ? postData.data.map((post, i) => {
            // const unfomat=""+post.deadLineDate;
             return (
-              <tr style={{border:'1px solid'}}>
-                <td>{i + 1}</td>
+              <tr style={{borderBottom:'0.7px solid #D7D6D6', padding:'6px'}}>
+                <td style={{ padding:'6px'}}>{i + 1}</td>
                 <Link to="/PostRead" state={{ data: post.boardId , boardType: boardType , scrap: post.scrapCount }} className="postTitle"
                   style={{ textAlign: "center", color: "black", listStyle: "none", textDecoration: "none", display: "inline-block", cursor: "pointer",}} >
-                  <td> {post.title}</td>
+                  <td style={{ padding:'6px'}} > {post.title}</td>
                 </Link>
-                <td>{post.createdDate.substring(0, 10)}</td>
-                <td>{post.deadLineDate.substring(0, 10)}</td>
-                <td>관리자</td>
-                <td>{post.scrapCount}</td>
+                <td >{post.createdDate.substring(0, 10)}</td>
+                <td >{post.deadLineDate.substring(0, 10)}</td>
+                <td >관리자</td>
+                <td >{post.scrapCount}</td>
               </tr>
             );
           })
         : /*<div style={{textAlign:'center'}}>loading...</div>*/
         allpost.map((post,i)=>{
           return (
-            <tr style={{border:'1px solid'}}>
-              <td>{i + 1}</td>
+            <tr style={{borderBottom:'0.7px solid #D7D6D6', padding:'6px'}}>
+              <td style={{ padding:'6px'}}>{i + 1}</td>
               <Link to="/PostRead" state={{ data: post.boardId , boardType: boardType, scrap: post.scrapCount  }} className="postTitle"
                 style={{ textAlign: "center", color: "black", listStyle: "none", textDecoration: "none", display: "inline-block", cursor: "pointer",}} >
-                <td> {post.title}</td>
+                <td  style={{ padding:'6px'}}> {post.title}</td>
               </Link>
               <td>{post.createdDate.substring(0, 10)}</td>
               <td>{post.deadLineDate.substring(0, 10)}</td>

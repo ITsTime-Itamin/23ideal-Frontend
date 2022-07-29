@@ -51,18 +51,18 @@ const PostList = ({boardType}) => {
     <>
       <table className="common-table">
         <thead>
-          <tr>
+          <tr style={{borderBottom:'0.7px solid #D7D6D6', padding:'6px'}}>
             {(boardType === "FREE" || boardType === "REVIEW") ?
             headersName_comment.map((item, index) => {
               return (
-                <td style={{fontStyle:'San Francisco'}} className="common-table-header-column" key={index}>
+                <td  style={{ padding:'6px'}} className="common-table-header-column" key={index}>
                   {item}
                 </td>
               );
             }):
             headersName.map((item, index) => {
               return (
-                <td className="common-table-header-column" key={index}>
+                <td  style={{ padding:'6px'}} className="common-table-header-column" key={index}>
                   {item}
                 </td>
               );
@@ -74,11 +74,11 @@ const PostList = ({boardType}) => {
           { (boardType === "FREE" || boardType === "REVIEW") ?
           ( postData.length != 0 ? postData.data.map((post, i) => {
             return (
-              <tr>
-                <td>{i + 1}</td>
+              <tr style={{borderBottom:'0.7px solid #D7D6D6', padding:'6px'}}>
+                <td style={{ padding:'6px'}}>{i + 1}</td>
                 <Link to="/PostComment" state={{ data: post.boardId , boardType: boardType, scrap: post.scrapCount }} className="postTitle"
                   style={{ textAlign: "center", color: "black", listStyle: "none", textDecoration: "none", display: "inline-block", cursor: "pointer", fontStyle:'San Francisco'}} >
-                  <td> {post.title}</td>
+                  <td  style={{ padding:'6px'}}> {post.title}</td>
                 </Link>
                 <td>{post.createdDate.substring(0, 10)}</td>
                 <td>{post.userName}</td>
@@ -89,11 +89,11 @@ const PostList = ({boardType}) => {
         : <div style={{textAlign:'center'}}>loading...</div>) 
         : ( postData.length != 0 ? postData.data.map((post, i) => {
           return (
-            <tr>
-              <td>{i + 1}</td>
+            <tr style={{borderBottom:'0.7px solid #D7D6D6', padding:'6px'}}>
+              <td style={{ padding:'6px'}}>{i + 1}</td>
               <Link to="/PostRead" state={{ data: post.boardId , boardType: boardType, scrap: post.scrapCount }} className="postTitle"
                 style={{ textAlign: "center", color: "black", listStyle: "none", textDecoration: "none", display: "inline-block", cursor: "pointer", }} >
-                <td> {post.title}</td>
+                <td style={{ padding:'6px'}}> {post.title}</td>
               </Link>
               <td>{post.createdDate.substring(0, 10)}</td>
               <td>관리자</td>
