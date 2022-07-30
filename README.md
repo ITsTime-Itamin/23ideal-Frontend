@@ -1,74 +1,24 @@
-<<<<<<< HEAD
-# Getting Started with Create React App
+# 23ideal 이삼이상 
+2030세대를 위한 공공임대주택 정보제공 서비스
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-## Available Scripts
+### 1.서비스 소개
+'이삼이상'은 공공데이터를 이용한 공공임대주택 정보제공서비스이다
+정보제공 뿐 아니라 커뮤니티 기능에서 사용자간 정보 교환이 활발히 이루어질수이도록 한다
 
-In the project directory, you can run:
+### 2.팀원소개
+(기획) 김석남, 김예솔
+(FrontEnd) 김예솔, 안채연
+(BackEnd) 김민수, 김정우
 
-### `yarn start`
+### 3.핵심기능
+1. 네이버 지도를 통해 원하는 지역의 공공주택 정보를 볼 수 있습니다
+2. 모집공고 게시판을 통해 모든 공공임대주택 모집 공고를 볼 수 있습니다
+3. 청년지원정책 게시판을 통해 나라 및 은행에서 제공하는 청년들을 위한 정책들을 볼 수 있습니다
+4. 청약가점계산기를 통해 본인의 청약점수를 계산할 수 있습니다
+5. 커뮤니티를 통해 사용자간 정보 교환을 활발히 할 수 있습니다
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+### 4.FrontEnd 기술스택
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
-
-### `yarn test`
-
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `yarn build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `yarn eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `yarn build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
-=======
-# Itamin-Frontend
->>>>>>> 7163beee81c00fac7000f0449b3a51b5865c94de
+HTML, CSS, JavaScript, React
+Naver-Map, Google-Login Library
