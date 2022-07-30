@@ -35,7 +35,7 @@ const ScrapPosts = () => {
 
   return (
     <>
-      <div style={{textAlign:"center", position : "relative" , top : "100px" }}>
+      <div style={{textAlign:"center", position : "relative" , top : "80px" }}>
                 <h1>내가 스크랩한 게시물</h1>
             </div>
       <table className="common-table">
@@ -53,11 +53,11 @@ const ScrapPosts = () => {
         <tbody>
           {  /*(Object.values(postData.data))*/scrapPosts.map((sample, i) => {
             return (
-              <tr>
-                <td>{i + 1}</td>
+              <tr style={{borderBottom:'0.7px solid #D7D6D6', padding:'6px'}}>
+                <td style={{ padding:'6px'}}>{i + 1}</td>
                 <Link to="/PostRead" state={{ data: sample.boardId , scrap: sample.scrapCount  }} className="postTitle"
                 style={{ textAlign: "center", color: "black", listStyle: "none", textDecoration: "none", display: "inline-block", cursor: "pointer",}} >
-                <td> {sample.title}</td>
+                <td style={{ padding:'6px'}}> {sample.title}</td>
               </Link>
                 <td>{sample.createdDate.substring(0, 10)}</td>
                 <td>관리자</td>

@@ -33,16 +33,15 @@ const Editor = () => {
       cache: "no-cache",
       headers: {
        // "Content-Type": "multipart/form-data",
-        Authorization: `Bearer ${GoogleToken}`,
+        Authorization: `Bearer ${"eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhZG1pbiIsImF1dGgiOiJST0xFX1VTRVIiLCJleHAiOjE2NTkyMTA2MTd9.tXF4CeqDAlQQEKBH9E9GX2Wtc8wMdCvEPCwInL8iLED7kJTZBJzs1pSBo0sQPIwAD8eGs-xeRRBwF7c5TB0zgA"}`,
       },
       body: formData,
     })
       .then((response) => response.json())
       .then((response) => {
-        try{alert("게시물 등록이 완료되었습니다");
+        alert("게시물 등록이 완료되었습니다");
        // window.location.assign("http://localhost:3000/");
-        console.log(response.data)}
-        catch{console.log('error')}
+        console.log(response.data)
     });
 
     return false;
@@ -51,9 +50,9 @@ const Editor = () => {
   return (
     <div>
       <button onClick={() => navigate(-1)} className="goback_btn"> 뒤로가기  </button>
-       <form  onSubmit={()=>{return AddPost()}} action="./"  entype="multipart/formdata" >
+       <form  onSubmit={()=>{return AddPost()}}  action="./"  entype="multipart/formdata" >
       <div style={{ textAlign: "center", position: "relative", top: "70px" }}>
-        <h1>{Boardtitle}</h1>
+        <h1>{Boardtitle} 글쓰기</h1>
         <hr className="hr"></hr>
       </div>
       < input value="등록" type="submit" className="submit_btn" /> 

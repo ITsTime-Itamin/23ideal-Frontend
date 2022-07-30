@@ -107,7 +107,7 @@ const PostList = ({boardType}) => {
       </table>
 
       { (boardType === "FREE" || boardType === "REVIEW") ?
-         <Link to="/Editor">
+         <Link to="/Editor" state={{data: postData.title, boardType:boardType}}>
          <EditorButton> 
          <img src="img/pencil.png" style={{width:'13px', height :'13px'}}/>
            &nbsp; 글쓰기
@@ -128,7 +128,7 @@ const PostList = ({boardType}) => {
 
 const EditorButton = styled.button`
 position:relative;
-top: 80px;
+top: 60px;
 left :490px;
   margin: 20px;
   border: 0px solid;
@@ -143,7 +143,7 @@ left :490px;
 
 const ScrapButton = styled.button`
 position:relative;
-top: 80px;
+top: 60px;
 left :435px;
   margin: 20px;
   border: 0px solid;

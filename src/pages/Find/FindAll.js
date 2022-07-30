@@ -7,7 +7,7 @@ import FindPostList from "../../components/FindPostList";
 const FindAll=()=>{
     return(
         <div>
-             <div style={{textAlign:"center", position : "relative" , top : "100px" }}>
+             <div style={{textAlign:"center", position : "relative" , top : "80px" }}>
                 <h1>모집공고 전체보기</h1>
             </div>
             <FindPostList boardType={"ALL"}/>

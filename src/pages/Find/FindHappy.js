@@ -8,7 +8,7 @@ import '../Community/Btn.css';
 const FindHappy=()=>{
     return(
         <div>
-             <div style={{textAlign:"center", position : "relative" , top : "100px" }}>
+             <div style={{textAlign:"center", position : "relative" , top : "80px" }}>
                 <h1>행복주택</h1>
             </div>
             <FindPostList boardType={"HAPPY_HOUSE"}/>
