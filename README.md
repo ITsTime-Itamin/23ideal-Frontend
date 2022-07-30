@@ -1,6 +1,6 @@
 #  <p align="center">  🏡23ideal 이삼이상 
 2030세대를 위한 공공임대주택 정보제공 서비스
-<img src="\Users\dksco\itamin\23ideal-Frontend\public\img\MainLogo.png"  width="700" height="370">
+<img src="https://user-images.githubusercontent.com/90609254/181876464-a2474419-7bc4-4509-851e-e39f99b688e6.png"  width="700" height="370">
 
 ## <p align="center"> ✌️Introduce
 '이삼이상'은 공공데이터를 이용한 공공임대주택 정보제공서비스이다
