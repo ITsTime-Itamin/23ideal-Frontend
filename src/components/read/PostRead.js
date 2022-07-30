@@ -87,23 +87,23 @@ const PostRead = (props) => {
   return (
     <div>
       <div style={{  position: "relative", top: "70px" }}>
-        <h1 style={{textAlign: "center",}}>PostRead</h1>
+        <h1 style={{textAlign: "center",}}>게시글 보기</h1>
         <hr style={{width:'1000px', height:'0.7px', background:'black',border:'0px',textAlign: "center",}}></hr>
       </div>
       <div style={{textAlign:'center'}}>
         <table style={{position : 'relative', top : '85px', left : '270px' ,width:'1000px',top:'63px',height:'90px'}}>
           <tr style={{border:'1px solid'}}>
-            <td style={{background:'rgba(234, 81, 32, 0.1)',border: '1px solid #FFFFFF'}}>제목</td>
+            <td style={{background:'rgba(234, 81, 32, 0.1)',border: '1px solid #FFFFFF',fontWeight:"bold"}}>제목</td>
             <td colSpan="3" style={{border:'2px solid #F2F2F2'}}>{content.title}</td>
           </tr>
           <tr>
-            <td style={{background:'rgba(234, 81, 32, 0.1)',border: '1px solid #FFFFFF'}}>작성자</td>
+            <td style={{background:'rgba(234, 81, 32, 0.1)',border: '1px solid #FFFFFF',fontWeight:"bold"}}>작성자</td>
             <td colSpan="3" style={{border:'2px solid #F2F2F2'}}>관리자</td>
           </tr>
           <tr>
-            <td style={{background:'rgba(234, 81, 32, 0.1)',border: '1px solid #FFFFFF'}}>작성일</td>
+            <td style={{background:'rgba(234, 81, 32, 0.1)',border: '1px solid #FFFFFF',fontWeight:"bold"}}>작성일</td>
             <td style={{border:'2px solid #F2F2F2'}}>{date}</td>
-            <td style={{background:'rgba(234, 81, 32, 0.1)',border: '1px solid #FFFFFF'}}>스크랩수</td>
+            <td style={{background:'rgba(234, 81, 32, 0.1)',border: '1px solid #FFFFFF',fontWeight:"bold"}}>스크랩수</td>
             <td style={{border:'2px solid #F2F2F2'}}>{scrapCount}</td>
           </tr>
         </table></div>
@@ -134,30 +134,52 @@ const PostRead = (props) => {
         </div>
 
       <Link to="/EditPost" state={{boardId:content.boardId, boardType:boardType, title:content.title, deadLineDate:content.deadLineDate,content:content.content, file:content.imageKeys}}>
-      <StyleButton style={{right:'10px'}}>수정하기</StyleButton>
       </Link>
-      <StyleButton  style={{right:'50%'}} onClick={()=>DeletePost()}>삭제하기</StyleButton>
       {ScrapTF()}
       { scrapTF === false ? 
-        <StyleButton  onClick={()=>Scrap()}> 
-          <img src="img/GoScrapIcon.png" style={{width:'14px', height :'14px',left:'1300px'}}/> 스크랩 </StyleButton>
+        <StyleButton1  onClick={()=>Scrap()}> 
+          <img src="img/GoScrapIcon.png" style={{width:'14px', height :'14px',right:'100px'}}/> 스크랩 </StyleButton1>
         : 
-        <StyleButton  onClick={()=>Scrap()}> 
-          <img src="img/ScrapIcon.png" style={{width:'14px', height :'14px',right:'10%'}}/> 스크랩 취소 </StyleButton>
+        <StyleButton1  onClick={()=>Scrap()}> 
+          <img src="img/ScrapIcon.png" style={{width:'14px', height :'14px',right:'10%'}}/> 스크랩 취소 </StyleButton1>
       } 
     </div>
   );
 };
 
+
 const StyleButton = styled.button`
-  margin: 20px;
-  border: 1.5px solid #EB7E5D;
-  background: #ffffff;
+  position: relative;
+  float:right;
+  right:17%;
+  top: 20px;
+  margin: 10px;
+  border: 1px solid #FFA98E;
+  width : 55px;
+  font-size : 15px;
+  background: #FFA98E;
+  color: black;
   cursor: pointer;
   &:focus {
    color: #808080;
   }
-  border-radius: 10%;
+`
+
+const StyleButton1 = styled.button`
+  position: relative;
+  float:right;
+  right:17%;
+  top: 20px;
+  margin: 10px;
+  border: 1px solid #FFA98E;
+  width : 120px;
+  font-size : 15px;
+  background: #FFA98E;
+  color: black;
+  cursor: pointer;
+  &:focus {
+   color: #808080;
+  }
 `
 
 export default PostRead;

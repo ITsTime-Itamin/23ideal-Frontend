@@ -1,6 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import SidebarFind from "../../components/SidebarFind";
+import '../Community/Btn.css';
 import FindPostList from "../../components/FindPostList";
 
 
@@ -9,13 +9,6 @@ const FindYoung=()=>{
         <div>
              <div style={{textAlign:"center", position : "relative" , top : "100px" }}>
                 <h1>청년주택</h1>
-            </div>
-            <div className="locate_btn"> 
-                <button className="editor_btn">  
-                    <Link to="/Editor" state={{data:"청년주택", boardType:"YOUTH_HOUSE"}} className="editor_go">
-                        글쓰기
-                    </Link>
-                </button>
             </div>
             <FindPostList boardType={"YOUTH_HOUSE"}/>
         </div>

@@ -2,19 +2,13 @@ import React from "react";
 import { Link } from "react-router-dom";
 import SidebarSupport from "../../components/SidebarSupport";
 import PostList from "../../components/PostList";
+import '../Community/Btn.css';
 
 const SupportGov=()=>{
     return(
         <div style={{textAlign:"center"}}>
             <div style={{textAlign:"center", position : "relative" , top : "100px" }}>
                 <h1>정부의 보조금 지원 정책</h1>
-            </div>
-            <div className="locate_btn"> 
-                <button className="editor_btn">  
-                    <Link to="/Editor" state={{data:"정부의 보조금 지원 정책", boardType:"DEPOSIT"}} className="editor_go">
-                        글쓰기
-                    </Link>
-                </button>
             </div>
              
            <SidebarSupport  />

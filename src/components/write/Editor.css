@@ -1,9 +1,9 @@
 .title_txt
 {
-    top: 100px;
+    top: 60px;
     height: 40px;
     width: 900px;
-    left: 450px;
+    left: 390px;
     position: relative;
     font-size: 20px;
     border: 1px solid #ebebeb;
@@ -13,10 +13,10 @@
 
 .paste
 {
-    top: 30px;
+    top: -10px;
     height: 40px;
     width: 900px;
-    left: 450px;
+    left: 393px;
     position: relative;
     font-size: 20px;
     border: 1px solid #ebebeb;
@@ -27,8 +27,8 @@
 .txt
 {
     position: relative;
-    top: 30px;
-    left: 450px;
+    top:-5px;
+    left: 393px;
     width: 900px;
     height: 500px;
     font-size: 20px;
@@ -39,8 +39,8 @@
 .submit_btn
 {
     position: relative;
-    top: 105px;
-    left: 1130px;
+    top: 74px;
+    left: 1150px;
     color: #000;
     background-color: #FFCBBC;
     border: 0px;
@@ -52,8 +52,8 @@
 .goback_btn
 {
     position: relative;
-    top: 105px;
-    left: 1150px;
+    top: 200px;
+    left: 1270px;
     color: #000;
     background-color: #FFCBBC;
     border: 0px;
@@ -64,5 +64,6 @@
 
 .hr
 {
-    width: 1010px;
+    width: 1050px;
+    background-color: black;
 }

@@ -1,7 +1,7 @@
 .editor_btn
 {
     position : "absolute";
-    top : 2000px;
+    top : 0px;
     height :30px;
     width:100px ;
     background-color: #c4c4c4;
@@ -14,12 +14,13 @@
 }
 .editor_go
 {
+    position : "absolute";
+    top : 0px;
+    height :30px;
     text-align: center;
-    font-family: 'Inter';
     font-size: large;
-    font-weight: 600;
+    font-weight: bold;
     font-style: normal;
-    letter-spacing: 4px;
     color: black;
     list-style: none;
     text-decoration: none;
@@ -29,6 +30,6 @@
 .locate_btn
 {
     position: absolute;
-    top : 800px;
-    right: 20%;
+    top :260px;
+    left: 17%;
 }

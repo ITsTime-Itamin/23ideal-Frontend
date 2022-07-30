@@ -19,7 +19,6 @@
     justify-content: auto;
     border-style: solid;
     border-width: medium;
-
 }
 
 .mapside
@@ -56,7 +55,7 @@
     left: 20%;
     top: 5px;;
     text-align: left;
-    font-family: 'Inter';
+    font-family: 'NanumSquare';
     font-weight: 700;
     font-size: 25px;
     flex-direction: row;
@@ -69,7 +68,7 @@
     height: 30px;
     top: 5px;;
     text-align: left;
-    font-family: 'Inter';
+    font-family: 'NanumSquare';
     font-weight: 700;
     font-size: 25px;
     flex-direction: row;

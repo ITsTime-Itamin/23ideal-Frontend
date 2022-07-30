@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-import "./Table/Table.css"
-import Pagination from "./Pagination";
+import "./Table/Table.css";
 import { GoogleToken } from "../pages/Login/GoogleLogin";
 import styled from "styled-components";
 import Banner from "./Banner";
@@ -52,18 +51,18 @@ const PostList = ({boardType}) => {
     <>
       <table className="common-table">
         <thead>
-          <tr>
+          <tr style={{borderBottom:'0.7px solid #D7D6D6', padding:'6px'}}>
             {(boardType === "FREE" || boardType === "REVIEW") ?
             headersName_comment.map((item, index) => {
               return (
-                <td className="common-table-header-column" key={index}>
+                <td  style={{ padding:'6px'}} className="common-table-header-column" key={index}>
                   {item}
                 </td>
               );
             }):
             headersName.map((item, index) => {
               return (
-                <td className="common-table-header-column" key={index}>
+                <td  style={{ padding:'6px'}} className="common-table-header-column" key={index}>
                   {item}
                 </td>
               );
@@ -75,11 +74,11 @@ const PostList = ({boardType}) => {
           { (boardType === "FREE" || boardType === "REVIEW") ?
           ( postData.length != 0 ? postData.data.map((post, i) => {
             return (
-              <tr>
-                <td>{i + 1}</td>
+              <tr style={{borderBottom:'0.7px solid #D7D6D6', padding:'6px'}}>
+                <td style={{ padding:'6px'}}>{i + 1}</td>
                 <Link to="/PostComment" state={{ data: post.boardId , boardType: boardType, scrap: post.scrapCount }} className="postTitle"
-                  style={{ textAlign: "center", color: "black", listStyle: "none", textDecoration: "none", display: "inline-block", cursor: "pointer", }} >
-                  <td> {post.title}</td>
+                  style={{ textAlign: "center", color: "black", listStyle: "none", textDecoration: "none", display: "inline-block", cursor: "pointer", fontStyle:'San Francisco'}} >
+                  <td  style={{ padding:'6px'}}> {post.title}</td>
                 </Link>
                 <td>{post.createdDate.substring(0, 10)}</td>
                 <td>{post.userName}</td>
@@ -90,11 +89,11 @@ const PostList = ({boardType}) => {
         : <div style={{textAlign:'center'}}>loading...</div>) 
         : ( postData.length != 0 ? postData.data.map((post, i) => {
           return (
-            <tr>
-              <td>{i + 1}</td>
+            <tr style={{borderBottom:'0.7px solid #D7D6D6', padding:'6px'}}>
+              <td style={{ padding:'6px'}}>{i + 1}</td>
               <Link to="/PostRead" state={{ data: post.boardId , boardType: boardType, scrap: post.scrapCount }} className="postTitle"
                 style={{ textAlign: "center", color: "black", listStyle: "none", textDecoration: "none", display: "inline-block", cursor: "pointer", }} >
-                <td> {post.title}</td>
+                <td style={{ padding:'6px'}}> {post.title}</td>
               </Link>
               <td>{post.createdDate.substring(0, 10)}</td>
               <td>관리자</td>
@@ -108,13 +107,18 @@ const PostList = ({boardType}) => {
       </table>
 
       { (boardType === "FREE" || boardType === "REVIEW") ?
-        null
+         <Link to="/Editor" state={{data: postData.title, boardType:boardType}}>
+         <EditorButton> 
+         <img src="img/pencil.png" style={{width:'13px', height :'13px'}}/>
+           &nbsp; 글쓰기
+         </EditorButton>
+       </Link>
         :
         <Link to="/ScrapPosts" state={{ data: postData.data }} >
-        <StyleButton> 
+        <ScrapButton> 
         <img src="img/GoScrapIcon.png" style={{width:'13px', height :'13px'}}/>
           &nbsp; 내가 스크랩한 게시물 보기 
-        </StyleButton>
+        </ScrapButton>
       </Link>
       }
       <Banner />
@@ -122,7 +126,25 @@ const PostList = ({boardType}) => {
   );
 };
 
-const StyleButton = styled.button`
+const EditorButton = styled.button`
+position:relative;
+top: 60px;
+left :490px;
+  margin: 20px;
+  border: 0px solid;
+  background: transparent;
+  color: #000000;
+  cursor: pointer;
+  font-size :14px;
+  &:focus {
+   color: #808080;
+  }
+`
+
+const ScrapButton = styled.button`
+position:relative;
+top: 60px;
+left :435px;
   margin: 20px;
   border: 0px solid;
   background: transparent;

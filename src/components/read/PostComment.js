@@ -8,6 +8,7 @@ const PostComment = (props) => {
   const location = useLocation();
   const id = location.state.data;
   const boardType=location.state.boardType;
+  const scrapCount=location.state.scrap;
   
   let scrapImg="img/GoScrapIcon.png";
 
@@ -144,19 +145,35 @@ const PostComment = (props) => {
 
   return (
     <div>
-      <div style={{ textAlign: "center", position: "relative", top: "100px" }}>
-        <h1>PostComment</h1>
-        <hr className="hr"></hr>
-      </div>
-      {content.length != 0 ? 
       <div>
-        <div className="colum">제목</div>
-        <div className="colum">작성자</div>
-        <div className="colum">작성일</div>
-        <div className="title"> {content.title} <br /></div>
-        <div className="title"> {content.userName} <br /></div>
-        <div className="title"> {date} <br /></div>
-        <br/>
+          <Link to="/EditPost" state={{boardId:content.boardId, boardType:boardType, title:content.title, deadLineDate:content.deadLineDate,content:content.content, file:content.imageKeys}}>
+          <Modify>수정</Modify>
+          </Link>
+          <Modify onClick={()=>DeletePost()}>삭제</Modify>
+      </div>
+      <div style={{ textAlign: "center", position: "relative", top: "70px",width:'70px',left:'40%' }}>
+        <h1 style={{width:'200px', textAlign: "center",position: "relative",left:'40%'}}>게시글 보기</h1>
+      </div>
+      <div style={{textAlign:'center'}}>
+        <table style={{position : 'relative', top : '400px', left : '270px' ,width:'1000px',top:'63px',height:'90px'}}>
+        <tr style={{border:'1px solid'}}>
+            <td style={{background:'rgba(234, 81, 32, 0.1)',border: '1px solid #FFFFFF',fontWeight:"bold"}}>제목</td>
+            <td colSpan="3" style={{border:'2px solid #F2F2F2'}}>{content.title}</td>
+          </tr>
+          <tr>
+            <td style={{background:'rgba(234, 81, 32, 0.1)',border: '1px solid #FFFFFF',fontWeight:"bold"}}>작성자</td>
+            <td colSpan="3" style={{border:'2px solid #F2F2F2'}}>{content.userName}</td>
+          </tr>
+          <tr>
+            <td style={{background:'rgba(234, 81, 32, 0.1)',border: '1px solid #FFFFFF',fontWeight:"bold"}}>작성일</td>
+            <td style={{border:'2px solid #F2F2F2'}}>{date}</td>
+            <td style={{background:'rgba(234, 81, 32, 0.1)',border: '1px solid #FFFFFF',fontWeight:"bold"}}>공감수</td>
+            <td style={{border:'2px solid #F2F2F2'}}>{scrapCount}</td>
+          </tr>
+        </table></div>
+        <br/><br/><br/>
+      {content.length != 0 ? 
+        <div>
         <div className="content">  {content.content} </div>
         { content.imageKeys != undefined ?
         <div className="content"> 
@@ -166,68 +183,158 @@ const PostComment = (props) => {
       :
       <div>loading...</div>
       }
-      <div className="fix_btn">
-          <Link to="/EditPost" state={{boardId:content.boardId, boardType:boardType, title:content.title, deadLineDate:content.deadLineDate,content:content.content, file:content.imageKeys}}>
-          <StyleButton>수정하기</StyleButton>
-          </Link>
-          <StyleButton onClick={()=>DeletePost()}>삭제하기</StyleButton>
-      </div>
-
-      
+      <hr className="hr"></hr>
+  <div>
       {ScrapTF()}
       { scrapTF === false ? 
-        <StyleButton onClick={()=>Scrap()}> 
-          <img src="img/like-09.png" style={{width:'14px', height :'14px'}}/> 공감 </StyleButton>
+        <Like onClick={()=>Scrap()}> 
+          <img src="img/like-09.png" style={{width:'14px', height :'14px'}}/> 공감 </Like>
         : 
-        <StyleButton> 
-          <img src="img/like_fill-10.png" style={{width:'14px', height :'14px'}}/> 공감 </StyleButton>
+        <Like> 
+          <img src="img/like_fill-10.png" style={{width:'14px', height :'14px'}}/> 공감 </Like>
       } 
+  </div>
 
+  <div>
+    {reComment===false ?
+        <div >
+        <Input onChange={(e)=>setPostcomment(e.target.value)} placeholder="댓글을 입력하세요" /> 
+        <Sumbit onClick={()=>{
+          setPostcomment('')
+          postComment(null)
+          setReComment(false)}}>입력</Sumbit> 
+      </div>
+      :
+      <div>
+        <Input onChange={(e)=>setPostcomment(e.target.value)} placeholder="답글을 입력하세요" /> 
+        <Sumbit onClick={()=>{
+          setPostcomment('')
+          postComment(parentsid)
+          setReComment(false)}}>입력</Sumbit> 
+      </div>
+      }
+    </div> 
+
+    <hr className="hr"></hr>
       {GetComment()}
       { getcomment.length != 0 ? getcomment.map( com =>
-        ( <div>
-          {com.userId}
-          {com.content}<br/>
-          {com.children.length != 0 ? com.children.map((i)=>(
-            <div>{i.content}</div>
-          )) : null}
-          <StyleButton onClick={()=>{setReComment((prev) => !prev); setParentsid(com.commentId) }}> 답글 </StyleButton>
-          <StyleButton onClick={()=>{deleteComment(com.commentId)}}>삭제</StyleButton>
+        ( 
+        <div style={{background:'rgba(234, 81, 32, 0.1)', width:'85%',float:'right', left:'30%', right:'20%', padding:'10px'}}>
+        <div style={{top:'10px'}}>
+          <div style={{float:'left'}}>
+          <img src="./img/people.png" style={{width:'33px',height:'33px'}} />
           </div>
-         )) : null
-      }
-      {reComment===false ?
-      <>
-        <div className="comment">
-        <input style={{width:"1000px"}} onChange={(e)=>setPostcomment(e.target.value)} placeholder="댓글을 입력하세요" /> 
-        <StyleButton onClick={()=>{
-          postComment(null) 
-          setReComment(false)
-        }}>입력</StyleButton> 
-        </div>
-      </>
-      :
-      <> 
-        <input style={{width:"1000px"}} onChange={(e)=>setPostcomment(e.target.value)} placeholder="답글을 입력하세요" /> 
-        <StyleButton onClick={()=>{
-          postComment(parentsid)
-          setReComment(false)}}>입력</StyleButton> 
-      </>
-      }
+          <CommentBox>
+            {com.content}<br/>
+          </CommentBox>
+          {com.children.length != 0 ? com.children.map((i)=>(
+           <ReCommentBox>  <img src="./img/recomment.png" style={{width:'11px', height:'11px'}}/>   {i.content}</ReCommentBox>
+            )) : null}
+           </div>
+          <StyleButton2 onClick={()=>{setReComment((prev) => !prev); setParentsid(com.commentId) }}> 답글 </StyleButton2>
+          <StyleButton2 onClick={()=>{deleteComment(com.commentId)}}>삭제</StyleButton2>
+          </div>
+          
+         )) : null}
     </div>
   );
 };
 
-const StyleButton = styled.button`
-  margin: 20px;
+const Input = styled.input`
+position:relative;
+float:left;
+right:22%;
+height:30px;
+width:800px; 
+float:right;
+margin:10px;
+fontFamily:San Francisco;
+`
+
+const Sumbit = styled.button`
+  position: relative;
+  float:left;
+  left:71%;
+  margin: 10px;
+  border: 1px solid #FFA98E;
+  width : 70px;
+  font-size : 15px;
+  background: #FFA98E;
+  color: black;
+  cursor: pointer;
+  &:focus {
+   color: #808080;
+  }
+`
+
+const Like = styled.button`
+  position: relative;
+  float:left;
+  left:15%;
+  margin: 10px;
+  border: 1px solid #FFA98E;
+  width : 80px;
+  font-size : 15px;
+  background: #FFA98E;
+  color: black;
+  cursor: pointer;
+  &:focus {
+   color: #808080;
+  }
+`
+const Modify = styled.button`
+  position: relative;
+  float:right;
+  right:15%;
+  top: 82px;
+  margin: 8px;
+  border: 1px solid #FFA98E;
+  width : 55px;
+  font-size : 15px;
+  background: #ffffff;
+  color: black;
+  cursor: pointer;
+  &:focus {
+   color: #808080;
+  }
+`
+
+const StyleButton2 = styled.button`
+  positin : relative;
+  left : 500px;
+  top: 40px;
+  margin: 10px;
   border: 1px solid #EB7E5D;
-  width : 100px;
-  font-size : 20px;
+  width : 80px;
+  font-size : 15px;
   background: #ffffff;
   color: #000000;
   cursor: pointer;
   &:focus {
    color: #808080;
+  }
+`
+
+const CommentBox = styled.div`
+  position:relative;
+  background:white;
+  width:900px;
+  padding:10px;
+  margin:5px;
+  border:1px solid #D7D6D6;
+  float:left;
+  }
+`
+
+const ReCommentBox = styled.div`
+  position:relative;
+  width:900px;
+  background:white;
+  padding:10px;
+  margin:5px;
+  border:1px solid #D7D6D6;
+  float:left;
+  left:70px;
   }
 `
 
